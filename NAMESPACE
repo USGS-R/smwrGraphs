@@ -1,0 +1,7 @@
+# Export all names 
+exportPattern(".")
+
+# Import these packages.
+import(KernSmooth, akima)
+
+exportMethods(addXY, colorPlot, dotPlot, seasonPlot, timePlot, xyPlot)

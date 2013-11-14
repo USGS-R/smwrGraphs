@@ -1,0 +1,42 @@
+\name{addArea}
+\alias{addArea}
+\title{
+Add a Filled Polygon to Graph
+}
+\description{
+Adds a filled polygon (area) to a graph
+}
+\usage{
+addArea(x, y, ybase=NULL, Area = list(name = "", color = "gray", outline = "black"), 
+current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+}
+\arguments{
+  \item{x}{
+the x-axis coordinates of the polygon. Missing values are not permitted.
+}
+  \item{y}{
+the y-axis coordinates of the polygon. Missing values are not permitted.
+}
+  \item{ybase}{
+the y-axis coordinates of the polygon. See \bold{Details}. Missing values are not permitted.
+}
+  \item{Area}{
+parameters defining the characteristics of the area.
+}
+  \item{current}{
+the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.
+}
+}
+\details{
+If \code{ybase} is NULL, then \code{x} and \code{y} should form a complete polygon, which can be close or open.
+Otherwise, \code{ybase} can be a single value in which case the area between \code{ybase} and \code{y} is
+treated as the area, or \code{ybase} can be a vector as long as \code{y} and the area between is treated as the
+area to be shaded.
+}
+\value{
+The current plot information is returned invisibly.
+}
+\seealso{
+\code{\link{areaPlot}}, \code{\link{addXY}}, \code{\link{xyPlot}}
+}
+\keyword{ aplot }

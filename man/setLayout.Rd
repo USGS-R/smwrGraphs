@@ -1,0 +1,103 @@
+\name{setLayout}
+\alias{setLayout}
+\title{
+Graph Layout
+}
+\description{
+Set up the layout of one or more graphs on a page.
+}
+\usage{
+setLayout(width = NULL, height = NULL, num.cols = max(1, length(width)), 
+num.rows = max(1, length(height)), num.graphs = num.rows * num.cols, explanation = NULL, 
+shared.x = -1, shared.y = -1, yleft = 3.5, yright = 0.5, xbottom = 3.2, xtop = 0.5)
+}
+\arguments{
+  \item{width}{
+the width of the graph area, exclusive
+of any explanation. Can be either the total width or the width of each column of graphs.
+If NULL, then use default figure width. See \bold{Details}.
+}
+  \item{height}{
+the height of the graph area, exclusive
+of explanation. Can be either the total width or the height of each row of graphs.
+If NULL, then use defualt figure height.
+}
+  \item{num.cols}{
+the number of columns in the rectangular
+array of graphs. Computed from width if not supplied.
+}
+  \item{num.rows}{
+the number of rows in the rectangular
+array of graphs. Computed from height if not supplied.
+}
+  \item{num.graphs}{
+the number of actual graphs in the rectangular array of graphs.
+
+ Computed from \code{num.cols} and \code{num.rows} if not supplied.
+Note that if the EXPLANATION is to be placed in one of the array of graphs,
+then \code{num.graphs} must be less than the product of num.cols and num.rows.
+}
+  \item{explanation}{
+a description of where to place the explanation if put into a separate graph. See \bold{Details}.
+}
+  \item{shared.x}{
+indicate how the x axes are to be shared. See \bold{Details}.
+}
+  \item{shared.y}{
+indicate how the y axes are to be shared.
+If < 0, then no sharing--each has own axis labels, etc. If = 0, then
+axes in direct contact. If > 0, then the value indicates the relative
+spacing.
+
+}
+  \item{yleft}{
+space to allocate on the left margin of each graph.
+}
+  \item{yright}{
+space to allocate on the right margin of each graph.
+}
+  \item{xbottom}{
+space to allocate on the bottom margin of each graph.
+}
+  \item{xtop}{
+space to allocate on the top margin of each graph.
+}
+}
+\details{
+The layout of multple graphs on a page is always set up as a rectangular grid. The columns
+can be specified in one of two ways, either by specifying the width of each column using \code{width}
+or setting equal-width columns by specifying \code{num.cols}. The rows
+can be specified in one of two ways, either by specifying the height of each column using \code{height}
+or setting equal-height rows by specifying \code{num.rows}.\cr
+If an explanation is to be placed outside of the graphs, then \code{explanation} is used to indicate
+where the explanation is to be placed. The explanation can be placed either to the right of the grid 
+of graphs, at the bottom of the grid, or in one of the grid cells.\cr
+To place an explanation to the right of the graphs, \code{explantion} should be set to \code{list(right=ewid)}, 
+where \code{ewid} is the width of the explanation. In this case, the total of \code{width} and \code{ewid} must
+be less that the total available for the page.\cr
+To place an explanation at the bottom of the graphs, \code{explantion} should be set to \code{list(bottom=ehei)},
+where \code{ehei} is the height of the explanation. In this case, the total pf \code{height} and \code{ehei} must
+be less than the total available for the page.\cr
+To place an explanation within a cell of the grid, \code{explantion} should be set to \code{list(grid=enum)},
+where \code{enum} is the cell number in the grid. Cell numbers are sequential starting in the upper left
+and increasing by column. In this case \code{num.graphs} must be set to some number less than \code{num.cols}
+times \code{num.rows}.\cr
+The plot area within each cell is set up to have consistent widths within each column and consistent heights
+within each row. The arguments \code{shared.x}, \code{shared.y}, \code{yleft}, \code{yright}, \code{xbottom},
+and \code{xtop} are used to set up the plot areas. If axes are not shared, then the margin values
+are not set for any graph. If the axes are shared, then the margin values apply to the corresponding left column,
+right column, bottom row or top row.\cr
+The axis ticks and labels can be supressed by setting the margins to a negative value. This is most useful
+when adding right-axes with \code{addXY} for example.
+}
+\value{
+a list with two named components and \code{num.graphs} numbered components:
+  \item{explanation and each numbered component}{a list with two components:}
+\+    \item{margin}{the margin for the plot area}
+\+	\item{fig}{the figure area}
+  \item{size}{the size of the overall figure}
+}
+\seealso{
+\code{\link{setPage}}, \code{\link{setGraph}}
+}
+\keyword{ dplot }

@@ -1,0 +1,71 @@
+\name{ecdfPlot}
+\alias{ecdfPlot}
+\alias{ecdfPlot.default}
+\title{
+Empirical Distribution Function
+}
+\description{
+Produce a graph of the empirical distribution function of data.
+}
+\usage{
+ecdfPlot(x, group, Plot = list(name = "Auto", what = "stairstep", type = "solid",
+  width = "standard", symbol = "circle", filled = TRUE, size = 0.09, color = "Auto"),
+  xaxis.log = TRUE, xaxis.range = c(NA, NA), xlabels = 11, ylabels = 5,
+  ytitle="Cumulative Probability", xtitle=deparse(substitute(x)), caption = "",
+  margin = c(NA, NA, NA, NA), ...)
+\method{ecdfPlot}{default}(x, group, Plot = list(name = "Auto", what = "stairstep", type = "solid",
+  width = "standard", symbol = "circle", filled = TRUE, size = 0.09, color = "Auto"),
+  xaxis.log = TRUE, xaxis.range = c(NA, NA), xlabels = 11, ylabels = 5,
+  ytitle="Cumulative Probability", xtitle=deparse(substitute(x)), caption = "",
+  margin = c(NA, NA, NA, NA), ...)
+}
+
+\arguments{
+  \item{x}{
+the data to plot.
+}
+  \item{group}{
+create groups for \code{x}. Each group is plotted as a separate line.
+}
+  \item{Plot}{
+control parameters of the plot.
+}
+  \item{xaxis.log}{
+log-transform the x axis?
+}
+  \item{xaxis.range}{
+set the range of the x-axis.
+}
+  \item{ylabels}{
+set the y-axis labels. See \code{\link{linearPretty}} for details.
+}
+  \item{xlabels}{
+set the x-axis labels. See \code{\link{linearPretty}} for details.
+}
+  \item{xtitle}{
+the x-axis title.
+}
+  \item{ytitle}{
+the y-axis title.
+}
+  \item{caption}{
+the figure caption.
+}
+  \item{margin}{
+the parameters of the margin of the plot area.
+}
+  \item{\dots}{
+any additional arguments needed by specific methods.
+}
+}
+\value{
+Information about the graph.
+}
+\note{
+A call should be made to \code{setPage} to set up the graphics environment before calling \code{ecdfPlot}.
+}
+\seealso{
+\code{\link{setPage}}, \code{\link{probPlot}}
+}
+\keyword{ hplot }
+

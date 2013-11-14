@@ -1,0 +1,44 @@
+\name{addExplanation}
+\alias{addExplanation}
+
+\title{
+Add Explanation
+}
+\description{
+Adds an explanation to the current graph or to a new graph.
+}
+\usage{
+addExplanation(what, where = "new", title = "EXPLANATION", margin = rep(0, 4))
+}
+
+\arguments{
+  \item{what}{
+a specialized object for an explanation, from the output from calls
+  to the plotting functions
+}
+  \item{where}{
+a description of where to put the explanation, see \bold{Details}.
+}
+  \item{title}{
+the title of the explanation
+}
+  \item{margin}{
+the margin for a new graph
+}
+}
+\details{
+\code{where} must be one of "ul," "ur," "ll," "lr," "cl," "cr," "uc," "lc," "cc," or "new." If "new,"
+then the explanation is placed in a new graph, otherwise, the first letter is an abbreviation for upper, lower,
+or center and the second letter is an abbreviation for left, right, or center. the explanation for a
+box plot must be placed in a new graph.
+}
+\value{
+Nothing is returned.
+}
+\note{
+Box plot explanations require fairly large graph areas because of the detail required for some
+types. In general, a graph about 4.5 inches high is needed for the Tukey type and 4 inches for
+other types and widths of 2.5 and 2 inches respectively. If the graph area is smaller than required,
+then a warning is printed and the explantion may be unreadable.
+}
+\keyword{ aplot }

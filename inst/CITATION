@@ -1,0 +1,13 @@
+citHeader("Suggested citation for USGSwsGraphs:")
+
+citEntry(entry = "TechReport",
+  title        = "USGSwsGraphs--An R package for graphing hydrologic data, Version 0.7",
+  author       = personList(as.person("Dave Lorenz")),
+  institution  = "U.S. Geological Survey",
+  series       = "Open File report",
+  year         = "in preparation",
+
+  textVersion  =
+  paste("Lorenz, D.L., in preparation",
+        "USGSwsGraphs--An R package for graphing hydrologic data, Version 0.7:")
+)

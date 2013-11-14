@@ -1,0 +1,66 @@
+\name{corGram}
+\alias{corGram}
+
+\title{
+Correlogram
+}
+\description{
+Create a correlogram for irregularly spaced data 
+}
+\usage{
+corGram(x, y, Plot = list(name = "Standardized Observations", what = "points", type = "solid", 
+width = "standard", symbol = "circle", filled = TRUE, size = 0.03, color = "gray40"), 
+CorGram = list(band = 0.15, kernel = "normal", color = "black", width = "standard", add0line = TRUE), 
+yaxis.range = c(-3, 3), xaxis.range = c(0, 1.5), ylabels = 7, xlabels = 4, 
+xtitle = "Difference in Time, in Years", ytitle = "Standardized Serial Correlation", caption = "", 
+margin = c(NA, NA, NA, NA))
+}
+
+\arguments{
+  \item{x}{
+decimal time.
+}
+  \item{y}{
+residuals or other observations, these will be scaled, but not centered.
+}
+  \item{Plot}{
+control parameters of the plot.
+}
+  \item{CorGram}{
+control parameters of the correlogram line.
+}
+  \item{yaxis.range}{
+set the y-axis range.
+}
+  \item{xaxis.range}{
+set the x-axis range.
+}
+  \item{ylabels}{
+set the y-axis labels. See \code{\link{linearPretty}} for details.
+}
+  \item{xlabels}{
+set the x-axis labels. See \code{\link{linearPretty}} for details.
+}
+  \item{xtitle}{
+the x-axis title.
+}
+  \item{ytitle}{
+the x-axis title.
+}
+  \item{caption}{
+the figure caption.
+}
+  \item{margin}{
+set up the plot area margins.
+}
+}
+\value{
+Information about the graph.
+}
+\note{
+A call should be made to \code{setPage} to set up the graphics environment before calling \code{corGram}.
+}
+\seealso{
+\code{\link{setPage}}
+}
+\keyword{ hplot }

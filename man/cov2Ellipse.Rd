@@ -1,0 +1,35 @@
+\name{cov2Ellipse}
+\alias{cov2Ellipse}
+
+\title{
+Construct an Ellipse
+}
+\description{
+Constructs an ellipse from a covariance matrix.
+}
+\usage{
+cov2Ellipse(cov, center, scale = 1, n = 151)
+}
+
+\arguments{
+  \item{cov}{
+the 2-dimenstional covariance matrix, representing x and y.
+}
+  \item{center}{
+the means of x and y.
+}
+  \item{scale}{
+the size of the ellipse in units of standard deviation.
+}
+  \item{n}{
+the  number of points in the returned data.
+}
+}
+\value{
+A list containing the x- and y-coordinates of the ellipse.
+}
+\seealso{
+\code{\link{dataEllipse}}
+}
+\keyword{ dplot }
+

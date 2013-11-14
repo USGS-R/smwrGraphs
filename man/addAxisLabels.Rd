@@ -1,0 +1,48 @@
+\name{addAxisLabels}
+\alias{addAxisLabels}
+\title{
+Add Axis Ticks and Labels
+}
+\description{
+Add axis ticks, labels, and title
+}
+\usage{
+addAxisLabels(which, current, title = "", ticks = FALSE, labels = TRUE)
+}
+
+\arguments{
+  \item{which}{
+which axis to label, must be one of "bottom," "left," "top," or "right."
+}
+  \item{current}{
+the current plot information, see \bold{Details}.
+}
+  \item{title}{
+the axis title.
+
+}
+  \item{ticks}{
+draw the ticks.
+}
+  \item{labels}{
+draw the labels.
+}
+}
+\details{
+The \code{current} argument must contain a component named \code{yax} if \code{which} is 
+"left" or "right" or a component named \code{xax} if \code{which} is "bottom" or "top." Those
+arguments are generally constructed from functions like \code{linearPretty}.
+}
+\value{
+The current plot information is returned invisibly.
+}
+\note{
+In general, all functions that create plots will draw the necessary axes. This function should be used only to
+add axis labels to an unlabeled axis. Axis labels can be suppressed by setting up the margins with negative values,
+see the AnnualFlowBarChart.r demo.
+}
+\seealso{
+\code{\link{linearPretty}}, \code{\link{logPretty}}, \code{\link{datePretty}}, \code{\link{transPretty}}, \code{\link{addLabel}}
+}
+\keyword{ aplot }
+

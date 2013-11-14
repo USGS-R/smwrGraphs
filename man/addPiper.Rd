@@ -1,0 +1,44 @@
+\name{addPiper}
+\alias{addPiper}
+\title{
+Add Detail to a Piper Plot
+}
+\description{
+Adds points or lines to a Piper plot.
+}
+\usage{
+addPiper(xCat, yCat, zCat, xAn, yAn, zAn, xPip, yPip, Plot = list(name = "", what = "points", 
+type = "solid", width = "standard", symbol = "circle", filled = TRUE, size = 0.09, color = "black"), 
+current = list())
+}
+
+\arguments{
+  \item{xCat}{,}
+  \item{yCat}{, and}
+  \item{zCat}{
+the cations for the x-, y-, and z-axes. Need not sum to 1 or 100.
+}
+  \item{xAn}{,}
+  \item{yAn}{, and}
+  \item{zAn}{
+the anions for the x-, y-, and z-axes. Need not sum to 1 or 100.
+}
+  \item{xPip}{and}
+  \item{yPip}{ 
+the coordinates for the internal piper diagram.
+}
+  \item{Plot}{
+parameters defining the characteristics of the plot. 
+}
+  \item{current}{
+the current plot information. Typically, this would be the output from one of the graph creation functions like \code{piperPlot}.
+}
+}
+\value{
+Information about the graph.
+}
+\seealso{
+\code{\link{piperPlot}}
+}
+\keyword{ aplot }
+

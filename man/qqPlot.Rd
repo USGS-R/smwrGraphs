@@ -1,0 +1,97 @@
+\name{qqPlot}
+\alias{qqPlot}
+\alias{qqPlot.default}
+\title{
+Q-Q Plot
+}
+\description{
+Produce a quantile-quantile (q-q) or a q-normal plot.
+}
+\usage{
+qqPlot(x, y, alpha = 0.4, Plot = list(name = "Paired data quantiles", 
+  what = "points", type = "solid", width = "standard", symbol = "circle",
+  filled = TRUE, size = 0.09, color = "black"),
+ LineRef = list(name = "Line of best fit", what = "lines", color = "black"),
+ Line1.1 = list(name = "Line of equality", what = "lines", color = "gray"),
+ yaxis.log = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE, 
+ xaxis.range = c(NA, NA), ylabels = 7, xlabels = 7, xtitle, ytitle, caption = "", 
+ margin = c(NA, NA, NA, NA), ...)
+\method{qqPlot}{default}(x, y, alpha = 0.4, Plot = list(name = "Paired data quantiles",
+  what = "points", type = "solid", width = "standard", symbol = "circle", 
+  filled = TRUE, size = 0.09, color = "black"),
+ LineRef = list(name = "Line of best fit", what = "lines", color = "black"),
+ Line1.1 = list(name = "Line of equality", what = "lines", color = "gray"),
+ yaxis.log = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE, 
+ xaxis.range = c(NA, NA), ylabels = 7, xlabels = 7, xtitle, ytitle, caption = "", 
+ margin = c(NA, NA, NA, NA), ...)
+}
+
+\arguments{
+  \item{x}{
+the x-axis data, or data to plot if \code{y} is missing.
+
+}
+  \item{y}{
+the y-axis data. If missing, then produce a quantile-normal quantile plot from the data in \code{x}.
+}
+  \item{alpha}{
+the alpha value of the function for computing plotting positions.
+}
+  \item{Plot}{
+control parameters of the plot.
+}
+  \item{LineRef}{
+control parameters of the reference line (best fit between \code{x} and \code{y}. See \bold{Details}.
+}
+  \item{Line1.1}{
+control parameters for the 1:1 line. Drawn only for q-q plot. See \bold{Details}.
+}
+  \item{yaxis.log}{
+log-transform the y axis?
+}
+  \item{yaxis.range}{
+set the range of the y axis.
+}
+  \item{xaxis.log}{
+log-transform the x axis?
+}
+  \item{xaxis.range}{
+set the range of the x-axis.
+}
+  \item{ylabels}{
+set the y-axis labels. See \code{\link{linearPretty}} for details.
+}
+  \item{xlabels}{
+set the x-axis labels. See \code{\link{linearPretty}} for details.
+}
+  \item{xtitle}{
+the x-axis title.
+}
+  \item{ytitle}{
+the y-axis title.
+}
+  \item{caption}{
+the figure caption.
+}
+  \item{margin}{
+the parameters of the margin of the plot area.
+}
+  \item{\dots}{
+any additional arguments required for specific methods.
+}
+}
+\details{
+The argument \code{what} for either \code{LineRef} or \code{Line1.1} may be set to "none" to suppress
+drawing of either line.
+}
+\value{
+Information about the graph.
+}
+\note{
+A call should be made to \code{setPage} to set up the graphics environment before calling \code{qqPlot}.
+}
+\seealso{
+\code{\link{setPage}}, \code{\link{ecdfPlot}}, \code{\link{probPlot}}
+}
+\keyword{hplot}
+

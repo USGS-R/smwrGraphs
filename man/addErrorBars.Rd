@@ -1,0 +1,45 @@
+\name{addErrorBars}
+\alias{addErrorBars}
+\title{
+Errors Bars
+}
+\description{
+Add error bars to a graph.
+}
+\usage{
+addErrorBars(x, yup, ylo, Bars = list(name="", cap=0.09, width="standard", 
+  color="black"),
+  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+}
+\arguments{
+  \item{x}{
+the x-coordinate data. Missing values are permitted but result in no bar.
+}
+  \item{yup}{
+the upper limit of the error bar. Missing values are permitted but result in no bar.
+}
+  \item{ylo}{
+the lower limit of the error bar. Missing values are permitted but result in no bar.
+}
+  \item{Bars}{
+parameters defining the characteristics of the error bars.
+}
+  \item{current}{
+the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.
+}
+}
+\value{
+The current plot information is returned invisibly.
+}
+\note{
+The error bars are plotted on top of any current symbol. To plot the symbol
+on top of the error bar, start with the argument \code{Plot=list(what="none")} in 
+the original call to \code{xyPlot} or \code{timePlot} and then add the
+symbols with a call to \code{addXY}. Note that this is only necessary if
+the color of the symbol and the color of the error bars are different.
+}
+\seealso{
+\code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}, \code{\link{xyPlot}}
+}
+\keyword{aplot}
+

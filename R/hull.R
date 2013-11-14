@@ -1,0 +1,80 @@
+# return the closed line forming the hull of a cloud of 2D points
+#
+# Coding History:
+#    2010Mar20 DLLorenz Original coding
+#    2011Jun14 DLLorenz Begin conversion to R.
+#    2011Oct24 DLLorenz Tweaks for package
+#    2011Oct24          This version.
+#
+
+hull <- function(x, y, percent=100, smooth=FALSE) {
+  ## Arguments:
+  ##  x (numeric vector) the x-coordinate data
+  ##  y (numeric vector) the y-coordinate data
+  ##  percent (numeric scalar) minimum percent to enclose
+  ##  smooth (logical scalar) smooth the envelop?
+  ## 
+  ## The smoothing function
+  pspline <- function(x, y) {
+    s <- cumsum(c(0, sqrt(diff(x)^2+diff(y)^2)))
+    n <- 151
+    return(list(x=spline(s, x, method='periodic', n=n)$y,
+                y=spline(s, y, method='periodic', n=n)$y))
+  }
+  ## Code starts here
+  N <- length(x)
+  pts <- chull(x, y)
+  Nhull <- length(pts)
+  ## Catch minimum percent
+  if(percent < (3 / N) * 100) {
+    percent <- (3.01 / N) * 100
+    warning('percent of data too small, reset to minimum for data')
+  }
+  if(percent > (N-1)/N * 100) {
+    pts <- c(pts, pts[1]) # Close the loop
+    x <- x[pts]
+    y <- y[pts]
+  }
+  else {
+    Nlast <- N
+    ## Peel away the hull so that at least percent % of the data are
+    ## enclosed in the hull
+    while(percent < (Nlast - Nhull) / N * 100) {
+      Nlast <- Nlast - Nhull
+      x <- x[-pts]
+      y <- y[-pts]
+      pts <- chull(x, y)
+      Nhull <- length(pts)
+    }
+    ## How many to retain?
+    Nret <- as.integer(N / 100 * percent + 1)
+    NtoRemove <- Nlast - Nret
+    if(NtoRemove == 0) { # Easy use these data
+      pts <- c(pts, pts[1])
+      x <- x[pts]
+      y <- y[pts]
+    }
+    else {
+      ## OK, now eliminate the fartest points out to make the correct percent
+      Out <- cbind(x=x, y=y)
+      In <- cbind(x=x[-pts], y=y[-pts])
+      ptsIn <- chull(In)
+      dists <- outer(pts, ptsIn, function(x, y, xd, yd) 
+                     sqrt((xd[x, 1] - yd[y,1])^2 + (xd[x, 2] - yd[y,2])^2),
+                     xd=Out, yd=In)
+      whichMin <- apply(dists, 1, function(x) which(min(x) == x))
+      distMin <-  apply(dists, 1, min)
+      rankMin <- rank(-distMin) # This identifies the farthest away
+      Drop <- pts[rankMin <= NtoRemove]
+      x <- x[-Drop]
+      y <- y[-Drop]
+      pts <- chull(x, y)
+      pts <- c(pts, pts[1])
+      x <- x[pts]
+      y <- y[pts]
+    }
+  }
+  if(smooth)
+    return(pspline(x, y))
+  return(list(x=x, y=y))
+}

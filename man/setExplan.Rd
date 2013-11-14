@@ -1,0 +1,45 @@
+\name{setExplan}
+\alias{setExplan}
+\title{
+Explanation
+}
+\description{
+Adds the current plot information to explanation information (support function).
+}
+\usage{
+setExplan(current, old = NULL)
+}
+\arguments{
+  \item{current}{
+the current plot information.
+}
+  \item{old}{
+existing explanation information.
+}
+}
+\value{
+A list having four components:\cr
+\item{text}{a list having two components:}
+\+	\item{text}{the description in the explanation, derived from the \code{name} component in \code{Plot}}
+\+	\item{cex}{the size of the \code{text} to write in the explanation}
+
+\item{lines}{a list having seven components and controloing both lines and points:}
+\+   \item{type}{the type of plot (specifying points, lines, and so forth)}
+\+    \item{lwd}{the line weight}
+\+    \item{lty}{the line type}
+\+    \item{pch}{the symbol}
+\+    \item{csi}{the size of the symbol in inches}
+\+    \item{cex}{the }{the size of the symbol relative to character size}
+\+    \item{col}{the color of the plot}
+
+\item{areas}{a list having two components:}
+\+    \item{fill}{the color of the fill area}
+\+    \item{borders}{the color of the border}
+
+\item{current}{a list like \code{current} with the defaults set}
+Each entry in \code{text} must have a corresponding entry in \code{lines} and \code{areas}.
+}
+\seealso{
+\code{\link{setPlot}}
+}
+\keyword{ dplot }

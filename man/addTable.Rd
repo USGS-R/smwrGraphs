@@ -1,0 +1,44 @@
+\name{addTable}
+\alias{addTable}
+
+\title{
+Add Table to Graph
+}
+\description{
+Adds a table to a graph.
+}
+\usage{
+addTable(tbl, where = "ll", title = "")
+}
+
+\arguments{
+  \item{tbl}{
+the data frame or matrix to add to graph. All data must be of mode character, which 
+allows the user to format the data.
+}
+  \item{where}{
+character specifying the corner the table should be placed, see \bold{Details}.
+
+}
+  \item{title}{
+the title of the table.
+
+}
+}
+\details{
+\code{where} must be one of "ul," "ur," "ll," or "lr." The first letter is an abbreviation for upper or lower,
+the second letter is an abbreviation for left or right.
+}
+\value{
+Nothing is returned.
+}
+\note{
+The table should be formatted by the user for anything other than right justification. The column names of the table 
+are the column names of the matrix or data frame. The matrix gives the user mnore control over column names than
+does the data frame.
+}
+\seealso{
+\code{\link{addExplanation}}, \code{\link{addAnnotation}}
+}
+\keyword{ aplot }
+

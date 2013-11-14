@@ -1,0 +1,79 @@
+\name{setMultiPlot}
+\alias{setMultiPlot}
+
+\title{
+Plot Parameters
+}
+\description{
+Sets the plotting parameters for high-levels graphs that allow individual symbols (support function).
+}
+\usage{
+setMultiPlot(current, Nobs = 1, name = "", what = "points", type = "solid", width = "standard", 
+symbol = "circle", filled = TRUE, size = 0.09, color = "black", order = "as is")
+}
+\arguments{
+  \item{current}{
+the plot parameters specified in the call to the high-level graphing function.
+}
+  \item{Nobs}{
+the number of observations.
+}
+  \item{name}{
+the name associated with the observation. See \bold{Details}.
+}
+  \item{what}{
+what kind of plot. Must be one of "points," symbols only; 
+"lines," line segments connecting points only; 
+"both," line segments connecting isolated symbols;
+"overlaid," line segments connecting points with symbols;
+"stairstep," stairstep line segments;
+or "vertical," vertical lines from the y-axis origin to the y value at each x value.
+}
+  \item{type}{
+the type of line, if drawn. Must be one of "solid," "dashed," "dotted."
+}
+  \item{width}{
+the width of line, if drawn. Must be one of "standard," resulting in a line width of about .8 points;
+"color," resulting in a line width of about 1 points;
+"bold," resulting in a line width of about 1.6 points;
+or "hairline" resulting in a line width of about .5 points. Note these values are doubled if
+the \code{font} argument to \code{setPage} is "PPT."
+}
+  \item{symbol}{
+type symbol, if drawn. Must be one of "circle;" "uptri," upward pointing triangle;
+"plus;" "x;" "diamond;" "downtri," downward pointing triangle; "square;" or "dot."
+}
+  \item{filled}{
+fill the symbol? Valid only for \code{symbol} equal to "circle," "uptri," 
+"diamond," "downtri," or "square."
+}
+  \item{size}{
+the size of the symol in inches, if drawn.
+}
+  \item{color}{
+the color of the plotted values. Can be a named color, such as "black" or "gray50" or an RGB
+color like "#4056FF."
+
+}
+  \item{order}{
+specify the order of the symbols in the explanation. Can be "as is'--do nothing to order
+in explanation, "sort" or "increasing"---put into sorted order, "decreasing"---
+put in reverse order; or a vector theat specifies the exact order.
+}
+}
+\details{
+Each of the arguments from \code{name} through \code{color} must have one entry for each observation.
+If a single value is given, then it is replicated for each observation. In general, it is convenient 
+to set up a data frame with columns for group names with common values for the line or symbol.
+It is required that each group have common values for the line or symbol. 
+}
+\value{
+A list having two components:\cr
+\item{current}{a list like \code{current} with the defaults set}
+\item{Explan}{a list for creating an explanation}
+}
+\seealso{
+\code{\link{colors}}, for a list of color names; \code{\link{setExplan}}, for details about the list required
+for an explanation.
+}
+\keyword{ dplot }

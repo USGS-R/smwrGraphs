@@ -1,0 +1,40 @@
+\name{setAxis}
+\alias{setAxis}
+
+\title{
+Set up an Axis
+}
+\description{
+Sets up axis information (support function).
+}
+\usage{
+setAxis(data, axis.range, axis.log, axis.rev, axis.labels, ...)
+}
+
+\arguments{
+  \item{data}{
+the coordinates for the particular axis
+}
+  \item{axis.range}{
+set axis range.
+}
+  \item{axis.log}{
+log transform the axis?
+}
+  \item{axis.rev}{
+reverse the axis direction?
+}
+  \item{axis.labels}{
+set axis labels.
+}
+  \item{\dots}{
+additional arguments to the "pretty" functions.
+}
+}
+\value{
+Information about the axis
+}
+\seealso{
+\code{\link{linearPretty}}, \code{\link{logPretty}}
+}
+\keyword{ dplot }

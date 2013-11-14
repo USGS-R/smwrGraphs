@@ -1,0 +1,76 @@
+\name{setGroupPlot}
+\alias{setGroupPlot}
+\title{
+Plot Parameters
+}
+\description{
+Set plotting controls for groups of data (support function).
+}
+\usage{
+setGroupPlot(current, Grps = 1, name = "", what = "points", type = "solid", width = "standard", 
+symbol = "circle", filled = TRUE, size = 0.09, color = "black")
+}
+
+\arguments{
+  \item{current}{
+the plot parameters specified in the call to the high-level graphing function.
+}
+  \item{Grps}{
+the number of groups.
+}
+  \item{name}{
+the name associated with the group. See \bold{Details}.
+}
+  \item{what}{
+what kind of plot. Must be one of "points," symbols only; 
+"lines," line segments connecting points only; 
+"both," line segments connecting isolated symbols;
+"overlaid," line segments connecting points with symbols;
+"stairstep," stairstep line segments;
+or "vertical," vertical lines from the y-axis origin to the y value at each x value.
+}
+  \item{type}{
+the type of line, if drawn. Must be one of "solid," "dashed," "dotted."
+}
+  \item{width}{
+the width of line, if drawn. Must be one of "standard," resulting in a line width of about .8 points;
+"color," resulting in a line width of about 1 points;
+"bold," resulting in a line width of about 1.6 points;
+or "hairline" resulting in a line width of about .5 points. Note these values are doubled if
+the \code{font} argument to \code{setPage} is "PPT."
+}
+  \item{symbol}{
+type symbol, if drawn. Must be one of "circle;" "uptri," upward pointing triangle;
+"plus;" "x;" "diamond;" "downtri," downward pointing triangle; "square;" or "dot."
+}
+  \item{filled}{
+fill the symbol? Valid only for \code{symbol} equal to "circle," "uptri," 
+"diamond," "downtri," or "square."
+}
+  \item{size}{
+the size of the symol in inches, if drawn.
+}
+  \item{color}{
+the color of the plotted values for each group. Can be a named color, such as "black" or "gray50" or an RGB
+color like "#A09623."
+}
+}
+\details{
+If the \code{name} component in the original call to the high-level plot is "Auto,"
+then the description for the explanation is taken from the value in the \code{Group} argument
+in that call. Otherwise the user must specify a name for each group.\cr
+If the \code{color} component in the original call to the high-level plot is "Auto,"
+then the colors for each group are based on a sequence of 15 colors that are easily distinguished
+from each other. If there are more than 15 groups, then a gray scale is used with no guarantee
+if easily distinguished colors.
+}
+\value{
+A list having two components:\cr
+\item{current}{a list like \code{current} with the defaults set}
+\item{Explan}{a list for creating an explanation}
+}
+\seealso{
+\code{\link{setExplan}}, for details about the list required
+for an explanation.
+}
+\keyword{ dplot }

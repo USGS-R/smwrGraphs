@@ -1,0 +1,11 @@
+Package: USGSwsGraphs
+Version: 0.8
+Date: 2013-09-10
+Title: Graphing Functions
+Author: Dave Lorenz <lorenz@usgs.gov>.
+Maintainer: Dave Lorenz <lorenz@usgs.gov>
+Depends: KernSmooth, USGSwsBase (>= 0.4), akima, methods
+Suggests: USGSwsData (>= 0.6)
+Description: Functions to create USGS high-quality graphs. These graphs meet or nearly meet the publications standards of the USGS.
+License: file LICENSE
+LazyLoad: yes

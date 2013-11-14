@@ -1,0 +1,47 @@
+\name{refLine}
+\alias{refLine}
+\title{
+Reference Line
+}
+\description{
+Add a reference line to a graph.
+}
+\usage{
+refLine(horizontal, vertical, coefficients, Plot = list(name = "", what = "lines", 
+type = "solid", width = "standard", symbol = "circle", filled = TRUE, size = 0.09, 
+color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE), 
+xrange = c(NA, NA), yrange = c(NA, NA), log10 = FALSE)
+}
+\arguments{
+  \item{horizontal}{
+draw horizontal lines at the specified values.
+}
+  \item{vertical}{
+draw vertical lines at the specified values.
+}
+  \item{coefficients}{
+draw a fitted line from the coefficients of a regression model.
+}
+  \item{Plot}{
+control parameters of the plot. The argument \code{what} is forced to "lines."
+}
+  \item{current}{
+the current parameters of the graph. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.
+}
+  \item{xrange}{
+limit x-axis range of horizontal or regression lines
+}
+  \item{yrange}{
+limit y-axis range of vertical lines
+}
+  \item{log10}{
+was log base 10 transform used in the regression model?
+}
+}
+\value{
+Information about the graph.
+}
+\seealso{
+\code{\link{addXY}}, \code{\link{addSmooth}}, \code{\link{xyPlot}}
+}
+\keyword{ aplot }

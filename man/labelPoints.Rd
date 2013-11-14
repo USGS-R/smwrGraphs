@@ -1,0 +1,48 @@
+\name{labelPoints}
+\alias{labelPoints}
+
+\title{
+Label Points
+}
+\description{
+Label points on a graph.
+}
+\usage{
+labelPoints(x, y, labels, dir = "E", offset = 0.75, size = 8, color = "black", 
+current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+}
+
+\arguments{
+  \item{x}{
+the x-axis data. Missing values are permitted, but ignored.
+}
+  \item{y}{
+the y-axis data. Missing values are permitted, but ignored.
+}
+  \item{labels}{
+the text labels, must be the same length as x and y. Missing values are permitted, but ignored.
+}
+  \item{dir}{
+the direction relative to the point to place the label.
+}
+  \item{offset}{
+the relative offset from the point.
+}
+  \item{size}{
+character size in points.
+}
+  \item{color}{
+the color of the labels.
+}
+  \item{current}{
+the cuurent plot controls. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.
+}
+}
+\value{
+A list containing \code{x}, \code{y}, and \code{labels}.
+}
+\seealso{
+\code{\link{addAnnotation}},, \code{\link{xyPlot}}
+}
+\keyword{ aplot }
+

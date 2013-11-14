@@ -1,0 +1,56 @@
+\name{probPretty}
+\alias{probPretty}
+\title{
+Pretty Axis
+}
+\description{
+Construct information for making a "pretty" probability axis.
+}
+\usage{
+probPretty(x, hard = FALSE, labels = "Auto", style = "probability", exceedence = TRUE, 
+priority = "label", distribution = "normal", ...)
+}
+\arguments{
+  \item{x}{
+axis coordinates in range 0-1 of 0-100 allowed and assumed if max(x) > 1
+note that only min and max are needed, missing values allowed, but ignored.
+}
+  \item{hard}{
+logical force min(x) and max(x) as axis limits, otherwise use "nice" limits.
+}
+  \item{labels}{
+estimate of the number of labels desired, or label points if vector
+note if vector, can be expressed as character strings, which are converted
+to numeric and automatically scaled. Default is "Auto", which is 9 if
+minimum x is greater than .01 and 11 otherwise.
+}
+  \item{style}{
+can be either "probability" or "percent" indicates how the labels are formatted.
+}
+  \item{exceedence}{
+\tabular{lr}{
+TRUE \tab exceedence probs and additional recurrence interval labels\cr
+FALSE \tab cumulative probabilities\cr
+}
+}
+  \item{priority}{
+\tabular{lr}{
+"label" \tab "nice" labels given priority for selection\cr
+"positions" \tab uniform separation given priority for selection\cr
+}
+}
+  \item{distribution}{
+the name of the probability function, defaults to normal.
+}
+  \item{\dots}{
+options for the distribution function.
+}
+}
+\value{
+Information about the axis labels.
+}
+\seealso{
+\code{\link{probPlot}}
+}
+
+\keyword{ dplot }

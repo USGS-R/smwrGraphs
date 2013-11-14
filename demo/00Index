@@ -1,0 +1,5 @@
+AnnualFlowBarChart	A bar chart of annual flow data. 
+HydroPrecip	Stacked hydrographs of precipitation and groundwater levels.
+FlowDur-Measurements	Flow-duration curve with overlaid discharge measurements.
+Coplot-simpleBoxPlot	A conditioned boxplot.
+Coplot-complexScatterPlot	A conditioned scatter plot with an explanation.
