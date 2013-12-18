@@ -64,9 +64,10 @@ contourPlot.default <- function(z, x, y, # data specs
   }
   ## To maintain a consistent scale in x and y scale to a common range
   ## Map xax$range[1] to 0 and xax$range[2] to 10
-  xrng <- range(x)
+  ## Note numeric conversion required for dates, recovered below
+  xrng <- as.double(range(x))
   yrng <- range(y)
-  xs <- scaleRng(x, Min=0, Max=10, x.range=xrng)
+  xs <- scaleRng(as.double(x), Min=0, Max=10, x.range=xrng)
   ys <- scaleRng(y, Min=0, Max=10, x.range=yrng)
   if(Grid$method == "loess") # Create a smooth surface first
     z <- fitted(loess(z ~ xs + ys, span=Grid$span, degree=Grid$degree,
