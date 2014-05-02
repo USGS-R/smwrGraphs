@@ -70,7 +70,7 @@ the parameters of the margin.
 additional arguments for future methods.
 }
   \item{jitter.y}{
-adjust yvalues to reduce overlap for each group?
+adjust \code{y} values to reduce overlap for each group?
 }
 }
 \details{

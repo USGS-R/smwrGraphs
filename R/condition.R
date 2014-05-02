@@ -67,7 +67,7 @@ condition <- function(plot.call, data, group, format="grid",
     retval <- eval(substitute(plot.call), envir=data[group == i, ],
          enclos=.GlobalEnv)
     ## Add a graph title by brute force
-    mtext(paste(group.name, i, sep=""), side=3, line=0, adj=0, family="USGS")
+    mtext(paste(group.name, i, sep=""), side=3, line=0.3, adj=0, family="USGS", cex=9/8)
     ## Add the caption if ToDo is 1, and add titles if requested
     if(grd == Grkey) {
       addCaption(caption)
@@ -79,10 +79,10 @@ condition <- function(plot.call, data, group, format="grid",
             usr=c(0,1,0,1))
         if(xtitle != "")
           mtext(text=xtitle, side=1, line=AA.gr[1L] - 2.1, adj=0.5,
-                at=0.5, family="USGS")
+                at=0.5, family="USGS", cex=9/8)
         if(ytitle != "")
           mtext(text=ytitle, side=2, line=AA.gr[2L] - 1.75, las=0, adj=0.5,
-                at=0.5, family="USGS")
+                at=0.5, family="USGS", cex=9/8)
       }
     }
     ToDo <- ToDo + 1L

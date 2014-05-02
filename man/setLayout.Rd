@@ -82,6 +82,12 @@ To place an explanation within a cell of the grid, \code{explantion} should be s
 where \code{enum} is the cell number in the grid. Cell numbers are sequential starting in the upper left
 and increasing by column. In this case \code{num.graphs} must be set to some number less than \code{num.cols}
 times \code{num.rows}.\cr
+The width of the explanation can be estimated by allocating 1 inch per 13 characters for \code{font} set to "preview"
+or 1 inch per 17 characters for \code{font} set to "USGS" plus 0.5 inch for the symbols. The width for box plots should
+be 2 inches for any type other that "tukey" and 2.5 inches for "tukey." The height of the explanation can be estimated as 
+1 inch per 8 lines of explanation for \code{font} set to "preview" and 1 inch per 10 lines of explanation for \code{font} 
+set to "USGS"---allocate an extra 2 lines for the title. Box plots require about 3 inches for the truncated and simple
+types and about 4.5 inches for type "tukey" and about 4 inches for type "extended."
 The plot area within each cell is set up to have consistent widths within each column and consistent heights
 within each row. The arguments \code{shared.x}, \code{shared.y}, \code{yleft}, \code{yright}, \code{xbottom},
 and \code{xtop} are used to set up the plot areas. If axes are not shared, then the margin values

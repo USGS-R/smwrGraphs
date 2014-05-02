@@ -1,0 +1,44 @@
+\name{addMinorTicks}
+\alias{addMinorTicks}
+\title{
+Add Axis Ticks
+}
+\description{
+Add minor axis ticks to a graphs.
+}
+\usage{
+addMinorTicks(which, current, ticks)
+}
+
+\arguments{
+  \item{which}{
+which axis to label, must be one of "bottom," "left," "top," or "right,"
+"x," or "y." If \code{which} is "x," then add both bottom and top minors ticks.
+If \code{which} is "y," then add both left and right minor ticks.
+}
+  \item{current}{
+the current plot information, see \bold{Details}.
+}
+  \item{ticks}{
+the number of minor ticks to draw. If missing, then the default number is used,
+see \bold{Details}.
+}
+}
+\details{
+The \code{current} argument must contain a component named \code{yax} if \code{which} is 
+"left" or "right" or a component named \code{xax} if \code{which} is "bottom" or "top." Those
+arguments are generally constructed from functions like \code{linearPretty}.
+
+The default placement of minor ticks is at the largest unit that lies between the major ticks---if the difference between major ticks is an even multiple of 2 or 5, then the minor interval will be that even multiple of 1, otherwise it will be 1/10 that even multiple.
+}
+\value{
+The current plot information is returned invisibly.
+}
+\note{
+In general, this should be used only with linear axes. Other axis types can result
+in unexpected results.
+}
+\seealso{
+\code{\link{linearPretty}},  \code{\link{addAxisLabels}}, \code{\link{addLabel}}
+}
+\keyword{ aplot }

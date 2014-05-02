@@ -9,6 +9,7 @@
 
 setGeneric("seasonPlot", function(x, y, Plot=list(),
                                   yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),
+																	xaxis.range="",
                                   ylabels=7, xlabels=7, xtitle="", ytitle="",
                                   caption="", margin=c(NA, NA, NA, NA), ...)
            standardGeneric("seasonPlot"))
@@ -19,6 +20,7 @@ function(x, y, # data
            width="standard", symbol="circle", filled=TRUE,
            size=0.09, color="black"), # plot controls
          yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA, NA), # y-axis controls
+				 xaxis.range=c("calendar", "water", "climate"),
          ylabels=7, xlabels="Auto", # labels
          xtitle="",
          ytitle=deparse(substitute(y)), # axis titles
@@ -40,8 +42,7 @@ function(x, y, # data
   ##   margin - the parameters of the margin
   ##
   ## set up the axes
-  xtitle=xtitle
-  ytitle=ytitle
+  ytitle <- ytitle
   if(dev.cur() == 1)
     setGD("SeasonPlot")
   if(is.list(ylabels))
@@ -55,21 +56,48 @@ function(x, y, # data
   yax <- yax$dax
   ## Until further notice, do dax here
   xlabels=match.arg(xlabels, c("Auto", "full", "abbrev", "letter"))
+  xaxis.range=match.arg(xaxis.range)
   xlabels <- switch(xlabels,
                     Auto=month.abb, full=month.name,
                     abbrev=month.abb, letter=c("J", "F", "M", "A", "M", "J",
                                         "J", "A", "S", "O", "N", "D"))
-  dax <- list(ticks=c(0.0849, 0.1616, 0.2466, 0.3288, 0.4137, 0.4959,
-                0.5808, 0.6657, 0.7479, 0.8329, 0.9151),
-              finegrid=c(0.0849, 0.1616, 0.2466, 0.3288, 0.4137, 0.4959,
-                0.5808, 0.6657, 0.7479, 0.8329, 0.9151),
-              labels=xlabels,
-              labelpos=c(0.04245, 0.12325, 0.20410, 0.28770, 0.37125, 0.45480,
-                0.53835, 0.62325, 0.70680, 0.79040, 0.87400, 0.95755),
-              range=c(0, 1), style="between")
+  if(xaxis.range == "calendar") {
+  	dax <- list(ticks=c(0.0847, 0.1639, 0.2486, 0.3306, 0.4153, 0.4973,
+  											0.5820, 0.6667, 0.7486, 0.8333, 0.9153),
+  							finegrid=c(0.0847, 0.1639, 0.2486, 0.3306, 0.4153, 0.4973,
+  												 0.5820, 0.6667, 0.7486, 0.8333, 0.9153),
+  							labels=xlabels,
+  							labelpos=c(0.04235, 0.12432, 0.20628, 0.28962, 0.37295, 0.45628,
+  												 0.53962, 0.62432, 0.70765, 0.79098, 0.87432, 0.95765),
+  							range=c(0, 1), style="between")
+  	## Build the forward data transformation function
+  	xtrans <- function(x) x %% 1
+  } else if(xaxis.range == "water") {
+  	dax <- list(ticks=c(0.0849, 0.1671, 0.2520, 0.3368, 0.4160, 0.5007,
+  											0.5827, 0.6674, 0.7493, 0.8340, 0.9187),
+  							finegrid=c(0.0849, 0.1671, 0.2520, 0.3368, 0.4160, 0.5007,
+  												 0.5827, 0.6674, 0.7493, 0.8340, 0.9187),
+  							labels= c(xlabels[10:12], xlabels[1:9]),
+  							labelpos=c(0.04247, 0.12603, 0.20959, 0.29440, 0.37737, 0.45834,
+  												 0.54167, 0.62501, 0.70834, 0.79167, 0.87637, 0.95967),
+  							range=c(0, 1), style="between")
+  	## Build the forward data transformation function
+  	xtrans <- function(x) (x - 0.7485) %% 1
+  } else { # Must be climate year
+  	dax <- list(ticks=c(0.0822, 0.1671, 0.2493, 0.3342, 0.4192, 0.5014, 0.5863, 
+  											0.6685, 0.7534, 0.8381, 0.9174),
+  							finegrid=c(0.0822, 0.1671, 0.2493, 0.3342, 0.4192, 0.5014, 0.5863, 
+  												 0.6685, 0.7534, 0.8381, 0.9174),
+  							labels=c(xlabels[4:12], xlabels[1:3]),
+  							labelpos=c(0.0411, 0.12466, 0.20822, 0.29178, 0.37671, 0.46027, 0.54384, 
+  												 0.6274, 0.71096, 0.79577, 0.87774, 0.95971),
+  							range=c(0, 1), style="between")
+  	## Build the forward data transformation function
+  	xtrans <- function(x) (x - 0.248) %% 1
+  }
   ## Convert to cyclic data
   x <- dectime(x)
-  x <- x - trunc(x)
+  x <- xtrans(x)
   ## set margins and controls
   margin.control <- setMargin(margin, yax)
   margin <- margin.control$margin
@@ -109,7 +137,33 @@ function(x, y, # data
   renderY(yax, lefttitle=ytitle, left=left, right=right)
   renderX(dax, bottitle=xtitle, bottom=bot, top=top, caption=caption)
   invisible(list(x=x, y=y, yaxis.log=yaxis.log, yaxis.rev=yaxis.rev,
-                 xaxis.log=FALSE, explanation=explan, margin=margin,
+                 xaxis.log=NA, xtrans=xtrans, xtargs=NULL, 
+  							 explanation=explan, margin=margin,
                  yax=yax, xax=dax))
+}
+)
+
+setMethod("seasonPlot", signature("character", "numeric"), 
+function(x, y, # data
+				 Plot=list(name="", what="lines", type="solid",
+				 					width="standard", symbol="circle", filled=TRUE,
+				 					size=0.09, color="black"), # plot controls
+				 yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA, NA), # y-axis controls
+				 xaxis.range=c("calendar", "water", "climate"),
+				 ylabels=7, xlabels="Auto", # labels
+				 xtitle="",
+				 ytitle=deparse(substitute(y)), # axis titles
+				 caption="", # caption 
+				 margin=c(NA, NA, NA, NA), ...) {# margin controls
+	## build a seasonal-series plot
+	##
+	## set up the x-axis data and pass to the main driver
+	ytitle <- ytitle
+	## Must use a leap year to convert Feb 29 correctly
+	x <- as.Date(paste("2000 ", x, sep=""), format="%Y %b %d")
+	seasonPlot(x=x, y=y, Plot=Plot, yaxis.log=yaxis.log, yaxis.rev=yaxis.rev,
+						 yaxis.range=yaxis.range, xaxis.range=xaxis.range,
+						 ylabels=ylabels, xlabels=xlabels, xtitle=xtitle, ytitle=ytitle,
+						 caption=caption, margin=margin, ...)
 }
 )

@@ -75,3 +75,43 @@ function(x, y, # data
   invisible(current)
 }
 )
+
+setMethod("addXY", signature("numeric", "character"), 
+function(x, y, # data
+				 Plot=list(name="", what='points', type='solid',
+				 					width='standard', symbol='circle', filled=TRUE,
+				 					size=0.09, color='black'), # plot controls
+				 current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
+				 						 xaxis.log=FALSE), # current plot parameters
+				 jitter.y=FALSE) { # jitter y-values a bit
+	## add a simple (single line or scatter) x-y plot
+	## arguments:
+	##   x - the x-axis data
+	##   y - the y-axis data to plot
+	##   Plot - parameters of the plot
+	##   current - the current plot information
+	##   jitter.y - add random value to the y?
+	##
+	y <- numericData(y, lev=current$yaxis.lev)
+	y <- transData(y, current$yaxis.log, current$yaxis.rev,
+								 current$ytrans, current$ytarg)
+	x <- numericData(x, lev=current$xaxis.lev) # Convert dates to consistent numeric
+	x <- transData(x, current$xaxis.log, FALSE,
+								 current$xtrans, current$xtarg)
+	if(jitter.y) {
+		jitter.y <- runif(length(y), -.1, .1)
+	} else
+		jitter.y <- 0
+	Plot <- setPlot(Plot, name="", what='points', type='solid',
+									width='standard', symbol='circle', filled=TRUE,
+									size=0.09, color='black') # force defaults if not set
+	explan <- setExplan(Plot, old=current$explanation) # add info to set up explanation
+	plotPars <- explan$current
+	points(x, y + jitter.y, type=plotPars$type, lwd=plotPars$lwd, lty=plotPars$lty,
+				 pch=plotPars$pch, cex=plotPars$cex, col=plotPars$col, bg=plotPars$col)
+	current$x <- x
+	current$y <- y
+	current$explanation <- explan
+	invisible(current)
+}
+)

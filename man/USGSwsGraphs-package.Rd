@@ -7,8 +7,9 @@ Graphing Functions
 }
 \description{
 Functions to create high-quality graphs.\cr
-These graphs meet or nearly meet the publications standards of the USGS.
-They are intended to be a suite of functions that make producing complicated
+These graphs meet or nearly meet the publication standards for illustrations of the U.S. 
+Geological Survey (USGS) (U.S. Geological Survey, written commun., 2012).
+They are intended to be a suite of integrated functions that make producing 
 graphs and figures relatively easy by passing much information about the plots
 between functions so the user does not need to manage graphical information.
 }
@@ -17,11 +18,15 @@ between functions so the user does not need to manage graphical information.
 Package: \tab USGSwsGraphs\cr
 Type: \tab Package\cr
 Version: \tab 0.8\cr
-Date: \tab 2013-09-10\cr
+Date: \tab 2014-04-16\cr
 License: \tab file LICENSE\cr
 Depends: \tab KernSmooth, USGSwsBase (>= 0.4), akima, methods\cr
 Suggests: \tab USGSwsData (>= 0.6)\cr
 }
+The functions in the \code{USGSwsGraphs} package are an integrated suite of functions that facilitate the production of graphs that nearly meet USGS publication standards for illustrations (U.S. Geological Survey, written commun., 2012). Those standards include line weight, tick placement, labels, font size, and layout of the explanation. The font used in production very closely matches the standard Univers Condensed, and was selected becuase of its broad availabeility on many computer platforms.\cr
+
+Use of base \code{R} or other gaphics functions can result in inconsistent lineweights, font sizes and styles, and can require manual manipulation of the explanation. See Lorenz (2013) for examples of functions that create and add to graphs to see examples of calls to base \code{R} graphics that use the lower level tools to adhere to the statndards.\cr
+
 Functions to set up and initialize the \code{USGSwsGraphs} environment:\cr
 \code{\link{setGraph}}\cr
 \code{\link{setLayout}}\cr

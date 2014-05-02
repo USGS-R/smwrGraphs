@@ -46,7 +46,8 @@ addLabel <- function(label, x, side="bottom", size="Auto", distance=0.2,
     labelSize <- strheight(label, units="in")
     distance <- distance + (labelSize - textSize) / lineSize
   }
+  # These assume level 1
   mtext(label, side=side, line=distance, at=x, adj=justification,
-        family="USGS", las=orientation)
+        family="USGS", las=orientation, cex=7/8)
   invisible()
 }

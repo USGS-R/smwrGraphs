@@ -26,16 +26,9 @@ areaPlot <- function(x, y, # data specs
   ##    color names for each area.
   ##
   ## Set defaults for Areas
-  if(is.null(Areas$name))
-    Areas$name <- 'Auto'
-  if(is.null(Areas$fillDir))
-    Areas$fillDir <- 'between'
-  if(is.null(Areas$base))
-    Areas$base <- 'Auto'
-  if(is.null(Areas$lineColor))
-    Areas$lineColor <- 'black'
-  if(is.null(Areas$fillColors))
-    Areas$fillColors <- 'warmCool'
+	Areas <- setDefaults(Areas, name="Auto", fillDir="between", 
+											 base="Auto", lineColor="black",
+											 fillColor="pastel")
   ## Set up plot (either xy or time)
   if(dev.cur() == 1)
     setGD("AreaPlot")
@@ -43,7 +36,7 @@ areaPlot <- function(x, y, # data specs
   xRng <- range(x, na.rm=TRUE)
   yRng <- range(y, na.rm=TRUE)
   ## Adjust y range if needed
-  if(Areas$fillDir == 'under' && Areas$base != 'Auto')
+  if(Areas$fillDir == "under" && Areas$base != "Auto")
     yRng[1] <- as.double(Areas$base)
   if(is.list(ylabels))
     yax <- c(list(data=yRng, axis.range=yaxis.range, axis.log=yaxis.log,
@@ -88,25 +81,25 @@ areaPlot <- function(x, y, # data specs
        ylim=yax$range, yaxs='i', ylab="", xlab="")
   ## Set up to add the areas
   nAreas <- ncol(y)
-  if(Areas$fillDir == 'between')
+  if(Areas$fillDir == "between")
     nAreas <- nAreas - 1
   if(Areas$name[1] == "Auto") { # Generate names
-    if(Areas$fillDir == 'between')
+    if(Areas$fillDir == "between")
       Areas$name <- paste(colnames(y)[-1], colnames(y)[-ncol(y)], sep='-')
     else # Must be under
       Areas$name <- colnames(y)
   }
   if(length(Areas$fillColors) == 1 && nAreas > 1) { # Generate colors
-    ColorGen <- get(paste(Areas$fillColors, 'colors', sep='.'))
+    ColorGen <- get(paste(Areas$fillColors, "colors", sep='.'))
     Areas$fillColors <- rev(ColorGen(nAreas)) # need to reverse becuase of order plotted
   }
   else # Use what's there
     Areas$fillColors <- rev(setColor(Areas$fillColors))
   ## Add areas--needs work on the explanation
-  if(Areas$fillDir == 'between') {
+  if(Areas$fillDir == "between") {
     for(i in seq(nAreas, 1)) {
       xToPlot <- c(x, rev(x))
-      yToPlot <- c(y[, i+1], rev(y[, i]))
+      yToPlot <- c(y[, i+1L], rev(y[, i]))
       current <- addArea(xToPlot, yToPlot, Area=list(name=Areas$name[i],
                                              color=Areas$fillColors[i],
                                              outline=Areas$lineColor),
@@ -114,12 +107,12 @@ areaPlot <- function(x, y, # data specs
     }
   }
   else { # Must be under
-    if(Areas$base == 'Auto')
-      base <- yax$range[1]
+    if(Areas$base == "Auto")
+      base <- yax$range[1L]
     else
       base <- Areas$base
-    for(i in seq(nAreas, 1)) {
-      xToPlot <- c(x[1], x, x[length(x)])
+    for(i in seq(nAreas, 1L)) {
+      xToPlot <- c(x[1L], x, x[length(x)])
       yToPlot <- c(base, y[,i], base)
       current <- addArea(xToPlot, yToPlot, Area=list(name=Areas$name[i],
                                              color=Areas$fillColors[i],

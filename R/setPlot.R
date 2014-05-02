@@ -8,7 +8,7 @@
 #    2011Oct24 DLLorenz Tweaks for package
 #    2011Dec15 DLLorenz Fix for Plot$color = "Auto," required for group
 #    2012Nov11 DLLorenz Added "none" options for type
-#    2012Nov11         This version.
+#    2014Feb17 DLLorenz Added/Changed lineweight from standard to color
 #
 
 setPlot <- function(current, name="", what="lines", type="solid",
@@ -53,5 +53,11 @@ setPlot <- function(current, name="", what="lines", type="solid",
     current$area.color <- area.color
   if(is.null(current$area.border))
     current$area.border <- area.border
+  # Check if lines drawn, color not black and lineweight standard
+  # if so, then change lineweight to color
+  if(current$what %in% c("lines", "both", "overlaid",
+  											 "stairstep", "vertical") && 
+  	 	current$color != "black" && current$width == "standard")
+  	current$width <- "color"
   return(current)
 }

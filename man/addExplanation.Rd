@@ -8,7 +8,8 @@ Add Explanation
 Adds an explanation to the current graph or to a new graph.
 }
 \usage{
-addExplanation(what, where = "new", title = "EXPLANATION", margin = rep(0, 4))
+addExplanation(what, where = "new", title = expression(bold(EXPLANATION)),
+  box.off = where != "new", margin = rep(0, 4))
 }
 
 \arguments{
@@ -20,7 +21,10 @@ a specialized object for an explanation, from the output from calls
 a description of where to put the explanation, see \bold{Details}.
 }
   \item{title}{
-the title of the explanation
+the title of the explanation.
+}
+  \item{box.off}{
+logical, if \code{TRUE}, then box off the explanation with a blank background and black box, otherwise insert as is.
 }
   \item{margin}{
 the margin for a new graph
@@ -39,6 +43,6 @@ Nothing is returned.
 Box plot explanations require fairly large graph areas because of the detail required for some
 types. In general, a graph about 4.5 inches high is needed for the Tukey type and 4 inches for
 other types and widths of 2.5 and 2 inches respectively. If the graph area is smaller than required,
-then a warning is printed and the explantion may be unreadable.
+then a warning is printed and the explanation may be unreadable.
 }
 \keyword{ aplot }

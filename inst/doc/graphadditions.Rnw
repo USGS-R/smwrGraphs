@@ -5,6 +5,7 @@
 %\VignetteDepends{USGSwsGraphs}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \title{Graph Additions}
 

@@ -2,6 +2,7 @@
 \docType{methods}
 \alias{addXY-methods}
 \alias{addXY,ANY,numeric-method}
+\alias{addXY,numeric,character-method}
 \title{Methods for Function \code{addXY}}
 \description{
 Adds an xy-plot to a graph
@@ -13,8 +14,13 @@ Plot = list(name = "", what = "lines", type = "solid", width = "standard",
 current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE), 
 right = FALSE, right.log = FALSE, right.rev = FALSE, right.range = c(NA, NA), 
 right.labels = 7, right.title = "")
-}
 
+\S4method{addXY}{numeric,character}(x, y, 
+Plot = list(name = "", what = "points", type = "solid", width = "standard", 
+ symbol = "circle", filled = TRUE, size = 0.09, color = "black"), 
+current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE), 
+jitter.y = FALSE)
+}
 \arguments{
   \item{x}{
 the x-axis data. Missing values are permitted, but result in breaks in the plotted data.
@@ -46,6 +52,9 @@ set up right-axis labels.
   \item{right.title}{
 the right-axis title.
 }
+  \item{jitter.y}{
+adjust \code{y} values to reduce overlap for each group?
+}
 }
 \value{
 Information about the graph.
@@ -54,7 +63,10 @@ Information about the graph.
 \describe{
 
 \item{\code{signature(x = "ANY", y = "numeric")}}{
-Add a simple line or scatter plot to the current graph.
+Add a simple line or points to the current graph.
+}
+\item{\code{signature(x = "numeric", y = "character")}}{
+Add points or lines to the current graph (dotplot).
 }
 }}
 \keyword{methods}

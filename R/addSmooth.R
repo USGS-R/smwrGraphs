@@ -44,7 +44,9 @@ addSmooth.default <- function(x, y, # data
                    current$ytrans, current$ytarg)
   x <- transData(x, current$xaxis.log, FALSE,
                    current$xtrans, current$xtarg)
-  smo <- do.call(Smooth, list(x=x, y=y, ...))
+  ## Remove any missings
+  good <- complete.cases(x, y)
+  smo <- do.call(Smooth, list(x=x[good], y=y[good], ...))
   Plot$what <- "lines" # Force lines
   Plot <- setPlot(Plot, name="", what="lines", type="solid",
                   width="standard", color="black") # force defaults if not set

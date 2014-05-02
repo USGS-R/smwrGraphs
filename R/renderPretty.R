@@ -6,6 +6,7 @@
 #    2010Nov19 DLLorenz Modified for R
 #    2011Oct24 DLLorenz Tweaks for package
 #    2013Mar29 DLLorenz Suppress axis title if inside
+#    2014Apr21 DLLorenz level 1 labels 7 pt, level 2 8 pt and titles 9 pt
 #
 
 ticks.render <- function(arg1, side, lwd)
@@ -38,7 +39,6 @@ renderY <- function(pretty, left=list(ticks=TRUE, labels=TRUE, grid=FALSE,
     segments(x0=par("usr")[2L], y0=pretty$labelpos[1L],
              y1=pretty$labelpos[length(pretty$labelpos)],
              lwd=lwd)
-  htadj <- par("cxy")[2] * 0.15 # adjustment for centering text
   ## left-hand axis--use low-level functions
   if(!is.null(left$ticks) && left$ticks) { # put ticks
     ticks.render(list(at=minorTicks, in.length=ticklen/2, out.length=0), 2,
@@ -49,8 +49,8 @@ renderY <- function(pretty, left=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   par(adj=1)
   labels <- pretty$labels
   if(!is.null(left$labels) && left$labels) # put labels 
-    mtext(text=labels, side=2, at=pretty$labelpos + htadj,line=0.2,
-          outer=FALSE, family="USGS")
+    mtext(text=labels, side=2L, at=pretty$labelpos,line=0.2, padj=0.4,
+          outer=FALSE, family="USGS", cex=7/8)
   if(!is.null(left$grid) && left$grid) # put gridlines
     ticks.render(list(at=pretty$ticks, in.length=gridlen, out.length=0), 2,
                  lwd=lwd)
@@ -67,8 +67,8 @@ renderY <- function(pretty, left=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   ## NOTE this may require some modification for right-justification of text
   par(adj=0)
   if(!is.null(right$labels) && right$labels) # put labels 
-    mtext(text=labels, side=4, at=pretty$labelpos + htadj, line=0.2,
-          outer=FALSE, family="USGS")
+    mtext(text=labels, side=4L, at=pretty$labelpos, line=0.2, padj=0.4,
+          outer=FALSE, family="USGS", cex=7/8)
   if(!is.null(right$grid) && right$grid) # put gridlines
     ticks.render(list(at=pretty$ticks, in.length=gridlen, out.length=0), 4)
   if(!is.null(right$finegrid) && right$finegrid) # put fine gridlines
@@ -78,14 +78,14 @@ renderY <- function(pretty, left=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   ## Remember that line=1 offsets for cex=1.0
   ## the line-value for the y-axis label must be based on the width of the labels
   if(!is.character(lefttitle) || lefttitle != "") {
-    lineoff <- par("mar")[2] - 1.75
+    lineoff <- par("mar")[2L] - 1.7
     if(lineoff > 0)
-      mtext(text=lefttitle, side=2, line=lineoff, padj=0, las=0, family="USGS")
+      mtext(text=lefttitle, side=2L, line=lineoff, padj=0, las=0, family="USGS", cex=9/8)
   }
   if(!is.character(righttitle) || righttitle != "") {
-    lineoff <- par("mar")[4] - 1.75
+    lineoff <- par("mar")[4L] - 1.7
     if(lineoff > 0)
-      mtext(text=righttitle, side=4, line=lineoff, padj=0, las=0, family="USGS")
+      mtext(text=righttitle, side=4L, line=lineoff, padj=0, las=0, family="USGS", cex=9/8)
   }
   invisible()
 }
@@ -139,13 +139,18 @@ renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   }    
   labels <- pretty$labels
   ## Set angle for x-axis labels
-  if(!is.null(bottom$angle) && bottom$angle != 0) # Can only be 0 or 90
-    las=2
-  else
-    las=0
-  if(!is.null(bottom$labels) && bottom$labels) # put labels
-    mtext(text=labels, side=1, at=pretty$labelpos, line=0.15, outer=FALSE,
-          family="USGS", las=las)
+  if(!is.null(bottom$angle) && bottom$angle != 0) { # Can only be 0 or 90
+    las=2L
+  } else
+    las=0L
+  if(!is.null(bottom$labels) && bottom$labels) { # put labels
+  	## Count number of new lines in labels
+  	NL <- sapply(gregexpr("\\n", labels), function(m) sum(m > 0))
+  	if(las == 2L) # No changes for perpendicular labels
+  		NL <- 0
+    mtext(text=labels, side=1L, at=pretty$labelpos, line=NL*7/8 + 0.15, 
+    			outer=FALSE, family="USGS", las=las, cex=7/8)
+  }
   if(!is.null(bottom$grid) && bottom$grid) # put gridlines
     ticks.render(list(at=pretty$ticks, in.length=gridlen, out.length=0L), 1L, lwd=lwd)
   if(!is.null(bottom$finegrid) && bottom$finegrid) # put fine gridlines
@@ -161,7 +166,7 @@ renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
     par(srt=top$angle, adj=0)
   if(!is.null(top$labels) && top$labels) # put labels
       mtext(text=labels, side=3L, at=pretty$labelpos, line=0.15,
-            outer=FALSE, family="USGS")
+            outer=FALSE, family="USGS", cex=7/8)
   par(srt=0, adj=0.5)
   if(!is.null(top$grid) && top$grid) # put gridlines
     ticks.render(list(at=pretty$ticks, in.length=gridlen, out.length=0), 3L, lwd=lwd)
@@ -170,10 +175,10 @@ renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
                  lwd=lwd)
   ##
   ## remember that line=1 offsets for cex=1.0
-  ## if label 2 and a request to draw labels
+  ## if label 2 and a request to draw labels, font size is 8
   if(!is.null(pretty$label2pos) && length(pretty$label2pos) > 0) {
     if(!is.null(bottom$labels) && bottom$labels) {
-      mtext(text=pretty$label2, side=1, at=pretty$label2pos,
+      mtext(text=pretty$label2, side=1L, at=pretty$label2pos,
             line=1.2, family="USGS")
     }
     ## do not draw the separator--let the illustrator do it
@@ -181,10 +186,10 @@ renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   lineoff <- par("mar")[1L] - 2.1
   if(!is.character(bottitle) || bottitle != "")
     if(lineoff > 0)
-      mtext(text=bottitle, side=1, line=lineoff, family="USGS")
+      mtext(text=bottitle, side=1L, line=lineoff, family="USGS", cex=9/8)
   if(!is.character(toptitle) || toptitle != "")
     if(lineoff > 0)
-      mtext(text=toptitle, side=3, line=1.2, family="USGS")
+      mtext(text=toptitle, side=3L, line=1.2, family="USGS", cex=9/8)
   if(!is.character(caption) || caption != "")
     addCaption(caption)
   invisible()

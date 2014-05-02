@@ -23,7 +23,7 @@ the x-axis data.
 the y-axis data.
 }
   \item{scale}{
-the y/x ratio.
+the y/x ratio. See \bold{Details}.
 }
   \item{Plot}{
 control parameters of the plot.
@@ -64,6 +64,11 @@ the parameters of the margin of the plot area.
 }
 \value{
 Information about the graph.
+}
+\details{
+The \code{scale} argument sets the scaling ratio of the y-axis to the x-axis. For
+latitude and longitude data, set the scale to 1/cos(midlat/180*pi), where midlat is
+the midrange of the latitude.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics environment before calling \code{scalePlot}.

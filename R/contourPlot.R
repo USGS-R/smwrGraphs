@@ -72,7 +72,6 @@ contourPlot.default <- function(z, x, y, # data specs
   if(Grid$method == "loess") # Create a smooth surface first
     z <- fitted(loess(z ~ xs + ys, span=Grid$span, degree=Grid$degree,
                       family=Grid$family, normalize=F))
-  require(akima) # need the interp function
   xo <- seq(0, 10, length=Grid$density)
   yo <- seq(0, 10, length=Grid$density)
   zo <- interp(xs, ys, z, xo=xo, yo=yo, linear=Grid$linear,
@@ -194,7 +193,6 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
     grd <- expand.grid(x=x, y=y)
     grd$z <- as.vector(z)
     grd <- na.omit(grd)
-    require(akima)
     xyz <- interp(grd$x, grd$y, grd$z, xo=seq(xrng[1], xrng[2], by=den[1]),
                   yo=seq(yrng[1], yrng[2], by=den[2])) # accept other defaults
     ## reconstruct x, y, and z

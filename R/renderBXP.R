@@ -44,8 +44,8 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
   if(dev.cur() == 1)
     setGD("BoxPlot")
   size.lab <- 0.7 # size of outlier symbols
-  mindat <- stats$data.range[1]
-  maxdat <- stats$data.range[2]
+  mindat <- stats$data.range[1L]
+  maxdat <- stats$data.range[2L]
   stats$data.range <- NULL # Not needed, must discard for processing boxes
   if(any(is.na(yrange))) {
     yrange <- c(mindat, maxdat)
@@ -64,16 +64,16 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
     yax <- linearPretty(yrange, labels=ylabels, hard=hard)
   yrange <- yax$range # get range from the set up routine
   ## Set up for rotated axis labels
-  if(xlabels[1] != "Auto") 
+  if(xlabels[1L] != "Auto") 
     parnames <- xlabels
   else
     parnames <- names(stats)
   nbox <- length(xtoplot)
   ## Set margins and controls
   if(xlabels.rotate) {
-    botmar <- max(strwidth(parnames, units='inches', family='USGS'))/par('cin')[2] + 2.2
-    if(is.na(margin[1]))
-      margin[1] <- pmax(3.2, botmar)
+    botmar <- max(strwidth(parnames, units='inches', family='USGS'))/par('cin')[2L] + 2.2
+    if(is.na(margin[1L]))
+      margin[1L] <- pmax(3.2, botmar)
   }
   margin.control <- setMargin(margin, yax)
   margin <- margin.control$margin
@@ -83,12 +83,14 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
   bot <- margin.control$bot
   if(xlabels.rotate)
     bot$angle <- 90 # Use this logic
-### I'm pretty sure something needs to be tweaked here or in the set up call
-  if(is.numeric(xlabels)) # build the x-axis labels
+  if(is.numeric(xlabels)) { # build the x-axis labels
     xax <- linearPretty(xrange, labels=xlabels)
-  else {
+    xaxis.lev <- NULL
+  } else {
     xax <- namePretty(parnames, orientation='grid', offset=1)
     bot$ticks <- top$ticks <- FALSE
+    ## get the levels
+    xaxis.lev <- xax$labels
   }
   xrange <- xax$range
   meanspacing <- diff(xrange)/(nbox + 1)
@@ -97,7 +99,7 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
   par(lwd=stdWt()) # standard line weight
   plot(mean(xrange), mean(yrange), type='n', xlim=xrange, xaxs='i', axes=FALSE,
        ylim=yrange, yaxs='i', ylab="", xlab="")
-  ux <- par('pin')[1]/diff(par('usr')[1:2]) # the inches per x-usr unit
+  ux <- par('pin')[1L]/diff(par('usr')[1:2]) # the inches per x-usr unit
   if(Box$width == 'Auto') # set width to a maximum of .5 inch or based on spacing
     width <- min(.5/ux,  meanspacing/1.5)
   else
@@ -121,7 +123,7 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
     nobs[i] <- stats[[i]]$n
   }
   ## make labels if necessary
-  if(xlabels[1] != "Auto") 
+  if(xlabels[1L] != "Auto") 
     parnames <- xlabels
   renderX(xax, bottitle=xtitle, caption=caption,
           bottom=bot, top=top)
@@ -138,11 +140,12 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
   resbox$yaxis.log <- yaxis.log
   resbox$yaxis.rev <- FALSE
   resbox$xaxis.log <- FALSE
+  resbox$xaxis.lev <- xaxis.lev
   explanation <- c(explan, expz, n='32')
   if(!Box$show.counts) { # remove that from the stuff to draw
     explanation$n <- NULL
-    explanation$labels <- explanation$labels[-1]
-    explanation$values <- explanation$values[-1]
+    explanation$labels <- explanation$labels[-1L]
+    explanation$values <- explanation$values[-1L]
   }
   explanation$width <- width * ux
   if(Box$nobox > min(nobs))
@@ -182,55 +185,56 @@ renderBXP <- function(x, width, z, draw.RL=TRUE, fill="none") {
     den <- 0
   else
     den <- NA
-  if(y[4] < z$estimated) # draw the whole in gray
-    polygon(c(xmd, xmd, xpd, xpd), c(y[2], y[4], y[4], y[2]),
+  if(y[4L] < z$estimated) # draw the whole in gray
+    polygon(c(xmd, xmd, xpd, xpd), c(y[2L], y[4L], y[4L], y[2L]),
             density=den, col=fill, border="gray50", lwd=lineWt('standard'))
   else # draw in black and over print if necessary
-    polygon(c(xmd, xmd, xpd, xpd), c(y[2], y[4], y[4], y[2]),
+    polygon(c(xmd, xmd, xpd, xpd), c(y[2L], y[4L], y[4L], y[2L]),
             density=den, col=fill, border="black", lwd=lineWt('standard'))
   ## Overplot with lines if estimated
-  if(y[2] < z$estimated) {
-    segments(xmd, z$estimated, xmd, y[2], lwd=lineWt('standard'), col="gray50")
-    segments(xmd, y[2], xpd, y[2], lwd=lineWt('standard'), col="gray50")
-    segments(xpd, z$estimated, xpd, y[2], lwd=lineWt('standard'), col="gray50")
+  if(y[2L] < z$estimated) {
+    yMaxGray <- min(z$estimated, y[4L]) # Do not draw above the box
+    segments(xmd, yMaxGray, xmd, y[2L], lwd=lineWt('standard'), col="gray50")
+    segments(xmd, y[2L], xpd, y[2L], lwd=lineWt('standard'), col="gray50")
+    segments(xpd, yMaxGray, xpd, y[2L], lwd=lineWt('standard'), col="gray50")
   }
   ## median
-  if(y[3] < z$estimated) # gray for estimated
-    segments(xmd, y[3], xpd, y[3], lwd=lineWt('standard'), col="gray50")
+  if(y[3L] < z$estimated) # gray for estimated
+    segments(xmd, y[3L], xpd, y[3L], lwd=lineWt('standard'), col="gray50")
   else
-    segments(xmd, y[3], xpd, y[3], lwd=lineWt('standard'), col="black")
+    segments(xmd, y[3L], xpd, y[3L], lwd=lineWt('standard'), col="black")
   ## whiskers with end caps
-  if(y[2] < z$estimated) {
-    segments(x, y[1], x, y[2], lwd=lineWt('standard'), col="gray50")
-    segments(x - 0.5 * width, y[1], x + 0.5 * width, y[1],
+  if(y[2L] < z$estimated) {
+    segments(x, y[1L], x, y[2L], lwd=lineWt('standard'), col="gray50")
+    segments(x - 0.5 * width, y[1L], x + 0.5 * width, y[1L],
              lwd=lineWt('standard'), col="gray50")
   }
-  else if(y[1] < z$estimated) {
-    segments(x, y[1], x, z$estimated, lwd=lineWt('standard'), col="gray50")
-    segments(x, z$estimated, x, y[2], lwd=lineWt('standard'), col="black")
-    segments(x - 0.5 * width, y[1], x + 0.5 * width, y[1],
+  else if(y[1L] < z$estimated) {
+    segments(x, y[1L], x, z$estimated, lwd=lineWt('standard'), col="gray50")
+    segments(x, z$estimated, x, y[2L], lwd=lineWt('standard'), col="black")
+    segments(x - 0.5 * width, y[1L], x + 0.5 * width, y[1L],
              lwd=lineWt('standard'), col="gray50")
   }
   else {
-    segments(x, y[1], x, y[2], lwd=lineWt('standard'), col="black")
-    if(!ck[1]) # do not end cap draw if censored 
-      segments(x - 0.5 * width, y[1], x + 0.5 * width, y[1],
+    segments(x, y[1L], x, y[2L], lwd=lineWt('standard'), col="black")
+    if(!ck[1L]) # do not end cap draw if censored 
+      segments(x - 0.5 * width, y[1L], x + 0.5 * width, y[1L],
                lwd=lineWt('standard'), col="black")
   }
-  if(y[5] < z$estimated) {
-    segments(x, y[4], x, y[5], lwd=lineWt('standard'), col="gray50")
-    segments(x - 0.5 * width, y[5], x + 0.5 * width, y[5],
+  if(y[5L] < z$estimated) {
+    segments(x, y[4L], x, y[5L], lwd=lineWt('standard'), col="gray50")
+    segments(x - 0.5 * width, y[5L], x + 0.5 * width, y[5L],
              lwd=lineWt('standard'), col="gray50")
   }
-  else if(y[4] < z$estimated) {
-    segments(x, y[4], x, z$estimated, lwd=lineWt('standard'), col="gray50")
-    segments(x, z$estimated, x, y[5], lwd=lineWt('standard'), col="black")
-    segments(x - 0.5 * width, y[5], x + 0.5 * width, y[5],
+  else if(y[4L] < z$estimated) {
+    segments(x, y[4L], x, z$estimated, lwd=lineWt('standard'), col="gray50")
+    segments(x, z$estimated, x, y[5L], lwd=lineWt('standard'), col="black")
+    segments(x - 0.5 * width, y[5L], x + 0.5 * width, y[5L],
              lwd=lineWt('standard'), col="black")
   }
   else {
-    segments(x, y[4], x, y[5], lwd=lineWt('standard'), col="black")
-    segments(x - 0.5 * width, y[5], x + 0.5 * width, y[5],
+    segments(x, y[4L], x, y[5L], lwd=lineWt('standard'), col="black")
+    segments(x - 0.5 * width, y[5L], x + 0.5 * width, y[5L],
              lwd=lineWt('standard'), col="black")
   }
   ## Outside values--logic needed for either out & farout not present or
@@ -284,7 +288,7 @@ renderBXP <- function(x, width, z, draw.RL=TRUE, fill="none") {
   
   ## Draw a detction limit line if possible and requested
   detlim <- max(z$censored, z$estimated)
-  if(draw.RL && detlim > par("usr")[3]) {
+  if(draw.RL && detlim > par("usr")[3L]) {
     if(detlim == z$censored) # Erase any line drawn at the RL
       segments(x - 0.5 * width, detlim, x + 0.5 * width, detlim,
                lwd=lineWt("standard"), col="white")

@@ -12,9 +12,12 @@
 #    2012Nov30 DLLorenz Begin tweaks for final/add stiff
 #    2013Feb13 DLLorenz Tweaks for box plot
 #    2013Aug19 DLLorenz Bug fix for warning tests.
+#    2014Apr18 DLLorenz Added boxing option, and fixed title
 #
 
-addExplanation <- function(what, where="new", title="EXPLANATION",
+addExplanation <- function(what, where="new", 
+													 title=expression(bold(EXPLANATION)),
+													 box.off=where != "new",
                            margin=rep(0,4)) {
   ## arguments
   ## what is either an object for an explanation, or the output from calls
@@ -45,9 +48,9 @@ addExplanation <- function(what, where="new", title="EXPLANATION",
     par(lwd=stdWt(), mar=margin)
     fin <- par("fin")
     ## Some warnings and set for other plots
-    outy <- !is.null(what$z$out) * 0.5
-    twid <- round(10 * par("csi"), 1)
-    bh <- twid + 2.2 + outy
+    outy <- !is.null(what$z$out)  * 0.5 + !is.null(what$z$farout)
+    twid <- round(7 * par("csi"), 1)
+    bh <- twid + 2.1 + outy
     if(fin[2L] < bh + 1.e-6)
       warning("Explanation for box plot should be at least ", 
               bh, " inches high")
@@ -182,7 +185,7 @@ addExplanation <- function(what, where="new", title="EXPLANATION",
   ## Extract information or exit
   if(is.null(what$lines))
     return(invisible(what))
-  par(family="USGS")
+  par(family="USGS", mar=margin)
   Pch <- what$lines$pch
   Pch[what$lines$type %in% c("l", "h", "s")] <- NA
   Pch <- Pch[what$lines$type != "n"]
@@ -197,8 +200,11 @@ addExplanation <- function(what, where="new", title="EXPLANATION",
   if(is.null(Border)) # fill with NAs
     Border <- rep(NA, along=what$lines$type)
   Border <- Border[what$lines$type != "n"]
-  Text <- what$text$text
+  Text <- paste("   ", what$text$text, sep="")
   Text <- Text[what$lines$type != "n"]
+  Etext <- expression()
+  for(i in seq(along=Text))
+  	Etext[i] <- as.expression(substitute(bold(name), list(name=Text[i])))
   Lwd <- what$lines$lwd
   Lwd <- Lwd[what$lines$type != "n"]
   Col <- what$lines$col
@@ -211,10 +217,18 @@ addExplanation <- function(what, where="new", title="EXPLANATION",
     3L
   Seq <- order(Seq) # Use this for the order to place in explanation
   ## Only do legend if length(Seq) > 0
-  if(length(Seq) > 0L)
-    legend(x=pos, legend=Text[Seq], title=title, bty="n",
-           fill=Fill[Seq], border=Border[Seq],
-           pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
-           col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq])
+  if(length(Seq) > 0L) {
+  	if(box.off) {
+  		legend(x=pos, legend=Etext[Seq], title=title, bty="o",
+  					 fill=Fill[Seq], border=Border[Seq],
+  					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
+  					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq],
+  					 bg="white", box.lwd=frameWt(), box.col="black", y.intersp=1.1)
+  	} else
+  		legend(x=pos, legend=Etext[Seq], title=title, bty="n",
+  					 fill=Fill[Seq], border=Border[Seq],
+  					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
+  					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], y.intersp=1.1)
+  }
   invisible(what)
 }

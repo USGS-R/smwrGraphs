@@ -14,7 +14,8 @@
 #    2012Nov01 DLLorenz Bug fix on missing values
 #    2013Jan13 DLLorenz Change drop censor args in Box (retain in defaults)
 #    2013Apr10 DLLorenz Added setGD
-#
+#    2014Jan28 DLLorenz Added match.arg for Box
+#    2014Apr23 DLLorenz Bug fix for NAs
 
 boxPlot <- function(..., group=NULL, # data
                     Box=list(type="truncated", show.counts=TRUE, 
@@ -68,7 +69,7 @@ boxPlotStats <- function(x, Box, yaxis.log) {
                            "  the interquartile range beyond", "  either end of box")),
                     values=c(4.5, 3.6, 1.5, .7, 0.1, -1.2, -2.4, -3.7),
                     IQR=expression(bold("Interquartile\nrange"))),
-                  truncated=list(z=list(stats=matrix(c(-4.0, -2. ,0, 2.0, 4.0),
+                  truncated=list(z=list(stats=matrix(c(-3.0, -1.2 ,0, 1.5, 3.5),
                                           ncol=1),
                                    n=54, names=""),
                     labels=list(expression(bold("Number of values")),
@@ -77,8 +78,8 @@ boxPlotStats <- function(x, Box, yaxis.log) {
                       list(expression(bold("50th percentile")),expression(bold("  (median)"))),
                       expression(bold("25th percentile")),
                       as.expression(substitute(bold(x), list(x=paste(Box$truncated[1], "th percentile", sep=''))))),
-                    values=c(4.5, 4., 2., 0, -2., -4.)),
-                  simple=list(z=list(stats=matrix(c(-4.0, -2.0 ,0, 2.0, 4.0),
+                    values=c(4.2, 3.5, 1.5, 0, -1.2, -3.0)),
+                  simple=list(z=list(stats=matrix(c(-3.0, -1.2 ,0, 1.5, 3.5),
                                        ncol=1),
                                 n=54, names=""),
                     labels=list(expression(bold("Number of values")),
@@ -87,7 +88,7 @@ boxPlotStats <- function(x, Box, yaxis.log) {
                       list(expression(bold("50th percentile")),expression(bold("  (median)"))),
                       expression(bold("25th percentile")),
                       expression(bold("Minimum value"))),
-                    values=c(4.5, 4., 2., 0, -2., -4.)),
+                    values=c(4.2, 3.5, 1.5, 0, -1.2, -3.0)),
                   extended=list(z=list(stats=matrix(c(-3., -1.5, 0, 1.5, 3.),
                                          ncol=1),
                                   n=54, names="",
@@ -124,6 +125,8 @@ boxPlotStats <- function(x, Box, yaxis.log) {
   explan <- setExplan(list(name="boxplot", what="none", type="solid",
                            width="standard", symbol="circle", filled=TRUE,
                            size=0.09, color="black"))
+  ## Remove NAs from data
+  x <- lapply(x, function(xx) xx[!is.na(xx)])
   ## Process the data min and max needed for renderBoxPlot
   minx <- min(unlist(x), na.rm=TRUE)
   maxx <- max(unlist(x), na.rm=TRUE)
@@ -201,6 +204,8 @@ boxPlot.list <- function(..., group=NULL, # data
   Box <- setDefaults(Box, type="truncated", show.counts=TRUE, censorbox=NA,
                      censorstyle="", nobox=5, width="Auto",  fill="none",
                      truncated=c(10,90))
+  Box$type <- match.arg(Box$type, c("truncated", "simple",
+  																	"tukey", "extended"))
   if(!is.na(Box$censorbox))
     warning(paste(Box$censorstyle, " boxplot not valid for these data, reset",
                   sep=''))
@@ -236,6 +241,8 @@ boxPlot.data.frame <- function(..., group=NULL, # data
   Box <- setDefaults(Box, type="truncated", show.counts=TRUE, censorbox=NA,
                      censorstyle="", nobox=5, width="Auto",  fill="none",
                      truncated=c(10,90))
+  Box$type <- match.arg(Box$type, c("truncated", "simple",
+  																	"tukey", "extended"))
   if(!is.na(Box$censorbox))
     warning(paste(Box$censorstyle, " boxplot not valid for these data, reset",
                   sep=''))
@@ -299,6 +306,8 @@ boxPlot.numeric <- function(..., group=NULL, # data
   Box <- setDefaults(Box, type="truncated", show.counts=TRUE, censorbox=NA,
                      censorstyle="", nobox=5, width="Auto", fill="none",
                      truncated=c(10,90))
+  Box$type <- match.arg(Box$type, c("truncated", "simple",
+  																	"tukey", "extended"))
   if(!is.na(Box$censorbox))
     warning(paste(Box$censorstyle, " boxplot not valid for these data, reset",
                   sep='')) # actually just ignored in call to this stats function

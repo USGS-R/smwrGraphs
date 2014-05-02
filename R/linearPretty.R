@@ -9,7 +9,7 @@
 #    2010Nov15 DLLorenz Modified for R
 #    2011Oct24 DLLorenz Tweaks for package
 #    2012Oct05 DLLorenz Nice integers and arg documentation
-#    2012Oct05          This version.
+#    2014Feb04 DLLorenz Added extendrange to default data.
 #
 
 linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
@@ -50,7 +50,9 @@ linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
     labels = 6L
   xclean <- x[is.finite(x)]
   if (is.null(xclean))
-    stop("input data all negative, null or NA")
+    stop("all data are missing.")
+  ## Extend range by a bit to avoid plotting on the axis.
+  xclean <- extendrange(xclean, f=0.01)
   if(length(labels) == 1L) {
     ticks <- pretty(xclean, n=labels-1L)
     ## if hard, then force limits of pretty to match limits of x

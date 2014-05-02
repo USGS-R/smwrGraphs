@@ -25,7 +25,7 @@ caption="", margin=c(NA, NA, NA, NA), ...)
 
 seasonPlot(x, y, Plot=list(),
 yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),
-ylabels=7, xlabels=7, xtitle="", ytitle="",
+xaxis.range="", ylabels=7, xlabels=7, xtitle="", ytitle="",
 caption="", margin=c(NA, NA, NA, NA), ...)
 
 timePlot(x, y, Plot=list(),
@@ -66,7 +66,7 @@ set the range for the y-axis.
 log-transform the x-axis?
 }
   \item{xaxis.range}{
-set the range for the y-axis.
+set the range for the y-axis or the type of year (calendar, water, or climate) for \code{seasonPlot}.
 }
   \item{ylabels}{
 the approximate number of labels for the y-axis.
@@ -108,4 +108,3 @@ Information about the plot.
 \code{\link{colorPlot-methods}}, \code{\link{dotPlot-methods}}, \code{\link{seasonPlot-methods}}, \code{\link{timePlot-methods}}, \code{\link{xyPlot-methods}}
 }
 \keyword{hplot}
-
