@@ -27,7 +27,8 @@ do not need to sum to the axis range. Missing values are permitted, but result
 in breaks in the plotted data.
 }
   \item{Plot}{
-parameters defining the characteristics of the plot. 
+parameters defining the characteristics of the plot. See \code{\link{setPlot}} for a description
+of the parameters.
 }
   \item{current}{
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{ternaryPlot}.

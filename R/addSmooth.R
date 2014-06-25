@@ -6,11 +6,11 @@
 #    2011Apr16 DLLorenz Added complete complement of args to setPlot
 #    2011Oct24 DLLorenz Tweaks for package
 #    2012Sep05 DLLorenz Made generic
-#    2013Aug20 DLLorenz Added tweaks to list method to facilitate scatter plot smooth.
-#
+#    2013Aug20 DLLorenz Added tweaks to list method to facilitate scatter plot smooth
+#    2014May28 DLLorenz Added jitter to y to prevent failure if most of y is nearly linear
 
 addSmooth <- function(x, y, # data
-                      Smooth="loess.smooth", ..., # smoothing paramaters
+                      Smooth="loess.smooth", ..., # smoothing parameters
                       Plot=list(name="", what="lines", type="solid",
                         width="standard", color="black"), # plot controls
                       current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
@@ -46,7 +46,13 @@ addSmooth.default <- function(x, y, # data
                    current$xtrans, current$xtarg)
   ## Remove any missings
   good <- complete.cases(x, y)
-  smo <- do.call(Smooth, list(x=x[good], y=y[good], ...))
+  ## Protect against a primarily linear arrangement of y
+  ry <- diff(range(y[good]))/1000
+  if(ry > 0) {
+  	N <- sum(good)
+  	smo <- do.call(Smooth, list(x=x[good], y=y[good] + runif(N, -ry, ry), ...))
+  } else
+  	smo <- list(x=range(x[good]), y=rep(y[good], length.out=2))
   Plot$what <- "lines" # Force lines
   Plot <- setPlot(Plot, name="", what="lines", type="solid",
                   width="standard", color="black") # force defaults if not set

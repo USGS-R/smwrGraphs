@@ -23,7 +23,7 @@ stiffPlot <- function(cations, anions, # the data matrices
   ##  Stiff list of plot controls
   ##  ylabels car vector the labels for the Stiff diagrams
   ##  xlabels single numeric the approxoimate number of labels
-  ##  catlabels, anlabels character to mathc num cols the labels for the data
+  ##  catlabels, anlabels character to match num cols the labels for the data
   ##  xtitle char. x-axis title
   ##  ytitle char. y-axis title
   ##  rest as usual.

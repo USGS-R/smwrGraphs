@@ -21,7 +21,7 @@ the y-axis coordinates of the polygon. Missing values are not permitted.
 the y-axis coordinates of the polygon. See \bold{Details}. Missing values are not permitted.
 }
   \item{Area}{
-parameters defining the characteristics of the area.
+parameters defining the characteristics of the area. See \code{\link{areaPlot}} for details.
 }
   \item{current}{
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.

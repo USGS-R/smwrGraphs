@@ -43,7 +43,7 @@ splomPlot <- function(x, layout, # data and layout info
                   width='standard', symbol='circle', filled=TRUE,
                   size=0.05, color='black')
   if(layout$touching) # Set up extended axis and labels, otherwise OK as is
-    labels <- list(labels=labels, extend=5)
+    labels <- list(labels=labels, extend.pct=5, extend.range=FALSE)
   titles <- colnames(x)
   if(length(titles) != layout$num.variables)
     stop("Number of columns in x does not match those set up in layout")

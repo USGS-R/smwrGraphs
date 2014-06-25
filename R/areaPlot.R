@@ -43,7 +43,7 @@ areaPlot <- function(x, y, # data specs
                   axis.rev=FALSE), ylabels)
   else
     yax <- list(data=yRng, axis.range=yaxis.range, axis.log=yaxis.log,
-                axis.rev=FALSE, axis.labels=ylabels)
+                axis.rev=FALSE, axis.labels=ylabels, extend.ranage=FALSE)
   yax <- do.call("setAxis", yax)
   yax <- yax$dax
   if(isDateLike(x)) { # Set up time axis

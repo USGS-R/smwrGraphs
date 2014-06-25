@@ -14,7 +14,7 @@ addTable(tbl, where = "ll", title = "")
 \arguments{
   \item{tbl}{
 the data frame or matrix to add to graph. All data must be of mode character, which 
-allows the user to format the data.
+allows the user to format the data rather than the automatic formatting done by R.
 }
   \item{where}{
 character specifying the corner the table should be placed, see \bold{Details}.
@@ -26,8 +26,8 @@ the title of the table.
 }
 }
 \details{
-\code{where} must be one of "ul," "ur," "ll," or "lr." The first letter is an abbreviation for upper or lower,
-the second letter is an abbreviation for left or right.
+\code{where} must be one of "ul," "ur," "ll," or "lr." The first letter is an abbreviation for
+upper or lower, the second letter is an abbreviation for left or right.
 }
 \value{
 Nothing is returned.

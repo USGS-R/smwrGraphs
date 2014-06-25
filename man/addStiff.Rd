@@ -13,6 +13,7 @@ addStiff(x, y, width, height, cations, anions,
  Stiff = list(fill = "gray50", outline = "black", height = 2/3, bar = "black"), 
  xaxis.range = c(NA, NA), catlabels = "", anlabels = "", 
  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+
 stiffPlot(cations, anions, Stiff = list(fill = "gray50", outline = "black",
   height = 2/3, bar = "black"), 
  yaxis.orient = "table", yaxis.order = "none", xaxis.range = c(NA, NA),
@@ -93,7 +94,21 @@ additional arguments for future methods.
 }
 }
 \details{
-The units of the cation and anion data are generally in milli-equivalents per liter.
+The units of the cation and anion data are generally in milli-equivalents per liter.\cr
+
+
+fill = "gray50", outline = "black", height = 2/3, bar = "black"
+
+The \code{Stiff} argument must be a tagged list with these components:
+\describe{
+	\item{fill}{the name of the color to fill each Stiff diagram. Must be a valid color name.}
+	\item{outline}{the name of the color to draw the outline or border for each Stiff diagram.
+	 Must be a valid color name.}
+	\item{height}{the height of each Stiff diagram, proportional to the overall height for each
+	Stiff diagram.}
+	\item{bar}{the color of the central bar. May be "none" for no central bar.}
+}
+
 }
 \value{
 Information about the graph.

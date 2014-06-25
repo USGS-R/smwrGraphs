@@ -23,10 +23,7 @@ x-axis coordinates in increasing order.
 a numeric matrix of y-axis coordinates.
 }
   \item{Areas}{
-a list with these components: name, "Auto" (derive names from y colnames or
-  names of areas; fillDir, "between" or "under"; lineColor, color
-  of lines; fillColor, either a name of a color sequence generator or
-  spcific color names for each area.
+parameters controlling the areas. See \bold{Details}.
 }
   \item{yaxis.log}{
 logical: log transform y axis?
@@ -57,6 +54,17 @@ the caption for the graph.
 }
   \item{margin}{
 set up the plot area margins.
+}
+\details{
+The \code{Areas} argument must be a tagged list with these components:
+\describe{
+	\item{name}{a name describing the data; used in the explanation. If "Auto," then derive the
+	name from the column names in \code{y}.}
+  \item{fillDir}{must be either "between" or "under" indicating the are to be shaded relative
+  to the lines.}
+  \item{lineColor}{the color of the lines.}
+  \item{fillColor}{either a name of a color sequence generator, see \code{\link{pastel.colors}},
+  or specific color names for each area.}
 }
 }
 \value{

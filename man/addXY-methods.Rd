@@ -29,7 +29,8 @@ the x-axis data. Missing values are permitted, but result in breaks in the plott
 the y-axis data. Missing values are permitted, but result in breaks in the plotted data.
 }
   \item{Plot}{
-parameters of the plot.
+parameters of the plot.  See \code{\link{setPlot}} for a description
+of the parameters.
 }
   \item{current}{
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.

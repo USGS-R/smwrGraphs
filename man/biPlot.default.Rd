@@ -9,6 +9,7 @@ Produce a biplot, which is a plot of two different types of data on the same gra
 }
 \usage{
 biPlot(x, ...)
+
 \method{biPlot}{default}(x, y, separate.axes = TRUE, 
 xPlot = list(name ="observations", what = "points", type = "solid", 
  width = "standard", symbol = "circle", filled = TRUE, size = 0.05, color = "black"), 
@@ -32,16 +33,19 @@ a matrix of x- and y-coordinates for variables or equivalent.
 logical: should \code{x} and \code{y} data be plotted on separate axes?
 }
   \item{xPlot}{
-control information to plot the \code{x} data.
+control information to plot the \code{x} data.  See \code{\link{setPlot}} for a description
+of the parameters.
 }
   \item{yPlot}{
-control information to plot the \code{y} data.
+control information to plot the \code{y} data.  See \code{\link{setPlot}} for a description
+of the parameters. For \code{yPlot}, symbol can be "arrow" to indicate that an arrow is to be
+drawn from the origin.
 }
   \item{xPlotLabels}{
-control information for the \code{x} data labels.
+control information for the \code{x} data labels. See \bold{Details}.
 }
   \item{yPlotLabels}{
-control information for the \code{y} data labels.
+control information for the \code{y} data labels. See \bold{Details}.
 }
   \item{ylabels}{
 set y-axis labels for \code{x} data. See \code{\link{linearPretty}} for details.
@@ -77,7 +81,18 @@ set up the plot area margins.
 additional arguments for other methods.
 }
 }
-
+\details{
+The \code{xPlotLabels} and \code{yPlotLabels} arguments must be tagged lists with these components:
+\describe{
+	\item{labels}{the labels. For \code{xPlotLabels}, "rownames" means use the row names from
+	\code{x} to generate the labels. For \code{yPlotLabels}, "colnames" means use the column names
+	from \code{y} to generate the labels. Otherwise a character vector of the labels.}
+  \item{dir}{the direction the label text is placed from the object.}
+  \item{size}{the size of the label text.}
+  \item{offset}{the distance the labels is placed relative to the object.}
+  \item{color}{the color of the label text.}
+}
+}
 \value{
 Information about the graph
 }

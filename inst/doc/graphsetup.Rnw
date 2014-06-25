@@ -1,10 +1,13 @@
 \documentclass{article}
 \parskip 3pt
 \parindent 30pt
+\usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Graph Set Up}
 %\VignetteDepends{USGSwsGraphs}
 
 \begin{document}
+\raggedright
+\parindent 30pt
 
 \title{Graph Set Up}
 

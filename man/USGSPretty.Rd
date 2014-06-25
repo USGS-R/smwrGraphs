@@ -9,8 +9,10 @@ Pretty Axis
 Construct information for making a "pretty" numeric axis.
 }
 \usage{
-linearPretty(x, hard = FALSE, labels = "Auto", style = "numeric", extend.pct = 0)
-logPretty(x, hard = FALSE, labels = "Auto", style = "numeric", extend.pct = 0)
+linearPretty(x, hard = FALSE, labels = "Auto", style = "numeric", extend.pct = 0,
+  extend.range = TRUE)
+logPretty(x, hard = FALSE, labels = "Auto", style = "numeric", extend.pct = 0,
+  extend.range = NA)
 transPretty(x, hard = FALSE, labels = 11, style = "none", func = log, Ifunc = exp, ...)
 }
 
@@ -29,7 +31,11 @@ or the actual labels to use.
 a character string indicating the style of the axis labels if they are not specifically listed in \code{labels}.
 }
   \item{extend.pct}{
-extend the axis range by \code{extend.pct}.
+extend the axis range by \code{extend.pct}. Only valid when \code{hard} is FALSE.
+}
+  \item{extend.range}{
+if \code{TRUE}, then extend the data range by a bit to avoid plotting on axis. Otherwise
+do not extend the data range. Only valid when \code{hard} is FALSE; Ignored in \code{logPretty}
 }
   \item{func}{
 the forward transform function.

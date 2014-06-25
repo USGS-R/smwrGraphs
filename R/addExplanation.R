@@ -95,6 +95,7 @@ addExplanation <- function(what, where="new",
     }
     ## Set up for additional explanation
     title <- ""
+    box.off <- FALSE
     if(fin[1L] > 3.9)
       where <- "ur"
     else # Assume that either no explanation or at bottom
@@ -124,6 +125,7 @@ addExplanation <- function(what, where="new",
     text((xmax+xmin)/2, ymax-.15, title, family="USGS")
     ## Set up for additional explanation
     title <- ""
+    box.off <- FALSE
     if(fin[1L] > what$stiff$width + 1.5)
       where <- "ur"
     else # Assume that either no explanation or at bottom
@@ -131,22 +133,46 @@ addExplanation <- function(what, where="new",
   } # End of Stiff
   else if(is.element("contour", names(what))) {
     if(where != "new")
-      stop('The where argument for a filled contour explanation  must be "new"')
+      stop('The where argument for a filled explanation  must be "new"')
+    ## Dummy call to plot to set up drawing environment
+    plot(0,0, axes=FALSE, type="n", xlab="", ylab="", mar=c(0,0,0,0))
     par(lwd=stdWt(), mar=margin)
     fin <- par("fin")
+    breaks <- what$contour$breaks # need to separate for explanation
+    yname <- .5 # adjustment for name
     ## Some warnings and set for other plots
-    ytest <- -min(what$contour$yvals) + .35
-    if(fin[2L] < ytest + 1.e-6)
-      warning("Explanation for this contour plot should be at least ",
-              ytest, " inches high")
+    ytest <- max(what$contour$yvals) + .35
+    if(fin[2L] < ytest + 1.e-6) {
+      warning("Explanation for this plot should be at least ",
+              ytest, " inches high; adjusting")
+      yname <- .35
+      div <- (ytest + .5)/fin[2L]
+      what$contour$yvals <- what$contour$yvals/div
+      if((length(breaks) %% 2L) == 1L) { # skip every other label
+      	breaks[(seq(along=breaks) %% 2L) == 0L] <- NA
+      } else if((length(breaks) %% 3L) == 1L) { # skip 2 label
+      	breaks[(seq(along=breaks) %% 3L) != 1L] <- NA
+      } else {
+      	# must be multiple of 6--awkward, skip every other, but leave top
+      	picks <- seq(2L, length(breaks) - 1L, by=2L)
+      	breaks[picks] <- NA
+      }
+    }
     if(fin[1L] < 1 + 1.e-6)
-      warning("Explanation for contour plots should be at least ",
+      warning("Explanation for plot should be at least ",
               1, " inches wide")
     par(usr=c(0, fin[1L], 0, fin[2L]))
     ## Add the title
     par(adj=0.5)
     text(fin[1L]/2, fin[2L] - .15, title, family="USGS")
     ## Add fill, lines and text
+    if(!is.null(what$contour$name) && what$contour$name != "") {
+    	# Add the name of the contours to the explanation
+    	what$contour$yvals <- what$contour$yvals + .2
+    	yoff <- max(what$contour$yvals)
+    	text(what$contour$xvals[2L] + .1, fin[2L] - yname,
+    			 labels=what$contour$name, adj=0, family="USGS")
+    }
     image(what$contour$xvals, fin[2L] - what$contour$yvals,
           what$contour$zvalues, col=what$contour$fillcol,
           add=TRUE, breaks=what$contour$breaks)
@@ -161,11 +187,16 @@ addExplanation <- function(what, where="new",
         segments(what$contour$xvals[1L], y, what$contour$xvals[2L],
                  col=what$contour$linecol)
     }
-    text(what$contour$xvals[2L] + .1, fin[2] - what$contour$yvals,
-         labels=what$contour$breaks, adj=0, family="USGS")
+    ## Works most consistently, at least from what I've seen
+    breaks <- format(breaks, big.mark =",")
+    breaks <- gsub(" ", "", breaks)
+    breaks <- sub("NA", "", breaks)
+    text(what$contour$xvals[2L] + .1, fin[2L] - what$contour$yvals,
+         labels=breaks, adj=0, family="USGS")
     ## Adjust where for other stuff to add
-    where="ur"
+    where <- "ur"
     title <- ""
+    box.off <- FALSE
   }
   ## The "normal" explanation
   ## pos is x-y and corner info for the call to legend()

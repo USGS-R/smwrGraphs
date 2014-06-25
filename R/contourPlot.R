@@ -148,6 +148,7 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
   else
     yax <- list(data=y, axis.range=yaxis.range, axis.log=FALSE,
                 axis.rev=FALSE, axis.labels=ylabels)
+  yax$extend.range <- FALSE
   yax <- do.call("setAxis", yax)
   y <- yax$data
   yax <- yax$dax
@@ -157,7 +158,7 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
   else
     xax <- list(data=x, axis.range=xaxis.range, axis.log=FALSE,
                 axis.rev=FALSE, axis.labels=xlabels)
-  
+  xax$extend.range <- FALSE
   xax <- do.call("setAxis", xax)
   x <- xax$data
   xax <- xax$dax
@@ -226,8 +227,11 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
     xvals <- c(.1, .35)
     yvals <- seq(to=.5, by=-.25, length.out=length(breaks)) # offset from top
     linecol <- Contours$lineColor
+    name <- Contours$name
+    if(name == "Auto")
+    	name <- ""
     contour <- list(zvalues=zvalues, fillcol=fillcol, breaks=breaks, xvals=xvals,
-                    yvals=yvals, linecol=linecol)
+                    yvals=yvals, linecol=linecol, name=name)
     explan <- list(contour=contour)
   }
   else { # Simple explanation

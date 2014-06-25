@@ -15,10 +15,12 @@ addGrid(current, Xgrid = list(grid = "gray50", finegrid = "none"),
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.
 }
   \item{Xgrid}{
-parameters defining the characteristics of the x-axis grid lines.
+parameters defining the characteristics of the x-axis grid lines. The components refer to the 
+color to draw the \code{grid} (at ticks) or \code \{finerid} (between ticks).
 }
   \item{Ygrid}{
-parameters defining the characteristics of the y-axis grid lines.
+parameters defining the characteristics of the y-axis grid lines.. The components refer to the 
+color to draw the \code{grid} (at ticks) or \code \{finerid} (between ticks).
 }
 }
 \details{

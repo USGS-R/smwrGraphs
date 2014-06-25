@@ -30,7 +30,7 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
   ## label.abbr - indicator of the degree of abbreviation for labels
   ##    0 - best guess based on number of intervals
   ##    1 - shortest (single letter month)
-  ##    2 - standard abbreviation (3-letter month name)
+  ##    2 - standard abbreviation (USGS month name)
   ##    3 - full text
   ##
   time.range <- range(x)
@@ -165,7 +165,7 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
     } # end label.abbr == 0
     labels <- format(ticks, "%B")
     if(label.abbr == 2)
-      labels <- substring(labels, 1, 3)
+      labels <- month.USGS[labels]
     else if(label.abbr == 1)
       labels <- substring(labels, 1, 1)
     ## generate year labels
@@ -198,14 +198,16 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
       label2sep <- double(0)
     }
     else if(label.abbr == 2) {
-      labels <- format(ticks, "%b %d")
+      labels <- month.USGS[format(ticks, "%B")]
+      labels <- paste(labels,	format(ticks, "%d"), sep=" ")
       label2 <- format(ticks[-N], "%Y")
       label2pos <- tapply(as.double(as.Date(ticks[-N])), label2, mean) + 0.5
       label2 <- names(label2pos)
       label2sep <- double(0)
     }
     else { # must be 3
-      labels <- format(ticks, "%b %d, %Y")
+      labels <- month.USGS[format(ticks, "%B")]
+      labels <- paste(labels,	format(ticks, "%d, %Y"), sep=" ")
       label2 <- character(0)
       label2pos <- double(0)
       label2sep <- double(0)
@@ -234,12 +236,13 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
     ## convert back to POSIXt
     label2lab <- as.Date(label2pos, origin="1970-01-01")
     label2 <- switch(label.abbr,
-                     format(label2lab, format="%d/%m/%Y"),
-                     format(label2lab, format="%b %d, %Y"),
-                     format(label2lab, format="%B %d, %Y"))
+    								 format(label2lab, format="%d/%m/%Y"),
+                     {tmp <- month.USGS[format(label2lab, format="%B")]
+                      paste(tmp, format(label2lab, format="%d, %Y"), sep=" ")},
+    								 format(label2lab, format="%B %d, %Y"))
     label2sep <- as.double(as.Date(ticks[labels == "24H"]))
   } #end of label processing
-  ## Convert to days and fractional days if nec.
+## Convert to days and fractional days if nec.
   tick.range <- range(ticks)
   ticks <- numericData(ticks)
   ## labelposition at ticks by default
@@ -250,7 +253,7 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
     labelpos <- labelpos[-length(labelpos)] + diff(labelpos)/2
   }
   finegrid <- numericData(seq(tick.range[1], tick.range[2], by=minor))
-  return(list(ticks=ticks, finegrid=finegrid, labels=format(labels),
+  return(list(ticks=ticks, finegrid=finegrid, labels=as.vector(labels),
               labelpos=labelpos, range=range(ticks),
               label2=label2, label2pos=label2pos, label2sep=label2sep,
               style=style))

@@ -18,7 +18,7 @@ area.border = NA)
 list containing the current or those requested by the user.
 }
   \item{name}{
-the name in the explanation of the object plotted
+the name of the object plotted; used in the explanation.
 }
   \item{what}{
 what to plot, see \bold{Details}.

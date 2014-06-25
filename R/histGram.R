@@ -1,7 +1,7 @@
 # Create a plot set up to show data on multiple x- or y-axss
 #
 # Coding history:
-#    2012Oct16 DLLorenz Initial coding nad begin edits
+#    2012Oct16 DLLorenz Initial coding and begin edits
 #    2013Apr09 DLLorenz Added setGD 
 #
 
@@ -47,7 +47,7 @@ histGram.default <- function(x, breaks="Sturges", # data specs
   xax <- linearPretty(range(ret$breaks), TRUE, xlabels)
   if(Hist$type == "frequency") {
     if(any(is.na(yaxis.range)))
-      yax <- linearPretty(c(0, max(ret$counts)), FALSE, ylabels)
+      yax <- linearPretty(c(0, max(ret$counts)), FALSE, ylabels, extend.range=FALSE)
     else
       yax <- linearPretty(yaxis.range, TRUE, ylabels)
     freq <- TRUE
@@ -56,7 +56,7 @@ histGram.default <- function(x, breaks="Sturges", # data specs
   }
   else {
     if(any(is.na(yaxis.range)))
-      yax <- linearPretty(c(0, max(ret$density)), FALSE, ylabels)
+      yax <- linearPretty(c(0, max(ret$density)), FALSE, ylabels, extend.range=FALSE)
     else
       yax <- linearPretty(yaxis.range, TRUE, ylabels)
     freq <- FALSE

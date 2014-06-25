@@ -56,6 +56,7 @@ setExplan <- function(current, old=NULL) {
     txt <- list(text=current.name, cex=rep(par('cex'), length(current.name)))
     lines <- current # just use this one
     areas <- list(fill=current$area.color, border=current$area.border)
+    old <- list()
   }
   else {
     txt <- old$text
@@ -72,6 +73,7 @@ setExplan <- function(current, old=NULL) {
     areas <- old$areas
     areas$fill <- c(areas$fill, current$area.color)
     areas$border <- c(areas$border, current$area.border)
+    old$text <- old$lines <- old$ares <- old$current <- NULL
   }
-  return(list(text=txt, lines=lines, areas=areas, current=current))
+  return(c(list(text=txt, lines=lines, areas=areas, current=current), old))
 }

@@ -30,49 +30,52 @@ or numeric value controling the scaling. If character, then must be one of "auto
 "variance," or "interpolative." See \bold{Details}.
 }
   \item{obsPlot}{
-control information to plot the observations.
+control information to plot the observations.  See \code{\link{setPlot}} for a description
+of the parameters.
 }
   \item{varPlot}{
-control information to plot the variables.
+control information to plot the variables.  See \code{\link{setPlot}} for a description
+of the parameters. For \code{yPlot}, symbol can be "arrow" to indicate that an arrow is to be
+drawn from the origin.
 }
   \item{obsPlotLabels}{
-control information for the observation labels.
+control information for the observation labels. See \bold{Details}.
 }
   \item{varPlotLabels}{
-control information for the variable labels.
+control information for the variable labels. See \bold{Details}.
 }
   \item{ylabels}{
-set y-axis labels for \code{x} data.
+set y-axis labels for the observation data.
 }
   \item{xlabels}{
-set x-axis labels for \code{x} data.
+set x-axis labels for the observation data.
 }
   \item{ylabels2}{
-set y-axis labels for \code{y} data.
+set y-axis labels for the variable data.
 }
   \item{xlabels2}{
-set x-axis labels for \code{y} data.
+set x-axis labels for the variable data.
 }
   \item{xtitle}{
-x-axis title for \code{x} data.
+x-axis title for the observation data.
 }
   \item{ytitle}{
-y-axis title for \code{x} data.
+y-axis title for the observation data.
 }
   \item{xtitle2}{
-x-axis title for \code{y} data.
+x-axis title for the variable data.
 }
   \item{ytitle2}{
-y-axis title for \code{y} data.
+y-axis title for the variable data.
 }
   \item{caption}{
 the figure caption.
 }
   \item{margin}{
-set up the plot area margins
+set up the plot area margins.
 }
   \item{\dots}{
-not used, required for method function.
+not used, required for other methods.
 }
 }
 \details{
@@ -81,9 +84,21 @@ or a character string indicating a specific scaling. The options for the charact
 a plot where the observations retain their approximate relation with respect to Eucldiean distances and correponds to
 a numeric value of 1; "variance," which produces a plot where the cosine of the angle between the variable vectors is related
 to the correlation between the variables and correspondsd to a numeric value of 0; "symmetric," which tries to balance the range
-of values for observations and variables to goive a pleasing graph and corresponds to a numeric value of 0.5; or "Auto,"
+of values for observations and variables to give a pleasing graph and corresponds to a numeric value of 0.5; or "Auto,"
 which is the same as "variance." Another option for \code{Scale} is "interpolative," which produces a specialized axis scaling
-so that the approximate values of the variables can be obtained for each observation. It is not implemented in this version.
+so that the approximate values of the variables can be obtained for each observation. It is not implemented in this version.\cr
+
+The \code{obsPlotLabels} and \code{varPlotLabels} arguments must be tagged lists with these components:
+\describe{
+	\item{labels}{the labels. For \code{xPlotLabels}, "rownames" means use the row names from
+	\code{x} to generate the labels. For \code{yPlotLabels}, "colnames" means use the column names
+	from \code{y} to generate the labels. Otherwise a character vector of the labels.}
+  \item{dir}{the direction the label text is placed from the object.}
+  \item{size}{the size of the label text.}
+  \item{offset}{the distance the labels is placed relative to the object.}
+  \item{color}{the color of the label text.}
+}
+
 }
 \value{
 Information about the graph.

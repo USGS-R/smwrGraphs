@@ -36,7 +36,8 @@ the name of the smoothing function.
 additional parameters for the function names in \code{Smooth}.
 }
   \item{Plot}{
-parameters defining the characteristics of the plot.
+parameters defining the characteristics of the plot. See \code{\link{setPlot}} for a description
+of the parameters.
 }
   \item{current}{
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.

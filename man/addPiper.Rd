@@ -28,7 +28,8 @@ the anions for the x-, y-, and z-axes. Need not sum to 1 or 100.
 the coordinates for the internal piper diagram.
 }
   \item{Plot}{
-parameters defining the characteristics of the plot. 
+parameters defining the characteristics of the plot. See \code{\link{setPlot}} for a description
+of the parameters.
 }
   \item{current}{
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{piperPlot}.

@@ -11,11 +11,11 @@
 #    2010Nov15 DLLorenz Modified for R
 #    2011Jun17 DLLorenz Begin debug for minor ticks and other
 #    2011Oct24 DLLorenz Tweaks for package
-#    2011Oct24          This version.
+#    2014May20 DLLorenz Added dummy argument extend.range
 #
 
 logPretty <- function(x, hard=FALSE, labels="Auto", style='numeric',
-                      extend.pct=0) {
+                      extend.pct=0, extend.range=NA) {
   xclean <- x[is.finite(x)]
   xclean <- xclean[xclean>0]
   if (is.null(xclean))

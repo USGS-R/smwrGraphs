@@ -1,11 +1,13 @@
 \documentclass{article}
 \parskip 3pt
 \parindent 30pt
+\usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Graph Additions}
 %\VignetteDepends{USGSwsGraphs}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+\raggedright
+\parindent 30pt
 
 \title{Graph Additions}
 
@@ -13,14 +15,7 @@
 
 \maketitle
 
-These examples demonstrate how to add features to an existing graph. Adding a
-plot or a title to an existing graph is discussed in the graphsetup vignette.
-These general procedures apply to most high-level graphics functions within the
-USGSwsGraphs package. All of the examples use randomly generated sets of data.
-\textbf{NOTE:} to use any high-level gaphics function in the USGSwsGraphs
-package, you must first call a function to set up the graphics environment like
-\texttt{setPage} or \texttt{setPDF}, but these are not included here to use the
-graphics tools in \texttt{Sweave}.
+These examples demonstrate how to add features to an existing graph. Adding a plot or a title to an existing graph is discussed in the GraphSetup vignette. These general procedures apply to most high-level graphics functions within the USGSwsGraphs package. All of the examples use randomly generated sets of data. \textbf{NOTE:} to use any high-level gaphics function in the USGSwsGraphs package, you must first call a function to set up the graphics environment like \texttt{setPage} or \texttt{setPDF}, but these are not included here to use the graphics tools in \texttt{Sweave}.
 
 <<echo=TRUE>>=
 # Load the USGSwsGraphs package

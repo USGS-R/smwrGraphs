@@ -22,10 +22,19 @@ the upper limit of the error bar. Missing values are permitted but result in no 
 the lower limit of the error bar. Missing values are permitted but result in no bar.
 }
   \item{Bars}{
-parameters defining the characteristics of the error bars.
+parameters defining the characteristics of the error bars. See \bold{Details}.
 }
   \item{current}{
 the current plot information. Typically, this would be the output from one of the graph creation functions like \code{xyPlot}.
+}
+}
+\details{
+The \code{Bars} argument must be a tagged list with these components:
+\describe{
+	\item{name}{a name describing the data; used in the explanation.}
+	\item{cap}{the width of each cap on the error bar.}
+	\item{width}{the width of the lines drawn for the error bars.}
+	\item{color}{the name of the color to draw the error bars.}
 }
 }
 \value{

@@ -1,10 +1,14 @@
 \documentclass{article}
 \parskip 3pt
 \parindent 30pt
+\usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Line/Scatter Example}
 %\VignetteDepends{USGSwsGraphs}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
+\raggedright
+\parindent 30pt
 
 \title{Line/Scatter Examples}
 
@@ -96,7 +100,7 @@ docuementation for palette).
 setSweave("lsplot03", 6 ,6)
 # Accept the default colors for groups.
 AA.pl <- colorPlot(X, Y, color=Z)
-addExplanation(AA.pl, where="ul", title="")
+addExplanation(AA.pl, where="ul", title="", box.off=FALSE)
 # Required call to close PDF output graphics
 graphics.off()
 @

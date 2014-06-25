@@ -1,10 +1,14 @@
 \documentclass{article}
 \parskip 3pt
 \parindent 30pt
+\usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Probability Plot Examples}
 %\VignetteDepends{USGSwsGraphs}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
+\raggedright
+\parindent 30pt
 
 \title{Probability Plot Examples}
 
@@ -35,9 +39,9 @@ Xbig <- rnorm(100)
 \section{Empirical Distribution Function}
 
 The empirical distribution function describes the cumulative distribution given
-an emprical measure of the observations. The emprical measure is the step
+an empirical measure of the observations. The empirical measure is the step
 function that increases by 1/n for each of the sorted observations. This graph
-is often used to explore or describe the observations without descriing them in
+is often used to explore or describe the observations without describing them in
 the context of any distribution, like normal.
 <<echo=TRUE>>=
 # setSweave is a specialized function that sets up the graphics page for
@@ -61,12 +65,12 @@ cat("\\paragraph{}\n")
 \eject
 \section{Probability Plots} 
 
-Probability plots descibe the observed values in the context of a known
+Probability plots describe the observed values in the context of a known
 distribution. The most common, and default distribution for the
 \texttt{probPlot} function, is the normal distribution. Many other
 distributions are possible. Log-normally distributed data can be portrayed in
 either of two ways--either use set \texttt{yaxis.log} to \texttt{TRUE} and
-optionally provide the mean and standard deviations of the natural logarithems
+optionally provide the mean and standard deviations of the natural logarithms
 of the data or \texttt{yaxis.log} to \texttt{FALSE}, \texttt{distribution} to
 "lognormal" and provide the mean and standard deviations of the natural
 logarithms of the data. The first option is shown in figure 2..
@@ -88,7 +92,7 @@ cat("\\paragraph{}\n")
 \eject
 \section{The Q-normal Plot} 
 
-The Q-normal plot is related to the probabiltiy plot for normal distributions,
+The Q-normal plot is related to the probability plot for normal distributions,
 but uses quantiles of the normal distribution instead of probabilities. It is
 typically used for diagnostic plots to quickly indicate deviations from an
 assumption of normality.
@@ -133,11 +137,12 @@ cat("\\paragraph{}\n")
 
 The histogram describes the probability distribution given counts or the
 proportion of the data in bins along the range of the observations. The density
-of the data are protrayed as rectangles with fixed width and height
-proportional to the number of obsaervations within each bin. The histogram is
+of the data are portrayed as rectangles with fixed width and height
+proportional to the number of observations within each bin. The histogram is
 most useful for relatively large datasets because the appearance is sensitive
 the number in each bin, which can vary widely for small data sets. No
 assumption is made about the distribution.
+
 <<echo=TRUE>>=
 setSweave("probplot05", 6 ,6)
 histGram(Xbig)
@@ -150,5 +155,25 @@ cat("\\paragraph{}\n")
 @
 
 \textbf{Figure 5.} The histogram.
+\eject
+A frequent variation on the histogram is plotting the density curve on top of the histogram. That type of histogram requires the \texttt{type} component of the \texttt{Hist} argument be set to "density." Because density estimation generally extends the x-axis beyond the usual limits of histogram estimation, the first step should be to compute the density estimate and set the x-axis limits to match those from the density estimate.
 
+<<echo=TRUE>>=
+# Compute the density
+Xbig.den <- density(Xbig)
+range(Xbig.den$x)
+setSweave("probplot06", 6 ,6)
+# Set type to density and xaxis range to -4, 3.5 by setting breaks
+histGram(Xbig, breaks=seq(-4, 3.5, by=.5), Hist=list(type="density"))
+# Add the density line, the defaults all work so current arg not needed
+with(Xbig.den, addXY(x, y))
+# Required call to close PDF output graphics
+graphics.off()
+@
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{probplot06.pdf}\n")
+cat("\\paragraph{}\n")
+@
+
+\textbf{Figure 5.} The density histogram.
 \end{document}

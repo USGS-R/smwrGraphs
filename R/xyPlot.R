@@ -76,6 +76,8 @@ function(x, y, # data
       yax <- list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,
                   axis.rev=yaxis.rev, axis.labels=ylabels)
   }
+  if(!is.null(Plot$what) && Plot$what == "lines") #Suppress extension for lines and x-axis
+  	yax$extend.range <- FALSE
   yax <- do.call("setAxis", yax)
   y <- yax$data
   yax <- yax$dax
@@ -93,6 +95,8 @@ function(x, y, # data
       xax <- list(data=x, axis.range=xaxis.range, axis.log=xaxis.log,
                   axis.rev=FALSE, axis.labels=xlabels)
   }
+  if(!is.null(Plot$what) && Plot$what == "lines")
+  	xax$extend.range <- FALSE
   xax <- do.call("setAxis", xax)
   x <- xax$data
   xax <- xax$dax

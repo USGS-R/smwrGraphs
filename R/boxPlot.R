@@ -45,10 +45,10 @@ boxPlotStats <- function(x, Box, yaxis.log) {
   ##
   type <- match.arg(Box$type, c("tukey", "truncated", "simple", "extended"))
   ## The text to use for the explanation:
-  explain <- list(tukey=list(z=list(stats=matrix(c(-1.2, 0.1,.8, 1.5, 3.6),
+  explain <- list(tukey=list(z=list(stats=matrix(c(-1.2, -0.1,.8, 1.5, 3.6),
                                       ncol=1),
                                n=54, names="",
-                               out=-2.4, farout=-3.7,
+                               out=-2.6, farout=-3.9,
                                group=c(1, 1)),
                     labels=list(expression(bold("Number of values")),
                       list(expression(bold("Largest value within 1.5 times")),
@@ -67,7 +67,7 @@ boxPlotStats <- function(x, Box, yaxis.log) {
                       list(expression(paste(bold("Far-out value"),symbol("\276"),
                           "Value ", is >= 3, " times", sep='')),
                            "  the interquartile range beyond", "  either end of box")),
-                    values=c(4.5, 3.6, 1.5, .7, 0.1, -1.2, -2.4, -3.7),
+                    values=c(4.5, 3.6, 1.5, .7, -0.1, -1.2, -2.6, -3.9),
                     IQR=expression(bold("Interquartile\nrange"))),
                   truncated=list(z=list(stats=matrix(c(-3.0, -1.2 ,0, 1.5, 3.5),
                                           ncol=1),

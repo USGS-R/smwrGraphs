@@ -59,7 +59,7 @@ ecdfPlot.default <- function(x, group=NULL, # data specification
   ## Set up the axes and transform data
   if(dev.cur() == 1)
     setGD("ECDFPlot")
-  xax <- setAxis(x, xaxis.range, xaxis.log, FALSE, xlabels)
+  xax <- setAxis(x, xaxis.range, xaxis.log, FALSE, xlabels, extend.range=FALSE)
   if(is.null(group)) {
     x <- sort(xax$data)
     x <- c(x[1], x) # Duplicate the first observation to be a riser
@@ -77,7 +77,7 @@ ecdfPlot.default <- function(x, group=NULL, # data specification
     })
   }
   xax <- xax$dax
-  yax <- linearPretty(c(0,1), labels=ylabels)
+  yax <- linearPretty(c(0,1), hard=TRUE, labels=ylabels)
   ## Set up the plot
   margin.control <- setMargin(margin, yax)
   margin <- margin.control$margin

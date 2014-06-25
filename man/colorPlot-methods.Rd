@@ -31,6 +31,7 @@ control parameters of the plot
      name="Auto" means derive class names from the argument color,
       otherwise, must be a tagged list of color=name, ... (in which case
         the color tag is not used).
+     what can be only "points" or "lines" in the current version.
      color="Auto" means if color is double or dateLike create groups
        # of classes, otherwise create unique colors, alternate values
        are "Range" (treat like double), tagged list of group_name=color, and so forth,
