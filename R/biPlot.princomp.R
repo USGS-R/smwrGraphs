@@ -1,13 +1,68 @@
-# Create a biplot from a principal components analysis
-# This code creates biplots as decribed in Joliffe that correspond to those
-#  descriptions of how scale works
-#
-# Coding History:
-#    2010Mar18 DLLorenz Original coding, from the revised biplot.princomp code
-#    2011Apr15 DLLorenz Begin modifications for R
-#    2011Oct24          This version.
-#
-
+#' Biplot
+#' 
+#' Produce a biplot, which is a plot of two different types of data on the same
+#' graph.
+#' 
+#' The scaling between observations and variables is controlled by
+#' \code{Scale}, which can take any value between 0 and 1 or a character string
+#' indicating a specific scaling. The options for the character string are
+#' "distance," which produces a plot where the observations retain their
+#' approximate relation with respect to Eucldiean distances and correponds to a
+#' numeric value of 1; "variance," which produces a plot where the cosine of
+#' the angle between the variable vectors is related to the correlation between
+#' the variables and corresponds to a numeric value of 0; "symmetric," which
+#' tries to balance the range of values for observations and variables to give
+#' a pleasing graph and corresponds to a numeric value of 0.5; or "Auto," which
+#' is the same as "variance." Another option for \code{Scale} is
+#' "interpolative," which produces a specialized axis scaling so that the
+#' approximate values of the variables can be obtained for each observation. It
+#' is not implemented in this version.\cr
+#' 
+#' The \code{obsPlotLabels} and \code{varPlotLabels} arguments must be tagged
+#' lists with these components: \describe{ \item{labels}{the labels. For
+#' \code{xPlotLabels}, "rownames" means use the row names from \code{x} to
+#' generate the labels. For \code{yPlotLabels}, "colnames" means use the column
+#' names from \code{y} to generate the labels. Otherwise a character vector of
+#' the labels.} \item{dir}{the direction the label text is placed from the
+#' object.} \item{size}{the size of the label text.} \item{offset}{the distance
+#' the labels is placed relative to the object.} \item{color}{the color of the
+#' label text.} }
+#' 
+#' @param x an object of class "princomp" that has the information to to create
+#' a biplot.
+#' @param Which sequence of two numberis indicating which components to plot.
+#' @param Scale either a character string indicating the scaling option between
+#' observations and variables, or numeric value controling the scaling. If
+#' character, then must be one of "auto," "distance," "symmetric," "variance,"
+#' or "interpolative." See \bold{Details}.
+#' @param obsPlot control information to plot the observations.  See
+#' \code{\link{setPlot}} for a description of the parameters.
+#' @param varPlot control information to plot the variables.  See
+#' \code{\link{setPlot}} for a description of the parameters. For \code{yPlot},
+#' symbol can be "arrow" to indicate that an arrow is to be drawn from the
+#' origin.
+#' @param obsPlotLabels control information for the observation labels. See
+#' \bold{Details}.
+#' @param varPlotLabels control information for the variable labels. See
+#' \bold{Details}.
+#' @param ylabels set y-axis labels for the observation data.
+#' @param xlabels set x-axis labels for the observation data.
+#' @param ylabels2 set y-axis labels for the variable data.
+#' @param xlabels2 set x-axis labels for the variable data.
+#' @param xtitle x-axis title (also called x-axis caption) for the observation data.
+#' @param ytitle y-axis title (also called y-axis caption) for the observation data.
+#' @param xtitle2 x-axis title (also called x-axis caption) for the variable data.
+#' @param ytitle2 y-axis title (also called y-axis caption) for the variable data.
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @param \dots not used, required for other methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{biPlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{biPlot}}
+#' @keywords hplot
+#' @export
+#' @method biPlot princomp
 biPlot.princomp <- function(x, Which=1:2, # data
                             Scale='Auto',
                             obsPlot=list(name="observations", what='points', 
@@ -26,9 +81,11 @@ biPlot.princomp <- function(x, Which=1:2, # data
                             xtitle2='Auto', ytitle2='Auto', # axis titles
                             caption="", # caption
                             margin=c(NA, NA, NA, NA), ...) {
-  ## Arguments
-  ##  x is  a princomp object that has the information to to create a biplot
-  ##  ... are unused required arguments for method function
+	# Coding History:
+	#    2010Mar18 DLLorenz Original coding, from the revised biplot.princomp code
+	#    2011Apr15 DLLorenz Begin modifications for R
+	#    2014Jun25 DLLorenz Converted to roxygen
+	#
   if(length(Which) != 2)
     stop("length of choices must be 2")
   scores <- x$scores

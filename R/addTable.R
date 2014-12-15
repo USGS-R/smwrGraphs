@@ -1,17 +1,30 @@
-# Add a table (hopefully small) to a graph
-#
-# Coding history:
-#    2009Aug14 DLLorenz Original Coding and start of revisions
-#    2011Apr09 DLLorenz Begin modifications for R
-#    2011Aug03          This version.
-#
-
+#' Add Table to Graph
+#' 
+#' Adds a table to a graph.
+#' 
+#' \code{where} must be one of "ul," "ur," "ll," or "lr." The first letter is
+#' an abbreviation for upper or lower, the second letter is an abbreviation for
+#' left or right.
+#' 
+#' @param tbl the data frame or matrix to add to graph. All data must be of
+#' mode character, which allows the user to format the data rather than the
+#' automatic formatting done by R.
+#' @param where character specifying the corner the table should be placed, see
+#' \bold{Details}.
+#' @param title the title of the table.
+#' @return Nothing is returned.
+#' @note The table should be formatted by the user for anything other than
+#' right justification. The column names of the table are the column names of
+#' the matrix or data frame. The matrix gives the user mnore control over
+#' column names than does the data frame.
+#' @seealso \code{\link{addExplanation}}, \code{\link{addAnnotation}}
+#' @keywords aplot
+#' @export addTable
 addTable <- function(tbl, where='ll', title='') {
-  ## Arguments:
-  ##  tbl (character matrix or data.frame) the data to add to graph; 
-  ##    the matrix has more flexible column naming options.
-  ##  where (character scalar) in which corner should the tbale be placed?
-  ##  title (character scalar)  the title of the table
+	# Coding history:
+	#    2009Aug14 DLLorenz Original Coding and start of revisions
+	#    2011Apr09 DLLorenz Begin modifications for R
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## To compute where the point is for locating the table, the user needs 'usr'
   ## Adjust usr so the explanation is not exactly in the corner

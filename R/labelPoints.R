@@ -1,29 +1,35 @@
-
-                                        # add labels to x,y data
-#
-# Coding History:
-#    2008Jun28 DLLorenz Original coding and begin tweaks.
-#    2010Mar15 DLLorenz Added "C" dir, which centers the text
-#    2010Mar20 DLLorenz Added Color option
-#    2010Nov29 DLLorenz Conversion to R
-#    2011Sep01 DLLorenz Fixed typo
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Oct24          This version.
-#    
-
+#' Label Points
+#' 
+#' Label points on a graph.
+#' 
+#' 
+#' @param x the x-axis data. Missing values are permitted, but ignored.
+#' @param y the y-axis data. Missing values are permitted, but ignored.
+#' @param labels the text labels, must be the same length as x and y. Missing
+#' values are permitted, but ignored.
+#' @param dir the direction relative to the point to place the label.
+#' @param offset the relative offset from the point.
+#' @param size character size in points.
+#' @param color the color of the labels.
+#' @param current the cuurent plot controls. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @return A list containing \code{x}, \code{y}, and \code{labels}.
+#' @seealso \code{\link{addAnnotation}},, \code{\link{xyPlot}}
+#' @keywords aplot
+#' @export labelPoints
 labelPoints <- function(x, y, labels, # data
                         dir='E', offset=0.75, size=8, # placement control
                         color='black',
                         current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
                           xaxis.log=FALSE)) { # current plot parameters 
-  ## label points
-  ##   x - the x-axis data
-  ##   y - the y-axis data to plot
-  ##   labels - the text labels, must be the same length as x and y
-  ##   dir - the direction relative to the point to place the label
-  ##   offset - the relative offset from the point
-  ##   size - character size in points
-  ##   current - the current plot controls
+	# Coding History:
+	#    2008Jun28 DLLorenz Original coding and begin tweaks.
+	#    2010Mar15 DLLorenz Added "C" dir, which centers the text
+	#    2010Mar20 DLLorenz Added Color option
+	#    2010Nov29 DLLorenz Conversion to R
+	#    2011Sep01 DLLorenz Fixed typo
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   ## convert to usr units
   y <- transData(y, current$yaxis.log, current$yaxis.rev,

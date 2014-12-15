@@ -1,14 +1,56 @@
-# Surface plot
-#
-# Coding history:
-#    2014Jun09 DLLorenz Original Coding
-#
-###surfacePlot 
+#' Surface plot
+#' 
+#' Produce a surface plot to show three-dimensional data or a colored surface plot 
+#'to show four-dimensional data.
+#' 
+#' If \code{z.color} is a numeric matrix, then the values represent the average 
+#'surface of the grid defined by \code{x} and \code{y}, that is it represents the 
+#'value one-half way between each value of \code{x} and one-half way between each 
+#'value of \code{y}, the mid point. If it has the same dimensions as \code{z.surf}, 
+#'then the data are resampled by averaging each of the four corners to compute the 
+#'mid point value. The values of \code{z.color} are assigned using the controls 
+#'in \code{Surface}.\cr
+#'The \code{Surface} argument must be a tagged list with these components:
+#'\describe{
+#'  \item{name}{the name of \code{z.color} used in the explanation.}
+#'  \item{lineColor}{the color for each line on the surface. If "none," then 
+#'  lines are not drawn.}
+#'  \item{levels}{the levels of the surface colors. Maybe either a single numeric 
+#'  value that indicates the approximate number of levels, or a vector that 
+#'  indicates the exact breaks in the levels.}
+#'  \item{ramp}{the name of the color ramp. May be "gray" or "grey" for a gray 
+#'  scale or the prefix name of a function that creates a range of colors, see 
+#'  \code{\link{coolWarm.colors}} for examples.}
+#'}
+#'	
+#' @param pre the output from \code{preSurface}.
+#' @param z.color the surface color. Can be either a character string indicating the 
+#'color of the surface, or a numeric matrix. If a matrix, then must have 
+#'\code{length(x)} rows and \code{length(y)} columns or \code{length(x) - 1} rows 
+#'and \code{length(y)-1} columns. Missing values are permitted, but result 
+#'in blank areas on the surface. See \bold{Details}.
+#' @param Surface control parameters for the surface. See \bold{Details}.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param ztitle the z-axis title (also called z-axis caption).
+#' @param margin set up the plot area margins. To allocate space for a graph title, 
+#'set the third value to 1.5, otherwise all values should be \code{NA} or 0.
+#' @param caption the figure caption.
+#' @return Information about the graph.
+#' @note A call must be made to \code{setPage} or \code{setPDF} to set up the 
+#'graphics environment before calling \code{surfacePlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{persp}}, \code{\link{preSurface}}
+#' @keywords hplot
+#' @export surfacePlot
 surfacePlot <- function(pre, z.color="lightblue", # The data
 							 Surface=list(name="", lineColor="black",
 							 						 levels=20, ramp="coolWarm"),
 							 xtitle="", ytitle="", ztitle="",
 							 margin = c(NA, NA, NA, NA), caption="") { # Axis set up
+	# Coding history:
+	#    2014Jun09 DLLorenz Original Coding
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
 	# Extract some from pre
 	x <- pre$x
 	y <- pre$y

@@ -1,18 +1,16 @@
-# set up page for USGS illustrations in a PDF file for Sweave
-#
-# Coding history:
-#    2012Aug10 DLLorenz Original Coding from setPDF
-#    2012Nov01 DLLorenz Add options to produce circles in PDF output
-#    2012Nov01          This version.
-#
-
+#' @rdname setPage
+#' @export setSweave
 setSweave <- function(name, width, height, ...) {
-  ## Notes: This function returns the device number and name
+	# Coding history:
+	#    2012Aug10 DLLorenz Original Coding from setPDF
+	#    2012Nov01 DLLorenz Add options to produce circles in PDF output
+	#    2014Jun25 DLLorenz Converted to roxygen
+	#
   ## Set up defaults
   PDFFont <- "Helvetica-Narrow"
   ## set global variable sfor lineweights dpf
-  assign(".lwt_factor", 1.0, envir = .GlobalEnv)
-  assign(".pdf_graph", TRUE, envir = .GlobalEnv)
+  options(.lwt_factor = 1)
+  options(.pdf_graph = TRUE)
   fontSize <- 8
   font <- PDFFont
   fname <- paste(name, ".pdf", sep="")

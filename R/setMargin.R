@@ -1,28 +1,26 @@
-# Set up margins
-#
-# Coding History:
-#    2008Jun10 DLLorenz Original coding.
-#    2010Nov16 DLLorenz Modified for R (tweaks only)
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Dec04 DLLorenz Changed default top margin to 1.5 
-#    2012Dec04          This version.
-#
-
+#' Graph Margins
+#' 
+#' Set the margins for the plot area (support function).
+#' 
+#' 
+#' @param margin incomplete plot margin specification, generally computed by
+#' \code{setGraph}.
+#' @param yax the y-axis information from a "pretty" function, required if the
+#' second entry of \code{margin} is \code{NA}.
+#' @param aux.label second level of x-axis labels?
+#' @param caption account for figure caption?
+#' @return Complete plot margin specification.
+#' @seealso \code{\link{setPage}}, \code{\link{setGraph}},
+#' \code{\link{setLayout}}
+#' @keywords dplot
+#' @export setMargin
 setMargin <- function(margin, yax, aux.label=FALSE, caption=TRUE) {
-  ## margin is used to control set up of plot:
-  ## The margin is computed  and ticks drawn for any axis that has
-  ## an unset margin of NA (default).
-  ## If any are set 0 or positive, then it is assumed that the plot is set up
-  ## and tick are drawn, but no labels
-  ## If any are set negative, then it is assumed the the plot is set up
-  ## and ticks are not drawn. if the value is less than -100, that is treated
-  ## as though it was -0.
-  ## If 0 <= margin[1] < 3, then labels are suppressed
-  ##
-  ## yax is the output from the pretty function for the y-axis (required only
-  ##  is margin[2] is NA
-  ## aux.label is a flag indicating whether x-axis labels are needed in position 2
-  ## caption is a flag indicating whether or not a caption will be added.
+	# Coding History:
+	#    2008Jun10 DLLorenz Original coding.
+	#    2010Nov16 DLLorenz Modified for R (tweaks only)
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Dec04 DLLorenz Changed default top margin to 1.5 
+	#    2014Jun26 DLLorenz Converted to roxygen.
   ##
   if(is.na(margin[4])) { # right margin not set
     margin[4] <- 0.5

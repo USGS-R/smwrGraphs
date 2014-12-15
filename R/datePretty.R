@@ -1,37 +1,40 @@
-# Compute nice looking labels for a date/time axis
-#
-# Coding History:
-#    2006Feb17 DLLorenz Original coding.
-#    2007Apr06 DLLorenz Major overhaul
-#    2008May02 DLLorenz Name change
-#    2008May03 DLLorenz Tweaks
-#    2011Jan05 DLLorenz Begin modifications for R
-#    2013Jul02 DLLorenz More fine tuning
-#
-
+#' Pretty Axis
+#' 
+#' Construct information for making a "pretty" date axis.
+#' 
+#' 
+#' @param x date and time data
+#' @param major major tick interval, must be one of "hours," "days," "months,"
+#' "years," or "Auto," which will make an intelligent choice from those. "Auto"
+#' will also automatically change \code{tick.span}.
+#' @param minor minor tick interval, must be one of "min," "hours," "days,"
+#' "months," "years," or "Auto " which will make an intelligent choice from
+#' those, possibly adjusted by a scaling factor. Can also be formatted as an
+#' argument to \code{seq}, such as "15 mins" for 15-minute ticks.
+#' @param tick.span span between major labels. For example, with "years"
+#' option, tick.span=5 would generate labels like 1990, 1995, 2000 and so
+#' forth.
+#' @param style style of lables, must be one of "at," "between," or "Auto,"
+#' which selects the "best" style. "At" places the labels at the ticks and
+#' "between" places the labels between the major ticks.
+#' @param label.abbr indicator of the degree of abbreviation for labels\cr
+#' \tabular{lr}{ 0 \tab best guess based on number of intervals\cr 1 \tab
+#' shortest (single letter month, for example)\cr 2 \tab standard abbreviation
+#' (3-letter month name, for example)\cr 3 \tab full text\cr }
+#' @return information about the axis labels.
+#' @seealso \code{\link{timePlot}}
+#' @keywords dplot
+#' @export datePretty
 datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
                        style =c("Auto", "at", "between"), label.abbr=0) {
-  ## create ticks and labels for a time/date axis
-  ## args:
-  ## x - timeDate data
-  ## major - major tick interval
-  ##    "Auto" - make intelligent choice from these:
-  ##    "minutes", "hours", "days", "months", or "years."
-  ##    Any valid argument to the by argument of timeSeq() would also
-  ##    be acceptable to major
-  ##    "Auto" will also automatically change tick.span
-  ## minor - minor tick interval
-  ##    "Auto" - make intelligent choice based on major and tick.span
-  ##    Any valid argument to the by argument of timeSeq() would also
-  ##    be acceptable to minor. Can also be formatted as an argument to
-  ##    timeSpan(), such as "15m" for 15-minute ticks
-  ## tick.span - span between major labels. For example, with "years"
-  ##    option, tick.span=5 would generate labels like 1990, 1995, 2000, ...
-  ## label.abbr - indicator of the degree of abbreviation for labels
-  ##    0 - best guess based on number of intervals
-  ##    1 - shortest (single letter month)
-  ##    2 - standard abbreviation (USGS month name)
-  ##    3 - full text
+	# Coding History:
+	#    2006Feb17 DLLorenz Original coding.
+	#    2007Apr06 DLLorenz Major overhaul
+	#    2008May02 DLLorenz Name change
+	#    2008May03 DLLorenz Tweaks
+	#    2011Jan05 DLLorenz Begin modifications for R
+	#    2013Jul02 DLLorenz More fine tuning
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   time.range <- range(x)
   ## Convert time.range to POSIXlt and fix the time zone info for consistency
@@ -100,25 +103,23 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
         style <- "between"
       else
         style <- "at"
-    } else if(tick.span == 1)
-      style <- "between"
-    else
+    } else
       style <- "at"
   } # end of style logic
   ## Extend the range to include the last time
   time.range$sec <- c(0,0) # Assume that we can ignore seconds
-  if(major == 'hours') {
+  if(major == "hours") {
     if(time.range$min[2] > 0)
-      time.range[2] <- time.range[2] + as.difftime(1, units='hours')
+      time.range[2] <- time.range[2] + as.difftime(1, units="hours")
     time.range$min <- c(0,0)
   }
-  else if(major == 'days') {
+  else if(major == "days") {
     time.range$min <- c(0,0) # Assume that we can ignore minutes 
     if(time.range$hour[2] > 0)
-      time.range[2] <- time.range[2] + as.difftime(1, units='days')
+      time.range[2] <- time.range[2] + as.difftime(1, units="days")
     time.range$hour <- c(0,0)
   }
-  else if(major == 'months') {
+  else if(major == "months") {
     time.range$min <- c(0,0) # Assume that we can ignore minutes 
     if(time.range$mday[2] > 1 || time.range$hour[2] > 0) {
       ## Can't add 1 month, so need to do it manually
@@ -145,7 +146,7 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
     time.range$year <- years.spans  
   }
   ticks <- as.POSIXlt(seq(from=time.range[1], to=time.range[2], 
-                          by=paste(tick.span, major, sep=' ')))
+                          by=paste(tick.span, major, sep=" ")))
   ## build labels from ticks
   N <- length(ticks)
   if(major == "years") {
@@ -191,7 +192,7 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
     if(label.abbr == 1) {
       labels <- format(ticks, "%d")
       label2 <- paste(format(ticks[-N], "%B"),
-                      format(ticks[-N], "%Y"), sep=', ')
+                      format(ticks[-N], "%Y"), sep=", ")
       label2pos <- tapply(as.double(as.Date(ticks[-N])), label2, mean) + 0.5
       label2 <- names(label2pos)
       label2pos <- as.vector(label2pos)
@@ -215,15 +216,13 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
   }
   else { # major is hours
     if(style == "at") {
-      labels <- sub(pattern='^00', replacement='24', x=format(ticks, "%H"))
-      labels <- paste(labels, 'H', sep='')
+      labels <- sub(pattern="^00", replacement="24", x=format(ticks, "%H"))
+      labels <- paste(labels, ":00", sep="")
     } else
       labels <- format(ticks, "%H")
     label2 <- format(ticks[-N], "%d")
     ## need to preserve the fractional parts of a day
-    tickdate <- as.POSIXct(as.Date(ticks))
-    ticktime <- as.double(ticks - tickdate) / 86400
-    tickdate <- as.double(as.Date(tickdate)) + ticktime
+    tickdate <- numericData(ticks)
     label2pos <- tapply(tickdate[-N], label2, mean) + 1./48.
     if(label.abbr == 0) {
       if(N > 24*5) # first guess for shortest

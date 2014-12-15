@@ -1,14 +1,20 @@
-# Compute nice looking labels for a date/time axis
-#
-# Coding History:
-#    2013Jul02 DLLorenz Original coding.
-#
-
+#' Pretty Axis
+#' 
+#' Construct information for making a a nicely formatted date axis.
+#' 
+#' 
+#' @param x time difference data
+#' @param labels either "Auto," which lets the function decide how many labels,
+#' the approximate number of labels, or the actual labels to use.
+#' @return information about the axis labels.
+#' @seealso \code{\link{timePlot}}
+#' @keywords dplot
+#' @export timePretty
 timePretty <- function(x, labels="Auto") {
-  ## create ticks and labels for a time/date axis
-  ## args:
-  ##  x - difftime data
-  ##  labels - the number of labels, or the actual labels, or "auto" => 6
+	#
+	# Coding History:
+	#    2013Jul02 DLLorenz Original coding.
+	#    2014Jun27 DLLorenz Converted to roxygen
   ##
   time.range <- as.numeric(range(x))
   delt <- attr(x, "units")
@@ -52,5 +58,5 @@ timePretty <- function(x, labels="Auto") {
     hard <- TRUE
   } else
     hard <- FALSE # Let 'em float
-  return(linearPretty(time.range, hard=hard, labels=labels))
+  return(linearPretty(time.range, hard=hard, labels=labels, extend.range = FALSE))
 }

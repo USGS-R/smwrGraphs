@@ -1,44 +1,54 @@
-# USGS explanation
-#
-# Coding history:
-#    2008Jun12 DLLorenz Original Coding and start of revisions
-#    2010Nov30 DLLorenz Modified for R
-#    2011Jun17 DLLorenz Added shaded areas
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Feb27 DLLorenz Begin update to new pub standards for boxplots
-#    2012Sep18 DLLorenz Added long integers
-#    2012Oct26 DLLorenz Fill for box plot and other fixes
-#    2012Nov11 DLLorenz Fix for type == "none"
-#    2012Nov30 DLLorenz Begin tweaks for final/add stiff
-#    2013Feb13 DLLorenz Tweaks for box plot
-#    2013Aug19 DLLorenz Bug fix for warning tests.
-#    2014Apr18 DLLorenz Added boxing option, and fixed title
-#
-
+#' @title Add Explanation
+#' 
+#' @description Adds an explanation to the current graph or to a new graph.
+#' 
+#' @details The value for \code{where} must be one of "ul," "ur," "ll," "lr," 
+#'"cl," "cr," "uc," "lc,"
+#'"cc," or "new." If "new," then the explanation is placed in a new graph,
+#'otherwise, the first letter is an abbreviation for upper, lower, or center
+#'and the second letter is an abbreviation for left, right, or center. the
+#'explanation for a box plot, stiff diagram, or contour plot must be placed 
+#'in a new graph. If \code{box.off} is \code{TRUE}, then the explanation abuts
+#'the axes, otherwise it is placed slightly inset so that the text does not
+#'interfere with the ticks.
+#' 
+#' @param what a specialized object for an explanation, from the output from
+#'calls to the plotting functions
+#' @param where a description of where to put the explanation, see
+#'\bold{Details}.
+#' @param title the title of the explanation.
+#' @param box.off logical, if \code{TRUE}, then box off the explanation with a
+#'blank background and black box, otherwise the background is not blanked and no
+#'bounding box is drawn.
+#' @param margin the margin for a new graph
+#' @return Nothing is returned.
+#' @note The call to \code{addExplanation} should be the last in any sequence of
+#'calls to construct a figure becuase it can alter some graphical parameters.\cr
+#'Box plot explanations require fairly large graph areas because of the
+#'detail required for some types. In general, a graph about 4.5 inches high is
+#'needed for the Tukey type and 4 inches for other types and widths of 2.5 and
+#'2 inches respectively. If the graph area is smaller than required, then a
+#'warning is printed and the explanation may be unreadable.
+#' @keywords aplot
+#' @export addExplanation
 addExplanation <- function(what, where="new", 
 													 title=expression(bold(EXPLANATION)),
 													 box.off=where != "new",
                            margin=rep(0,4)) {
-  ## arguments
-  ## what is either an object for an explanation, or the output from calls
-  ## to the plotting functions See first executable statment
-  ##
-  ## what is either a list for the key() function or the list for a boxplot,
-  ##   conceivably, it could be something else too.
-  ##   If it is a list for key(), then it must contain these components:
-  ##    text - a list with the description
-  ##    lines - a list with these components, one element for each description
-  ##      col, lwd, type, lty, and pch
-  ##    rectangle - an optional list for shaded areas, if present, then
-  ##      the sum of the elements of this list and lines must equal the number
-  ##      of descriptions. This is not currently implemented.
-  ## where is a description of where to put the explanation
-  ##   if 'new' then create a new plot and center, otherwise
-  ##   'ul' for upper-left corner, 'ur' for upper-right corner,
-  ##   'll' for lower-left corner, 'lr' for lower-right corner,
-  ##   'cl' for center left,       'cr' for center right,
-  ##   'uc' for upper center,      'lc' for lower center, or
-  ##   'cc' for center.
+	# Coding history:
+	#    2008Jun12 DLLorenz Original Coding and start of revisions
+	#    2010Nov30 DLLorenz Modified for R
+	#    2011Jun17 DLLorenz Added shaded areas
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Feb27 DLLorenz Begin update to new pub standards for boxplots
+	#    2012Sep18 DLLorenz Added long integers
+	#    2012Oct26 DLLorenz Fill for box plot and other fixes
+	#    2012Nov11 DLLorenz Fix for type == "none"
+	#    2012Nov30 DLLorenz Begin tweaks for final/add stiff
+	#    2013Feb13 DLLorenz Tweaks for box plot
+	#    2013Aug19 DLLorenz Bug fix for warning tests.
+	#    2014Apr18 DLLorenz Added boxing option, and fixed title
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   if(!is.null(what$explanation))
     what <- what$explanation # extract from list created by calls
@@ -250,16 +260,25 @@ addExplanation <- function(what, where="new",
   ## Only do legend if length(Seq) > 0
   if(length(Seq) > 0L) {
   	if(box.off) {
+  		## Because this blanks out what is behind, no inset needed
   		legend(x=pos, legend=Etext[Seq], title=title, bty="o",
   					 fill=Fill[Seq], border=Border[Seq],
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
   					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq],
   					 bg="white", box.lwd=frameWt(), box.col="black", y.intersp=1.1)
-  	} else
+  	} else {
+  		## Calculate inset if title is not blank
+  		if(title != "" && substring(pos, 1L, 3L) == "top") {
+  			inset=c(0.05, 0.12)/par("pin")
+  		} else if(title == "" && substring(pos, 1L, 3L) == "top") {
+  			inset=c(0.05, 0.)/par("pin")
+  		} else
+  			inset=0.05/par("pin")
   		legend(x=pos, legend=Etext[Seq], title=title, bty="n",
-  					 fill=Fill[Seq], border=Border[Seq],
+  					 fill=Fill[Seq], border=Border[Seq], inset=inset,
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
   					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], y.intersp=1.1)
+  		
   }
   invisible(what)
 }

@@ -1,30 +1,73 @@
-# Plot x,y data 
-#
-# Coding History:
-#    2008May13 DLLorenz Original coding.
-#    2008Jun12 DLLorenz Start of revisions
-#    2010Nov15 DLLorenz Begin modifications for R
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Jan10 DLLorenz Allow labels=0 to suppress ticks and labels
-#    2012Mar23 DLLorenz dots for future methods
-#    2012Sep27 DLLorenz Made S4 generic--Note for generic methods that might ever 
-#                       require or use deparse(substitute(ARG)), those arguments 
-#                       must be in the call to setGeneric and ...; any other 
-#                       overriding defaults can be set in the method function!
-#    2012Nov14 DLLorenz Added signature "factor", "numeric"
-#    2012Nov15 DLLorenz Changed all defaults to "points"
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Plot Data
+#' 
+#' Create a line or scatter plot.
+#' 
+#' Setting \code{ylabels} or \code{xlabels} to 0 will suppress ticks and
+#' labels. That can be useful for relative axes or specialized labeling.
+#' 
+#' @name xyPlot
+#' @rdname xyPlot
+#' @aliases xyPlot xyPlot,numeric,numeric-method
+#'xyPlot,factor,numeric-method
+#' @param x the x-axis data
+#' @param y the y-axis data to plot
+#' @param Plot control parameters of the plot.
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.range set the range of the y-axis.
+#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.range set the range of the x-axis.
+#' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set up x-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @param xlabels.rotate rotate x-axis labels 90 degrees (perpendicular to the axis)?
+#' @param ... arguments for specific methods.
+#' @return Information about the graph
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{xyPlot}.
+#' @docType methods
+#' @section Methods: \describe{ 
+#' \item{signature(x = "numeric", y =
+#' "numeric")}{ Create a line or scatter plot from numeric x and
+#' y data. } 
+#' \item{signature(x = "factor", y ="numeric")")}{ Create a vertical
+#'dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
+#'}
+#' @seealso \code{\link{setPage}}, \code{\link{timePlot}},
+#' \code{\link{colorPlot}}
+#' @keywords methods hplot
+#' @exportMethod xyPlot
 setGeneric("xyPlot", function(x, y, Plot=list(),
                               yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),
                               xaxis.log=FALSE, xaxis.range=c(NA,NA),
                               ylabels=7, xlabels=7, xtitle="", ytitle="",
                               caption="", margin=c(NA, NA, NA, NA), ...)
-           standardGeneric("xyPlot"))
+           standardGeneric("xyPlot")
+					 # Coding History:
+					 #    2008May13 DLLorenz Original coding.
+					 #    2008Jun12 DLLorenz Start of revisions
+					 #    2010Nov15 DLLorenz Begin modifications for R
+					 #    2011Apr16 DLLorenz Added complete complement of args to setPlot
+					 #    2011Aug03 DLLorenz Added axis labeling info to current
+					 #    2011Oct24 DLLorenz Tweaks for package
+					 #    2012Jan10 DLLorenz Allow labels=0 to suppress ticks and labels
+					 #    2012Mar23 DLLorenz dots for future methods
+					 #    2012Sep27 DLLorenz Made S4 generic--Note for generic methods that might ever 
+					 #                       require or use deparse(substitute(ARG)), those arguments 
+					 #                       must be in the call to setGeneric and ...; any other 
+					 #                       overriding defaults can be set in the method function!
+					 #    2012Nov14 DLLorenz Added signature "factor", "numeric"
+					 #    2012Nov15 DLLorenz Changed all defaults to "points"
+					 #    2013Apr09 DLLorenz Added setGD 
+					 #    2014Jun27 DLLorenz Converted to roxygen
+					 )
 
+#' @rdname xyPlot
 setMethod("xyPlot", signature("numeric", "numeric"),
 function(x, y, # data
          Plot=list(name="", what="points", type="solid",
@@ -38,23 +81,6 @@ function(x, y, # data
          caption="", # caption 
          margin=c(NA, NA, NA, NA), ...) { # margin controls
   ## build a simple (single line or scatter) x-y plot
-  ## arguments:
-  ##   x - the x-axis data
-  ##   y - the y-axis data to plot
-  ##   Plot - parameters of the plot
-  ##   xaxis.log - log-transform the X axis
-  ##   xaxis.range - set the range of the x-axis
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set the range of the y-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
   ##
   ## create the plotting positions
   ## set up the axes
@@ -133,6 +159,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname xyPlot
 setMethod("xyPlot", signature("factor", "numeric"),
 function(x, y, # data
          Plot=list(name="", what="points", type="solid",
@@ -146,23 +173,6 @@ function(x, y, # data
          caption="", # caption 
          margin=c(NA, NA, NA, NA), xlabels.rotate=FALSE, ...) { # margin controls
   ## build a simple (single line or scatter) x-y plot
-  ## arguments:
-  ##   x - the x-axis data
-  ##   y - the y-axis data to plot
-  ##   Plot - parameters of the plot
-  ##   xaxis.log - log-transform the X axis
-  ##   xaxis.range - set the range of the x-axis
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set the range of the y-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
   ##
   ## Set up the axes
   xtitle <- xtitle # needed to 'set' names

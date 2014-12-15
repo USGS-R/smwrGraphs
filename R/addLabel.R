@@ -1,26 +1,36 @@
-# add specialized x-axis labels
-#
-# Coding History:
-#    2012Feb15 DLLorenz Original coding
-#    2012Sep18 DLLorenz Added long integers
-#    2012Nov14 DLLorenz Bug Fix
-#    2012Sep18          This version.
-#
-
+#' Axis Labels
+#' 
+#' Adds text in the margin for axis labels.
+#' 
+#' 
+#' @param label The text or expression to add to the graph.
+#' @param x the axis location in the correct user units.
+#' @param side the side to place \code{label}. Must be "bottom," "left," "top,"
+#' or "right." Only the first letter is necessary.
+#' @param size the sized of the text in points.
+#' @param distance the distance from the axis, in lines of text.
+#' @param justification defines the placement of the text relative to \code{x}
+#' if \code{orientation} is "parallel" and relative to \code{distance} if if
+#' \code{orientation} is "perdendicular." Must be one of "left," "center," or
+#' "right."
+#' @param orientation the orientation of the label relative to the axis. Must
+#' be either "parallel" or "perdendicular."
+#' @param current the current plot parameters. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @return Nothing is returned.
+#' @seealso \code{\link{mtext}}, \code{\link{plotmath}} for example
+#' expressions, \code{\link{xyPlot}}
+#' @keywords aplot
+#' @export addLabel
 addLabel <- function(label, x, side="bottom", size="Auto", distance=0.2,
                    justification="center", orientation="parallel",
                    current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
                      xaxis.log=FALSE)) { # current plot parameters 
-  ## Arguments:
-  ##  label (character scalar) the label text or expression
-  ##  x (numeric scalar) the x-axis placement of label
-  ##  side (character scalar) whihc side? "bottom" or "top"
-  ##  size (scale) the size of the text in points
-  ##  distance (numeric scalar) the distance from the axis to the text
-  ##   not in inches, but relative to text size
-  ##  justification - the justification of the label from the point
-  ##  orientation - "parallel" or "perpendicular" to the axis
-  ##  current - the current plot controls
+	# Coding History:
+	#    2012Feb15 DLLorenz Original coding
+	#    2012Sep18 DLLorenz Added long integers
+	#    2012Nov14 DLLorenz Bug Fix
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## convert to usr units
   side <- pmatch(side, c("bottom", "left", "top", "right"))

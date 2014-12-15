@@ -1,18 +1,22 @@
-# transform data for plotting, internal function
-#
-# Coding History:
-#    2008Jul03 DLLorenz Original coding.
-#    2010Nov20 DLLorenz Begin modifications for R
-#    2013Jun30          This version.
-#
-
+#' Transform Data
+#' 
+#' Transform numeric data to match any axis transform (support function).
+#' 
+#' 
+#' @param data data for axis
+#' @param logT log transform?
+#' @param revT reverse data?
+#' @param trans arbitrary transform function.
+#' @param transarg list of arguments to \code{trans}.
+#' @return A vector like \code{data} transformed to plot correctly on an axis.
+#' @seealso \code{\link{transPlot}}, \code{\link{probPlot}}
+#' @keywords dplot
+#' @export transData
 transData <- function(data, logT=FALSE, revT=FALSE, trans=as.vector, transarg=NULL) {
-  ## arguments:
-  ##   data - data for axis
-  ##   logT - do a log transform
-  ##   revT - reverse data
-  ##   trans - arbitrary transform function, like probability
-  ##   transarg - list of arguments to trans
+	# Coding History:
+	#    2008Jul03 DLLorenz Original coding.
+	#    2010Nov20 DLLorenz Begin modifications for R
+	#    2014Jun27 DLLorenz Converted to roxygen
   ##
   data <- numericData(data) # force to double
   if(is.na(logT)) { # NA means use transform function

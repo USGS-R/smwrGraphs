@@ -1,10 +1,31 @@
-# Create a plot set up to show data on multiple x- or y-axss
-#
-# Coding history:
-#    2012Oct16 DLLorenz Initial coding and begin edits
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Histogram
+#' 
+#' Create either a frequency of density histogram.
+#' 
+#' To set the x-axis range, you must specify numeric breaks that span the
+#' complete range of \code{x}.
+#' 
+#' @aliases histGram histGram.default
+#' @param x a numeric vector to create the histogram
+#' @param breaks any valid value for \code{\link{hist}}. See \bold{Details}.
+#' @param Hist Controls for the histogram.
+#' @param yaxis.range set the range for the y axis, the first value must be 0.
+#' @param ylabels the approximate number of labels for the y axis.
+#' @param xlabels the approximate number of labels for the x axis.
+#' @param xtitle x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption), 
+#'"Frequency" for a frequency histogram,
+#'"Density" for a density histogram.
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @param \dots additional arguments for other methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{histGram}.
+#' @seealso \code{\link{ecdfPlot}}
+#' @references Helsel and Hirsch, Chapter 2
+#' @keywords hplot
+#' @export histGram
 histGram <- function(x, breaks="Sturges", # data specs
                      Hist=list(), # plot cntrls
                      yaxis.range=c(NA,NA), # y-axis controls
@@ -13,17 +34,17 @@ histGram <- function(x, breaks="Sturges", # data specs
                      ytitle="Auto", # axis titles
                      caption="",# caption
                      margin=c(NA, NA, NA, NA), ...) { # margin control
-  ## Arguments:
-  ##  x (numeric vector or matrix) the data to create the histogram
-  ##  breaks, see ?hist
-  ##  Hist (list) Components of the histogram, type must be either "frequency" or
-  ##   "density," boundary must be either "lower" or "upper." The value for boundary
-  ##   indicates the cut point includes values strictly less than ("lower") or
-  ##   less than or equal to ("upper").
-  ## Note the language amy need revision so that it makes sense to non stats people.
+	# Coding history:
+	#    2012Oct16 DLLorenz Initial coding and begin edits
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
   UseMethod("histGram")
 }
 
+#' @rdname histGram
+#' @method histGram default
+#' @export
 histGram.default <- function(x, breaks="Sturges", # data specs
                              Hist=list(type="frequency", fill=FALSE, boundary="lower",
                                line.color="black", fill.color="gray80"), # plot cntrls

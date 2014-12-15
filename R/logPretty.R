@@ -1,21 +1,45 @@
-# Compute nice looking labels for a log axis
-#
-# Coding history:
-#    2000Dec   Peter Shaw Original Coding
-#    2005Jul14 DLLorenz Original dated coding for library
-#    2006Feb24 DLLorenz doc fix and generalize for any log-axis
-#    2006Mar09 DLLorenz Fixed ticks at every minor location
-#    2007Apr13 DLLorenz Fixed ticks and made automatic label
-#    2008May02 DLLorenz Name change and modify labels to allow specific values
-#    2008May03 DLLorenz Tweaks
-#    2010Nov15 DLLorenz Modified for R
-#    2011Jun17 DLLorenz Begin debug for minor ticks and other
-#    2011Oct24 DLLorenz Tweaks for package
-#    2014May20 DLLorenz Added dummy argument extend.range
-#
-
+#' Pretty Axis
+#' 
+#' Construct information for making a nicely formatted log-scale numeric axis.
+#' 
+#' 
+#' @param x data defining the range to be plotted on the axis. Missing value
+#' are permitted, but ignored.
+#' @param hard use the minimum and maximum of \code{x} as the fixed range of
+#' the axis?
+#' @param labels either "Auto," which lets the function decide how many labels,
+#' the approximate number of labels, or the actual labels to use.
+#' @param style a character string indicating the style of the axis labels if
+#' they are not specifically listed in \code{labels}.
+#' @param extend.pct extend the axis range by \code{extend.pct}. Only valid
+#' when \code{hard} is FALSE.
+#' @param extend.range if \code{TRUE}, then extend the data range by a bit to
+#' avoid plotting on axis. Otherwise do not extend the data range. Only valid
+#' when \code{hard} is FALSE; Ignored in \code{logPretty}
+#' @return Information about the axis lables.
+#' @seealso \code{\link{areaPlot}}, \code{\link{boxPlot}},
+#' \code{\link{colorPlot}}, \code{\link{areaPlot}}, \code{\link{dotPlot}},
+#' \code{\link{ecdfPlot}}, \code{\link{probPlot}}, \code{\link{qqPlot}},
+#' \code{\link{scalePlot}}, \code{\link{splomPlot}}, \code{\link{timePlot}},
+#' \code{\link{xyPlot}}
+#' @keywords dplot
+#' @export logPretty
 logPretty <- function(x, hard=FALSE, labels="Auto", style='numeric',
                       extend.pct=0, extend.range=NA) {
+	# Coding history:
+	#    2000Dec   Peter Shaw Original Coding
+	#    2005Jul14 DLLorenz Original dated coding for library
+	#    2006Feb24 DLLorenz doc fix and generalize for any log-axis
+	#    2006Mar09 DLLorenz Fixed ticks at every minor location
+	#    2007Apr13 DLLorenz Fixed ticks and made automatic label
+	#    2008May02 DLLorenz Name change and modify labels to allow specific values
+	#    2008May03 DLLorenz Tweaks
+	#    2010Nov15 DLLorenz Modified for R
+	#    2011Jun17 DLLorenz Begin debug for minor ticks and other
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014May20 DLLorenz Added dummy argument extend.range
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
   xclean <- x[is.finite(x)]
   xclean <- xclean[xclean>0]
   if (is.null(xclean))

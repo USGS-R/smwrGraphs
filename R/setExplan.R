@@ -1,17 +1,39 @@
-# set up coding for explanation
-#
-# Coding History:
-#    2008Jun13 DLLorenz Original coding and start of revisions
-#    2010Nov16 DLLorenz Modified for R (symbol recoding)
-#    2011Jun17 DLLorenz Added shaded areas
-#    2012Nov01 DLLorenz Add options to produce circles in PDF output
-#    2012Nov01          This version.
-#
-
+#' Explanation
+#' 
+#' Adds the current plot information to explanation information (support
+#' function).
+#' 
+#' 
+#' @param current the current plot information.
+#' @param old existing explanation information.
+#' @return A list having four components:\cr \item{text}{a list having two
+#' components:} \+ \item{text}{the description in the explanation, derived from
+#' the \code{name} component in \code{Plot}} \+ \item{cex}{the size of the
+#' \code{text} to write in the explanation}
+#' 
+#' \item{lines}{a list having seven components and controloing both lines and
+#' points:} \+ \item{type}{the type of plot (specifying points, lines, and so
+#' forth)} \+ \item{lwd}{the line weight} \+ \item{lty}{the line type} \+
+#' \item{pch}{the symbol} \+ \item{csi}{the size of the symbol in inches} \+
+#' \item{cex}{the }the size of the symbol relative to character size \+
+#' \item{col}{the color of the plot}
+#' 
+#' \item{areas}{a list having two components:} \+ \item{fill}{the color of the
+#' fill area} \+ \item{borders}{the color of the border}
+#' 
+#' \item{current}{a list like \code{current} with the defaults set} Each entry
+#' in \code{text} must have a corresponding entry in \code{lines} and
+#' \code{areas}.
+#' @seealso \code{\link{setPlot}}
+#' @keywords dplot
+#' @export setExplan
 setExplan <- function(current, old=NULL) {
-  ## Set defaults before calling setExplan
-  ## The arguments to keys must be text and lines
-  ## rectangles may be added at a future time
+	# Coding History:
+	#    2008Jun13 DLLorenz Original coding and start of revisions
+	#    2010Nov16 DLLorenz Modified for R (symbol recoding)
+	#    2011Jun17 DLLorenz Added shaded areas
+	#    2012Nov01 DLLorenz Add options to produce circles in PDF output
+	#    2014Jun26 DLLorenz Converted to roxygen.
   ##
   ## Define the variables
   ltypes <- c(1,2,3)
@@ -29,11 +51,11 @@ setExplan <- function(current, old=NULL) {
   ## Get colors and tweak for PDF output for points
   ## See https://stat.ethz.ch/pipermail/r-help/2007-October/144598.html
   symColor <- current$color
-  if(exists(".pdf_graph"))
-    if(lineType == "p" && get(".pdf_graph")) {
-      symColor <- col2rgb(symColor)
-      symColor <- rgb(t(symColor), alpha=254, maxColorValue=255)
-    }
+  if(!is.null(.pdg_graph <- options(".pdf_graph")$.pdf_graph))
+  	if(lineType == "p" && .pdf_graph) {
+  		symColor <- col2rgb(symColor)
+  		symColor <- rgb(t(symColor), alpha=254, maxColorValue=255)
+  	}
   Filled <- current$filled
   ## Compute symbol size
   ## The nominal factor to convert character size to symbol sizes 

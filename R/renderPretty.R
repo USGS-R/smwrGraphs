@@ -1,5 +1,29 @@
-# label the axes
-#
+#' Label Axes
+#' 
+#' Adds ticks, labels, or grids to an axis (support functions).
+#' 
+#' @name renderPretty
+#' @rdname renderPretty
+#' @aliases renderX renderY ticks.render
+#' @param pretty the output from one of the "pretty" functions.
+#' @param bottom control parameters for the bottom x axis.
+#' @param top control parameters for the top x axis.
+#' @param bottitle the title for the bottom x axis.
+#' @param toptitle the title for the top x axis.
+#' @param caption the figure caption.
+#' @param left control parameters for the left y axis.
+#' @param right control parameters for the right y axis.
+#' @param lefttitle the title for the left y axis.
+#' @param righttitle the title for the right y axis.
+#' @param arg1 control parameters for the tick locations.
+#' @param side the number of the axis, 1 is bottom, 2 is left, and so forth.
+#' @param lwd the line weight for the ticks.
+#' @return Nothing is returned.
+#' @keywords aplot
+#' @export ticks.render
+ticks.render <- function(arg1, side, lwd)
+  axis(side=side, at=arg1$at, labels=FALSE, tick=TRUE, line=NA, lwd=0,
+       lwd.ticks=lwd, tck=arg1$in.length, family="USGS")
 # Coding History:
 #    2007Apr10 DLLorenz Original coding.
 #    2008May06 DLLorenz Begin Tweaks 
@@ -7,12 +31,10 @@
 #    2011Oct24 DLLorenz Tweaks for package
 #    2013Mar29 DLLorenz Suppress axis title if inside
 #    2014Apr21 DLLorenz level 1 labels 7 pt, level 2 8 pt and titles 9 pt
-#
+#    2014Jun26 DLLorenz Converted to roxygen
 
-ticks.render <- function(arg1, side, lwd)
-  axis(side=side, at=arg1$at, labels=FALSE, tick=TRUE, line=NA, lwd=0,
-       lwd.ticks=lwd, tck=arg1$in.length, family="USGS")
-
+#' @rdname renderPretty
+#' @export renderY
 renderY <- function(pretty, left=list(ticks=TRUE, labels=TRUE, grid=FALSE,
                               finegrid=FALSE),
                     right=list(ticks=TRUE, labels=FALSE, grid=FALSE,
@@ -80,16 +102,18 @@ renderY <- function(pretty, left=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   if(!is.character(lefttitle) || lefttitle != "") {
     lineoff <- par("mar")[2L] - 1.7
     if(lineoff > 0)
-      mtext(text=lefttitle, side=2L, line=lineoff, padj=0, las=0, family="USGS", cex=9/8)
+      mtext(text=lefttitle, side=2L, line=lineoff, padj=0, las=0, family="USGS", cex=1)
   }
   if(!is.character(righttitle) || righttitle != "") {
     lineoff <- par("mar")[4L] - 1.7
     if(lineoff > 0)
-      mtext(text=righttitle, side=4L, line=lineoff, padj=0, las=0, family="USGS", cex=9/8)
+      mtext(text=righttitle, side=4L, line=lineoff, padj=0, las=0, family="USGS", cex=1)
   }
   invisible()
 }
 
+#' @rdname renderPretty
+#' @export renderX
 renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
                               finegrid=FALSE, angle=0),
                     top=list(ticks=TRUE, labels=FALSE, grid=FALSE, finegrid=FALSE,
@@ -176,20 +200,22 @@ renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
   ##
   ## remember that line=1 offsets for cex=1.0
   ## if label 2 and a request to draw labels, font size is 8
+  cex <- 1
   if(!is.null(pretty$label2pos) && length(pretty$label2pos) > 0) {
     if(!is.null(bottom$labels) && bottom$labels) {
       mtext(text=pretty$label2, side=1L, at=pretty$label2pos,
-            line=1.2, family="USGS")
+            line=1.2, family="USGS", cex=cex)
+      cex <- 9/8 # increment for title
     }
     ## do not draw the separator--let the illustrator do it
   }
   lineoff <- par("mar")[1L] - 2.1
   if(!is.character(bottitle) || bottitle != "")
     if(lineoff > 0)
-      mtext(text=bottitle, side=1L, line=lineoff, family="USGS", cex=9/8)
+      mtext(text=bottitle, side=1L, line=lineoff, family="USGS", cex=cex)
   if(!is.character(toptitle) || toptitle != "")
     if(lineoff > 0)
-      mtext(text=toptitle, side=3L, line=1.2, family="USGS", cex=9/8)
+      mtext(text=toptitle, side=3L, line=1.2, family="USGS", cex=1)
   if(!is.character(caption) || caption != "")
     addCaption(caption)
   invisible()

@@ -152,7 +152,7 @@ piperPlot(xCat=tmp.ca,
 					xAn.title=tmp.xan,
 					yAn.title=tmp.yan)
 } else {
-	tmp.grp <- tmp.dsn[[tmp.grp]]
+	tmp.grp <- as.character(tmp.dsn[[tmp.grp]])
 	if(tmp.color == "") {
 		tmp.color <- setColor(tmp.grp)
 	} else

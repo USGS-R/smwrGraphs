@@ -1,25 +1,83 @@
-# condition a plot
-#
-# Coding history:
-#    2012Nov01 DLLorenz Original scratch idea
-#    2013Mar29 DLLorenz Added to package
-#
-
+#' Conditioned Graphs
+#' 
+#' Facilitates producing a series of graphs conditioned by a grouping variable.
+#' 
+#' Graphs are created by executing \code{plot.call} for each unique value in
+#' the variable specified by \code{group}. The columns and rows are set by
+#' \code{num.cols} and \code{num.rows}. If both are set to missing \code{NA},
+#' then each page contains 1 graph, and the graphics set up should provide for
+#' mulitple pages. If one of \code{num.cols} or \code{num.rows} is set to a
+#' numeric value, the other is calculated from the number of graphs so that all
+#' graphs would be displayed on a single page. If both \code{num.cols} and
+#' \code{num.rows} are set to numeric values, then each page would contain a
+#' maximum of \code{num.cols} times \code{num.rows} and multiple pages would be
+#' needed if that were less than the total number of graphs.\cr
+#' 
+#' The order of the graphs is controlled by the type of \code{group}. If
+#' \code{group} is a factor, then the order is set be the order of the levels,
+#' otherwise the order is set by the order from \code{unique}.
+#' 
+#' @param plot.call either a simple call to a graphics function or a sequence
+#' of calls enclosed in curly braces({})
+#' @param data the data.frame containing the variables used in \code{plot.call}
+#' and \code{group}.
+#' @param group a character string identifying the grouping variable in
+#' \code{data}.
+#' @param format the orientation of the graphs. If "table," then the graphs are
+#' created beginning in the upper-left hand corner. If "grid," then the graphs
+#' are created beginning in the lower-left See \bold{Details}. hand corner.
+#' @param num.cols the number of columns on each page. See \bold{Details}.
+#' @param num.rows the number of rows on each page. See \bold{Details}.
+#' @param explanation where to place an explanation if necessary. See
+#' \code{\link{setLayout}} for details.
+#' @param yleft the value for the left margin for the left-hand column. Must be
+#' large enough for the labels and title.
+#' @param share character, if \code{share} contains "x", then the code in 
+#'\call{plot.call} is set up to share x-axes; if \code{share} contains "y", 
+#'then the code in \call{plot.call} is set up to share y-axes. The default is
+#'not to share either axes.
+#' @param group.name a character string to prepend to each value in
+#' \code{group} to create the graph title.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @return The value returned by \code{plot.call} is returned invisibly. If
+#' used correctly, it could be used to add an explanation.
+#' @note This function is desgined to facilitate the production of conditioned
+#' graphs, but may not render each collection completely. For example, graphs
+#' arranged in table format will not have x-axis labels for incomplete
+#' columns.\cr
+#' 
+#' A call must be made to \code{setPage} or \code{setPDF} to set up the
+#' graphics page before calling \code{condition}. The returned value can be
+#' used to create an explanation, if desrired. if(\code{explanation} is not
+#' \code{NULL}, then the graph is set to the explanation and there is no need
+#' to call \code{setGraph} to set up the explanation.\cr
+#' 
+#' The called plotting function must set the \code{margin} argument to
+#' \code{.margin}. See the demos for examples.
+#' @seealso \code{\link{setLayout}}, \code{\link{setPage}},
+#' \code{\link{setPDF}}, \code{\link{unique}}
+#' @references Cleveland, W.S., 1993, Visualizing data: Summit, New Jersey,
+#' Hobart Press, 360 p.
+#' @keywords hplot
+#' @examples
+#' 
+#' # See the Coplot demos for examples
+#' .pager <- options("pager")
+#' options(pager="console")
+#' demo(package="USGSwsGraphs")
+#' options(.pager)
+#' 
+#' @export condition
 condition <- function(plot.call, data, group, format="grid",
                       num.cols=NA, num.rows=NA , explanation=NULL,
-                      yleft=3.5, group.name="",
+                      yleft=3.5, share="", group.name="",
                       xtitle="", ytitle="", caption="") {
-  ## Arguments:
-  ##  plot.call (expression using USGS graphics calls)
-  ##  data (data.frame) the dataset to use as a source for the variables
-  ##     in plot.call and group
-  ##  group (factor) how to split the data for each plot.call
-  ##  format (character) how to arrange the graphs:
-  ##   "table" start in ul
-  ##   "grid" start in ll
-  ##  num.cols, num.rows, only one should be specified, the other
-  ##   inferred from the number of graphs (levels in group)
-  ##  explanation, how to set up the explanation
+	# Coding history:
+	#    2012Nov01 DLLorenz Original scratch idea
+	#    2013Mar29 DLLorenz Added to package
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## Get the group data
   ## This works if group is expressed as a name
@@ -41,12 +99,14 @@ condition <- function(plot.call, data, group, format="grid",
   else if(!is.na(num.cols) && is.na(num.rows)) # ditto
     num.rows <- (N + num.cols - 1) %/% num.cols
   GrMax <- num.cols * num.rows
-  shx <- 1.1
-  if(num.rows == 1L)
-    shx <- -1
-  shy <- 1.1
-  if(num.cols == 1L)
-    shy <- -1
+  shx <- -1
+  if(num.rows > 1L && share %cn% "x") {
+    shx <- 1.1
+  }	
+  shy <- -1
+  if(num.cols > 1L && share %cn% "y") {
+    shy <- 1.1
+  }
   Grkey <- GrMax - num.cols + 1L
   ToDo <- 0L
   Fig <- par("fig")

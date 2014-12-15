@@ -1,23 +1,21 @@
-# set up page for USGS illustrations in a PDF file
-#
-# Coding history:
-#    2011Jan26 DLLorenz Original Coding from setPage
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Nov17 DLLorenz Bug fixes for pdfFonts call and layout
-#    2012Sep12 DLLorenz Changed buffer around the graph to .1 inch for custom
-#                       size to facilitate making graphs fill the page as much
-#                       as possible.
-#    2012Nov01 DLLorenz Add options to produce circles in PDF output
-#    2012Nov01          This version.
-#
-
+#' @rdname setPage
+#' @export setPDF
 setPDF <- function(layout="portrait", basename="USGS", multiplefiles=FALSE) {
-  ## Notes: This function returns the device number and name
+	# Coding history:
+	#    2011Jan26 DLLorenz Original Coding from setPage
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2011Nov17 DLLorenz Bug fixes for pdfFonts call and layout
+	#    2012Sep12 DLLorenz Changed buffer around the graph to .1 inch for custom
+	#                       size to facilitate making graphs fill the page as much
+	#                       as possible.
+	#    2012Nov01 DLLorenz Add options to produce circles in PDF output
+	#    2014Jun26 DLLorenz Converted to roxygen.
+	#
   ## Set up defaults
   PDFFont <- "Helvetica-Narrow"
   ## set global variables for lineweights and pdf
-  assign(".lwt_factor", 1.0, envir = .GlobalEnv)
-  assign(".pdf_graph", TRUE, envir = .GlobalEnv)
+  options(.lwt_factor = 1)
+  options(.pdf_graph = TRUE)
   fontSize <- 8
   font <- PDFFont
   if(class(layout) == "list") { # custom

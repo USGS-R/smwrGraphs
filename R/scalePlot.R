@@ -1,15 +1,34 @@
-# Plot x,y data, fixing the y/x scaling
-#
-# Coding History:
-#    2008May13 DLLorenz Original coding.
-#    2008Jun12 DLLorenz Start of revisions
-#    2010Nov15 DLLorenz Begin modifications for R
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Scale Plot
+#' 
+#' Produce a graph controling aspect ratio of the x- and y-axes.
+#' 
+#' The \code{scale} argument sets the scaling ratio of the y-axis to the
+#' x-axis. For latitude and longitude data, set the scale to
+#' 1/cos(midlat/180*pi), where midlat is the midrange of the latitude.
+#' 
+#' @param x the x-axis data.
+#' @param y the y-axis data.
+#' @param scale the y/x ratio. See \bold{Details}.
+#' @param Plot control parameters of the plot.
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.range set the range of the y axis.
+#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.range set the range of the x axis.
+#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin of the plot area.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{scalePlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}
+#' @keywords hplot
+#' @export scalePlot
 scalePlot <- function(x, y, # data
                       scale=1, 
                       Plot=list(name="", what='lines', type='solid',
@@ -22,25 +41,15 @@ scalePlot <- function(x, y, # data
                       ytitle=deparse(substitute(y)), # axis titles
                       caption='', # caption 
                       margin=c(NA, NA, NA, NA)) { # margin controls
-  ## build a simple (single line or scatter) x-y plot
-  ## arguments:
-  ##   x - the x-axis data
-  ##   y - the y-axis data to plot
-  ##   scale (numeric scalar) the y/x ratio
-  ##   Plot - parameters of the plot
-  ##   xaxis.log - log-transform the X axis
-  ##   xaxis.range - set the range of the x-axis
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set the range of the y-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
+	# Coding History:
+	#    2008May13 DLLorenz Original coding.
+	#    2008Jun12 DLLorenz Start of revisions
+	#    2010Nov15 DLLorenz Begin modifications for R
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   ## create the plotting positions
   ## set up the axes

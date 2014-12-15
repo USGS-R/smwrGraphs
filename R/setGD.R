@@ -1,15 +1,9 @@
-# quick set up for graphics page
-#
-# Coding history:
-#    2013Apr09 DLLorenz Original Coding
-#
-
+#' @rdname setPage
+#' @export setGD
 setGD <- function(name="USGS") {
-  ## Notes: This function is designed to set up a square garphics
-  ## page. It is intended for a quick page setup for any function
-  ## that needs one rather than for general use. It can also be
-  ## used to set up a page to ensure that the environment is
-  ## set up correctly.
+	# Coding history:
+	#    2013Apr09 DLLorenz Original Coding
+	#    2014Jun26 DLLorenz Converted to roxygen.
   ##
   ## Protect against overridden default graphics device
   if(exists("windows", mode="function")) 

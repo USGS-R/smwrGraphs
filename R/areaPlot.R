@@ -1,12 +1,24 @@
-# Create an area plot
-#
-# Coding history:
-#    2011Jun14 DLLorenz Initial coding
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Shaded Area Plot
+#' 
+#' Produces an plot where the area between lines is filled with color.
+#' 
+#' 
+#' @param x x-axis coordinates in increasing order.
+#' @param y a numeric matrix of y-axis coordinates.
+#' @param Areas parameters controlling the areas. See \bold{Details}.
+#' @param yaxis.log logical: log transform y axis?
+#' @param yaxis.range set y-axis range.
+#' @param xaxis.log logical: log transform x axis?
+#' @param xaxis.range set x-axis range.
+#' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set up x-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the caption for the graph.
+#' @param margin set up the plot area margins.
+#' @export areaPlot
 areaPlot <- function(x, y, # data specs
                      Areas=list(name="Auto", fillDir="between", base="Auto",
                        lineColor="black", fillColors="pastel"), # Area controls
@@ -17,13 +29,12 @@ areaPlot <- function(x, y, # data specs
                      ytitle="", # axis titles, blank by default
                      caption="",# caption
                      margin=c(NA, NA, NA, NA)) { # margin control
-  ## Arguments:
-  ##  x (numeric vector) x-axis coordinates in increasing order
-  ##  y (numeric matrix) y-axis coordinates
-  ##  Areas (tagged list) name, "Auto" (derive names from y colnames or
-  ##    names of areas; fillDir, "between" or "under"; lineColor, color
-  ##    of lines; fillColor, either a name of a color sequence generator or
-  ##    color names for each area.
+	# Coding history:
+	#    2011Jun14 DLLorenz Initial coding
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## Set defaults for Areas
 	Areas <- setDefaults(Areas, name="Auto", fillDir="between", 

@@ -1,28 +1,30 @@
-# Compute nice looking labels for a discrete value axis
-#
-# Coding History:
-#    2011Jun22 DLLorenz Original coding.
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Oct24          This version.
-#
-
+#' Pretty Axis
+#' 
+#' Construct information for making a nicely formatted axis for discrete data.
+#' 
+#' 
+#' @param x the discrete data values.
+#' @param orientation the orientation of the data in \code{x}.\cr \tabular{lr}{
+#' "table" \tab first in sequence at top (ends on right if x-axis)\cr "grid"
+#' \tab first in sequence at bottom \cr }
+#' @param order the oorder of the data in \code{x}.\cr \tabular{lr}{ "none"
+#' \tab accept order as is\cr "ascending" \tab sort in ascending alphabetical
+#' order\cr "descending" \tab sort in descending alphabetical order\cr named
+#' vector \tab sort by values (largest value at top if orientation is
+#' "table")\cr }
+#' @param label.abbr crate abbreviations for \code{x}?
+#' @param offset amount to offset the range, generally 0.5 or 1. The range of
+#' the data is from 1 to the number of elements in in \code{x}.
+#' @return Information about the axis labels
+#' @seealso \code{\link{dotPlot}}
+#' @keywords dplot
+#' @export namePretty
 namePretty <- function(x, orientation="table", order="none", label.abbr=FALSE,
                        offset=0.5) {
-  ## Arguments:
-  ## x (character or factor data) discrete data
-  ## orientation (discrete value)
-  ##    "table" - first in sequence at top (ends on right if x-axis)
-  ##    "grid" - first in sequence at bottom 
-  ## order (many choices)
-  ##    "none" - accept order as is
-  ##    "ascending" - sort in ascending alphabetical order
-  ##    "descending" - sort in descending alphabetical order
-  ##    named vector - sort by values (largest value at top if orientation is
-  ##      "table")
-  ##    character vector - put inot that order
-  ## label.abbr (logical scalar)
-  ##    F - no abbreviations
-  ##    T - create abbreviations
+	# Coding History:
+	#    2011Jun22 DLLorenz Original coding.
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   ## offset (numeric scalar) ammount to offset the range, generally 0.5 or 1
   ## Determine kind of order

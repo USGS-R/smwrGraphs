@@ -1,17 +1,27 @@
-# Copy a demo
-#
-# Coding history:
-#    2012Nov16 DLLorenz Initial coding nad begin edits
-#    2012Nov16          This version.
-#
-
+#' Copy a Demo File
+#' 
+#' Copies a demo file from the source package to a file.
+#' 
+#' 
+#' @param topic the name of the topic, must be a character string.
+#' @param package the package name, must be a character string.
+#' @param file the target file name, must be a character string. If missing,
+#' then the file name is created from the \code{topic} name.
+#' @return Either the name of the target file or \code{NULL} if the copy
+#' failed.
+#' @seealso \code{\link{demo}}
+#' @keywords utilities
+#' @examples
+#' 
+#' \dontrun{copyDemo("HydroPrecip")}
+#' 
+#' @export copyDemo
 copyDemo <- function(topic, package="USGSwsGraphs",
                      file) {
-  ## Args:
-  ##  topic, character, the name of the demo topic
-  ##  package, cahracter, the name opf the package
-  ##  file, character, the name of the output file. If mising,
-  ##   then create name fro m topic
+	# Coding history:
+	#    2012Nov16 DLLorenz Initial coding nad begin edits
+	#    2014Jun25 DLLorenz Converted to roxygen
+	#
   topic <- setFileType(topic, "R", TRUE)
   if(missing(file))
     file <- topic

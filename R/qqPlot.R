@@ -1,15 +1,41 @@
-# Create a q-q or q-normal plot
-#
-# Coding History:
-#    2011Jun10 DLLorenz Original coding.
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Mar14 DLLorenz Conversion to generic function with methods
-#    2012Mar15 DLLorenz Added option to suppress lines
-#    2012Oct29 DLLorenz Tweaks for final
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Q-Q Plot
+#' 
+#' Produce a quantile-quantile (q-q) or a q-normal plot.
+#' 
+#' The argument \code{what} for either \code{LineRef} or \code{Line1.1} may be
+#' set to "none" to suppress drawing of either line.
+#' 
+#' @aliases qqPlot qqPlot.default
+#' @param x the x-axis data, or data to plot if \code{y} is missing.
+#' @param y the y-axis data. If missing, then produce a quantile-normal
+#' quantile plot from the data in \code{x}.
+#' @param alpha the alpha value of the function for computing plotting
+#' positions.
+#' @param Plot control parameters of the plot.
+#' @param LineRef control parameters of the reference line (best fit between
+#' \code{x} and \code{y}. See \bold{Details}.
+#' @param Line1.1 control parameters for the 1:1 line. Drawn only for q-q plot.
+#' See \bold{Details}.
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.range set the range of the y axis.
+#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.range set the range of the x-axis.
+#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set the x-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin of the plot area.
+#' @param \dots any additional arguments required for specific methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{qqPlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{ecdfPlot}},
+#' \code{\link{probPlot}}
+#' @keywords hplot
+#' @export qqPlot
 qqPlot <- function(x, y, # data
                    alpha=0.4,
                    Plot=list(name="Paired data quantiles", what="points", type="solid",
@@ -24,33 +50,22 @@ qqPlot <- function(x, y, # data
                    ytitle, # axis titles, missing out of necessity
                    caption="", # caption 
                    margin=c(NA, NA, NA, NA), ...) { # margin controls
-  ## build a simple (single line or scatter) x-y plot
-  ## arguments:
-  ##   x - the x-axis data, or data to plot if no y-axis data to plot
-  ##   y - the y-axis data to plot, if missing,
-  ##   alpha - the plotting position calculator
-  ##   Plot - parameters of the plot
-  ##   LineRef - the fit of the data
-  ##   line1.1 - a 1:1 line only for q-q plot
-  ##   xaxis.log - log-transform the X axis
-  ##   xaxis.range - set the range of the x-axis
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set the range of the y-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
-  ##   dots (dots) possibly required for some methods
+	# Coding History:
+	#    2011Jun10 DLLorenz Original coding.
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Mar14 DLLorenz Conversion to generic function with methods
+	#    2012Mar15 DLLorenz Added option to suppress lines
+	#    2012Oct29 DLLorenz Tweaks for final
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   UseMethod("qqPlot")
 }
 
-## Numeric data:
+#' @rdname qqPlot
+#' @method qqPlot default
+#' @export
 qqPlot.default <- function(x, y, # data
                    alpha=0.4,
                    Plot=list(name="Paired data quantiles", what="points", type="solid",

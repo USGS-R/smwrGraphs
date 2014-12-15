@@ -1,12 +1,16 @@
-# Purpose: ellipse points,radially equispaced, given geometric par.s
-#
-# Coding history:
-# Author: Martin Maechler, Date: 19 Mar 2002, 16:26
-#    2010Mar21 DLLorenz Original coding, heavily modified from MM
-#    2011Apr07 DLLorenz Begin modifications for R
-#    2011Apr07          This version.
-#
-
+#' Construct an Ellipse
+#' 
+#' Constructs an ellipse from a covariance matrix.
+#' 
+#' 
+#' @param cov the 2-dimenstional covariance matrix, representing x and y.
+#' @param center the means of x and y.
+#' @param scale the size of the ellipse in units of standard deviation.
+#' @param n the number of points in the returned data.
+#' @return A list containing the x- and y-coordinates of the ellipse.
+#' @seealso \code{\link{dataEllipse}}
+#' @keywords dplot
+#' @export cov2Ellipse
 cov2Ellipse <- function(cov, center, scale=1, n=151) {
   ## The arg cov must be a covariance matrix of N=2
   eig <- eigen(cov)

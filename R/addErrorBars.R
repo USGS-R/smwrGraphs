@@ -1,13 +1,41 @@
-# Add error bars
-#
-# Coding history:
-#    2013Sep19 DLLorenz Original Coding
-#    2012Sep19          This version.
-#
-
+#' Errors Bars
+#' 
+#' Add error bars to a graph.
+#' 
+#' The \code{Bars} argument must be a tagged list with these components:
+#' \describe{ \item{name}{a name describing the data; used in the explanation.}
+#' \item{cap}{the width of each cap on the error bar.} \item{width}{the width
+#' of the lines drawn for the error bars.} \item{color}{the name of the color
+#' to draw the error bars.} }
+#' 
+#' @param x the x-coordinate data. Missing values are permitted but result in
+#' no bar.
+#' @param yup the upper limit of the error bar. Missing values are permitted
+#' but result in no bar.
+#' @param ylo the lower limit of the error bar. Missing values are permitted
+#' but result in no bar.
+#' @param Bars parameters defining the characteristics of the error bars. See
+#' \bold{Details}.
+#' @param current the current plot information. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @return The current plot information is returned invisibly.
+#' @note The error bars are plotted on top of any current symbol. To plot the
+#' symbol on top of the error bar, start with the argument
+#' \code{Plot=list(what="none")} in the original call to \code{xyPlot} or
+#' \code{timePlot} and then add the symbols with a call to \code{addXY}. Note
+#' that this is only necessary if the color of the symbol and the color of the
+#' error bars are different.
+#' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},
+#' \code{\link{xyPlot}}
+#' @keywords aplot
+#' @export addErrorBars
 addErrorBars <- function(x, yup, ylo,
                     Bars=list(name="", cap=0.09, width="standard", color="black"),
                     current=list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE)) {
+	# Coding history:
+	#    2013Sep19 DLLorenz Original Coding
+	#    2014Jun25 DLLorenz Converted to roxygen
+	#
   x <- numericData(x)
   x <- transData(x, current$xaxis.log, FALSE,
                  current$xtrans, current$xtarg)

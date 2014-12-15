@@ -1,21 +1,52 @@
-# Create a probability plot
-#
-# Coding History:
-#    2004Sep28 DLLorenz Original coding.
-#    2006Mar09 DLLorenz Fixed tics at every minor location
-#    2006Aug15 DLLorenz Modification to probpretty call and rename
-#    2008May08 DLLorenz Start of several revisions
-#    2010Nov29 DLLorenz Conversion to R
-#    2011Jan11 DLLorenz Added censoring option
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct14 DLLorenz Bugfix in CF and tweaks
-#    2012Mar15 DLLorenz Made generic
-#    2012Sep17 DLLorenz Added xaxis.trans component to return object
-#                        to flag that the x data are not transformed.
-#    2013Apr09 DLLorenz Added setGD 
-#    
-
+#' Probability Plot
+#' 
+#' Produce a probability plot.
+#' 
+#' Truncation of the data to plot (\code{x}) results in a conditional
+#' probability plot. For any numeric value for \code{truncate}, the values in
+#' \code{x} less than or equal to \code{truncate} are not plotted and the
+#' remaining values are plotted at their conditional probability (the
+#' probability computed with all values). The behavior for the default value
+#' for \code{truncate} = NA, depends on \code{yaxis.log}. If \code{yaxis.log}
+#' is TRUE, then \code{truncate} is treated as though it was 0; otherwise
+#' \code{truncate} is treated as though it was \code{-Inf}, which results in no
+#' truncation.
+#' 
+#' @aliases probPlot probPlot.default
+#' @param x the data to plot. Missing values are allowed and ignored.
+#' @param truncate truncate the data at the specified value. See
+#' \bold{Details}.
+#' @param FLIP if TRUE, the plot the cumumlative distribution. Otherwise, plot
+#' as flipped data (largest values on left).
+#' @param distribution the name of the desired function converting from
+#' probabilities to coordinates.
+#' @param alpha the alpha value of the function for computing plotting
+#' positions.
+#' @param Plot control parameters of the plot.
+#' @param yaxis.log log-transform the y axis?
+#' @param yrange set the range of the y axis.
+#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set the x-axis labels. See \code{\link{probPretty}} for
+#' details.
+#' @param CDF if TRUE, then label with increasing probabilities. Otherwise
+#' label with decreasing probabilities.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param RI label the top axis with recurrence intervals? If \code{RI} is set
+#' to \code{TRUE}, then \code{CDF} will be set to \code{FALSE}.
+#' @param RItitle the top x-axis title if \code{RI} is TRUE.
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin of the plot area.
+#' @param \dots parameters for the distribution function. If any parameter is
+#' specified, then an attempt is made to draw the fit between the computed
+#' distribution and the observed data.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{probPlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{ecdfPlot}}, \code{\link{qqPlot}}
+#' @keywords hplot
+#' @export probPlot
 probPlot <- function(x, truncate=NA,
                      FLIP=FALSE, distribution="normal",
                      alpha=0.4, # data specification
@@ -31,45 +62,28 @@ probPlot <- function(x, truncate=NA,
                      caption="", # caption
                      margin=c(NA, NA, NA, NA), # margin control
                      ...) { # distribution parameters and method args
-  ## build a probability plot
-  ## arguments:
-  ##   x - the data to plot
-  ##   truncate - truncate the data at this value. If -Inf, no truncation;
-  ##    if NA and yaxis.log=TRUE, truncate at 0 (equivalent to truncate=0);
-  ##    if NA and yaxis.log=FALSE, no truncation (equivalent to truncate=-Inf);
-  ##    any other numeric value,  truncate at that value.
-  ##    Note that truncation implies a conditional probability adjustment
-  ##   FLIP - plot traditional CDF if T,
-  ##          plot as flipped data (largest values on left) if F.
-  ##   distribution - the name of the desired function converting 
-  ##                  from probabilities to coordinates
-  ##   alpha - the alpha value of the function for computing plotting positions
-  ##   yaxis.log - log-transform the Y axis
-  ##   (x,y)labels - an estimate of the number of labels wanted
-  ##   RI - add recurrence interval ticks and labels
-  ##   CDF - label traditional cdf curve if T (increasing probabilities)
-  ##         label with decreasing probabilities if F.
-  ##   type - plot type, 'p' is points, 'l' is lines, etc.
-  ##   pch - marker number
-  ##   col - marker color
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   RItitle - x-axis 2 title if RI T
-  ##   caption - the figure caption
-  ## margin is used to control set up of plot:
-  ## The margin is computed  and ticks drawn for any axis that has
-  ## an unset margin of NA (default).
-  ## If any are set 0 or positive, then it is assumed that the plot is set up
-  ## and tick are drawn, but no labels
-  ## If any are set negative, then it is assumed the the plot is set up
-  ## and ticks are not drawn. if the value is less than -100, that is treated
-  ## like -0.
-  ##   ... parameters for the distribution function
+	# Coding History:
+	#    2004Sep28 DLLorenz Original coding.
+	#    2006Mar09 DLLorenz Fixed tics at every minor location
+	#    2006Aug15 DLLorenz Modification to probpretty call and rename
+	#    2008May08 DLLorenz Start of several revisions
+	#    2010Nov29 DLLorenz Conversion to R
+	#    2011Jan11 DLLorenz Added censoring option
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2011Oct14 DLLorenz Bugfix in CF and tweaks
+	#    2012Mar15 DLLorenz Made generic
+	#    2012Sep17 DLLorenz Added xaxis.trans component to return object
+	#                        to flag that the x data are not transformed.
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   UseMethod("probPlot")
 }
 
-## default method
+#' @rdname probPlot
+#' @method probPlot default
+#' @export
 probPlot.default <- function(x, truncate=NA,
                              FLIP=FALSE, distribution="normal",
                              alpha=0.4, # data specification

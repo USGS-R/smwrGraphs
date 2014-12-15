@@ -1,19 +1,33 @@
-# Get a function for a distribution
-# Support for probability plotting functions in USGS library
-# Not all probability distributions are supported
-#  Sampling distributions, such as F and students, discrete 
-#  distributions and a few unusual ones, such as cauchy, are 
-#  not supported. Also, they must have default parameters.
-#
-# Coding History:
-#    2008May03 DLLorenz Original coding.
-#    2008Jun10 DLLorenz aded substitute function for qunif-- qunif returns -Inf
-#                       for p=0
-#    2010Nov29 DLLorenz Begin modifications for R
-#    2010Nov29          This version.
-#
-
+#' Distribution Function
+#' 
+#' A function to compute the density, cumulative distribution, quantile, or
+#' random generation of the specified function. This function is used primarily
+#' as a support function for \code{probPlot}.
+#' 
+#' For general use, \code{distribution} should be one of "normal," "lognormal,"
+#' "pearsonType3," "logpearsonType3," "exponential," "logistic," or "uniform."
+#' Partial matching is done, so only as many characters to make a unique match
+#' are required. Other distributions can be retrieved by specifying the base
+#' name of the distribution. That option can be useful if other packages that
+#' contain distribution functions have been loaded.
+#' 
+#' @param distribution the name of the distribution. See \bold{Details}.
+#' @param what a character indicating which form to retrun. Must be "q" for
+#' quantile, "d" for density, "p" for cumulative distribution, or "r" for
+#' random generation.
+#' @return The specified function.
+#' @seealso \code{\link{Normal}}, \code{\link{Lognormal}},
+#' \code{\link{PearsonIII}}, \code{\link{LogPearsonIII}},
+#' \code{\link{Exponential}}, \code{\link{Logistic}}, \code{\link{Uniform}}
+#' @keywords dplot
+#' @export getDist.fcn
 getDist.fcn <- function(distribution, what='q') {
+	# Coding History:
+	#    2008May03 DLLorenz Original coding.
+	#    2008Jun10 DLLorenz aded substitute function for qunif-- qunif returns -Inf
+	#                       for p=0
+	#    2010Nov29 DLLorenz Begin modifications for R
+	#    2014Jun26 DLLorenz Converted to roxygen
   match.list <- c("normal", "lognormal", "pearsonType3", 
                   "logpearsonType3", "exponential", "logistic", "uniform")
   match.base <- c("norm", "lnorm", "pearsonIII", "lpearsonIII", 

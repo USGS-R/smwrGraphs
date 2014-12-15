@@ -1,18 +1,30 @@
-# Create an empirical cumulative distribution plot
-#
-# Coding History:
-#    2004Sep28 DLLorenz Original coding.
-#    2006Mar09 DLLorenz Fixed tics at every minor location
-#    2006Aug15 DLLorenz Modification to probpretty call and rename
-#    2008May08 DLLorenz Start of several revisions
-#    2010Nov29 DLLorenz Conversion to R
-#    2011Jan11 DLLorenz Added censoring option
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2012Mar15 DLLorenz Made generic
-#    2013Apr09 DLLorenz Added setGD 
-#    
-
+#' Empirical Distribution Plot
+#' 
+#' Produce a graph of the empirical distribution function of data.
+#' 
+#' 
+#' @aliases ecdfPlot ecdfPlot.default
+#' @param x the data to plot.
+#' @param group create groups for \code{x}. Each group is plotted as a separate
+#' line.
+#' @param Plot control parameters of the plot.
+#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.range set the range of the x-axis.
+#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set the x-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin of the plot area.
+#' @param \dots any additional arguments needed by specific methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{ecdfPlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{probPlot}}
+#' @keywords hplot
+#' @export ecdfPlot
 ecdfPlot <- function(x, group=NULL, # data specification
                      Plot=list(name="Auto", what="stairstep", type="solid",
                        width="standard", symbol="circle", filled=TRUE,
@@ -23,28 +35,25 @@ ecdfPlot <- function(x, group=NULL, # data specification
                      xtitle=deparse(substitute(x)), # axis titles
                      caption="", # caption
                      margin=c(NA, NA, NA, NA), ...) { # margin control
-  ## Arguments:
-  ##  x (numeric vector) the data to plot
-  ##  group (group like vector to match x) the groups for each value in x
-  ##  Plot (tagged list) -- what to plot
-  ##  xaxis.log - log-transform the Y axis
-  ##  (x,y)labels - an estimate of the number of labels wanted
-  ##  xtitle - x-axis title
-  ##  ytitle - y-axis title
-  ##  caption - the figure caption
-  ##  margin is used to control set up of plot:
-  ## The margin is computed  and ticks drawn for any axis that has
-  ## an unset margin of NA (default).
-  ## If any are set 0 or positive, then it is assumed that the plot is set up
-  ## and tick are drawn, but no labels
-  ## If any are set negative, then it is assumed the the plot is set up
-  ## and ticks are not drawn. if the value is less than -100, that is treated
-  ## like -0.
+	# Coding History:
+	#    2004Sep28 DLLorenz Original coding.
+	#    2006Mar09 DLLorenz Fixed tics at every minor location
+	#    2006Aug15 DLLorenz Modification to probpretty call and rename
+	#    2008May08 DLLorenz Start of several revisions
+	#    2010Nov29 DLLorenz Conversion to R
+	#    2011Jan11 DLLorenz Added censoring option
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2012Mar15 DLLorenz Made generic
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   UseMethod("ecdfPlot")
 }
 
-## Code begins
+#' @rdname ecdfPlot
+#' @method ecdfPlot default
+#' @export
 ecdfPlot.default <- function(x, group=NULL, # data specification
                              Plot=list(name="Auto", what="stairstep", type="solid",
                                width="standard", symbol="circle", filled=TRUE,

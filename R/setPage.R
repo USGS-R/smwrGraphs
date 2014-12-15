@@ -1,30 +1,75 @@
-# set up page for USGS illustrations
-#
-# Coding history:
-#    2008May12 DLLorenz Original Coding and start of revisions.
-#    2009Dec01 DLLorenz Added EST option, which apparently requires Times New Roman
-#    2010Feb02 DLLorenz Convert to use current graphics
-#    2010Mar28 DLLorenz Modified extensively for new interface
-#    2010Nov15 DLLorenz Modified for R
-#    2011Aug03 DLLorenz Added slide and custom options
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Feb14 DLLorenz Modifications for all platforms
-#    2012Mar12 DLLorenz Added device argument to override some default devices
-#                       as with RStudio
-#    2012Nov01 DLLorenz Add options to produce circles in PDF output
-#    2012Nov01          This version.
-#
-
+#' Graphics Page
+#' 
+#' Sets up a graphics page.
+#' 
+#' If \code{layout} is "portrait," then the page size is 8.5 by 11 inches and
+#' the graph area is 7.25 by 9.5 inches.\cr If \code{layout} is "landscape,"
+#' then the page size is 11 by 8.5 inches and the graph area is 9.5 by 7.25
+#' inches.\cr If \code{layout} is "square," then the page size is 7 by 7 inches
+#' and the graph area is 6.5 by 6.5 inches (\code{setPage} only).\cr If
+#' \code{layout} is "slide," then the page size is 10 by 7.5 inches and the
+#' graph area is 9.5 by 7.0 inches (\code{setPage} only).\cr \code{Layout} may
+#' also be a tagged list, with components \code{width} and \code{height} giving
+#' the width and height of the page, the width and height of the graph area is
+#' 0.5 inch less that the page, except for \code{setPDF} where it is 0.1 inch
+#' less.\cr The user may specify a graphics device other than the default for
+#' the system. This may be necessary when running under certain user
+#' environments like RStudio (TM).
+#' 
+#' @rdname setPage
+#' @aliases setPage setPDF setSweave setGD
+#' @param layout A description of the orientation and shape of the graphics
+#' page. See \bold{Details}.
+#' @param font a description of the font. The choices are "preview," which is
+#' 12 point Arial Narrow; "USGS," which is 8 point Arial Narrow; "EST," which
+#' is 8 point Times New Roman; "PPT," which is 24 point Arial; and "PDF," which
+#' is 8 point Arial Helvetica-Narrow. "PDF" should be chosen if the graphs are
+#' to be saved to a portable document format (pdf) file.
+#' @param name the name of the graphics page or the filename for
+#' \code{setSweave}.
+#' @param multiple allow multiple pages?
+#' @param device the name of the graphics device. See \bold{Details}.
+#' @param basename the base name of the pdf file name.
+#' @param multiplefiles modify \code{basename} to create multiple files for
+#' multiple pages?
+#' @param height the height of the graphics page.
+#' @param width the widht of the graphics page.
+#' @param \dots additional arguments, which are ignored by \code{setSweave}.
+#' @return For \code{setPage} and \code{setPDF}, a list with two components:
+#' dev, the device number; and name, the name or basename. For \code{setSweave}
+#' nothing is returned.
+#' @note The function \code{setSweave} is an interface to be used when using
+#' \code{Sweave}. The functions \code{setSweave} and \code{setPDF} require a
+#' call to \code{dev.off} to close the graphics device after all graphics is
+#' completed.\cr The function \code{setGD} is designed to be a quick-and-dirty
+#' graphics page set up function. It is designed to be used by functions to set
+#' up the graphics environment if the user fails to do so.
+#' @seealso \code{\link{setLayout}}, \code{\link{setGraph}}
+#' @keywords dplot
+#' @export setPage
 setPage <- function(layout="portrait", font="preview", name="USGS",
                     multiple=FALSE, device="default") {
-  ## Notes: This function returns the device number and name
+	# Coding history:
+	#    2008May12 DLLorenz Original Coding and start of revisions.
+	#    2009Dec01 DLLorenz Added EST option, which apparently requires Times New Roman
+	#    2010Feb02 DLLorenz Convert to use current graphics
+	#    2010Mar28 DLLorenz Modified extensively for new interface
+	#    2010Nov15 DLLorenz Modified for R
+	#    2011Aug03 DLLorenz Added slide and custom options
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Feb14 DLLorenz Modifications for all platforms
+	#    2012Mar12 DLLorenz Added device argument to override some default devices
+	#                       as with RStudio
+	#    2012Nov01 DLLorenz Add options to produce circles in PDF output
+	#    2014Jun26 DLLorenz Converted to roxygen.
+	#
   font <- match.arg(font, c("preview", "USGS", "EST", "PPT", "PDF"))
   ## Set global variables for lineweights and PDF
   if(font == "PPT")
-    assign(".lwt_factor", 2.0, envir = .GlobalEnv)
+  	options(.lwt_factor = 2)
   else
-    assign(".lwt_factor", 1.0, envir = .GlobalEnv)
-  assign(".pdf_graph", FALSE, envir = .GlobalEnv)
+  	options(.lwt_factor = 1)
+  options(.pdf_graph = FALSE)
   fontSize <- switch(font, 
                      preview=12,
                      USGS=8,

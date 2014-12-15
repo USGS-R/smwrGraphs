@@ -1,23 +1,38 @@
-# Compute nice looking labels for an arbitrary transfored axis
-#
-# Coding history:
-#    2008Apr28 DLLorenz Original Coding inspired by trax, version 1:
-#                                       Barry W. Brown
-#                                       Department of Biomathematics, 
-#                                            Box 237
-#                                       University of Texas M. D.
-#                                            Anderson Hospital
-#                                       1515 Holcombe Blvd
-#                                       Houston, TX 77030
-#    2008May02 DLLorenz Name change and finegrid generation
-#    2008May03 DLLorenz Tweaks
-#    2010Nov29 DLLorenz Conversion to R
-#    2011Oct24 DLLorenz Tweaks for package
-#    2013Sep16 DLLorenz More tweaks
-#
-
+#' Pretty Axis
+#' 
+#' Construct information for making a nicely formatted numeric axis.
+#' 
+#' 
+#' @param x data defining the range to be plotted on the axis. Missing value
+#' are permitted, but ignored.
+#' @param hard use the minimum and maximum of \code{x} as the fixed range of
+#' the axis?
+#' @param labels either "Auto," which lets the function decide how many labels,
+#' the approximate number of labels, or the actual labels to use.
+#' @param style a character string indicating the style of the axis labels if
+#' they are not specifically listed in \code{labels}.
+#' @param func the forward transform function.
+#' @param Ifunc the bcakward (inverse) transform function.
+#' @param \dots additional arguments to \code{func} and \code{Ifunc}.
+#' @return Information about the axis lables.
+#' @seealso \code{\link{transPlot}}
+#' @keywords dplot
+#' @export transPretty
 transPretty <- function(x, hard=FALSE, labels=11, style='none',
                         func=log, Ifunc=exp, ...) {
+	# Coding history:
+	#    2008Apr28 DLLorenz Original Coding inspired by trax, version 1:
+	#       Barry W. Brown, Department of Biomathematics,
+	#       Box 237 University of Texas M. D. Anderson Hospital   
+	#       1515 Holcombe Blvd
+	#       Houston, TX 77030
+	#    2008May02 DLLorenz Name change and finegrid generation
+	#    2008May03 DLLorenz Tweaks
+	#    2010Nov29 DLLorenz Conversion to R
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2013Sep16 DLLorenz More tweaks
+	#    2014Jun27 DLLorenz Converted to roxygen
+	#
   ## Check to see that data are of a least length 2
   x <- x[is.finite(x)]
   if(length(x) < 2L)

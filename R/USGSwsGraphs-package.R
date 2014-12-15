@@ -1,0 +1,71 @@
+#' Graphing Functions
+#' 
+#' Functions to create high-quality graphs.\cr These graphs meet or nearly meet
+#' the publication standards for illustrations of the U.S.  Geological Survey
+#' (USGS) (U.S. Geological Survey, written commun., 2012). They are intended to
+#' be a suite of integrated functions that make producing graphs and figures
+#' relatively easy by passing much information about the plots between
+#' functions so the user does not need to manage graphical information.
+#' 
+#' \tabular{ll}{ Package: \tab USGSwsGraphs\cr Type: \tab Package\cr Version:
+#' \tab 0.9.0\cr Date: \tab 2014-06-28\cr License: \tab file LICENSE\cr Depends:
+#' \tab KernSmooth, USGSwsBase (>= 0.4), akima, methods\cr Suggests: \tab
+#' USGSwsData (>= 0.6)\cr } The functions in the \code{USGSwsGraphs} package
+#' are an integrated suite of functions that facilitate the production of
+#' graphs that nearly meet USGS publication standards for illustrations (U.S.
+#' Geological Survey, written commun., 2012). Those standards include line
+#' weight, tick placement, labels, font size, and layout of the explanation.
+#' The font used in production very closely matches the standard Univers
+#' Condensed, and was selected becuase of its broad availabeility on many
+#' computer platforms.\cr
+#' 
+#' Use of base \code{R} or other gaphics functions can result in inconsistent
+#' lineweights, font sizes and styles, and can require manual manipulation of
+#' the explanation. See Lorenz (2015) for examples of functions that create and
+#' add to graphs to see examples of calls to base \code{R} graphics that use
+#' the lower level tools to adhere to the statndards.\cr
+#' 
+#' Functions to set up and initialize the \code{USGSwsGraphs} environment:\cr
+#' \code{\link{setGraph}}\cr \code{\link{setLayout}}\cr \code{\link{setPDF}}\cr
+#' \code{\link{setPage}}\cr \code{\link{setSplom}}\cr \code{\link{setGD}}\cr\cr
+#' Main plotting functions:\cr \code{\link{areaPlot}}\cr
+#' \code{\link{biPlot}}\cr \code{\link{boxPlot}}\cr \code{\link{colorPlot}}\cr
+#' \code{\link{contourPlot}}\cr \code{\link{corGram}}\cr
+#' \code{\link{dotPlot}}\cr \code{\link{ecdfPlot}}\cr \code{\link{histGram}}\cr
+#' \code{\link{piperPlot}}\cr \code{\link{probPlot}}\cr \code{\link{qqPlot}}\cr
+#' \code{\link{scalePlot}}\cr \code{\link{splomPlot}}\cr
+#' \code{\link{stiffPlot}}\cr \code{\link{preSurface}} \code{\link{surfacePlot}} \cr
+#' \code{\link{ternaryPlot}}\cr
+#' \code{\link{timePlot}}\cr \code{\link{transPlot}}\cr \code{\link{xyPlot}}\cr
+#' \code{\link{condition}}\cr \cr 
+#' Functions to add features to a plot:\cr
+#' \code{\link{addAnnotation}}\cr \code{\link{addArea}}\cr
+#' \code{\link{addAxisLabels}}\cr \code{\link{addCaption}}\cr
+#' \code{\link{addErrorBars}}\cr \code{\link{addExplanation}}\cr
+#' \code{\link{addGrid}}\cr \code{\link{addLabel}}\cr \code{\link{addPiper}}\cr
+#' \code{\link{addStiff}}\cr \code{\link{addTernary}}\cr
+#' \code{\link{addSmooth}}\cr \code{\link{addTable}}\cr
+#' \code{\link{addTitle}}\cr \code{\link{addXY}}\cr
+#' \code{\link{labelPoints}}\cr \code{\link{refLine}}\cr
+#' 
+#' @name USGSwsGraphs-package
+#' @aliases USGSwsGraphs-package USGSwsGraphs
+#' @docType package
+#' @author Dave Lorenz <lorenz@@usgs.gov>
+#' @references Lorenz, D.L. in preparation, USGSwsGraphs---an R package for
+#' graphing hydrologic data, version 0.7.
+#' @keywords package
+#' @import USGSwsBase
+#' @import methods
+#' @examples
+#' 
+#' # For these examples, print to console
+#' .pager <- options("pager")
+#' options(pager="console")
+#' # See the demo for examples of how to use the functions in this library.
+#' demo(package="USGSwsGraphs")
+#' # A simple listing of the vignettes in this package:
+#' vignette(package="USGSwsGraphs")
+#' options(.pager)
+#' 
+NULL

@@ -1,14 +1,50 @@
-# Set up for surface plot
-#
-# Coding history:
-#    2014Jun09 DLLorenz Original Coding
-#
+#' Prepare for surface plot
+#' 
+#' Select the projection for a surface plot.
+#' 
+#' @param x the x-axis coordinate data, must be strictyly increasing. Missing values
+#'not permitted. May be of type Date.
+#' @param y the y-axis coordinate data, must be strictyly increasing. Missing values
+#'not permitted.
+#' @param z.surf a numeric matrix representing the surface. The length of \code{x}
+#'must match the number of rows in \code{z.surf}. The length of \code{y}
+#'must match the number of columns in \code{z.surf}.
+#' @param zaxis.log log-transform the z axis?
+#' @param zaxis.range set the range of the z-axis.
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.range set the range of the y-axis.
+#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.range set the range of the x-axis.
+#' @param xlabels set up x-axis labels.
+#' @param ylabels set up y-axis labels.
+#' @param zlabels set up z-axis labels.
+#' @param phi the viewing angle relative to the x-y plane. If \code{NA}, then 
+#' programmatically select a reasonable angle. Should be greater than 0 and less 
+#' than 90 degrees, but the best angles are generally between 20 and 45 degrees.
+#' @param theta the viewing angle relative to the x-axis. Positive values rotate 
+#' the x-y plane in a clock-wise direction. If \code{NA}, then programmatically 
+#' select a reasonable angle by putting the largest values of \code{z.surf} near 
+#' the rear and the smallest values near the front. In general, the best angles 
+#' are not multiples of 90 degrees.
+#' @param batch logical or character. If logical and \code{TRUE}, then select the 
+#' viewing angles specified by \code{phi} and \code{theta}. If logical and \code{FALSE}, 
+#' then draw 9 candidate combinations of viewing angles and pause for user input 
+#' to select the desired viewing angles. If character, then select the viewing 
+#' angles specified by the letter selection, must be A through I.
+#' @return A list containg the projection inforamtion and the data for plotting. Must
+#'be used in the call to \code{surfacePlot}
+#' @seealso \code{\link{surfacePlot}}
+#' @export preSurface
 preSurface <- function(x, y, z.surf, # The data
 										zaxis.log = FALSE,  zaxis.range = c(NA, NA),
 										yaxis.log = FALSE,  yaxis.range = c(NA, NA),
 										xaxis.log = FALSE,  xaxis.range = c(NA, NA),
 										xlabels="Auto", ylabels="Auto", zlabels="Auto",
 										phi=NA, theta=NA, batch=FALSE) { # Axis set up
+	# Coding history:
+	#    2014Jun09 DLLorenz Original Coding
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
 	# Check dimensions
 	if(length(x) != nrow(z.surf))
 		stop("the length of x must match the number of rows in z.surf")

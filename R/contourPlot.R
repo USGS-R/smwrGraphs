@@ -1,14 +1,46 @@
-# Create a contour plot (not filled in current version)
-#
+#' Contour Plot
+#' 
+#' Produce a contour plot or a colored surface with colors corresponding to 
+#'values in \code{z}.
+#' 
+#' Missing values are permitted in \code{z}, \code{x}, and \code{y} for the default
+#'method and are removed, with a warning. before constructing the surface.\cr
+#'Missing values are not permitted in \code{rows} or \code{columns} but are permitted
+#'in \code{z} for the matrix method. Missing values in \code{z} result in blank areas
+#'in the plot.
+#'
+#' @aliases contourPlot contourPlot.default contourPlot.matrix
+#' @param z the values representing the surface data.
+#' @param x the x-axis coordinates for each value in \code{z}.
+#' @param y the y-axis coordinates for each value in \code{z}.
+#' @param rows the coordinates for \code{z} represented by the rows in the matrix.
+#' @param cols the coordinates for \code{z} represented by the columns in the matrix.
+#' @param matrix.rows a single character, either "x" or "y" indicating whether the rows in z should be 
+#'plotted along the x or y axis.
+#' @param Grid control paramters for gridding irregularly spaced data.
+#' @param Contours control parameters for the coutour lines or levels in the filled plot.
+#' @param yaxis.range	set the range of the y-axis.
+#' @param xaxis.range	set the range of the x-axis.
+#' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for details.
+#' @param xlabels set up x-axis labels. See \code{\link{linearPretty}} for details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin set the plot area margins.
+#' @param \dots not used, required for other methods.
+#' @importFrom akima interp
+#' @export contourPlot
+contourPlot <- function(z, ...)
+  UseMethod("contourPlot")
 # Coding history:
 #    2011Jun21 DLLorenz Initial coding
 #    2013Mar08 DLLorenz Completed and added option for x to be of class "Date"
 #    2013Apr09 DLLorenz Added setGD 
-#
+#    2014Jun25 DLLorenz Converted to roxygen
 
-contourPlot <- function(z, ...)
-  UseMethod("contourPlot")
-
+#' @rdname contourPlot
+#' @export
+#' @method contourPlot default
 ## The "default" method--numeric z with x and y coordinates
 contourPlot.default <- function(z, x, y, # data specs
                                 Grid=list(method="interpolate",
@@ -28,23 +60,6 @@ contourPlot.default <- function(z, x, y, # data specs
                                 ytitle=deparse(substitute(y)), # axis titles
                                 caption="",# caption
                                 margin=c(NA, NA, NA, NA), ...) { # margin control
-  ## Arguments:
-  ##  z (numeric vector) the z-coordinate data
-  ##  x (numeric vector) the x-coordinate indexes to z
-  ##  y (numeric vector) the y-coordinate indexes to z
-  ##  Grid (tagged list) control parameters for gridding
-  ##  Contours (tagged list) filled is ignored in this version, but retained
-  ##    for future use 
-  ##  xaxis.range - set the range of the x-axis
-  ##  yaxis.range - set the range of the y-axis
-  ##  xlabels - an estimate of the number of labels wanted
-  ##  ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##  xtitle - x-axis title
-  ##  ytitle - y-axis title
-  ##  caption - the figure caption
-  ##  margin - the parameters of the margin
   ##
   ## Set up the axes titles
   xtitle=xtitle # needed to 'set' names
@@ -92,7 +107,9 @@ contourPlot.default <- function(z, x, y, # data specs
                                caption=caption, margin=margin))
 }
 
-## process a matrix
+#' @rdname contourPlot
+#' @export
+#' @method contourPlot matrix
 contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
                                Contours=list(name="Auto",
                                  levels=10,
@@ -107,24 +124,6 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
                                ytitle=deparse(substitute(y)), # axis titles
                                caption="",# caption
                                margin=c(NA, NA, NA, NA), ...) { # margin control
-  ## Arguments:
-  ##  z (numeric matrix) the z data associuated with x and y pairs
-  ##  rows (numeric vector) the row coordinate indexes to z
-  ##  cols (numeric vector) the column coordinate indexes to z
-  ##  matrix.rows (character scalar) "x" rows translate to x-axis,
-  ##    "y" columns translate to x-axis.
-  ##  Contours (tagged list) control parameters for the contour plot
-  ##  xaxis.range - set the range of the x-axis
-  ##  yaxis.range - set the range of the y-axis
-  ##  xlabels - an estimate of the number of labels wanted
-  ##  ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##  xtitle - x-axis title
-  ##  ytitle - y-axis title
-  ##  caption - the figure caption
-  ##  margin - the parameters of the margin
-  ##
   ## Set up the matrix and axes
   xtitle <- xtitle # needed to 'set' names
   ytitle <- ytitle

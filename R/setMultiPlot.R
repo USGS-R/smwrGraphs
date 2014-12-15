@@ -1,25 +1,64 @@
-# Sets up parameters and explanation for graphs that can have multiple
-#  symbols plotted at one time, such as piperPlot and timePlot
-#
-# Coding history:
-#    2008Oct27 DLLorenz Original Code and begin of tweaks
-#    2011Jan12 DLLorenz Conversion to R
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Jun14 DLLorenz Added option to set the order in the explanation
-#    2011Jun16 DLLorenz Added empty info for areas
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Dec15          This version.
-#
-
+#' Plot Parameters
+#' 
+#' Sets the plotting parameters for high-levels graphs that allow individual
+#' symbols (support function).
+#' 
+#' Each of the arguments from \code{name} through \code{color} must have one
+#' entry for each observation. If a single value is given, then it is
+#' replicated for each observation. In general, it is convenient to set up a
+#' data frame with columns for group names with common values for the line or
+#' symbol. It is required that each group have common values for the line or
+#' symbol.
+#' 
+#' @param current the plot parameters specified in the call to the high-level
+#' graphing function.
+#' @param Nobs the number of observations.
+#' @param name the name associated with the observation. See \bold{Details}.
+#' @param what what kind of plot. Must be one of "points," symbols only;
+#' "lines," line segments connecting points only; "both," line segments
+#' connecting isolated symbols; "overlaid," line segments connecting points
+#' with symbols; "stairstep," stairstep line segments; or "vertical," vertical
+#' lines from the y-axis origin to the y value at each x value.
+#' @param type the type of line, if drawn. Must be one of "solid," "dashed,"
+#' "dotted."
+#' @param width the width of line, if drawn. Must be one of "standard,"
+#' resulting in a line width of about .8 points; "color," resulting in a line
+#' width of about 1 points; "bold," resulting in a line width of about 1.6
+#' points; or "hairline" resulting in a line width of about .5 points. Note
+#' these values are doubled if the \code{font} argument to \code{setPage} is
+#' "PPT."
+#' @param symbol type symbol, if drawn. Must be one of "circle;" "uptri,"
+#' upward pointing triangle; "plus;" "x;" "diamond;" "downtri," downward
+#' pointing triangle; "square;" or "dot."
+#' @param filled fill the symbol? Valid only for \code{symbol} equal to
+#' "circle," "uptri," "diamond," "downtri," or "square."
+#' @param size the size of the symol in inches, if drawn.
+#' @param color the color of the plotted values. Can be a named color, such as
+#' "black" or "gray50" or an RGB color like "#4056FF."
+#' @param order specify the order of the symbols in the explanation. Can be "as
+#' is'--do nothing to order in explanation, "sort" or "increasing"---put into
+#' sorted order, "decreasing"--- put in reverse order; or a vector theat
+#' specifies the exact order.
+#' @return A list having two components:\cr \item{current}{a list like
+#' \code{current} with the defaults set} \item{Explan}{a list for creating an
+#' explanation}
+#' @seealso \code{\link{colors}}, for a list of color names;
+#' \code{\link{setExplan}}, for details about the list required for an
+#' explanation.
+#' @keywords dplot
+#' @export setMultiPlot
 setMultiPlot <- function(current, Nobs=1, name="", what='points', type='solid',
                          width='standard', symbol='circle', filled=TRUE,
                          size=0.09, color='black', order='as is') {
-  ## Arguments:
-  ##  ...
-  ##  order (character scalar or vector) scalar can be 'as is'--do nothing to order
-  ##    in explanation, 'sort' or 'increasing'--put into sorted order, 'decreasing'--
-  ##    put in reverse order; vector specifies the exact order
-  ## first set up current to have all components with correct length
+	# Coding history:
+	#    2008Oct27 DLLorenz Original Code and begin of tweaks
+	#    2011Jan12 DLLorenz Conversion to R
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Jun14 DLLorenz Added option to set the order in the explanation
+	#    2011Jun16 DLLorenz Added empty info for areas
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014Jun26 DLLorenz Converted to roxygen.
+	#
   if(is.null(current$name))
     current$name <- name
   current$name <- rep(as.character(current$name), length.out=Nobs)

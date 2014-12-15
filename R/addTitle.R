@@ -1,19 +1,29 @@
-# add title (above graph)
-#
-# Coding History:
-#    2010Nov22 DLLorenz Original coding.
-#    2011Oct24 DLLorenz Tweaks for package
-#    2013Mar15 DLLorenz Fixed top margin issues.
-#
-
+#' Add a Title
+#' 
+#' Adds a title (also called heading) to a graph.
+#' 
+#' If only \code{Heading} is non blank, then the title is a single letter in
+#' bold italics. If both \code{Heading} and \code{Main} are non blank, then the
+#' title is a single letter followed by a period in bold italics followed by
+#' \code{Main} in bold if \code{Bold} is \code{TRUE}.
+#' 
+#' @param Main the main text of the title.
+#' @param Heading The title heading, generally a single letter. See
+#' \bold{Details}
+#' @param Justification specifies the location of the title, must be one of
+#' "left," "center," or "right."
+#' @param Bold logical: should the title be in bold face type?
+#' @return Nothing is returned.
+#' @seealso \code{\link{addCaption}}, \code{\link{addAnnotation}},
+#' \code{\link{addTable}}
+#' @keywords aplot
+#' @export addTitle
 addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE) { 
-	## arguments:
-	##   main - the title
-	##    heading - the letter heading
-	##   adj - where to place the title:
-	##         left - on the left side
-	##         center - in the center
-	##         right - on the right side
+	# Coding History:
+	#    2010Nov22 DLLorenz Original coding.
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2013Mar15 DLLorenz Fixed top margin issues.
+	#    2014Jun25 DLLorenz Converted to roxygen
 	##
 	## get the margin for side 3 (top)
 	TopMar <- par("mar")[3L]

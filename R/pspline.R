@@ -1,14 +1,24 @@
-# compute a parametric spline
-#
-# Coding history:
-#    2003Sep23 DLLorenz Initial version
-#    2009Mar19 DLLorenz Dated version
-#    2011Dec30 DLLorenz USGSgraphs package
-#    2012Mar13 DLLorenz Renamed to avoid conflict with survival
-#    2012Sep10 DLLorenz Added stop for missing values.
-#
-
+#' Parametric Spline
+#' 
+#' Construct a parametric interpolating spline for x and y data for not
+#' necessarily strictly increasing x. Used as a support function.
+#' 
+#' 
+#' @param x the x-coordinate data. Missing values are not permitted.
+#' @param y the y-coordinate data. Missing values are not permitted.
+#' @param n The number of points in the output parametric spline fit.
+#' @return A list containing the components \code{x} and \code{y}, which are
+#' the coordinates of the parametric spline.
+#' @keywords dplot
+#' @export paraSpline
 paraSpline <- function(x, y, n) {
+	# Coding history:
+	#    2003Sep23 DLLorenz Initial version
+	#    2009Mar19 DLLorenz Dated version
+	#    2011Dec30 DLLorenz USGSgraphs package
+	#    2012Mar13 DLLorenz Renamed to avoid conflict with survival
+	#    2012Sep10 DLLorenz Added stop for missing values.
+	
   if(missing(y)) {
     if(is.list(x)) {
       y <- x$y

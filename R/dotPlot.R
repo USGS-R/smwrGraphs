@@ -1,23 +1,65 @@
-# Create a dot plot
-#
-# Coding History:
-#    2011Jun23 DLLorenz Original coding.
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Aug28 DLLorenz dots for future methods
-#    2012Sep27 DLLorenz Made generic
-#    2013Jan04 DLLorenz Added multiPlot option
-#    2013Apr09 DLLorenz Added setGD
-#    2013Aug19 DLLorenz Added Date method
-#
-
+#' Dot Plot
+#' 
+#' Construct a dot plot.
+#' 
+#' The \code{what} component of the \code{Plot} argument must be either
+#' "points" or "none."
+#' 
+#' @name dotPlot
+#' @rdname dotPlot
+#' @aliases dotPlot dotPlot,numeric-method dotPlot,Date-method
+#' @param x the x-axis data
+#' @param y the y-axis data, expected to be be either character or factor.
+#' @param Plot control parameters of the plot, see \code{link{setMultiPlot}}
+#' and \bold{Details} for details.
+#' @param yaxis.orient orientation of the y-axis values, must be either "table"
+#' or "grid." "Table" is sorted from top to bottom, "grid" is sorted from
+#' bottom to top.
+#' @param yaxis.order the order of the y-axis values, must be one of "none,"
+#' "ascending," or "descending."
+#' @param yaxis.grid draw grid lines?
+#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.range set the range of the x-axis
+#' @param ylabels set up y-axis labels.
+#' @param xlabels set up x-axis labels.
+#' @param xtitle x-axis title (also called x-axis caption).
+#' @param ytitle y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin.
+#' @param jitter.y adjust \code{y} values to reduce overlap for each group?
+#' @param ... arguments for specific methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{dotPlot}.
+#' @docType methods
+#' @section Methods: \describe{
+#' 
+#' \item{signature(x = "numeric"))}{ Create a dot plot for numeric
+#' x-coordinate data and any (discrete) y-coordinate data. } 
+#' \item{signature(x = "Date"))}{ Create a dot plot for Date
+#' x-coordinate data and any (discrete) y-coordinate data. } }
+#' @seealso \code{\link{setPage}}, \code{\link{boxPlot}}
+#' @keywords methods hplot
+#' @exportMethod dotPlot
 setGeneric("dotPlot", function(x, y, Plot=list(),
                                yaxis.orient="", yaxis.order="", yaxis.grid=TRUE,
                                xaxis.log=FALSE, xaxis.range=c(NA,NA),
                                ylabels="", xlabels=7, xtitle="", ytitle="",
                                caption="", margin=c(NA, NA, NA, NA), ...)
-           standardGeneric("dotPlot"))
+           standardGeneric("dotPlot")
+					 # Coding History:
+					 #    2011Jun23 DLLorenz Original coding.
+					 #    2011Aug03 DLLorenz Added axis labeling info to current
+					 #    2011Oct24 DLLorenz Tweaks for package
+					 #    2012Aug28 DLLorenz dots for future methods
+					 #    2012Sep27 DLLorenz Made generic
+					 #    2013Jan04 DLLorenz Added multiPlot option
+					 #    2013Apr09 DLLorenz Added setGD
+					 #    2013Aug19 DLLorenz Added Date method
+					 #    2014Jun26 DLLorenz Converted to roxygen
+					 )
 
+#' @rdname dotPlot
 setMethod("dotPlot", signature("numeric"), # "ANY" ignored in last position
 function(x, y, # data
          Plot=list(name="", what="points", type="solid",
@@ -32,20 +74,6 @@ function(x, y, # data
          ytitle="", # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), jitter.y=TRUE, ...) { # margin controls
-  ## arguments:
-  ##   x - the x-axis data
-  ##   y (character or factor vector) the y-axis data to plot
-  ##   Plot - parameters of the plot
-  ##   xaxis.log - log-transform the X axis
-  ##   xaxis.range - set the range of the x-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
   ##
   ## create the plotting positions
   ## set up the axes
@@ -119,6 +147,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname dotPlot
 setMethod("dotPlot", signature("Date"), # "ANY" ignored in last position
 function(x, y, # data
          Plot=list(name="", what="points", type="solid",
@@ -133,21 +162,6 @@ function(x, y, # data
          ytitle="", # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), jitter.y=TRUE, ...) { # margin controls
-  ## arguments:
-  ##   x - the x-axis data
-  ##   y (character or factor vector) the y-axis data to plot
-  ##   Plot - parameters of the plot
-  ##   xaxis.log - log-transform the X axis
-  ##   xaxis.range - set the range of the x-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     linearPretty or logPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
-  ##
   ## create the plotting positions
   ## set up the axes
   xtitle=xtitle # needed to 'set' names

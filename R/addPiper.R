@@ -1,36 +1,36 @@
-# Adds plots to a Piper diagram.
-#    Calls ternarySubplot and piperSubplot..
-#
-# Coding history:
-#    2009Oct28 DLLorenz Original coding and revisions.
-#    2011May24 DLLorenz Conversion to R
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Oct24          This version.
-#
-
+#' Add Detail to a Piper Plot
+#' 
+#' Adds points or lines to a Piper plot.
+#' 
+#' 
+#' @param xCat ,
+#' @param yCat , and
+#' @param zCat the cations for the x-, y-, and z-axes. Need not sum to 1 or
+#' 100.
+#' @param xAn ,
+#' @param yAn , and
+#' @param zAn the anions for the x-, y-, and z-axes. Need not sum to 1 or 100.
+#' @param xPip and
+#' @param yPip the coordinates for the internal piper diagram.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
+#' @param current the current plot information. Typically, this would be the
+#' output from one of the graph creation functions like \code{piperPlot}.
+#' @return Information about the graph.
+#' @seealso \code{\link{piperPlot}}
+#' @keywords aplot
+#' @export addPiper
 addPiper <- function(xCat, yCat, zCat, xAn, yAn, zAn, xPip, yPip,
                      ## data (need not sum to 100); xP, yP are the piper x, y
                      Plot=list(name="", what='points', type='solid',
                        width='standard', symbol='circle', filled=TRUE,
                        size=0.09, color='black'), # plot controls (for all points)
                      current=list()) { # current Piper diagram parameters
-  ## Arguments:
-  ##  xCat (numeric vector) and
-  ##  yCat (numeric vector) and
-  ##  zCat (numeric vector) the cations for the x-, y-, and z-axes. Need not sum to
-  ##    1 or 100.
-  ##  xAn (numeric vector) and
-  ##  yAn (numeric vector) and
-  ##  zAn (numeric vector) the anions for the x-, y-, and z-axes. Need not sum to
-  ##    1 or 100.
-  ##  xPip (numeric vector) and
-  ##  yPip (numeric vector) the coordinates for the internal piper diagram.
-  ##  Plot (list) defining the characteristics of the plot
-  ##  current (list) the special axis parameters for the current plot.
-  ## Note: The plotting arguments must be either xCat, yCat, zCat, xAn, yAn, and 
-  ## zAn (in which case they do not need to sum to 1 or 100), or xCat, yCat,
-  ## xAn, yAn, xPip and yPip (in which case the values are the actual coordinates
-  ## to be plotted).
+	# Coding history:
+	#    2009Oct28 DLLorenz Original coding and revisions.
+	#    2011May24 DLLorenz Conversion to R
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014Jun25 DLLorenz Converted to roxygen
   ## 
   ## Process plot controls
   Plot <- setPlot(Plot, name="", what='points', type='solid',

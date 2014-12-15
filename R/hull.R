@@ -1,18 +1,22 @@
-# return the closed line forming the hull of a cloud of 2D points
-#
-# Coding History:
-#    2010Mar20 DLLorenz Original coding
-#    2011Jun14 DLLorenz Begin conversion to R.
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Oct24          This version.
-#
-
+#' Construct a Hull
+#' 
+#' Construct an enclosing hull from x- and y-coordinate data.
+#' 
+#' 
+#' @param x the x-coordinate data. Missing values are permitted, but ignored.
+#' @param y the y-coordinate data. Missing values are permitted, but ignored.
+#' @param percent the minimum percent to enclose.
+#' @param smooth smooth the bounding hull?
+#' @return A list containing the x- and y-coordinates of the hull.
+#' @seealso \code{\link{dataEllipse}}
+#' @keywords dplot
+#' @export hull
 hull <- function(x, y, percent=100, smooth=FALSE) {
-  ## Arguments:
-  ##  x (numeric vector) the x-coordinate data
-  ##  y (numeric vector) the y-coordinate data
-  ##  percent (numeric scalar) minimum percent to enclose
-  ##  smooth (logical scalar) smooth the envelop?
+	# Coding History:
+	#    2010Mar20 DLLorenz Original coding
+	#    2011Jun14 DLLorenz Begin conversion to R.
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014Jun26 DLLorenz Converted to roxygen
   ## 
   ## The smoothing function
   pspline <- function(x, y) {

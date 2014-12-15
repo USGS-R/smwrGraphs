@@ -1,31 +1,42 @@
-# add text to a plot
-#
-# Coding History:
-#    2008Aug01 DLLorenz Original coding and begin of tweaks.
-#    2011Jan20 DLLorenz Conversion to R
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Sep18 DLLorenz Added long integers
-#    2012Sep18          This version.
-#
-
+#' Add Text to a Graph
+#' 
+#' Adds text to a Graph.
+#' 
+#' This function places only a single text on the graph for each call.\cr A
+#' leader from \code{x}, \code{y} to \code{leaderx}, \code{leadery} if
+#' \code{leaderx} is not \code{NULL}.
+#' 
+#' @param x the x-axis placement of \code{annotation}.
+#' @param y the y-axis placement of \code{annotation}.
+#' @param annotation the text.
+#' @param leaderx draw leader from \code{x} to \code{leaderx}.
+#' @param leadery draw leader from \code{y} to \code{leadery}.
+#' @param leadercol the color of the leader.
+#' @param angle the angle to rotate the text.
+#' @param justification the justification of the text relative to \code{x},
+#' \code{y}. Must be one of "left," "center," or "right."
+#' @param size size of the text in points.
+#' @param position the vertical location of the text. Must be one of "above,"
+#' "below," or "center."
+#' @param current the current plot controls. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @return The current plot information is returned invisibly.
+#' @seealso \code{\link{labelPoints}}, \code{\link{addTable}},
+#' \code{\link{xyPlot}}
+#' @keywords aplot
+#' @export addAnnotation
 addAnnotation <- function(x, y, annotation, # data
                           leaderx=NULL, leadery=NULL, leadercol="black", # leader controls
                           angle=0, justification="left", size=8,
                           position="above", # placement control
                           current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
                             xaxis.log=FALSE)) { # current plot parameters 
-  ## Arguments:
-  ##  x (numeric scalar) the x-axis placement of anno
-  ##  y (numeric scalar) the y-axis placement of anno
-  ##  annotation (character scalar) the text
-  ##  leaderx - draw leader from x value to leaderx
-  ##  leadery - draw leader from y value to leadery
-  ##  leadercol the color fo the leader
-  ##  angle - the angle to rotate the text
-  ##  justification - the justification of the label from the point
-  ##  position - the vertical location of the anno
-  ##  size - character size in points
-  ##  current - the current plot controls
+	# Coding History:
+	#    2008Aug01 DLLorenz Original coding and begin of tweaks.
+	#    2011Jan20 DLLorenz Conversion to R
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Sep18 DLLorenz Added long integers
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## convert to usr units
   y <- transData(y, current$yaxis.log, current$yaxis.rev,

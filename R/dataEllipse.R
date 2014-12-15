@@ -1,11 +1,17 @@
-# compute the minimum covering ellipse for bivariate data
-#
-# Coding history:
-#    2010Mar21 DLLorenz Original coding
-#    2011Jun14 DLLorenz Begin conversion to R.
-#    2010Jun14          This version.
-#
-
+#' Construct an Ellipse
+#' 
+#' Construct an ellipse from x- and y-coordinate data.
+#' 
+#' 
+#' @param x the x-coordinate data.
+#' @param y the y-coordinate data.
+#' @param percent a scale factor, adjusted to include \code{percent} of the
+#' data.
+#' @param smooth required for compatibiltiy, not used.
+#' @return A list containing the x- and y-coordinates of the ellipse.
+#' @seealso \code{\link{cov2Ellipse}}, \code{\link{hull}}
+#' @keywords dplot
+#' @export dataEllipse
 dataEllipse <- function(x, y, percent=100, smooth=0) { 
   ## smooth required for compatibiltiy, not used
   ## Construct the data matrix and the ellispe info

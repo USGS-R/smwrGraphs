@@ -1,15 +1,36 @@
-# add minor ticks to linear axes
-#
-# Coding History:
-#    2014Jan31 DLLorenz Original coding.
-#
-
+#' Add Axis Ticks
+#' 
+#' Add minor axis ticks to a graphs.
+#' 
+#' The \code{current} argument must contain a component named \code{yax} if
+#' \code{which} is "left" or "right" or a component named \code{xax} if
+#' \code{which} is "bottom" or "top." Those arguments are generally constructed
+#' from functions like \code{linearPretty}.
+#' 
+#' The default placement of minor ticks is at the largest unit that lies
+#' between the major ticks---if the difference between major ticks is an even
+#' multiple of 2 or 5, then the minor interval will be that even multiple of 1,
+#' otherwise it will be 1/10 that even multiple.
+#' 
+#' @param which which axis to label, must be one of "bottom," "left," "top," or
+#' "right," "x," or "y." If \code{which} is "x," then add both bottom and top
+#' minors ticks. If \code{which} is "y," then add both left and right minor
+#' ticks.
+#' @param current the current plot information, see \bold{Details}.
+#' @param ticks the number of minor ticks to draw. If missing, then the default
+#' number is used, see \bold{Details}.
+#' @return The current plot information is returned invisibly.
+#' @note In general, this should be used only with linear axes. Other axis
+#' types can result in unexpected results.
+#' @seealso \code{\link{linearPretty}}, \code{\link{addAxisLabels}},
+#' \code{\link{addLabel}}
+#' @keywords aplot
+#' @export addMinorTicks
 addMinorTicks <- function(which, current, ticks) {
-  ## Arguments:
-  ##  which (character scalar) which axis to label
-  ##  current (output from primary plotting function)
-  ##  ticks (logical scalar) draw the ticks or numeric--
-  ##  Number of ticks per interval
+	# Coding History:
+	#    2014Jan31 DLLorenz Original coding.
+	#    2014Jun25 DLLorenz Converted to roxygen
+	#
   which <- match.arg(which, c("bottom", "left", "top", "right", "x", "y"))
   plotsize <- par("pin")
   ticklen <- .04/min(plotsize)

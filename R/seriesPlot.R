@@ -1,11 +1,39 @@
-# Create a (sub)series plot
-#
-# Coding History:
-#    2012May30 DLLorenz Original coding.
-#    2013Apr09 DLLorenz Added setGD.
-#    2013Sep10 DLLorenz Finishing touches.
-#
-
+#' Series Plot
+#' 
+#' Produce a plot.
+#' 
+#' The argument \code{what} for \code{SeasonLine} must be either "lines" or
+#' "vertical."  See \code{\link{monthplot}} for more information.\cr The
+#' argument \code{what} for \code{SeasonPoint} can be set to "none" to suppress
+#' drawing of that feature.
+#' 
+#' @aliases seriesPlot seriesPlot.default
+#' @param x data that can be treated as a regularly-spaced time series. Missing
+#' values are permitted, but result in missing seasons.
+#' @param SeasonLine control parameters of the lines in the plot. See
+#' \bold{Details}.
+#' @param SeasonPoint control parameters of the points in the plot. See
+#' \bold{Details}.
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.range set the range of the y axis.
+#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set the x-axis labels and number of seasons when \code{x} is
+#' a simple numeric vector, may be a single numeric value indicating the number
+#' of seasons in \code{x} or a vector of the names of the seasons. See
+#' \code{\link{namePretty}} for details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin of the plot area.
+#' @param \dots any additional arguments required for specific methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{seriesPlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{monthplot}},
+#' \code{\link{seasonPlot}}
+#' @keywords hplot
+#' @export seriesPlot
 seriesPlot <- function(x, # data
                        SeasonLine=list(name="", what="vertical", color="black"),
                        SeasonPoint=list(name="", what="points", symbol="circle", 

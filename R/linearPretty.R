@@ -1,28 +1,44 @@
-# Compute nice looking labels for a linear axis
-#
-# Coding history:
-#    2000Dec   Peter Shaw Original coding
-#    2005Jul14 DLLorenz Original dated coding for library
-#    2006Feb23 DLLorenz doc fix and modify for linear axis only
-#    2008May02 DLLorenz Name change and modify labels to allow specific values
-#    2008May03 DLLorenz Tweaks
-#    2010Nov15 DLLorenz Modified for R
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Oct05 DLLorenz Nice integers and arg documentation
-#    2014Feb04 DLLorenz Added extendrange function to default data.
-#    2014May10 DLLorenz Added extend.range argument to suppress above
-#
-
+#' Pretty Axis
+#' 
+#' Construct information for making a nicely formatted linear numeric axis.
+#' 
+#' 
+#' @param x data defining the range to be plotted on the axis. Missing value
+#' are permitted, but ignored.
+#' @param hard use the minimum and maximum of \code{x} as the fixed range of
+#' the axis?
+#' @param labels either "Auto," which lets the function decide how many labels,
+#' the approximate number of labels, or the actual labels to use.
+#' @param style a character string indicating the style of the axis labels if
+#' they are not specifically listed in \code{labels}.
+#' @param extend.pct extend the axis range by \code{extend.pct}. Only valid
+#' when \code{hard} is FALSE.
+#' @param extend.range if \code{TRUE}, then extend the data range by a bit to
+#' avoid plotting on axis. Otherwise do not extend the data range. Only valid
+#' when \code{hard} is FALSE; Ignored in \code{logPretty}
+#' @return Information about the axis lables.
+#' @seealso \code{\link{areaPlot}}, \code{\link{boxPlot}},
+#' \code{\link{colorPlot}}, \code{\link{areaPlot}}, \code{\link{dotPlot}},
+#' \code{\link{ecdfPlot}}, \code{\link{probPlot}}, \code{\link{qqPlot}},
+#' \code{\link{scalePlot}}, \code{\link{splomPlot}}, \code{\link{timePlot}},
+#' \code{\link{xyPlot}}
+#' @keywords dplot
+#' @export linearPretty
 linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
                          extend.pct=0, extend.range=TRUE) {
-  ## Arguments:
-  ##  x - the numeric data
-  ##  hard - force hard limits based on x?
-  ##  labels - the number of labels, or the actual labels, or "auto" => 6
-  ##   style - the style: numeric, with commas; scientific, scientific notation;
-  ##           decimal, no comma
-  ##  extend.pct - extend the axes by this percentage.
-  ## function to get best fit to requested hard limits
+	# Coding history:
+	#    2000Dec   Peter Shaw Original coding
+	#    2005Jul14 DLLorenz Original dated coding for library
+	#    2006Feb23 DLLorenz doc fix and modify for linear axis only
+	#    2008May02 DLLorenz Name change and modify labels to allow specific values
+	#    2008May03 DLLorenz Tweaks
+	#    2010Nov15 DLLorenz Modified for R
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Oct05 DLLorenz Nice integers and arg documentation
+	#    2014Feb04 DLLorenz Added extendrange function to default data.
+	#    2014May10 DLLorenz Added extend.range argument to suppress above
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
   selbest <- function(xx, ticks, labels) {
     xrange <- range(xx)
     trange <- range(ticks)
@@ -53,7 +69,7 @@ linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
   if (is.null(xclean))
     stop("all data are missing.")
   ## Extend range by a bit to avoid plotting on the axis. if requested
-  if(extend.range)
+  if(extend.range && !hard)
   	xclean <- extendrange(xclean, f=0.01)
   if(length(labels) == 1L) {
     ticks <- pretty(xclean, n=labels-1L)

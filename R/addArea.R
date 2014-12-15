@@ -1,23 +1,38 @@
-# add a polygon (area) to a graph
-#
-# Coding History:
-#    2011Jun16 DLLorenz Original coding.
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Nov23 DLLorenz Added ybase option
-#    2013Aug30 DLLorenz Bug Fix for border = "none"
-#
-
+#' Add a Filled Polygon to Graph
+#' 
+#' Adds a filled polygon (area) to a graph
+#' 
+#' If \code{ybase} is NULL, then \code{x} and \code{y} should form a complete
+#' polygon, which can be close or open. Otherwise, \code{ybase} can be a single
+#' value in which case the area between \code{ybase} and \code{y} is treated as
+#' the area, or \code{ybase} can be a vector as long as \code{y} and the area
+#' between is treated as the area to be shaded.
+#' 
+#' @param x the x-axis coordinates of the polygon. Missing values are not
+#' permitted.
+#' @param y the y-axis coordinates of the polygon. Missing values are not
+#' permitted.
+#' @param ybase the y-axis coordinates of the polygon. See \bold{Details}.
+#' Missing values are not permitted.
+#' @param Area parameters defining the characteristics of the area. See
+#' \code{\link{areaPlot}} for details.
+#' @param current the current plot information. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @return The current plot information is returned invisibly.
+#' @seealso \code{\link{areaPlot}}, \code{\link{addXY}}, \code{\link{xyPlot}}
+#' @keywords aplot
+#' @export addArea
 addArea <- function(x, y, ybase=NULL, # data
                     Area=list(name="", color="gray",
                       outline="black"), # area controls
                     current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
                       xaxis.log=FALSE)) { # current plot parameters
-  ## Arguments:
-  ##   x - the x-axis data
-  ##   y - the y-axis data to plot
-  ##   ybase - if not null shade between y and ybase
-  ##   Area - parameters defining the characteristics of the area
-  ##   current - the current plot information
+	# Coding History:
+	#    2011Jun16 DLLorenz Original coding.
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Nov23 DLLorenz Added ybase option
+	#    2013Aug30 DLLorenz Bug Fix for border = "none"
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## Process the data to plot
   y <- transData(y, current$yaxis.log, current$yaxis.rev,
@@ -26,6 +41,8 @@ addArea <- function(x, y, ybase=NULL, # data
                  current$xtrans, current$xtarg)
   N <- length(x)
   if(!is.null(ybase)) { # Need to do something
+  	ybase <- transData(ybase, current$yaxis.log, current$yaxis.rev,
+  								 current$ytrans, current$ytarg)
     if(length(ybase) == 1L) { # a constant
       y <- c(ybase, y, ybase)
       x <- c(x[1L], x, x[N])

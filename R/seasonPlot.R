@@ -1,19 +1,62 @@
-# Plot data through season
-#
-# Coding History:
-#    2012Feb02 DLLorenz Original coding from timePlot
-#    2012Aug28 DLLorenz dots for future methods
-#    2012Sep27 DLLorenz Made generic
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Season Plot
+#' 
+#' Create a plot of data on a yearly cycle.
+#' 
+#' 
+#' @name seasonPlot
+#' @rdname seasonPlot
+#' @aliases seasonPlot seasonPlot,ANY,numeric-method
+#' seasonPlot,character,numeric-method
+#' @param x the x-coordinate data.
+#' @param y the y-coordinate data.
+#' @param Plot control parameters of the plot
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.range set the range of the y-axis.
+#' @param xaxis.range set the range of the x-axis. Must be one of "calendar,"
+#' "water," or "climate" to set the type of year that is shown on the x-axis.
+#' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set up x-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @param ... arguments for specific methods.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{seasonPlot}.
+#' 
+#' To add a plot to the graph created by \code{seasonPlot}, the x-axis data
+#' must be expressed as decimal time relative to January 1. 
+#' @docType methods
+#' @section Methods: \describe{
+#' 
+#' \item{signature(x = "ANY", y = "numeric")}{ Create a seasonal
+#' plot for any valid date data and numeric y data. }
+#' 
+#' \item{signature(x = "character", y = "numeric")}{ Create a
+#' seasonal plot for date data in the form of month and day, like "Jan 01" or
+#' "Jaunary 01." Typically used to plot daily mean values. } }
+#' @seealso \code{\link{setPage}}, \code{\link{timePlot}}
+#' @keywords methods hplot
+#' @exportMethod seasonPlot
 setGeneric("seasonPlot", function(x, y, Plot=list(),
                                   yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),
 																	xaxis.range="",
                                   ylabels=7, xlabels=7, xtitle="", ytitle="",
                                   caption="", margin=c(NA, NA, NA, NA), ...)
-           standardGeneric("seasonPlot"))
+           standardGeneric("seasonPlot")
+					 # Coding History:
+					 #    2012Feb02 DLLorenz Original coding from timePlot
+					 #    2012Aug28 DLLorenz dots for future methods
+					 #    2012Sep27 DLLorenz Made generic
+					 #    2013Apr09 DLLorenz Added setGD 
+					 #    2014Jun26 DLLorenz Converted to roxygen
+					 )
 
+#' @rdname seasonPlot
 setMethod("seasonPlot", signature("ANY", "numeric"), # can be Date, POSIXct, or decimal
 function(x, y, # data
          Plot=list(name="", what="points", type="solid",
@@ -58,8 +101,8 @@ function(x, y, # data
   xlabels=match.arg(xlabels, c("Auto", "full", "abbrev", "letter"))
   xaxis.range=match.arg(xaxis.range)
   xlabels <- switch(xlabels,
-                    Auto=month.abb, full=month.name,
-                    abbrev=month.abb, letter=c("J", "F", "M", "A", "M", "J",
+                    Auto=month.USGS, full=month.name,
+                    abbrev=month.USGS, letter=c("J", "F", "M", "A", "M", "J",
                                         "J", "A", "S", "O", "N", "D"))
   if(xaxis.range == "calendar") {
   	dax <- list(ticks=c(0.0847, 0.1639, 0.2486, 0.3306, 0.4153, 0.4973,
@@ -143,6 +186,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname seasonPlot
 setMethod("seasonPlot", signature("character", "numeric"), 
 function(x, y, # data
 				 Plot=list(name="", what="lines", type="solid",

@@ -1,11 +1,20 @@
-# check/convert anything to valid colors (names, Hexvalues, numbers (1-8))
-#
-# Coding history:
-#    2011Apr15 DLLorenz Original dated code.
-#    2011Apr17          This version.
-#
-
+#' Colors
+#' 
+#' Checks or converts anything to valid colors (support function).
+#' 
+#' 
+#' @param Color any kind of data that might be interpreted as a color.
+#' @return The values in \code{Color} converted to a value that could be
+#' interpreted as a color.
+#' @seealso \code{link{colors}}, \code{link{rainbow}}
+#' @keywords dplot
+#' @export setColor
 setColor <- function(Color) {
+	# Coding history:
+	#    2011Apr15 DLLorenz Original dated code.
+	#    2011Apr17          This version.
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
   if(is.numeric(Color))
     return(as.integer(abs(Color)))
   ## should be factor or char, force to char

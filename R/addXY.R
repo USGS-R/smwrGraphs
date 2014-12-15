@@ -1,6 +1,38 @@
-# add x,y data 
-#
-# Coding History:
+#' Add a plot to a graph
+#' 
+#' Add points or lines to the current graph.
+#' 
+#' @name addXY
+#' @rdname addXY
+#' @aliases addXY addXY,ANY,numeric-method
+#' addXY,numeric,character-method
+#' @param x the x-axis data. Missing values are permitted, but result in breaks
+#' in the plotted data.
+#' @param y the y-axis data. Missing values are permitted, but result in breaks
+#' in the plotted data.
+#' @param Plot parameters of the plot.  See \code{\link{setPlot}} for a
+#' description of the parameters.
+#' @param current the current plot information. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @param right logical: set up new right axis?
+#' @param right.log logical: log transform right axis?
+#' @param right.rev logical: reverse right axis?
+#' @param right.range set right-axis range.
+#' @param right.labels set up right-axis labels.
+#' @param right.title the right-axis title.
+#' @param jitter.y adjust \code{y} values to reduce overlap for each group?
+#' @param ... arguments for specific methods.
+#' @return Information about the graph.
+#' @docType methods
+#' @section Methods: \describe{
+#'
+#'\item{signature(x ="ANY", y = "numeric"}{Any valid x-axis data and numeric y.}
+#'\item{signature(x ="numeric", y = "character"}{Method to add to a dot plot;
+#'the right-axis arguments are not valid.}
+#'}
+#' @keywords methods aplot
+#' @exportMethod addXY
+setGeneric("addXY", function(x, y, ...) standardGeneric("addXY")
 #    2008Jun27 DLLorenz Original coding.
 #    2010Nov20 DLLorenz Begin modifications for R
 #    2011Apr16 DLLorenz Added complete complement of args to setPlot
@@ -8,14 +40,10 @@
 #    2011Oct24 DLLorenz fixed call to renderY and tweak for package
 #    2012Aug28 DLLorenz dots for future methods
 #    2012Sep27 DLLorenz Made generic
-#    2012Sep28          This version.
-#
+#    2014Jun25 DLLorenz Converted to roxygen
+)
 
-# For signature("ANY", "character") and signature("ANY", "character"),
-#  add jitter.y option as done with dotPlot.
-
-setGeneric("addXY", function(x, y, ...) standardGeneric("addXY"))
-
+#' @rdname addXY
 setMethod("addXY", signature("ANY", "numeric"), 
 function(x, y, # data
          Plot=list(name="", what='lines', type='solid',
@@ -26,17 +54,7 @@ function(x, y, # data
          right=FALSE, right.log=FALSE, right.rev=FALSE,
          right.range=c(NA,NA), ## right-axis controls
          right.labels=7, right.title='') { # right-axis labels and titles
-  ## add a simple (single line or scatter) x-y plot
-  ## arguments:
-  ##   x - the x-axis data
-  ##   y - the y-axis data to plot
-  ##   Plot - parameters of the plot
-  ##   current - the current plot information
-  ##   right - set up new right-axis
-  ##   right.log, right.rev - log or reverse data for right 
-  ##   right.range - set right-axis range
-  ##   right.labels - control labels
-  ##   right.title - right-axis title
+
   ##
   if(right) { # set up right axis
     rax <- setAxis(y, right.range, right.log, right.rev, right.labels)
@@ -76,6 +94,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname addXY
 setMethod("addXY", signature("numeric", "character"), 
 function(x, y, # data
 				 Plot=list(name="", what='points', type='solid',
@@ -84,13 +103,7 @@ function(x, y, # data
 				 current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
 				 						 xaxis.log=FALSE), # current plot parameters
 				 jitter.y=FALSE) { # jitter y-values a bit
-	## add a simple (single line or scatter) x-y plot
-	## arguments:
-	##   x - the x-axis data
-	##   y - the y-axis data to plot
-	##   Plot - parameters of the plot
-	##   current - the current plot information
-	##   jitter.y - add random value to the y?
+
 	##
 	y <- numericData(y, lev=current$yaxis.lev)
 	y <- transData(y, current$yaxis.log, current$yaxis.rev,

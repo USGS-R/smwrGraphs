@@ -1,43 +1,51 @@
-# Compute nice looking labels for a probability axis
-#
-# Coding History:
-#    2004Sep28 DLLorenz Original coding.
-#    2006Feb23 DLLorenz redate
-#    2006Mar06 DLLorenz modified to match output of other pretty functions
-#                       except finegrid
-#    2006Mar10 DLLorenz Added hard
-#    2006Aug14 DLLorenz Modifications for all distributions--start of coding
-#    2006Aug15 DLLorenz preliminary end of coding modifications
-#    2008May02 DLLorenz Name change
-#    2008May03 DLLorenz Start of tweaks
-#    2010Nov29 DLLorenz Conversion to R
-#    2011Jan08 DLLorenz Update comments
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Dec13 DLLorenz Fix for minx > .05 and labels > 9
-#    2013Jan29 DLLorenz Fix for fewer than 6 points to plot
-#    2013Jan29          This version.
-#    
-
+#' Pretty Axis
+#' 
+#' Construct information for making a nicely formatted probability axis.
+#' 
+#' 
+#' @param x axis coordinates in range 0-1 or 0-100 allowed and assumed if
+#' max(x) > 1 note that only min and max are needed, missing values allowed,
+#' but ignored.
+#' @param hard logical force min(x) and max(x) as axis limits, otherwise use
+#' "nice" limits.
+#' @param labels estimate of the number of labels desired, or label points if
+#' vector note if vector, can be expressed as character strings, which are
+#' converted to numeric and automatically scaled. Default is "Auto", which is 9
+#' if minimum x is greater than .01 and 11 otherwise.
+#' @param style can be either "probability" or "percent" indicates how the
+#' labels are formatted.
+#' @param exceedence \tabular{lr}{ TRUE \tab exceedence probs and additional
+#' recurrence interval labels\cr FALSE \tab cumulative probabilities\cr }
+#' @param priority \tabular{lr}{ "label" \tab "nice" labels given priority for
+#' selection\cr "positions" \tab uniform separation given priority for
+#' selection\cr }
+#' @param distribution the name of the probability function, defaults to
+#' normal.
+#' @param \dots options for the distribution function.
+#' @return Information about the axis labels.
+#' @seealso \code{\link{probPlot}}
+#' @keywords dplot
+#' @export probPretty
 probPretty <- function(x, hard=FALSE, labels='Auto', style='probability',
                        exceedence=TRUE, 
                        priority="label", distribution="normal", ...) {
   ## create ticks and labels for a probability axis
-  ## args:
-  ## x - axis coordinates in range 0-1 of 0-100 allowed and assumed if max(x) > 1
-  ##   note that only min and max are needed, NAs allowed, but ignored
-  ## hard - logical force min(x) and max(x) as axis limits, otherwise use "nice" limits
-  ## if NULL, then force to power of 10 limit
-  ## labels - estimate of the number of labels desired, or label points if vector
-  ##   note if vector, can be expressed as character strings, which are converted
-  ##   to numeric and automatically scaled. Default is "Auto", which is 9 if
-  ##   minimum x is greater than .01 and 11 otherwise
-  ## style can be either probability or percent values
-  ## exceedence - T means exceedence probs and additional recurrence interval labels
-  ##              F means cumulative probabilities
-  ## priority - "label" means "nice" labels given priority for selection
-  ##            "positions" means uniform separation given priority for selection
-  ## distribution - the name of the probability function, defaults to normal
-  ## ... - options for the distribution function
+	# Coding History:
+	#    2004Sep28 DLLorenz Original coding.
+	#    2006Feb23 DLLorenz redate
+	#    2006Mar06 DLLorenz modified to match output of other pretty functions
+	#                       except finegrid
+	#    2006Mar10 DLLorenz Added hard
+	#    2006Aug14 DLLorenz Modifications for all distributions--start of coding
+	#    2006Aug15 DLLorenz preliminary end of coding modifications
+	#    2008May02 DLLorenz Name change
+	#    2008May03 DLLorenz Start of tweaks
+	#    2010Nov29 DLLorenz Conversion to R
+	#    2011Jan08 DLLorenz Update comments
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2011Dec13 DLLorenz Fix for minx > .05 and labels > 9
+	#    2013Jan29 DLLorenz Fix for fewer than 6 points to plot
+	#    2014Jun27 DLLorenz Converted to roxygen
   ##
   ## get the distribution
   distribution=getDist.fcn(distribution, 'q')

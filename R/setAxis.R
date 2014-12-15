@@ -1,20 +1,28 @@
-# set up axis 
-#
-# Coding History:
-#    2008Jun28 DLLorenz Original coding.
-#    2009Dec02 DLLorenz Begin tweaks
-#    2010Nov15 DLLorenz Modified for R
-#    2011Jul29 DLLorenz Bug fix for ... 
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Jan10 DLLorenz bug fix for axis.range implies hard
-#    2013Mar08 DLLorenz Added tweak to allow for date like formatting
-#
-
+#' Set up an Axis
+#' 
+#' Sets up axis information (support function).
+#' 
+#' 
+#' @param data the coordinates for the particular axis
+#' @param axis.range set axis range.
+#' @param axis.log log transform the axis?
+#' @param axis.rev reverse the axis direction?
+#' @param axis.labels set axis labels.
+#' @param \dots additional arguments to the "pretty" functions.
+#' @return Information about the axis
+#' @seealso \code{\link{linearPretty}}, \code{\link{logPretty}}
+#' @keywords dplot
+#' @export setAxis
 setAxis <- function(data, axis.range, axis.log, axis.rev, axis.labels, ...) {
-  ## arguments:
-  ##   data - axis data
-  ##   range - set axis range
-  ##   axis.log, axis.rev - log or reverse data
+	# Coding History:
+	#    2008Jun28 DLLorenz Original coding.
+	#    2009Dec02 DLLorenz Begin tweaks
+	#    2010Nov15 DLLorenz Modified for R
+	#    2011Jul29 DLLorenz Bug fix for ... 
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Jan10 DLLorenz bug fix for axis.range implies hard
+	#    2013Mar08 DLLorenz Added tweak to allow for date like formatting
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   if(any(is.na(axis.range))) { # forced limits?
     drange <- range(data, na.rm=TRUE)

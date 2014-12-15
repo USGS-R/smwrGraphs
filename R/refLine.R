@@ -1,14 +1,23 @@
-# add a reference line
-#
-# Coding History:
-#    2008Jul02 DLLorenz Original coding.
-#    2010Nov29 DLLorenz Conversion to R
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug02 DLLorenz Start of bug fixes
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Oct24          This version.
-#    
-
+#' Reference Line
+#' 
+#' Add a reference line (vertical, horizontal, or regression) to a graph.
+#' 
+#' 
+#' @param horizontal draw horizontal lines at the specified values.
+#' @param vertical draw vertical lines at the specified values.
+#' @param coefficients draw a fitted line from the coefficients of a regression
+#' model.
+#' @param Plot control parameters of the plot. The argument \code{what} is
+#' forced to "lines."
+#' @param current the current parameters of the graph. Typically, this would be
+#' the output from one of the graph creation functions like \code{xyPlot}.
+#' @param xrange limit x-axis range of horizontal or regression lines
+#' @param yrange limit y-axis range of vertical lines
+#' @param log10 was log base 10 transform used in the regression model?
+#' @return Information about the graph.
+#' @seealso \code{\link{addXY}}, \code{\link{addSmooth}}, \code{\link{xyPlot}}
+#' @keywords aplot
+#' @export refLine
 refLine <- function(horizontal, vertical, coefficients, # data, at least one must be used
                   Plot=list(name="", what='lines', type='solid',
                     width='standard', symbol='circle', filled=TRUE,
@@ -17,15 +26,13 @@ refLine <- function(horizontal, vertical, coefficients, # data, at least one mus
                     xaxis.log=FALSE), # current plot parameters
                   xrange=c(NA,NA), yrange=c(NA,NA), # limit range of lines
                   log10=FALSE) { # was log base 10 used in any transforms
-  ## add reference line
-  ## arguments:
-  ##   horizontal - horizontal lines 
-  ##   vertical - vertical lines
-  ##   coefficients - coefficients from a regression model
-  ##   Plot - parameters of the plot, what is forced to lines
-  ##   xrange - limit x-axis range of horizontal or regression line
-  ##   yrange - limit y-axis range of vertical line
-  ##   log10 - logical: was log base 10 transform used?
+	# Coding History:
+	#    2008Jul02 DLLorenz Original coding.
+	#    2010Nov29 DLLorenz Conversion to R
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Aug02 DLLorenz Start of bug fixes
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   Plot <- setPlot(Plot, name="", what='lines', type='solid',
                   width='standard', symbol='circle', filled=TRUE,

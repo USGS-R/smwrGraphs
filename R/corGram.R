@@ -1,20 +1,30 @@
-# Create a diagnostic plot of serial correlation (emprirical correlogram)
-#
-# Coding history:
-#    2006Jun06 DLLorenz Initial coding
-#    2008Nov10 DLLorenz Vectorized version
-#    2009Mar23 DLLorenz Begin editorial and method changes
-#    2009Mar27 DLLorenz Moved to Graphs
-#    2010Nov29 DLLorenz Modified for R
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Aug17 DLLorenz Changes to default Plot, titles, and corGram
-#    2011Oct03 DLLorenz changed ksmooth to locpoly
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Mar23 DLLorenz More tweaks for kernel smoothing
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Correlogram
+#' 
+#' Create a correlogram for irregularly spaced data
+#' 
+#' 
+#' @param x decimal time.
+#' @param y residuals or other observations, these will be scaled, but not
+#' centered.
+#' @param Plot control parameters of the plot.
+#' @param CorGram control parameters of the correlogram line.
+#' @param yaxis.range set the y-axis range.
+#' @param xaxis.range set the x-axis range.
+#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set the x-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @return Information about the graph.
+#' @importFrom KernSmooth locpoly
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{corGram}.
+#' @seealso \code{\link{setPage}}
+#' @keywords hplot
+#' @export corGram
 corGram <- function(x, y, # data specs
                     Plot=list(name="Standardized Observations",
                       what='points', type='solid',
@@ -30,15 +40,21 @@ corGram <- function(x, y, # data specs
                     ytitle="Standardized Serial Correlation", # axis titles
                     caption="",# caption
                     margin=c(NA, NA, NA, NA))  { # margin control
-  ## data arguments:
-  ##   x is decimal time, not timeDate
-  ##   y is residuals or other observations, these will be scaled
-  ## CorGram arguments:
-  ##   band is the bandwidth used by ksmooth
-  ##   kernel is the kernel smoother used by locpoly, only normal is used
-  ##   color is the color of the line. Line parms are set in Plot
-  ##   width is the line width
-  ##   add0line is a flag to draw to dashed line at 0
+	# Coding history:
+	#    2006Jun06 DLLorenz Initial coding
+	#    2008Nov10 DLLorenz Vectorized version
+	#    2009Mar23 DLLorenz Begin editorial and method changes
+	#    2009Mar27 DLLorenz Moved to Graphs
+	#    2010Nov29 DLLorenz Modified for R
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2011Aug17 DLLorenz Changes to default Plot, titles, and corGram
+	#    2011Oct03 DLLorenz changed ksmooth to locpoly
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Mar23 DLLorenz More tweaks for kernel smoothing
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun25 DLLorenz Converted to roxygen
+	#
   ## Initial processing
   xx <- outer(x, x, "-")
   y <- as.vector(scale(y))
@@ -74,7 +90,7 @@ corGram <- function(x, y, # data specs
   CorGram <- setDefaults(CorGram, band=0.15, kernel='normal',
                       color='black', width='standard', add0line=TRUE)
   xpoints <- c(-.25, par('usr')[2] + 0.1) # Seems to need a buffer
-  ksmo <- KernSmooth::locpoly(xx[xx !=0], yy[xx!=0], degree=2,
+  ksmo <- locpoly(xx[xx !=0], yy[xx!=0], degree=2,
                               kernel = CorGram$kernel,
                               bandwidth = CorGram$band, range.x=xpoints,
                               truncate=FALSE, gridsize=121)

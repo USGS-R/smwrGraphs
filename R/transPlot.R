@@ -1,13 +1,34 @@
-# Plot x,y data using aribtrary transforms
-#
-# Coding History:
-#    2010Nov29 DLLorenz Original coding.
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' X-Y Plot
+#' 
+#' Produce an x-y plot using arbitrary monotonic transforms for the axes.
+#' 
+#' @param x the x-axis data.
+#' @param xtrans the transformation function for the x-axis.
+#' @param xinv the inverse transformation for the x-axis.
+#' @param xtargs additional arguments to \code{xtrans} and \code{xinv}, as a
+#' list if necessary, NULL otherwise.
+#' @param y the y-axis data.
+#' @param ytrans the transformation function for the y-axis.
+#' @param yinv the inverse transformation for the y-axis.
+#' @param ytargs additional arguments to \code{ytrans} and \code{yinv}, as a
+#' list if necessary, NULL otherwise.
+#' @param Plot control parameters of the plot.
+#' @param yaxis.range set the range of the y-axis.
+#' @param xaxis.range set the range of the x-axis.
+#' @param ylabels set up y-axis labels. See \code{\link{transPretty}} for
+#' details.
+#' @param xlabels set up x-axis labels. See \code{\link{transPretty}} for
+#' details.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{transPlot}.
+#' @seealso \code{\link{setPage}}, \code{link{transPretty}}
+#' @keywords hplot
+#' @export transPlot
 transPlot <- function(x, xtrans, xinv, xtargs=NULL, y, ytrans,
                       yinv, ytargs=NULL, # data
                    Plot=list(name="", what='points', type='solid',
@@ -20,27 +41,13 @@ transPlot <- function(x, xtrans, xinv, xtargs=NULL, y, ytrans,
                    ytitle=deparse(substitute(y)), # axis titles
                    caption='', # caption 
                    margin=c(NA, NA, NA, NA)) { # margin controls
-  ## build a simple (single line or scatter) x-y plot
-  ## arguments:
-  ##   x - the x-axis data
-  ##   xtrans - the transformation function for x
-  ##   xinv - the inverse transformation for x
-  ##   xtargs - additional arguments to xtrans, as a list if necessary, NULL otherwise 
-  ##   y - the y-axis data to plot
-  ##   ytrans - the transformation function for y
-  ##   yinv - the inverse transformation for y
-  ##   ytargs - additional arguments to ytrans, as a list if necessary, NULL otherwise 
-  ##   Plot - parameters of the plot
-  ##   xaxis.range - set the range of the x-axis
-  ##   yaxis.range - set the range of the y-axis
-  ##   xlabels - an estimate of the number of labels wanted
-  ##   ylabels - an estimate of the number of labels wanted
-  ##     NOTE: either xlabels or ylabels can be a list of arguments to
-  ##     transPretty to tweak output
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
+	# Coding History:
+	#    2010Nov29 DLLorenz Original coding.
+	#    2011Apr16 DLLorenz Added complete complement of args to setPlot
+	#    2011Aug03 DLLorenz Added axis labeling info to current
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun27 DLLorenz Converted to roxygen
   ##
   ## create the plotting positions
   ## set up the axes

@@ -1,27 +1,80 @@
-# Plot data through time
-#
-# Coding History:
-#    2008May03 DLLorenz Original coding.
-#    2008May06 DLLorenz Begin Tweaks
-#    2011Jan05 DLLorenz Conversion to R
-#    2011Apr16 DLLorenz Added complete complement of args to setPlot
-#    2011Jun16 DLLorenz Modified the y-axis set up
-#    2011Aug03 DLLorenz Added axis labeling info to current
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Mar23 DLLorenz dots for future methods
-#    2012Sep27 DLLorenz Made generic
-#    2012Nov08 DLLorenz Added numeric and integer options for x
-#    2012Nov14 DLLorenz Tweaks to new code
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Time-series Plots
+#' 
+#' Produce a plot of time-series data.
+#' 
+#' The value for \code{xlabels} must be one of "full," the full month names;
+#' "abbrev," abbreviations; or "letter," the first letter of the
+#' month. The default is "Auto."
+#' 
+#' @name timePlot
+#' @rdname timePlot
+#' @aliases timePlot timePlot,Date,numeric-method
+#' timePlot,POSIXt,numeric-method timePlot,numeric,numeric-method
+#' timePlot,integer,numeric-method timePlot,difftime,numeric-method
+#' @param x the time/date data.
+#' @param y the y-axis data.
+#' @param Plot control parameters of the plot.
+#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.range set the range of the y-axis.
+#' @param xaxis.range set the range of the x-axis. Set at January 1 through
+#' December 31 for \code{seasonPlot}.
+#' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
+#' details.
+#' @param xlabels set up x-axis labels. See \code{\link{datePretty}} for
+#' details for \code{timePretty}. See \bold{Details} for details for
+#' \code{seasonPretty}.
+#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param ytitle the y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins.
+#' @param ... arguments for specific methods.
+#' @return Information about the graph.
+#' @note The function \code{timePlot} produces a time-series plot. The function
+#' \code{seasonPlot} produces a plot of the annual cycle. There is no function
+#' in the USGSwsGraphs package that will automatically transform time/date data
+#' to the correct seasonal value; use \code{dectime(x) - trunc(dectime(x))},
+#' where \code{x} is the time/date variable.
+#' @docType methods
+#' @section Methods: \describe{
+#' 
+#' \item{signature(x = "Date", y = "numeric")}{ Create a
+#' time-series plot for Date and numeric data. }
+#' \item{signature(x ="POSIXt", y = "numeric")}{ Create a 
+#' time-series plot for POSIXt and #' numeric data. } 
+#' \item{signature(x = "numeric", y = "numeric")}{ Create a 
+#' time-series plot for dates in decimal format and numeric data. }
+#' \item{signature(x = "integer", y = "numeric")}{ Create a
+#' time-series plot for annual summaries of numeric data. }
+#' \item{signature(x = "difftime", y = "numeric")}{ Create a
+#' time-series plot for difftime and numeric data. } }
+#'
+#' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}
+#' @keywords methods hplot
+#' @exportMethod timePlot
 setGeneric("timePlot", function(x, y, Plot=list(),
                                 yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),
                                 xaxis.range=range(x, na.rm=TRUE),
-                                ylabels=7, xlabels=7, xtitle="", ytitle="",
+                                ylabels=7, xlabels="Auto", xtitle="", ytitle="",
                                 caption="", margin=c(NA, NA, NA, NA), ...)
-           standardGeneric("timePlot"))
+           standardGeneric("timePlot")
+					 # Coding History:
+					 #    2008May03 DLLorenz Original coding.
+					 #    2008May06 DLLorenz Begin Tweaks
+					 #    2011Jan05 DLLorenz Conversion to R
+					 #    2011Apr16 DLLorenz Added complete complement of args to setPlot
+					 #    2011Jun16 DLLorenz Modified the y-axis set up
+					 #    2011Aug03 DLLorenz Added axis labeling info to current
+					 #    2011Oct24 DLLorenz Tweaks for package
+					 #    2012Mar23 DLLorenz dots for future methods
+					 #    2012Sep27 DLLorenz Made generic
+					 #    2012Nov08 DLLorenz Added numeric and integer options for x
+					 #    2012Nov14 DLLorenz Tweaks to new code
+					 #    2013Apr09 DLLorenz Added setGD 
+					 #    2014Jun25 DLLorenz Converted to roxygen
+)
 
+#' @rdname timePlot
 setMethod("timePlot", signature("Date", "numeric"), # must be Date, 
 function(x, y, # data
          Plot=list(name="", what="lines", type="solid",
@@ -34,22 +87,7 @@ function(x, y, # data
          ytitle=deparse(substitute(y)), # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), ...) {# margin controls
-  ## build a time-series plot
-  ## arguments:
-  ##   x - the time/date data
-  ##   y - the data to plot
-  ##   Plot - parameters of the plot
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set range in y-axis
-  ##   xaxis.range - set rtange of x-axis
-  ##   xlabels - a description of the time-series labels
-  ##   ylabels - an estimate of the number of labels wanted
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
-  ##
+   ##
   ## set up the axes
   xtitle=xtitle
   ytitle=ytitle
@@ -110,7 +148,7 @@ function(x, y, # data
 }
 )
 
-
+#' @rdname timePlot
 setMethod("timePlot", signature("POSIXt", "numeric"), # Almost the same as Date! 
 function(x, y, # data
          Plot=list(name="", what="lines", type="solid",
@@ -141,9 +179,9 @@ function(x, y, # data
   yax <- do.call("setAxis", yax)
   y <- yax$data
   yax <- yax$dax
-  ## If the time span if between 1 and 3 days, force style to be at
+  ## If the time span is less than 3 days, force style to be at
   deltime <- difftime(xaxis.range[2L], xaxis.range[1L], units="days") 
-  if(deltime > 1 && deltime < 3)
+  if(deltime < 3)
     dax <- datePretty(xaxis.range, major=xlabels, style="at")
   else
     dax <- datePretty(xaxis.range, major=xlabels, style="between")
@@ -192,6 +230,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname timePlot
 setMethod("timePlot", signature("numeric", "numeric"), # must be numeric 
 function(x, y, # data
          Plot=list(name="", what="lines", type="solid",
@@ -204,21 +243,6 @@ function(x, y, # data
          ytitle=deparse(substitute(y)), # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), ...) {# margin controls
-  ## build a time-series plot
-  ## arguments:
-  ##   x - the time/date data in decimal time
-  ##   y - the data to plot
-  ##   Plot - parameters of the plot
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set range in y-axis
-  ##   xaxis.range - set rtange of x-axis
-  ##   xlabels - a description of the time-series labels
-  ##   ylabels - an estimate of the number of labels wanted
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
   ##
   ## set up the axes
   xtitle=xtitle
@@ -281,6 +305,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname timePlot
 setMethod("timePlot", signature("integer", "numeric"), # Treat as discrete values
 function(x, y, # data
          Plot=list(name="", what="points", type="solid",
@@ -289,7 +314,7 @@ function(x, y, # data
          yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA, NA), # y-axis controls
          xaxis.range=range(x, na.rm=TRUE) + c(-1, 1), # x-axis control
          ylabels=7, xlabels="Auto", # labels
-         xtitle="Calendar Year",
+         xtitle="Difference in Time",
          ytitle=deparse(substitute(y)), # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), xlabels.rotate=FALSE, ...) {# margin controls
@@ -366,6 +391,7 @@ function(x, y, # data
 }
 )
 
+#' @rdname timePlot
 setMethod("timePlot", signature("difftime", "numeric"), # must be numeric 
 function(x, y, # data
          Plot=list(name="", what="lines", type="solid",
@@ -378,21 +404,6 @@ function(x, y, # data
          ytitle=deparse(substitute(y)), # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), ...) {# margin controls
-  ## build a time-series plot
-  ## arguments:
-  ##   x - the time difference data
-  ##   y - the data to plot
-  ##   Plot - parameters of the plot
-  ##   yaxis.log - log-transform the Y axis
-  ##   yaxis.rev - reverse the Y axis
-  ##   yaxis.range - set range in y-axis
-  ##   xaxis.range - set rtange of x-axis
-  ##   xlabels - a description of the time-series labels
-  ##   ylabels - an estimate of the number of labels wanted
-  ##   xtitle - x-axis title
-  ##   ytitle - y-axis title
-  ##   caption - the figure caption
-  ##   margin - the parameters of the margin
   ##
   ## set up the axes
   if(xtitle == "Auto") {

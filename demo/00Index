@@ -1,7 +1,8 @@
 AnnualFlowBarChart	A bar chart of annual flow data. 
-HydroPrecip	Stacked hydrographs of precipitation and groundwater levels.
-FlowDur-Measurements	Flow-duration curve with overlaid discharge measurements.
-Coplot-simpleBoxPlot	A conditioned boxplot.
 Coplot-complexScatterPlot	A conditioned scatter plot with an explanation.
+Coplot-simpleBoxPlot	A conditioned boxplot.
+DurationHydrograph	A duration hydrograph showing daily statistics with 1 year flow.
+FlowDur-Measurements	Flow-duration curve with overlaid discharge measurements.
+HydroPrecip	Stacked hydrographs of precipitation and groundwater levels.
 PiperScript	Create a Piper diagram.
 RightAxisExample	An example graph demonstrating how to set up a right-hand axis.

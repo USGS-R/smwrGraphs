@@ -1,12 +1,30 @@
-# Create a Scatter Plot Matrix
-#
-# Coding History:
-#    2011Aug01 DLLorenz Original coding.
-#    2011Oct24 DLLorenz Tweaks for package
-#    2012Mar12 DLLorenz Bug fixes
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Scatter Plot Matrix
+#' 
+#' Produce a matrix of scatter plots
+#' 
+#' \code{Panel} may be a tagged list, with any one of these options:\cr
+#' loess=span, where span is the span argument to loess.smooth;\cr line=opt,
+#' where opt='slr' for simple linear regression, or 'loc' for line of organic
+#' correlation, or '1:1' for the 1:1 line.\cr The format of the lines is taken
+#' from \code{Plot}.\cr\cr \code{Panel} may also be a function with 3
+#' arguments, x, y, and current, that adds to the plot and returns updated plot
+#' information. The function is called for each individual plot.
+#' 
+#' @param x the data to plot, must be eiterh a matrix or a data frame.
+#' @param layout the output from \code{setSplom}
+#' @param Plot control parameters for each plot.
+#' @param Panel a list or a function, see \bold{Details}.
+#' @param axis.log log-transform the x and y axis for all plots.
+#' @param axis.range set x- and y-axis ranges for all plots.
+#' @param labels set the number of labels for both the x and y axes. See
+#' \code{\link{linearPretty}} for details.
+#' @param caption the figure caption.
+#' @return Information about the graph.
+#' @note A call must be made to \code{setPage} and to \code{setSplom} to set up
+#' the graphics environment before calling \code{splomPlot}.
+#' @seealso \code{\link{setPage}}, \code{\link{setSplom}}
+#' @keywords hplot
+#' @export splomPlot
 splomPlot <- function(x, layout, # data and layout info
                       Plot=list(name="", what='points', type='solid',
                         width='standard', symbol='circle', filled=TRUE,
@@ -16,15 +34,12 @@ splomPlot <- function(x, layout, # data and layout info
                       labels=5, # labels
                       # axis titles always derived from column names in x
                       caption='') { # caption 
-  ## Arguments:
-  ##   x (matrix or data.frame) the data to plot
-  ##   layout (output from setSplom)
-  ##   Plot (tagged list) parameters of the plot
-  ##   Panel (tagged list or function) see Panel Details below
-  ##   axis.log (logical scalar) log-transform the X and Y axis (all plots)
-  ##   axis.range (2 element numeric vector) set axis ranges for all plots
-  ##   labels - an estimate of the number of labels wanted for both axes
-  ##   caption - the figure caption
+	# Coding History:
+	#    2011Aug01 DLLorenz Original coding.
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2012Mar12 DLLorenz Bug fixes
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun25 DLLorenz Converted to roxygen
   ##
   ## Panel Details:
   ##   Panel may be a tagged list, with any of these options:

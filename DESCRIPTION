@@ -1,100 +1,18 @@
 Package: USGSwsGraphs
-Version: 0.8
-Date: 2014-04-16
+Version: 0.9.0
+Date: 2014-06-28
 Title: Graphing Functions
 Author: Dave Lorenz <lorenz@usgs.gov>.
 Maintainer: Dave Lorenz <lorenz@usgs.gov>
 Depends:
-    KernSmooth,
     USGSwsBase (>= 0.4),
-    akima,
     methods
+Imports:
+    KernSmooth,
+    akima
 Suggests:
     USGSwsData (>= 0.6)
 Description: Functions to create USGS high-quality graphs. These graphs meet or
     nearly meet the publications standards of the USGS.
 License: file LICENSE
 LazyLoad: yes
-Collate:
-    'addAnnotation.R'
-    'addArea.R'
-    'addAxisLabels.R'
-    'addBars.R'
-    'addCaption.R'
-    'addErrorBars.R'
-    'addExplanation.R'
-    'addGrid.R'
-    'addLabel.R'
-    'addMinorTicks.R'
-    'addPiper.R'
-    'addSmooth.R'
-    'addTable.R'
-    'addTernary.R'
-    'addTitle.R'
-    'addXY.R'
-    'areaPlot.R'
-    'biPlot.R'
-    'biPlot.princomp.R'
-    'boxPlot.R'
-    'colorPlot.R'
-    'condition.R'
-    'contourPlot.R'
-    'copyDemo.R'
-    'corGram.R'
-    'cov2Ellipse.R'
-    'dataEllipse.R'
-    'datePretty.R'
-    'dotPlot.R'
-    'ecdfPlot.R'
-    'getDist.R'
-    'histGram.R'
-    'hull.R'
-    'interpLine.R'
-    'labelPoints.R'
-    'lineWt.R'
-    'linearPretty.R'
-    'logPretty.R'
-    'make.colors.R'
-    'namePretty.R'
-    'numericData.R'
-    'piperPlot.R'
-    'preSurface.R'
-    'probPlot.R'
-    'probPretty.R'
-    'pspline.R'
-    'qqPlot.R'
-    'refLine.R'
-    'renderBXP.R'
-    'renderPretty.R'
-    'scalePlot.R'
-    'seasonPlot.R'
-    'seriesPlot.R'
-    'setAxis.R'
-    'setColor.R'
-    'setDefaults.R'
-    'setExplan.R'
-    'setGD.R'
-    'setGraph.R'
-    'setGroupPlot.R'
-    'setLayout.R'
-    'setMargin.R'
-    'setMultiPlot.R'
-    'setPDF.R'
-    'setPage.R'
-    'setPlot.R'
-    'setRtMargin.R'
-    'setSplom.R'
-    'setSweave.R'
-    'splomPlot.R'
-    'stiffPlot.R'
-    'strip.blanks.R'
-    'surfacePlot.R'
-    'ternaryPlot.R'
-    'timePlot.R'
-    'timePretty.R'
-    'transData.R'
-    'transPlot.R'
-    'transPretty.R'
-    'xyPlot.R'
-    'preSurface.R'
-    'surfacePlot.R'

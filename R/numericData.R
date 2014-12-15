@@ -1,12 +1,20 @@
-# Convert anything to consistent numeric values
-#
-# Coding History:
-#    2011Jan08 DLLorenz Original coding.
-#    2012Oct26 DLLorenz Fix to adjust POSIXt dates to local time
-#    2012Jan04          This version
-#
-
+#' Numeric Vlues
+#' 
+#' Converts data to numeric values (support function).
+#' 
+#' 
+#' @param x any vector that can be converted to numeric.
+#' @param lev levels for character data that represent categories rather than
+#' character representations of numeric values.
+#' @return Numeric data represented by \code{x}.
+#' @keywords dplot
+#' @export numericData
 numericData <- function(x, lev=NULL) {
+	# Coding History:
+	#    2011Jan08 DLLorenz Original coding.
+	#    2012Oct26 DLLorenz Fix to adjust POSIXt dates to local time
+	#    2014Jun26 DLLorenz Converted to roxygen
+	#
   if(isDateLike(x)) {
     x.Date <- as.Date(x)
     x.temp <- as.POSIXlt(x)

@@ -1,20 +1,36 @@
-# interpolate points from a line 
-#
-# Coding History:
-#    2012Sep14 DLLorenz Original coding.
-#    2012Sep17          This version.
-#
-
+#' Interpolation
+#' 
+#' Create a vector of interpolated points along a line drawn by one of the
+#' \code{USGSwsGraphs} functions.
+#' 
+#' Exactly one of \code{xfromy} or \code{yfromx} must be specified in the call.
+#' 
+#' @param object an object created by one of the \code{USGSwsGraphs} functions.
+#' @param xfromy the y-axis coordinate values to use to create matching
+#' x-coordinate values. Missing values are permitted but result in missing
+#' values in the output.
+#' @param yfromx the x-axis coordinate values to use to create matching
+#' y-coordinate values. Missing values are permitted but result in missing
+#' values in the output.
+#' @param warn supress the warning message from probability or transformed axes
+#' plots?
+#' @param \dots any future additional arguments.
+#' @return A vector of numeric values corresponding to those values in either
+#' \code{xfromy} or \code{yfromx}.
+#' @note The back-transformation information is not included in the output from
+#' the graphics functions. This primarily affects the \code{transPlot}
+#' function.
+#' @seealso \code{\link{transPlot}}
+#' @keywords dplot
+#' @export interpLine
 interpLine <- function(object, # output from call to plotXXX
                        xfromy, yfromx, warn=TRUE, ...) { # convert from to
-  ## Arguments:
-  ##   object - the output from any call to plot that draw a line
-  ##   xfromy - the y-coordinate data to interpolate to x
-  ##   yfromx - the x-coordinate data to interpolate to y
-  ##   ... - any additional arguments
+	# Coding History:
+	#    2012Sep14 DLLorenz Original coding.
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   ## Notes:
-  ##  For any plot function that does not transform the x- or y-axis
+  ##  For any plot function that does transform the x- or y-axis
   ##  data, like probPlot, an argument x-axis.trans or yaxis.trans must
   ##  be included to indicate suppression of the transform.
   ##

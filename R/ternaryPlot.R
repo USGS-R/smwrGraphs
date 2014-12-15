@@ -1,10 +1,41 @@
-# create a ternary (trilinear, triangular) diagram
-#
-# Coding history:
-#    2012Nov02 DLLorenz Start revisions for pub-quality output
-#    2013Apr09 DLLorenz Added setGD 
-#
-
+#' Ternary Diagram
+#' 
+#' Produce a ternary diagram, also called a trilinear or triangular diagram.
+#' 
+#' The \code{what} component of the \code{Plot} argument must be either
+#' "points" or "none."
+#' 
+#' @param x the x-axis (bottom) data.
+#' @param y the y-axis (left side) data.
+#' @param z the z-axis (right side) data. Note that \code{x}, \code{y}, and
+#' \code{z} do not need to sum to the axis range.
+#' @param Plot control parameters of the plot, see \code{link{setMultiPlot}}
+#' and \bold{Details} for details.
+#' @param axis.range the range of the axes. Must be either c(0, 1) or c(0,
+#' 100).
+#' @param num.labels the number of labels to draw on each axis. Best selections
+#' are 2 giving (0, 100), 3 (0, 50, 100), 5 (0, 25, 50, 75, 100), or 6 (o, 20,
+#' 40, 60, 80, 100).
+#' @param ticks draw ticks?
+#' @param grids draw grid lines?
+#' @param orient the orientation of the graph. Must be "c" for clockwise or "a"
+#' for anti- or counter-clockwise
+#' @param xtitle title (also called caption) for the x-axis.
+#' @param ytitle title (also called caption) for the y-axis.
+#' @param ztitle title (also called caption) for the z-axis.
+#' @param units.title the units titles, should be either "Percent" of
+#' "Proportion" depending on \code{axis.range}.
+#' @param caption the figure caption.
+#' @param margin set up the plot area margins--- ignored, included for
+#' consistency with other plotting functions in this package.
+#' @return Information about the graph.
+#' @note A call should be made to \code{setPage} to set up the graphics
+#' environment before calling \code{piperPlot}.
+#' @seealso \code{\link{setPage}}, \code{link{setMultiPlot}},
+#' \code{\link{piperPlot}}, \code{\link{addTernary}}
+#' @references Lorenz D.L., 2013, USGSwsGraphs
+#' @keywords hplot
+#' @export ternaryPlot
 ternaryPlot <- function(x, y, z, # data to plot (this will sum to range)
                         Plot=list(name="", what="points", type="solid",
                            width="standard", symbol="circle", filled=TRUE,
@@ -17,13 +48,10 @@ ternaryPlot <- function(x, y, z, # data to plot (this will sum to range)
                         ztitle=deparse(substitute(z)), # axis titles
                         units.title="Percent", # axis titles
                         caption="", margin=c(NA, NA, NA, NA)) {
-  ## Draw a ternary plot of three compositional variables x,y,z.
-  ## Produces an equilateral triangle with each side running from 
-  ##     min to max. Points are placed within the triangle to 
-  ##     indicate how much of each component is present at that point.
-  ## Axes are oriented "clockwise" or "anticlockwise."
-  ## Must be called with a square plot area.
-  ## Compute midpoint of x and y/z axes
+	# Coding history:
+	#    2012Nov02 DLLorenz Start revisions for pub-quality output
+	#    2013Apr09 DLLorenz Added setGD 
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   ## Begin Execution, normalize the data according to range
   xtitle <- xtitle

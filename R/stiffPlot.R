@@ -1,12 +1,69 @@
-# Beginning of the stiff function code.
-#
-#    2003Jan30 DLLorenz Fixed ylabels bug (forced to character)
-#                       and added stop for missing data.
-#    2007Oct16 DLLorenz Format file
-#    2012Nov26 DLLorenz Conversion to R and correspond to those standards
-#    2013Apr09 DLLorenz Added setGD
-#
-
+#' @title Stiff Diagrams
+#' 
+#' @description Add a Stiff diagram to an existing graph or create a tabular presentation of
+#'Stiff diagrams in a graph.
+#' 
+#' @details The units of the cation and anion data are generally in milli-equivalents
+#'per liter.
+#' 
+#'The \code{Stiff} argument must be a tagged list with these components:
+#'\describe{ \item{fill}{the name of the color to fill each Stiff diagram.
+#'Must be a valid color name.} \item{outline}{the name of the color to draw
+#'the outline or border for each Stiff diagram.  Must be a valid color name.}
+#'\item{height}{the height of each Stiff diagram, proportional to the overall
+#'height for each Stiff diagram.} \item{bar}{the color of the central bar. May
+#'be "none" for no central bar.} }
+#' 
+#'The values for \code{axis.range} must be expressed as a negative value for the 
+#'\code{cation} data, left-hand side of the diagram, and a positive value for 
+#'\code{anion} data, right-hand side of the diagram.
+#'
+#' @aliases addStiff stiffPlot
+#' @param x the x-coordinates to place the center of each Stiff diagram.
+#' Missing values are permitted, but result in no Stiff diagram.
+#' @param y the y-coordinates to place the center of each Stiff diagram.
+#' Missing values are permitted, but result in no Stiff diagram.
+#' @param width the width in inches of the Stiff diagrams.
+#' @param height the height in inches of the Stiff diagrams.
+#' @param cations a matrix of cation data. Each row corresponds to the
+#' respective \code{x} and \code{y} value. Missing values are not permitted for
+#' \code{addStiff}, but are permitted for \code{stiffPlot} and result in no
+#' Stiff Diagram for that entry.
+#' @param anions a matrix of anion data. Each row corresponds to the respective
+#' \code{x} and \code{y} value. Missing values are not permitted for
+#' \code{addStiff}, but are permitted for \code{stiffPlot} and result in no
+#' Stiff Diagram for that entry.
+#' @param Stiff a list describing the Stiff diagram. See \bold{Details}.
+#' @param xaxis.range the range of the x-axis corresponding to \code{width} in
+#' the call to \code{addStiff} or the range of the x-axis in the call to
+#' \code{stiffPlot}. See \bold{Details}.
+#' @param catlabels labels for the vales of the cations. For \code{addStiff},
+#' the labels are applied to each Stiff diagram and for \code{stiffPlot}, the
+#' labels are stored and drawn on the explanation \code{addExplanation}.
+#' @param anlabels labels for the vales of the anions. For \code{addStiff}, the
+#' labels are applied to each Stiff diagram and for \code{stiffPlot}, the
+#' labels are stored and drawn on the explanation \code{addExplanation}.
+#' @param current the current plotting parameters. Typically, this would be the
+#' output from one of the graph creation functions like \code{xyPlot}.
+#' @param yaxis.orient orientation of the y-axis values, must be either "table"
+#' or "grid." "Table" is sorted from top to bottom, "grid" is sorted from
+#' bottom to top.
+#' @param yaxis.order the order of the y-axis values, must be one of "none,"
+#' "ascending," or "descending."
+#' @param ylabels set up y-axis labels.
+#' @param xlabels set up x-axis labels.
+#' @param xtitle x-axis title (also called x-axis caption).
+#' @param ytitle y-axis title (also called y-axis caption).
+#' @param caption the figure caption.
+#' @param margin the parameters of the margin.
+#' @param \dots not used, required for other methods.
+#' @return Information about the graph.
+#' @seealso \code{\link{stiffPlot}}, \code{\link{xyPlot}}
+#' @references Hem J.D., 1989, Study and interpretation of the chemical
+#' characteristics of natural water: U.S. Geological Survey Water-Supply Paper
+#' 2254, 263 p.
+#' @keywords hplot
+#' @export stiffPlot
 stiffPlot <- function(cations, anions, # the data matrices
                       Stiff=list(fill="gray50", outline="black",
                         height=2/3, bar="black"), # the plot
@@ -17,16 +74,12 @@ stiffPlot <- function(cations, anions, # the data matrices
                       xtitle = "Milliequivalents per liter",
                       ytitle = "", caption="", # labels and titles
                       margin=c(NA, NA, NA, NA), ...) {
-  ## Arguments:
-  ##  cations matrix or DF the cations (left-hand data)
-  ##  anions matrix or DF the cations (right-hand data)
-  ##  Stiff list of plot controls
-  ##  ylabels car vector the labels for the Stiff diagrams
-  ##  xlabels single numeric the approxoimate number of labels
-  ##  catlabels, anlabels character to match num cols the labels for the data
-  ##  xtitle char. x-axis title
-  ##  ytitle char. y-axis title
-  ##  rest as usual.
+	#    2003Jan30 DLLorenz Fixed ylabels bug (forced to character)
+	#                       and added stop for missing data.
+	#    2007Oct16 DLLorenz Format file
+	#    2012Nov26 DLLorenz Conversion to R and correspond to those standards
+	#    2013Apr09 DLLorenz Added setGD
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   if(dev.cur() == 1)
     setGD("StiffPlot")
@@ -106,6 +159,10 @@ stiffPlot <- function(cations, anions, # the data matrices
                  yax=yax, xax=xax))
 }
 
+
+
+#' @rdname stiffPlot
+#' @export addStiff
 addStiff <- function(x, y, width, height,
                      cations, anions, # the data matrices
                      Stiff=list(fill="gray50", outline="black",
@@ -114,15 +171,6 @@ addStiff <- function(x, y, width, height,
                      catlabels="", anlabels="",
                      current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
                        xaxis.log=FALSE)) {
-  ## Arguments:
-  ##  x x-coordinate data
-  ##  y y-coordinate data
-  ##  width the width of the Stiff diagram area in inches
-  ##  height the height of the Stiff diagram area in inches
-  ##  Stiff control for the diagram
-  ##  xaxis.range set the range (corresponding to the width of the area
-  ##  catlabels and anlabels, the labels for the Stiff diagram
-  ##  current, plot charactersitics
   ##
   ## Convert the x, y data
   y <- numericData(y, lev=current$yaxis.lev)
