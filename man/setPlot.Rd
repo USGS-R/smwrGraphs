@@ -18,8 +18,8 @@ setPlot(current, name = "", what = "lines", type = "solid",
 "dotted."}
 
 \item{width}{the width of the line, if drawn, must be one of "standard;"
-"color," a little wider than "standard;" "bold," twice as wide as
-"standard;" or "hairline."}
+"color," a little wider than "standard;" "bold," substantially wider than
+"standard;" or "hairline," used for ticks and borders.}
 
 \item{symbol}{the symbol to plot, if drawn, see \bold{Details}.}
 
@@ -58,9 +58,15 @@ square or filled, depending on \code{filled},} \item{"dot"}{a very small dot
 (never filled),} \item{"+"}{a plus sign (never filled),} \item{"none"}{no
 symbol or line.} }
 }
+\note{
+Vertical lines drawn by setting \code{what} to "vertical" are drawn using
+the internal R graphics. The user will have more control over vertical lines by
+using the \code{addBars} function and setting the bar width to 0.
+}
 \seealso{
 \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{qqPlot}},
-\code{\link{piperPlot}}, \code{\link{probPlot}}, \code{\link{colorPlot}}
+\code{\link{piperPlot}}, \code{\link{probPlot}}, \code{\link{colorPlot}},
+\code{\link{addBars}}
 }
 \keyword{hplot}
 

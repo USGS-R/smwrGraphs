@@ -3,7 +3,7 @@
 \parindent 30pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Line/Scatter Example}
-%\VignetteDepends{USGSwsGraphs}
+%\VignetteDepends{smwrGraphs}
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -17,15 +17,15 @@
 \maketitle
 
 These examples demonstrate the basic high-level line/scatter plot
-functions in the USGSwsGraphs package. All of the examples use randomly
+functions in the smwrGraphs package. All of the examples use randomly
 generated sets of data.  \textbf{NOTE:} to use any of these functions, you must
 first call a function to set up the graphics environment like \texttt{setPage}
 or \texttt{setPDF}, but these are not included here to use the graphics tools
 in \texttt{Sweave}.
 
 <<echo=TRUE>>=
-# Load the USGSwsGraphs package
-library(USGSwsGraphs)
+# Load the smwrGraphs package
+library(smwrGraphs)
 # Generate random samples for the examples.
 set.seed(2576)
 X <- runif(33)

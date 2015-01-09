@@ -4,9 +4,9 @@
 \title{Add Text to a Graph}
 \usage{
 addAnnotation(x, y, annotation, leaderx = NULL, leadery = NULL,
-  leadercol = "black", angle = 0, justification = "left", size = 8,
-  position = "above", current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE))
+  leadercol = "black", angle = 0, justification = "left", size = 60 *
+  par("csi"), position = "above", current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{
 \item{x}{the x-axis placement of \code{annotation}.}
@@ -26,7 +26,7 @@ addAnnotation(x, y, annotation, leaderx = NULL, leadery = NULL,
 \item{justification}{the justification of the text relative to \code{x},
 \code{y}. Must be one of "left," "center," or "right."}
 
-\item{size}{size of the text in points.}
+\item{size}{size of the text in points, the default is the current point size.}
 
 \item{position}{the vertical location of the text. Must be one of "above,"
 "below," or "center."}

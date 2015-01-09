@@ -46,8 +46,7 @@ seasonPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
 \item{ylabels}{set up y-axis labels. See \code{\link{linearPretty}} for
 details.}
 
-\item{xlabels}{set up x-axis labels. See \code{\link{linearPretty}} for
-details.}
+\item{xlabels}{set up x-axis labels. See \bold{Details}.}
 
 \item{xtitle}{the x-axis title (also called x-axis caption).}
 
@@ -64,6 +63,11 @@ Information about the graph.
 }
 \description{
 Create a plot of data on a yearly cycle.
+}
+\details{
+For \code{seasonPlot}, the value for \code{xlabels} must be one of "full," the full
+month names; "abbrev," abbreviations; or "letter," the first letter of the
+month. The default is "Auto," which will select an appropriate labeling scheme.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

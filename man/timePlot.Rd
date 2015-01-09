@@ -42,7 +42,7 @@ timePlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
   "points", type = "solid", width = "standard", symbol = "circle", filled =
   TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
   yaxis.range = c(NA, NA), xaxis.range = range(x, na.rm = TRUE) + c(-1, 1),
-  ylabels = 7, xlabels = "Auto", xtitle = "Difference in Time",
+  ylabels = 7, xlabels = "Auto", xtitle = "",
   ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
   NA), xlabels.rotate = FALSE, ...)
 
@@ -73,9 +73,8 @@ December 31 for \code{seasonPlot}.}
 \item{ylabels}{set up y-axis labels. See \code{\link{linearPretty}} for
 details.}
 
-\item{xlabels}{set up x-axis labels. See \code{\link{datePretty}} for
-details for \code{timePretty}. See \bold{Details} for details for
-\code{seasonPretty}.}
+\item{xlabels}{set up x-axis labels. See \bold{Details} for details for
+valid values.}
 
 \item{xtitle}{the x-axis title (also called x-axis caption).}
 
@@ -86,6 +85,9 @@ details for \code{timePretty}. See \bold{Details} for details for
 \item{margin}{set up the plot area margins.}
 
 \item{...}{arguments for specific methods.}
+
+\item{xlabels.rotate}{rotate the x-axis labels so that they are perpendicular to the
+x-axis?}
 }
 \value{
 Information about the graph.
@@ -94,14 +96,24 @@ Information about the graph.
 Produce a plot of time-series data.
 }
 \details{
-The value for \code{xlabels} must be one of "full," the full month names;
-"abbrev," abbreviations; or "letter," the first letter of the
-month. The default is "Auto."
+For \code{timePlot} method where the time/date data is of class "Date,"
+"POSIXt," or "numeric," the value for \code{xlabels} must be one of
+"hours," "days," "months," "years," "water years," or "Auto," which will
+select an appropriate axis labeling scheme based on the time span of the data.
+May also be a list of valid arguments to \code{datePretty} for finer control.\cr
+
+For \code{timePlot} method where the time/date data is of class "integer,"
+the value for \code{xlabels} must be one of "Auto," a number indicating the approximate
+number of labels, or a list of valid arguments to \code{linearPretty} for finer control.\cr
+
+For \code{timePlot} method where the time/date data is of class "difftime,"
+the value for \code{xlabels} must be one of "Auto" or a number indicating the approximate
+number of labels.\cr
 }
 \note{
 The function \code{timePlot} produces a time-series plot. The function
 \code{seasonPlot} produces a plot of the annual cycle. There is no function
-in the USGSwsGraphs package that will automatically transform time/date data
+in the smwrGraphs package that will automatically transform time/date data
 to the correct seasonal value; use \code{dectime(x) - trunc(dectime(x))},
 where \code{x} is the time/date variable.
 }
@@ -120,7 +132,7 @@ time-series plot for annual summaries of numeric data. }
 time-series plot for difftime and numeric data. } }
 }
 \seealso{
-\code{\link{setPage}}, \code{\link{xyPlot}}
+\code{\link{setPage}}, \code{\link{xyPlot}}, \code{\link{seasonPlot}}
 }
 \keyword{hplot}
 \keyword{methods}

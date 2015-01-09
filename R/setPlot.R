@@ -1,18 +1,3 @@
-# set up defaults for addPlot argument
-#
-# Coding History:
-#    2008Jun13 DLLorenz Original coding and start of revisions
-#    2010Nov16 DLLorenz Modified for R (none required)
-#    2011Apr16 DLLorenz Added complete complement of args
-#    2011Jun16 DLLorenz Added args for areas
-#    2011Oct24 DLLorenz Tweaks for package
-#    2011Dec15 DLLorenz Fix for Plot$color = "Auto," required for group
-#    2012Nov11 DLLorenz Added "none" options for type
-#    2014Feb17 DLLorenz Added/Changed lineweight from standard to color
-#
-
-
-
 #' Plot Parameters
 #' 
 #' Set the control parameters for a plot (support function).
@@ -39,8 +24,8 @@
 #' @param type the line type, if drawn, must be one of "solid," "dashed," or
 #' "dotted."
 #' @param width the width of the line, if drawn, must be one of "standard;"
-#' "color," a little wider than "standard;" "bold," twice as wide as
-#' "standard;" or "hairline."
+#' "color," a little wider than "standard;" "bold," substantially wider than
+#' "standard;" or "hairline," used for ticks and borders. 
 #' @param symbol the symbol to plot, if drawn, see \bold{Details}.
 #' @param filled if a symbol is drawn, fill with solid color?
 #' @param size the size of the symbol, in incehs, if drawn.
@@ -50,13 +35,28 @@
 #' completeness.
 #' @return A list like \code{current}, but with the defaults supplied for any
 #' missing component.
+#' @note Vertical lines drawn by setting \code{what} to "vertical" are drawn using
+#' the internal R graphics. The user will have more control over vertical lines by
+#' using the \code{addBars} function and setting the bar width to 0.
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{qqPlot}},
-#' \code{\link{piperPlot}}, \code{\link{probPlot}}, \code{\link{colorPlot}}
+#' \code{\link{piperPlot}}, \code{\link{probPlot}}, \code{\link{colorPlot}},
+#' \code{\link{addBars}}
 #' @keywords hplot
 #' @export setPlot
 setPlot <- function(current, name="", what="lines", type="solid",
                     width="standard", symbol="circle", filled=TRUE,
                     size=0.09, color="black", area.color=NA, area.border=NA) {
+	# Coding History:
+	#    2008Jun13 DLLorenz Original coding and start of revisions
+	#    2010Nov16 DLLorenz Modified for R (none required)
+	#    2011Apr16 DLLorenz Added complete complement of args
+	#    2011Jun16 DLLorenz Added args for areas
+	#    2011Oct24 DLLorenz Tweaks for package
+	#    2011Dec15 DLLorenz Fix for Plot$color = "Auto," required for group
+	#    2012Nov11 DLLorenz Added "none" options for type
+	#    2014Feb17 DLLorenz Added/Changed lineweight from standard to color
+	#    2015Jan08 DLLorenz Added comments about vertical lines
+	#
   ## set defaults from args if anything is missing
   if(is.null(current$name))
     current$name <- name

@@ -3,7 +3,7 @@
 \alias{copyDemo}
 \title{Copy a Demo File}
 \usage{
-copyDemo(topic, package = "USGSwsGraphs", file)
+copyDemo(topic, package = "smwrGraphs", file)
 }
 \arguments{
 \item{topic}{the name of the topic, must be a character string.}

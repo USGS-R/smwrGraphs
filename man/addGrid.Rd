@@ -27,11 +27,11 @@ Add grid lines to a graph.
 }
 \details{
 Information about grid lines is containined in the information returned from
-high-level plotting functions in the USGSwsGraphs package.
+high-level plotting functions in the smwrGraphs package.
 }
 \note{
 The function \code{addGrid} should be used after
-setting up a graph with a high-level plotting function in the USGSwsGraphs
+setting up a graph with a high-level plotting function in the smwrGraphs
 package and setting the \code{what} component in the \code{Plot} argument to
 "none." The graph can be completed by using \code{addXY}.
 }

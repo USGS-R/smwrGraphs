@@ -3,9 +3,10 @@
 \parindent 30pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Piper Plot and Stiff Diagram Examples}
-%\VignetteDepends{USGSwsGraphs}
+%\VignetteDepends{smwrGraphs}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \raggedright
 \parindent 30pt
 \title{Piper Plot and Stiff Diagram Examples}
@@ -24,8 +25,8 @@ call a function to set up the graphics environment like \texttt{setPage} or
 \texttt{Sweave}.
 
 <<echo=TRUE>>=
-# Load the USGSwsGraphs package
-library(USGSwsGraphs)
+# Load the smwrGraphs package
+library(smwrGraphs)
 # Generate a random sample for the ternary diagram
 set.seed(2727)
 # Ternary diagram data
@@ -33,7 +34,7 @@ X <- runif(25, .1, 1.)
 Y <- runif(25, .1, .8)
 Z <- runif(25, .3, 1.)
 # Get the selected groundwqater quality date from Hem
-library(USGSwsData)
+library(smwrData)
 data(MiscGW)
 @
 
@@ -43,8 +44,8 @@ data(MiscGW)
 The Piper plot assumes that the data are in similar units. The traditional
 units would be milli-eqivalents per liter. Each column in the data set must be
 converted from milligrams per liter to milli-equivalents per liter. This can be
-accomplished by the \texttt{conc2meq} function in the USGSwsBase package, loaded
-by default when the USGSwsGraphs package is loaded. The data provided to the
+accomplished by the \texttt{conc2meq} function in the smwrBase package, loaded
+by default when the smwrGraphs package is loaded. The data provided to the
 \texttt{piperPlot} function do not need to sum to 1 or 100.
 
 <<echo=TRUE>>=

@@ -27,8 +27,10 @@
 #'Box plot explanations require fairly large graph areas because of the
 #'detail required for some types. In general, a graph about 4.5 inches high is
 #'needed for the Tukey type and 4 inches for other types and widths of 2.5 and
-#'2 inches respectively. If the graph area is smaller than required, then a
-#'warning is printed and the explanation may be unreadable.
+#'2 inches respectively. The sizes are smaller for the font type of "USGS."
+#'If the graph area is smaller than required for the box plot explanation, then 
+#'either a modified explanation is created or a warning is printed and the 
+#'explanation may be unreadable.
 #' @keywords aplot
 #' @export addExplanation
 addExplanation <- function(what, where="new", 
@@ -49,27 +51,83 @@ addExplanation <- function(what, where="new",
 	#    2013Aug19 DLLorenz Bug fix for warning tests.
 	#    2014Apr18 DLLorenz Added boxing option, and fixed title
 	#    2014Jun25 DLLorenz Converted to roxygen
+	#    2015Jan07 DLLorenz Added makeWideBox function to reconfigure boxplot explanation
+	#                       if not quite tall enough but, wide enough
   ##
   if(!is.null(what$explanation))
     what <- what$explanation # extract from list created by calls
   if(is.element("z", names(what))) { # must be a boxplot
+  	makeWideBox <- function(expl, code) {
+  		# code is short for type, 1 is simple/truncated, 2 is extended, 3 is tukey
+  		## is the first line Number of values?
+  		Ioff <- as.integer(as.character(expl$labels[[1]]) == "bold(\"Number of values\")")
+  		if(code == 1L) { # adjust 50th percentile 
+  			expl$labels[[3L + Ioff]] <- list(expression(bold("50th percentile (median)")))
+  		} else if(code == 2L) {
+  			expl$labels[[1L + Ioff]] <- 
+  				list(expression(bold("Individual value above the 90th percentile")))
+  			expl$labels[[4L + Ioff]] <- list(expression(bold("50th percentile (median)")))
+  			expl$labels[[7L + Ioff]] <- 
+  				list(expression(bold("Individual value below the 10th percentile")))
+  			## Also need to tweak the upper outside value
+  			expl$z$out[2L] <- 3.5
+  			expl$values[1L + Ioff] <- 3.5
+  		} else { # Can only be 3
+  			expl$labels[[1L + Ioff]] <- 
+  				list(expression(bold("Largest value within 1.5 times interquartile")),
+  						 expression(bold("range above 75th percentile")))
+  			expl$labels[[3L + Ioff]] <- list("50th percentile (median)")
+  			expl$labels[[5L + Ioff]] <- 
+  				list(expression(bold("Smallest value within 1.5 times interquartile")),
+  						 expression(bold("range below 25th percentile")))
+  			expl$labels[[6L + Ioff]] <- 
+  				list(expression(paste(bold("Outside value"), symbol("\276"), "Value is > 1.5 and < 3  times the",  sep = "")),
+  						 "  interquartile range beyond either end of box")
+  			expl$labels[[7L + Ioff]] <- 
+  				list(expression(paste(bold("Far-out value"), symbol("\276"), "Value ", is >= 3,  " times the",  sep = "")),
+  						 "  interquartile range beyond either end of box")
+  		}
+  		return(expl)
+  	}
     if(where != "new")
       stop('The where argument for a box plot explanation  must be "new"')
     par(lwd=stdWt(), mar=margin)
     fin <- par("fin")
-    ## Some warnings and set for other plots
-    outy <- !is.null(what$z$out)  * 0.5 + !is.null(what$z$farout)
-    twid <- round(7 * par("csi"), 1)
-    bh <- twid + 2.1 + outy
-    if(fin[2L] < bh + 1.e-6)
-      warning("Explanation for box plot should be at least ", 
-              bh, " inches high")
+    ## Some warnings and set size, note goofy logic for fonts sizes
+  	csi <- par("csi")
+  	if(csi > .25)
+  		stop("Font size too large for box plot explanation") # PPTs
+  	minH <- csi*15 + 0.5
+  	code <- 1L
+  	if(!is.null(what$z$out)) { # Add a bit for tukey and extended
+  		minH <- minH + 2 - csi*7.5
+  		code <- 2L
+  	}
+  	if(!is.null(what$z$farout)) {# Add a bit for tukey, when csi is .2
+  		minH <- minH + csi*15 - 2
+  		code <- 3L
+  	}
+  	# Increase by a bit for censored boxplots
+  	if(!is.null(what$x$censored))
+  		minH <- minH + .1 + round(csi, 1)
+    minW <- !is.null(what$z$out) * 0.5 + !is.null(what$z$farout) + round(7 * csi, 1)
+  	wideW <- !is.null(what$z$out) + !is.null(what$z$farout) * round(csi, 1) * 2 + round(7.5 * csi, 1)
+  	setWide <- FALSE
+    if(fin[2L] < (minH - 0.001)) {
+    	if(fin[1L] > wideW) {
+    		# make wide
+    		what <- makeWideBox(what, code)
+    		setWide <- TRUE
+    	} else
+    		warning("Explanation for box plot should be at least ", 
+    						minH, " inches high")
+    }
     ## The width is set based on the character height (go figure)
-    if(fin[1L] < twid + outy + 1.e-6)
+    if(fin[1L] < (minW - 0.001))
       warning("Explanation for box plot should be at least ", 
-              twid + outy," inches wide")
-    ## Make boxplot height look OK if longer than 3.5 inches
-    ymin <- pmin(-4.5, 5 - (fin[2L]/bh)*9.5 )
+              minW," inches wide")
+    ## Make boxplot height look OK if longer than minH inches
+    ymin <- pmin(-4.5, 5 - (fin[2L]/minH)*9.5 )
     xmax <- fin[1L] # set up for x-axis units in inches
     plot(.5,0, axes=FALSE, type="n", xlab="", ylab="",  ylim=c(ymin,5),
          xlim=c(0, xmax))
@@ -97,7 +155,10 @@ addExplanation <- function(what, where="new",
       mtext(what$comment, side=1, family="USGS") # something to comment about
     if(!is.null(what$IQR)) { # add
       par(family="USGS")
-      xfrom <- what$width + 0.07 + strwidth("75th percentile") + 0.05
+      if(setWide) {
+      	xfrom <- what$width + 0.07 + strwidth("50th percentile (median)") + 0.05
+      } else
+      	xfrom <- what$width + 0.07 + strwidth("50th percentile") + 0.05
       lines(xfrom + c(0, 0.1, 0.1, 0), what$z$stats[c(2L, 2L, 4L, 4L), 1L],
             col="black", lwd=lineWt("standard"))
       text(xfrom + .15, mean(what$z$stats[c(2L, 4L), 1L]), what$IQR,
@@ -279,6 +340,7 @@ addExplanation <- function(what, where="new",
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
   					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], y.intersp=1.1)
   		
-  }
+  	}
+  }  
   invisible(what)
 }

@@ -6,7 +6,7 @@
 setLayout(width = NULL, height = NULL, num.cols = max(1, length(width)),
   num.rows = max(1, length(height)), num.graphs = num.rows * num.cols,
   explanation = NULL, shared.x = -1, shared.y = -1, yleft = 3.5,
-  yright = 0.5, xbottom = 3.2, xtop = 0.5)
+  yright = NA, xbottom = 3.2, xtop = NA)
 }
 \arguments{
 \item{width}{the width of the graph area, exclusive of any explanation. Can
@@ -49,10 +49,12 @@ If > 0, then the value indicates the relative spacing.}
 \item{xtop}{space to allocate on the top margin of each graph.}
 }
 \value{
-a list with two named components and \code{num.graphs} numbered
+an object of class "Layout" with three named components and
+\code{num.graphs} numbered
 components: \item{explanation and each numbered component}{a list with two
-components:} \+ \item{margin}{the margin for the plot area} \+
+components:} \item{margin}{the margin for the plot area}
 \item{fig}{the figure area} \item{size}{the size of the overall figure}
+\item{mat}{the figure layout}
 }
 \description{
 Set up the layout of one or more graphs on a page.
@@ -98,6 +100,19 @@ axes are shared, then the margin values apply to the corresponding left
 column, right column, bottom row or top row.\cr The axis ticks and labels
 can be supressed by setting the margins to a negative value. This is most
 useful when adding right-axes with \code{addXY} for example.
+}
+\note{
+It is very easy to confuse the graph number, used by \code{setGraph}
+and the grid cell number referenced in \code{setlayout}. The grid cell
+number always ranges from 1 to the number of columns times the number of
+rows. The graph number ranges from 1 to \code{num.graphs} and skips the
+grid cell number if defined in the \code{explanation} argument. Printing the
+output object can help understand the graph layout.\cr
+There is nothing special about the cell allocated for the explanation; it has
+no special characteristics, therefore an explantion can be placed in any graph
+numbered cell and anything can be placed in the "explanation" cell. As an example,
+the "explanation" at the bottom of the figure can be used for a description of
+the figure that is more than one line in height.
 }
 \seealso{
 \code{\link{setPage}}, \code{\link{setGraph}}

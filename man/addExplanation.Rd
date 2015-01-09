@@ -16,7 +16,8 @@ calls to the plotting functions}
 \item{title}{the title of the explanation.}
 
 \item{box.off}{logical, if \code{TRUE}, then box off the explanation with a
-blank background and black box, otherwise insert as is.}
+blank background and black box, otherwise the background is not blanked and no
+bounding box is drawn.}
 
 \item{margin}{the margin for a new graph}
 }
@@ -27,18 +28,26 @@ Nothing is returned.
 Adds an explanation to the current graph or to a new graph.
 }
 \details{
-\code{where} must be one of "ul," "ur," "ll," "lr," "cl," "cr," "uc," "lc,"
+The value for \code{where} must be one of "ul," "ur," "ll," "lr,"
+"cl," "cr," "uc," "lc,"
 "cc," or "new." If "new," then the explanation is placed in a new graph,
 otherwise, the first letter is an abbreviation for upper, lower, or center
 and the second letter is an abbreviation for left, right, or center. the
-explanation for a box plot must be placed in a new graph.
+explanation for a box plot, stiff diagram, or contour plot must be placed
+in a new graph. If \code{box.off} is \code{TRUE}, then the explanation abuts
+the axes, otherwise it is placed slightly inset so that the text does not
+interfere with the ticks.
 }
 \note{
+The call to \code{addExplanation} should be the last in any sequence of
+calls to construct a figure becuase it can alter some graphical parameters.\cr
 Box plot explanations require fairly large graph areas because of the
 detail required for some types. In general, a graph about 4.5 inches high is
 needed for the Tukey type and 4 inches for other types and widths of 2.5 and
-2 inches respectively. If the graph area is smaller than required, then a
-warning is printed and the explanation may be unreadable.
+2 inches respectively. The sizes are smaller for the font type of "USGS."
+If the graph area is smaller than required for the box plot explanation, then
+either a modified explanation is created or a warning is printed and the
+explanation may be unreadable.
 }
 \keyword{aplot}
 

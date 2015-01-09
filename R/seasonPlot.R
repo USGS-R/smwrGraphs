@@ -2,6 +2,9 @@
 #' 
 #' Create a plot of data on a yearly cycle.
 #' 
+#' For \code{seasonPlot}, the value for \code{xlabels} must be one of "full," the full 
+#'month names; "abbrev," abbreviations; or "letter," the first letter of the
+#'month. The default is "Auto," which will select an appropriate labeling scheme.
 #' 
 #' @name seasonPlot
 #' @rdname seasonPlot
@@ -17,8 +20,7 @@
 #' "water," or "climate" to set the type of year that is shown on the x-axis.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
 #' details.
-#' @param xlabels set up x-axis labels. See \code{\link{linearPretty}} for
-#' details.
+#' @param xlabels set up x-axis labels. See \bold{Details}.
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.

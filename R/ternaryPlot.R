@@ -33,7 +33,7 @@
 #' environment before calling \code{piperPlot}.
 #' @seealso \code{\link{setPage}}, \code{link{setMultiPlot}},
 #' \code{\link{piperPlot}}, \code{\link{addTernary}}
-#' @references Lorenz D.L., 2013, USGSwsGraphs
+#' @references Lorenz D.L., 2015, smwrGraphs
 #' @keywords hplot
 #' @export ternaryPlot
 ternaryPlot <- function(x, y, z, # data to plot (this will sum to range)

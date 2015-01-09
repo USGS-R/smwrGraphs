@@ -15,7 +15,7 @@
 #' @param angle the angle to rotate the text.
 #' @param justification the justification of the text relative to \code{x},
 #' \code{y}. Must be one of "left," "center," or "right."
-#' @param size size of the text in points.
+#' @param size size of the text in points, the default is the current point size.
 #' @param position the vertical location of the text. Must be one of "above,"
 #' "below," or "center."
 #' @param current the current plot controls. Typically, this would be the
@@ -27,7 +27,7 @@
 #' @export addAnnotation
 addAnnotation <- function(x, y, annotation, # data
                           leaderx=NULL, leadery=NULL, leadercol="black", # leader controls
-                          angle=0, justification="left", size=8,
+                          angle=0, justification="left", size=60*par("csi"),
                           position="above", # placement control
                           current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
                             xaxis.log=FALSE)) { # current plot parameters 

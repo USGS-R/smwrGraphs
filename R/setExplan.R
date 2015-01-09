@@ -51,7 +51,7 @@ setExplan <- function(current, old=NULL) {
   ## Get colors and tweak for PDF output for points
   ## See https://stat.ethz.ch/pipermail/r-help/2007-October/144598.html
   symColor <- current$color
-  if(!is.null(.pdg_graph <- options(".pdf_graph")$.pdf_graph))
+  if(!is.null(.pdf_graph <- options(".pdf_graph")$.pdf_graph))
   	if(lineType == "p" && .pdf_graph) {
   		symColor <- col2rgb(symColor)
   		symColor <- rgb(t(symColor), alpha=254, maxColorValue=255)

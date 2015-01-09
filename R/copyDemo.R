@@ -16,7 +16,7 @@
 #' \dontrun{copyDemo("HydroPrecip")}
 #' 
 #' @export copyDemo
-copyDemo <- function(topic, package="USGSwsGraphs",
+copyDemo <- function(topic, package="smwrGraphs",
                      file) {
 	# Coding history:
 	#    2012Nov16 DLLorenz Initial coding nad begin edits

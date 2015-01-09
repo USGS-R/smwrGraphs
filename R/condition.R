@@ -33,8 +33,8 @@
 #' @param yleft the value for the left margin for the left-hand column. Must be
 #' large enough for the labels and title.
 #' @param share character, if \code{share} contains "x", then the code in 
-#'\call{plot.call} is set up to share x-axes; if \code{share} contains "y", 
-#'then the code in \call{plot.call} is set up to share y-axes. The default is
+#'\code{plot.call} is set up to share x-axes; if \code{share} contains "y", 
+#'then the code in \code{plot.call} is set up to share y-axes. The default is
 #'not to share either axes.
 #' @param group.name a character string to prepend to each value in
 #' \code{group} to create the graph title.
@@ -66,7 +66,7 @@
 #' # See the Coplot demos for examples
 #' .pager <- options("pager")
 #' options(pager="console")
-#' demo(package="USGSwsGraphs")
+#' demo(package="smwrGraphs")
 #' options(.pager)
 #' 
 #' @export condition

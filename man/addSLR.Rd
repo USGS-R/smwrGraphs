@@ -23,12 +23,15 @@ addSLR(x, y, Plot = list(name = "", what = "lines", type = "solid", width =
 \arguments{
 \item{x}{the x-axis data. For method \code{list}, x is a list that contains
 components \code{x} and \code{y} and the \code{y} argument is not used.
-Missing values are permitted but ignored.}
+Missing values are permitted but ignored in the regression.}
 
 \item{y}{the y-axis data. Missing values are permitted but ignored.}
 
 \item{Plot}{parameters defining the characteristics of the plot. See
 \code{\link{setPlot}} for a description of the parameters.}
+
+\item{Model}{parameters for displaying the simple linear regression model.
+See \bold{Details}.}
 
 \item{current}{the current plot information. Typically, this would be the
 output from one of the graph creation functions like \code{xyPlot}.}
@@ -41,6 +44,15 @@ The regression model is included as the lm component.
 }
 \description{
 Computes a simple linear regression from x and y data and adds the line to a graph.
+}
+\details{
+The \code{Model} argument sets up the information to include the regression
+model equation on the graphs. Within \code{Model}, \code{x} is the name to use for the
+explanatory variable, \code{x} is the name to use for the response variable, \code{form}
+indicates the form that the regression model should take if the variable are log
+transformed; "exp" indicates that the model equation should be expressed as an exponent,
+anything else indicates thet the model should be expressed using the transformation
+functions; and \code{where} indicates where to place the equation.
 }
 \seealso{
 \code{\link{addXY}}, \code{\link{xyPlot}}

@@ -36,7 +36,8 @@ If "Auto," then derive the name from the column names in \code{y}.}
 of the color to draw the outline or border for each bar. If "none," then no
 border is drawn.} \item{width}{the width of each bar proportional to the
 distance between bars. If 1, then the bars form a continuous filled area.
-The default is "Auto," which fills 2/3 of the distance.}
+The default is "Auto," which fills 2/3 of the distance. If 0, then draw vertical
+lines rather than bars; the color of the line is based on \code{outline}.}
 \item{orientation}{the orientation of the bars.} } Only single bars are
 permitted in the current version. The \code{orientation} component of
 \code{Bars} is ignored.

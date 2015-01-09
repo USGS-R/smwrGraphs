@@ -1,11 +1,21 @@
-#' Time-series Plots
+#' @title Time-series Plots
 #' 
-#' Produce a plot of time-series data.
+#' @description Produce a plot of time-series data.
 #' 
-#' The value for \code{xlabels} must be one of "full," the full month names;
-#' "abbrev," abbreviations; or "letter," the first letter of the
-#' month. The default is "Auto."
-#' 
+#' @details For \code{timePlot} method where the time/date data is of class "Date,"
+#'"POSIXt," or "numeric," the value for \code{xlabels} must be one of
+#'"hours," "days," "months," "years," "water years," or "Auto," which will 
+#'select an appropriate axis labeling scheme based on the time span of the data. 
+#'May also be a list of valid arguments to \code{datePretty} for finer control.\cr
+#'
+#'For \code{timePlot} method where the time/date data is of class "integer," 
+#'the value for \code{xlabels} must be one of "Auto," a number indicating the approximate
+#'number of labels, or a list of valid arguments to \code{linearPretty} for finer control.\cr
+#'
+#'For \code{timePlot} method where the time/date data is of class "difftime," 
+#'the value for \code{xlabels} must be one of "Auto" or a number indicating the approximate
+#'number of labels.\cr
+#'
 #' @name timePlot
 #' @rdname timePlot
 #' @aliases timePlot timePlot,Date,numeric-method
@@ -18,21 +28,22 @@
 #' @param yaxis.rev reverse the y axis?
 #' @param yaxis.range set the range of the y-axis.
 #' @param xaxis.range set the range of the x-axis. Set at January 1 through
-#' December 31 for \code{seasonPlot}.
+#'December 31 for \code{seasonPlot}.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
-#' details.
-#' @param xlabels set up x-axis labels. See \code{\link{datePretty}} for
-#' details for \code{timePretty}. See \bold{Details} for details for
-#' \code{seasonPretty}.
+#'details.
+#' @param xlabels set up x-axis labels. See \bold{Details} for details for
+#'valid values.
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
 #' @param margin set up the plot area margins.
+#' @param xlabels.rotate rotate the x-axis labels so that they are perpendicular to the
+#' x-axis?
 #' @param ... arguments for specific methods.
 #' @return Information about the graph.
 #' @note The function \code{timePlot} produces a time-series plot. The function
 #' \code{seasonPlot} produces a plot of the annual cycle. There is no function
-#' in the USGSwsGraphs package that will automatically transform time/date data
+#' in the smwrGraphs package that will automatically transform time/date data
 #' to the correct seasonal value; use \code{dectime(x) - trunc(dectime(x))},
 #' where \code{x} is the time/date variable.
 #' @docType methods
@@ -49,7 +60,7 @@
 #' \item{signature(x = "difftime", y = "numeric")}{ Create a
 #' time-series plot for difftime and numeric data. } }
 #'
-#' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}
+#' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}, \code{\link{seasonPlot}}
 #' @keywords methods hplot
 #' @exportMethod timePlot
 setGeneric("timePlot", function(x, y, Plot=list(),
@@ -102,7 +113,10 @@ function(x, y, # data
   yax <- do.call("setAxis", yax)
   y <- yax$data
   yax <- yax$dax
-  dax <- datePretty(xaxis.range, major=xlabels)
+  if(class(xlabels) == "character") {
+  	dax <- datePretty(xaxis.range, major=xlabels)
+  } else # Should be list
+  	dax <- do.call(datePretty, c(list(x=xaxis.range), xlabels))
   x <- numericData(x)
   ## set margins and controls
   margin.control <- setMargin(margin, yax)
@@ -181,10 +195,20 @@ function(x, y, # data
   yax <- yax$dax
   ## If the time span is less than 3 days, force style to be at
   deltime <- difftime(xaxis.range[2L], xaxis.range[1L], units="days") 
-  if(deltime < 3)
-    dax <- datePretty(xaxis.range, major=xlabels, style="at")
-  else
-    dax <- datePretty(xaxis.range, major=xlabels, style="between")
+  if(deltime < 3) {
+  	if(class(xlabels) == "character") {
+  		dax <- datePretty(xaxis.range, major=xlabels, style="at")
+  	} else { # Should be list
+  		if(is.null(xlabels$style))
+  			xlabels$style <- "at"
+  		dax <- do.call(datePretty, c(list(x=xaxis.range), xlabels))
+  	}
+  } else {
+  	if(class(xlabels) == "character") {
+  		dax <- datePretty(xaxis.range, major=xlabels)
+  	} else # Should be list
+  		dax <- do.call(datePretty, c(list(x=xaxis.range), xlabels))
+  }
   x <- numericData(x)
   ## set margins and controls
   margin.control <- setMargin(margin, yax)
@@ -258,8 +282,20 @@ function(x, y, # data
   yax <- do.call("setAxis", yax)
   y <- yax$data
   yax <- yax$dax
-  
-  dax <- datePretty(xaxis.range, major=xlabels)
+  if(class(xaxis.range)[1L] == "numeric") # force to Date to set up axis
+  	xaxis.range <- dectime2Date(xaxis.range)
+  if(class(xlabels) == "character") {
+  	dax <- datePretty(xaxis.range, major=xlabels)
+  } else # Should be list
+  	dax <- do.call(datePretty, c(list(x=xaxis.range), xlabels))
+  # Now undo the axis limits 
+  origin <- as.Date("1970-01-01")
+  dax$ticks <- dectime(as.Date(dax$ticks, origin=origin))
+  dax$finegrid <- dectime(as.Date(dax$finegrid, origin=origin))
+  dax$labelpos <- dectime(as.Date(dax$labelpos, origin=origin))
+  dax$range <- dectime(as.Date(dax$range, origin=origin))
+  if(!is.null(dax$label2pos))
+  	dax$label2pos <- dectime(as.Date(dax$label2pos, origin=origin))
   x <- numericData(x)
   ## set margins and controls
   margin.control <- setMargin(margin, yax)
@@ -314,7 +350,7 @@ function(x, y, # data
          yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA, NA), # y-axis controls
          xaxis.range=range(x, na.rm=TRUE) + c(-1, 1), # x-axis control
          ylabels=7, xlabels="Auto", # labels
-         xtitle="Difference in Time",
+         xtitle="",
          ytitle=deparse(substitute(y)), # axis titles
          caption="", # caption 
          margin=c(NA, NA, NA, NA), xlabels.rotate=FALSE, ...) {# margin controls

@@ -1,11 +1,11 @@
 #' Interpolation
 #' 
 #' Create a vector of interpolated points along a line drawn by one of the
-#' \code{USGSwsGraphs} functions.
+#' \code{smwrGraphs} functions.
 #' 
 #' Exactly one of \code{xfromy} or \code{yfromx} must be specified in the call.
 #' 
-#' @param object an object created by one of the \code{USGSwsGraphs} functions.
+#' @param object an object created by one of the \code{smwrGraphs} functions.
 #' @param xfromy the y-axis coordinate values to use to create matching
 #' x-coordinate values. Missing values are permitted but result in missing
 #' values in the output.

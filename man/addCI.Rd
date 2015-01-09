@@ -8,18 +8,19 @@ addCI(type, level = 0.95, Plot = list(name = "", what = "lines", type =
   FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{
+\item{type}{the type of confidence interval desired. Must be either "SLR" for the confidence
+interval for a simple linear regression model, which must have been created using the
+\code{addSLR} function or "q-norm" for the confidence interval for a q-normal plot created
+using \code{qqPlot}.}
+
+\item{level}{the confidence level desired.}
+
 \item{Plot}{parameters defining the characteristics of the plot. See
 \code{\link{setPlot}} for a description of the parameters.}
 
 \item{current}{the current plot information. This would is the
 output from one of the graph creation or addition functions like \code{qqPlot}
 or \code{addSLR}.}
-
-\item{x}{the x-axis data. For method \code{list}, x is a list that contains
-components \code{x} and \code{y} and the \code{y} argument is not used.
-Missing values are permitted but ignored.}
-
-\item{y}{the y-axis data. Missing values are permitted but ignored.}
 }
 \value{
 The current plot information, the x and y components are the data, not the line.

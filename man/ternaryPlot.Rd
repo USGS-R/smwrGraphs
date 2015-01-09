@@ -64,7 +64,7 @@ A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{piperPlot}.
 }
 \references{
-Lorenz D.L., 2013, USGSwsGraphs
+Lorenz D.L., 2015, smwrGraphs
 }
 \seealso{
 \code{\link{setPage}}, \code{link{setMultiPlot}},

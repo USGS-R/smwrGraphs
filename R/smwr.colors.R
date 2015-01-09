@@ -2,9 +2,9 @@
 #' 
 #' Generates a sequence of colors along a specified range.
 #' 
-#' @name USGS.colors
-#' @rdname USGS.colors
-#' @aliases USGS.colors blueRed.colors redBlue.colors coolWarm.colors 
+#' @name smwr.colors
+#' @rdname smwr.colors
+#' @aliases smwr.colors blueRed.colors redBlue.colors coolWarm.colors 
 #'warmCool.colors greenRed.colors redGreen.colors pastel.colors
 #' @param n the number of colors to generate.
 #' @param alpha a measure of the intensity of the generated colors
@@ -28,22 +28,22 @@ greenRed.colors <- function(n, alpha=1)
 #    2012May21 DLLorenz Added pastel.colors
 #    2014Jun26 DLLorenz Converted to roxygen
 
-#' @rdname USGS.colors
+#' @rdname smwr.colors
 #' @export redGreen.colors
 redGreen.colors <- function(n, alpha=1)
   rainbow(n, start=0, end=1/3, alpha=alpha)
 
-#' @rdname USGS.colors
+#' @rdname smwr.colors
 #' @export blueRed.colors
 blueRed.colors <- function(n, alpha=1)
   rainbow(n, start=2/3, end=1, alpha=alpha)
 
-#' @rdname USGS.colors
+#' @rdname smwr.colors
 #' @export redBlue.colors
 redBlue.colors <- function(n, alpha=1)
   rev(rainbow(n, start=2/3, end=1, alpha=alpha))
 
-#' @rdname USGS.colors
+#' @rdname smwr.colors
 #' @export warmCool.colors
 warmCool.colors <- function(n, alpha=1) {
   ## Adjust linearity slightly to reduce preponderance of greens
@@ -55,12 +55,12 @@ warmCool.colors <- function(n, alpha=1) {
   return(sapply(scl, function(x) rainbow(1, start=x, end=.99)))
 }
 
-#' @rdname USGS.colors
+#' @rdname smwr.colors
 #' @export coolWarm.colors
 coolWarm.colors <- function(n, alpha=1)
   rev(warmCool.colors(n))
 
-#' @rdname USGS.colors
+#' @rdname smwr.colors
 #' @export pastel.colors
 pastel.colors <- function(n, alpha=1)
   hcl((seq(n) -1/(n + 4))*360/n , c=40, l=80, alpha=alpha) 

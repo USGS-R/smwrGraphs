@@ -32,8 +32,8 @@ are created beginning in the lower-left See \bold{Details}. hand corner.}
 large enough for the labels and title.}
 
 \item{share}{character, if \code{share} contains "x", then the code in
-\call{plot.call} is set up to share x-axes; if \code{share} contains "y",
-then the code in \call{plot.call} is set up to share y-axes. The default is
+\code{plot.call} is set up to share x-axes; if \code{share} contains "y",
+then the code in \code{plot.call} is set up to share y-axes. The default is
 not to share either axes.}
 
 \item{group.name}{a character string to prepend to each value in
@@ -87,7 +87,7 @@ The called plotting function must set the \code{margin} argument to
 # See the Coplot demos for examples
 .pager <- options("pager")
 options(pager="console")
-demo(package="USGSwsGraphs")
+demo(package="smwrGraphs")
 options(.pager)
 }
 \references{

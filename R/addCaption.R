@@ -2,10 +2,9 @@
 #' 
 #' Adds a caption at the bottom of the graph
 #' 
-#' 
 #' @param caption the text of the caption for the graph
 #' @return Nothing is returned.
-#' @note Useful for adding captions when the explanation is at the bottom.
+#' @note Useful for adding 1-line captions.
 #' @keywords aplot
 #' @export addCaption
 addCaption <- function(caption='') {

@@ -15,7 +15,7 @@ Nothing is returned.
 Adds a caption at the bottom of the graph
 }
 \note{
-Useful for adding captions when the explanation is at the bottom.
+Useful for adding 1-line captions.
 }
 \keyword{aplot}
 

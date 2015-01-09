@@ -3,10 +3,11 @@
 #' Computes the confidence interval for a linear regression or q-normal graph and adds the lines to a graph.
 #' 
 #' 
-#' @param x the x-axis data. For method \code{list}, x is a list that contains
-#' components \code{x} and \code{y} and the \code{y} argument is not used.
-#' Missing values are permitted but ignored.
-#' @param y the y-axis data. Missing values are permitted but ignored.
+#' @param type the type of confidence interval desired. Must be either "SLR" for the confidence
+#'interval for a simple linear regression model, which must have been created using the
+#'\code{addSLR} function or "q-norm" for the confidence interval for a q-normal plot created
+#'using \code{qqPlot}.
+#' @param level the confidence level desired.
 #' @param Plot parameters defining the characteristics of the plot. See
 #' \code{\link{setPlot}} for a description of the parameters.
 #' @param current the current plot information. This would is the

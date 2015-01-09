@@ -3,9 +3,10 @@
 \parindent 30pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Box Plot Examples}
-%\VignetteDepends{USGSwsGraphs}
+%\VignetteDepends{smwrGraphs}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \raggedright
 \parindent 30pt
 \title{Box Plot Examples}
@@ -15,7 +16,7 @@
 \maketitle
 
 These examples demonstrate variations of types of box plots that can be 
-generated using the boxPlot function in the USGSwsGraphs package.
+generated using the boxPlot function in the smwrGraphs package.
 All of the examples use randomly generated sets of data.
 \textbf{NOTE:} to use the boxPlot function, you must first call
 a function to set up the graphics environment like \texttt{setPage}
@@ -23,8 +24,8 @@ or \texttt{setPDF}, but these are not included here to use the graphics
 tools in \texttt{Sweave}.
 
 <<echo=TRUE>>=
-# Load the USGSwsGraphs package
-library(USGSwsGraphs)
+# Load the smwrGraphs package
+library(smwrGraphs)
 # Generate a random sample for the box plot
 set.seed(27036)
 BP <- rchisq(32, 3)

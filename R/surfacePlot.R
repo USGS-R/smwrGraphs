@@ -114,11 +114,12 @@ surfacePlot <- function(pre, z.color="lightblue", # The data
 	ybox <- c(extendrange(ybox, f=f)[1L], extendrange(ybox, f=0.01)[2L])
 	# Extend x range to allocate left and right labels
 	lmai <- pre$zax$margin * csi
-	rmai <- select(pre$farcorn,
-								 strwidth(pre$xax$labels[1L], units='inches', family='USGS'),
-								 strwidth(pre$yax$labels[1L], units='inches', family='USGS'),
-								 max(strwidth(pre$yax$labels, units='inches', family='USGS')),
-								 max(strwidth(pre$xax$labels, units='inches', family='USGS')))
+	# pick is in smwrBase
+	rmai <- pick(pre$farcorn,
+							 strwidth(pre$xax$labels[1L], units='inches', family='USGS'),
+							 strwidth(pre$yax$labels[1L], units='inches', family='USGS'),
+							 max(strwidth(pre$yax$labels, units='inches', family='USGS')),
+							 max(strwidth(pre$xax$labels, units='inches', family='USGS')))
 	rmai <- rmai + strwidth("  ", units='inches', family='USGS')
 	ftot <- fin[1L]/(fin[1L] - lmai  - rmai) - 1.
 	fl <- ftot * lmai/(lmai + rmai)

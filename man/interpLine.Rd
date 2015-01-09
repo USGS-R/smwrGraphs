@@ -6,7 +6,7 @@
 interpLine(object, xfromy, yfromx, warn = TRUE, ...)
 }
 \arguments{
-\item{object}{an object created by one of the \code{USGSwsGraphs} functions.}
+\item{object}{an object created by one of the \code{smwrGraphs} functions.}
 
 \item{xfromy}{the y-axis coordinate values to use to create matching
 x-coordinate values. Missing values are permitted but result in missing
@@ -27,7 +27,7 @@ A vector of numeric values corresponding to those values in either
 }
 \description{
 Create a vector of interpolated points along a line drawn by one of the
-\code{USGSwsGraphs} functions.
+\code{smwrGraphs} functions.
 }
 \details{
 Exactly one of \code{xfromy} or \code{yfromx} must be specified in the call.
