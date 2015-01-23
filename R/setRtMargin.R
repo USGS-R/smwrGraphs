@@ -36,9 +36,9 @@ setRtMargin <- function(y, margin=c(NA,NA,NA,NA), right.labels=7,
   } else
   	hard <- TRUE
   if(right.log) {
-  	RtMar <- logPretty(right.range, hard=hard, labels=labels)$margin
+  	RtMar <- logPretty(right.range, hard=hard, labels=right.labels)$margin
   } else 
-  	RtMar <- linearPretty(right.range, hard=hard, labels=labels)$margin
+  	RtMar <- linearPretty(right.range, hard=hard, labels=right.labels)$margin
   margin[4L] <- -RtMar
   invisible(margin)
 }
