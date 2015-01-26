@@ -14,12 +14,13 @@
 #' description of the parameters.
 #' @param current the current plot information. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
-#' @param right logical: set up new right axis?
-#' @param right.log logical: log transform right axis?
-#' @param right.rev logical: reverse right axis?
-#' @param right.range set right-axis range.
-#' @param right.labels set up right-axis labels.
-#' @param right.title the right-axis title.
+#' @param new.axis character:  indicating which new axis to set up. Must be either "right," "top,"
+#' or "none," which indicates that the existing axes be used (default).
+#' @param new.log logical: log transform new axis?
+#' @param new.rev logical: reverse new axis?
+#' @param new.range set new-axis range.
+#' @param new.labels set up new-axis labels.
+#' @param new.title the new-axis title.
 #' @param jitter.y adjust \code{y} values to reduce overlap for each group?
 #' @param ... arguments for specific methods.
 #' @return Information about the graph.
@@ -51,13 +52,15 @@ function(x, y, # data
            size=0.09, color='black'), # plot controls
          current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
            xaxis.log=FALSE), # current plot parameters
-         right=FALSE, right.log=FALSE, right.rev=FALSE,
-         right.range=c(NA,NA), ## right-axis controls
-         right.labels=7, right.title='') { # right-axis labels and titles
+         new.axis="none", new.log=FALSE, new.rev=FALSE,
+         new.range=c(NA,NA), ## right-axis controls
+         new.labels=7, new.title='') { # right-axis labels and titles
 
   ##
-  if(right) { # set up right axis
-    rax <- setAxis(y, right.range, right.log, right.rev, right.labels)
+  new.axis <- match.arg(new.axis, c("none","right","top"))
+  
+  if(new.axis == "right") { # set up right axis
+    rax <- setAxis(y, new.range, new.log, new.rev, new.labels)
     y <- rax$data
     rax <- rax$dax
     ## reset y-axis limits
@@ -67,12 +70,26 @@ function(x, y, # data
     ## label right axis
     renderY(rax, left=list(ticks=FALSE, labels=FALSE), right=list(ticks=TRUE,
                                                          labels=TRUE),
-            lefttitle='', righttitle=right.title)
+            lefttitle='', righttitle=new.title)
     ## update current
-    current$yaxis.log <- right.log
-    current$yaxis.rev <- right.rev
-  }
-  else { # Use current y axis
+    current$yaxis.log <- new.log
+    current$yaxis.rev <- new.rev
+  } else if (new.axis == "top"){
+    rax <- setAxis(x, new.range, new.log, new.rev, new.labels)
+    x <- rax$data
+    rax <- rax$dax
+    ## reset x-axis limits
+    usr <- par('usr')
+    usr[1:2] <- rax$range
+    par(usr=usr)
+    renderX(rax, bottom=list(ticks=FALSE, labels=FALSE), top=list(ticks=TRUE,
+                                                                  labels=TRUE),
+            bottitle='', toptitle=new.title)
+    ## update current
+    current$xaxis.log <- new.log
+    current$xaxis.rev <- new.rev
+    
+  } else { # Use current y axis
     y <- numericData(y, lev=current$yaxis.lev)
     y <- transData(y, current$yaxis.log, current$yaxis.rev,
                    current$ytrans, current$ytarg)
