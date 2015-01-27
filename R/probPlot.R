@@ -24,7 +24,7 @@
 #' positions.
 #' @param Plot control parameters of the plot.
 #' @param yaxis.log log-transform the y axis?
-#' @param yrange set the range of the y axis.
+#' @param yaxis.range set the range of the y axis.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.
 #' @param xlabels set the x-axis labels. See \code{\link{probPretty}} for
@@ -34,7 +34,7 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param RI label the top axis with recurrence intervals? If \code{RI} is set
 #' to \code{TRUE}, then \code{CDF} will be set to \code{FALSE}.
-#' @param RItitle the top x-axis title if \code{RI} is TRUE.
+#' @param RItitle the top x-axis title if \code{RI} is \code{TRUE}.
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
 #' @param margin the parameters of the margin of the plot area.
@@ -53,7 +53,7 @@ probPlot <- function(x, truncate=NA,
                      Plot=list(name="", what="points", type="solid",
                        width="standard", symbol="circle", filled=TRUE,
                        size=0.09, color="black"), # plot controls
-                     yaxis.log=TRUE, yrange=c(NA, NA), # y-axis controls
+                     yaxis.log=TRUE, yaxis.range=c(NA, NA), # y-axis controls
                      ylabels=11,  xlabels=11, CDF=!RI, # labels
                      xtitle=ifelse(CDF, "Cumulative Probability",
                        "Exceedence Probability"),
@@ -90,7 +90,7 @@ probPlot.default <- function(x, truncate=NA,
                              Plot=list(name="", what="points", type="solid",
                                width="standard", symbol="circle", filled=TRUE,
                                size=0.09, color="black"), # plot controls
-                             yaxis.log=TRUE, yrange=c(NA, NA), # y-axis controls
+                             yaxis.log=TRUE, yaxis.range=c(NA, NA), # y-axis controls
                              ylabels=11,  xlabels=11, CDF=!RI, # labels
                              xtitle=ifelse(CDF, "Cumulative Probability",
                                "Exceedence Probability"),
@@ -113,7 +113,7 @@ probPlot.default <- function(x, truncate=NA,
   ## set up the axes and transform data
   if(dev.cur() == 1)
     setGD("ProbabilityPlot")
-  yax <- setAxis(x[plotthese], yrange, yaxis.log, FALSE, ylabels)
+  yax <- setAxis(x[plotthese], yaxis.range, yaxis.log, FALSE, ylabels)
   x <- yax$data
   yax <- yax$dax
   ## Plot the full range of probability, but truncate pp to match x

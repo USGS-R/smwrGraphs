@@ -41,9 +41,12 @@ of object other than numeric.}
 \item{yaxis.range}{set y-axis range.}
 
 \item{ylabels}{set up y-axis labels. See \code{\link{linearPretty}} for
-details.}
+details; the value for \code{ylabels} can be set to an valid value for the
+\code{label} argument in \code{linearPretty} or a tagged list with values
+spcified for the arguments in \code{linearPretty}.}
 
-\item{xlabels}{set up x-axis labels.}
+\item{xlabels}{set up x-axis labels. Must be either "Auto" or a character
+vector of the x-axis labels.}
 
 \item{xlabels.rotate}{rotate x-axis labels 90 degrees?}
 

@@ -53,8 +53,8 @@ function(x, y, # data
          current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
            xaxis.log=FALSE), # current plot parameters
          new.axis="none", new.log=FALSE, new.rev=FALSE,
-         new.range=c(NA,NA), ## right-axis controls
-         new.labels=7, new.title='') { # right-axis labels and titles
+         new.range=c(NA,NA), ## right/top-axis controls
+         new.labels=7, new.title='') { # right/top-axis labels and titles
 
   ##
   new.axis <- match.arg(new.axis, c("none","right","top"))

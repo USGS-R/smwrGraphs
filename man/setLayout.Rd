@@ -42,11 +42,11 @@ If > 0, then the value indicates the relative spacing.}
 
 \item{yleft}{space to allocate on the left margin of each graph.}
 
-\item{yright}{space to allocate on the right margin of each graph.}
+\item{yright}{space to allocate on the right margin of each graph. See \bold{Details}.}
 
 \item{xbottom}{space to allocate on the bottom margin of each graph.}
 
-\item{xtop}{space to allocate on the top margin of each graph.}
+\item{xtop}{space to allocate on the top margin of each graph. See \bold{Details}.}
 }
 \value{
 an object of class "Layout" with three named components and
@@ -65,24 +65,32 @@ grid. The columns can be specified in one of two ways, either by specifying
 the width of each column using \code{width} or setting equal-width columns
 by specifying \code{num.cols}. The rows can be specified in one of two ways,
 either by specifying the height of each column using \code{height} or
-setting equal-height rows by specifying \code{num.rows}.\cr If an
-explanation is to be placed outside of the graphs, then \code{explanation}
+setting equal-height rows by specifying \code{num.rows}.\cr
+
+If an explanation is to be placed outside of the graphs, then \code{explanation}
 is used to indicate where the explanation is to be placed. The explanation
 can be placed either to the right of the grid of graphs, at the bottom of
-the grid, or in one of the grid cells.\cr To place an explanation to the
+the grid, or in one of the grid cells.\cr
+
+To place an explanation to the
 right of the graphs, \code{explantion} should be set to
 \code{list(right=ewid)}, where \code{ewid} is the width of the explanation.
 In this case, the total of \code{width} and \code{ewid} must be less that
-the total available for the page.\cr To place an explanation at the bottom
+the total available for the page.\cr
+
+To place an explanation at the bottom
 of the graphs, \code{explantion} should be set to \code{list(bottom=ehei)},
 where \code{ehei} is the height of the explanation. In this case, the total
 pf \code{height} and \code{ehei} must be less than the total available for
-the page.\cr To place an explanation within a cell of the grid,
+the page.\cr
+
+To place an explanation within a cell of the grid,
 \code{explantion} should be set to \code{list(grid=enum)}, where \code{enum}
 is the cell number in the grid. Cell numbers are sequential starting in the
 upper left and increasing by column. In this case \code{num.graphs} must be
-set to some number less than \code{num.cols} times \code{num.rows}.\cr The
-width of the explanation can be estimated by allocating 1 inch per 13
+set to some number less than \code{num.cols} times \code{num.rows}.\cr
+
+The width of the explanation can be estimated by allocating 1 inch per 13
 characters for \code{font} set to "preview" or 1 inch per 17 characters for
 \code{font} set to "USGS" plus 0.5 inch for the symbols. The width for box
 plots should be 2 inches for any type other that "tukey" and 2.5 inches for
@@ -97,9 +105,19 @@ arguments \code{shared.x}, \code{shared.y}, \code{yleft}, \code{yright},
 \code{xbottom}, and \code{xtop} are used to set up the plot areas. If axes
 are not shared, then the margin values are not set for any graph. If the
 axes are shared, then the margin values apply to the corresponding left
-column, right column, bottom row or top row.\cr The axis ticks and labels
-can be supressed by setting the margins to a negative value. This is most
-useful when adding right-axes with \code{addXY} for example.
+column, right column, bottom row or top row.\cr
+
+The axis ticks and labels can be supressed by setting the margins to a negative
+value.  This is most useful when adding right-axes with \code{addXY} for example.\cr
+
+The value for \code{yright} can be set using the \code{setRtMargin}
+function if adding a plot using the secondary right axes; extract
+the fourth element of the returned value. The default is to
+set a narrow right-hand margin.
+
+The value for \code{xtop} can be set to -2.2 if adding a plot using the
+secondary top axis.
+The default is to set the margin to 1.5, which allows for a graph title.
 }
 \note{
 It is very easy to confuse the graph number, used by \code{setGraph}
@@ -115,7 +133,8 @@ the "explanation" at the bottom of the figure can be used for a description of
 the figure that is more than one line in height.
 }
 \seealso{
-\code{\link{setPage}}, \code{\link{setGraph}}
+\code{\link{setPage}}, \code{\link{setGraph}}, \code{\link{setRtMargin}},
+\code{\link{addTitle}}
 }
 \keyword{dplot}
 

@@ -7,7 +7,7 @@
 probPlot(x, truncate = NA, FLIP = FALSE, distribution = "normal",
   alpha = 0.4, Plot = list(name = "", what = "points", type = "solid", width
   = "standard", symbol = "circle", filled = TRUE, size = 0.09, color = "black"),
-  yaxis.log = TRUE, yrange = c(NA, NA), ylabels = 11, xlabels = 11,
+  yaxis.log = TRUE, yaxis.range = c(NA, NA), ylabels = 11, xlabels = 11,
   CDF = !RI, xtitle = ifelse(CDF, "Cumulative Probability",
   "Exceedence Probability"), RI = FALSE,
   RItitle = "Recurrence Interval, in years",
@@ -17,8 +17,8 @@ probPlot(x, truncate = NA, FLIP = FALSE, distribution = "normal",
 \method{probPlot}{default}(x, truncate = NA, FLIP = FALSE,
   distribution = "normal", alpha = 0.4, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), yaxis.log = TRUE, yrange = c(NA, NA),
-  ylabels = 11, xlabels = 11, CDF = !RI, xtitle = ifelse(CDF,
+  TRUE, size = 0.09, color = "black"), yaxis.log = TRUE, yaxis.range = c(NA,
+  NA), ylabels = 11, xlabels = 11, CDF = !RI, xtitle = ifelse(CDF,
   "Cumulative Probability", "Exceedence Probability"), RI = FALSE,
   RItitle = "Recurrence Interval, in years",
   ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA, NA,
@@ -43,7 +43,7 @@ positions.}
 
 \item{yaxis.log}{log-transform the y axis?}
 
-\item{yrange}{set the range of the y axis.}
+\item{yaxis.range}{set the range of the y axis.}
 
 \item{ylabels}{set the y-axis labels. See \code{\link{linearPretty}} for
 details.}
@@ -59,7 +59,7 @@ label with decreasing probabilities.}
 \item{RI}{label the top axis with recurrence intervals? If \code{RI} is set
 to \code{TRUE}, then \code{CDF} will be set to \code{FALSE}.}
 
-\item{RItitle}{the top x-axis title if \code{RI} is TRUE.}
+\item{RItitle}{the top x-axis title if \code{RI} is \code{TRUE}.}
 
 \item{ytitle}{the y-axis title (also called y-axis caption).}
 

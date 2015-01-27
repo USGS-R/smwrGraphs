@@ -24,8 +24,11 @@
 #' @param yaxis.log logical: log transform y axis?
 #' @param yaxis.range set y-axis range.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
-#' details.
-#' @param xlabels set up x-axis labels.
+#'details; the value for \code{ylabels} can be set to an valid value for the
+#'\code{label} argument in \code{linearPretty} or a tagged list with values
+#'spcified for the arguments in \code{linearPretty}.
+#' @param xlabels set up x-axis labels. Must be either "Auto" or a character 
+#'vector of the x-axis labels.
 #' @param xlabels.rotate rotate x-axis labels 90 degrees?
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).

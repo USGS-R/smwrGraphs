@@ -11,8 +11,8 @@ addXY(x, y, ...)
 \S4method{addXY}{ANY,numeric}(x, y, Plot = list(name = "", what = "lines",
   type = "solid", width = "standard", symbol = "circle", filled = TRUE, size =
   0.09, color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE), right = FALSE, right.log = FALSE, right.rev = FALSE,
-  right.range = c(NA, NA), right.labels = 7, right.title = "")
+  xaxis.log = FALSE), new.axis = "none", new.log = FALSE, new.rev = FALSE,
+  new.range = c(NA, NA), new.labels = 7, new.title = "")
 
 \S4method{addXY}{numeric,character}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
@@ -34,17 +34,18 @@ description of the parameters.}
 \item{current}{the current plot information. Typically, this would be the
 output from one of the graph creation functions like \code{xyPlot}.}
 
-\item{right}{logical: set up new right axis?}
+\item{new.axis}{character:  indicating which new axis to set up. Must be either "right," "top,"
+or "none," which indicates that the existing axes be used (default).}
 
-\item{right.log}{logical: log transform right axis?}
+\item{new.log}{logical: log transform new axis?}
 
-\item{right.rev}{logical: reverse right axis?}
+\item{new.rev}{logical: reverse new axis?}
 
-\item{right.range}{set right-axis range.}
+\item{new.range}{set new-axis range.}
 
-\item{right.labels}{set up right-axis labels.}
+\item{new.labels}{set up new-axis labels.}
 
-\item{right.title}{the right-axis title.}
+\item{new.title}{the new-axis title.}
 
 \item{jitter.y}{adjust \code{y} values to reduce overlap for each group?}
 }
