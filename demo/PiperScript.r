@@ -17,15 +17,19 @@
 # piperPlot and are beyond the 
 # End of user input -----------------------
 # line.
+# 
+# Note also that this script can try to load the smwrQW package, which is not in
+# suggests list in the DESCRIPTION file because smwrQW requires smwrGraphs. It is
+# included to ensure full compatibility with water-quality data.
 #
 # The following 2 lines required for this script to run, but are not necessary for 
 # user-supplied data
-library(USGSwsData)
+library(smwrData)
 data(IonBalance)
 # Begin of user input
 # Required for graphs
-library(USGSwsGraphs)
-# The  USGSwsQW package is automatically loaded if any data are of class "qw"
+library(smwrGraphs)
+# The  smwrQW package is automatically loaded if any data are of class "qw"
 # Begin user input
 # Enter tha name of the dataset
 tmp.dsn <- "IonBalance"
@@ -68,12 +72,12 @@ tmp.dsn <- get(tmp.dsn)
 # Check for class "qw"
 tmp.ck <- sapply(tmp.dsn, function(col) inherits(col, "qw"))
 if(any(tmp.ck))
-	library(USGSwsQW)
+	library(smwrQW)
 # Check on required cations
 tmp.ck <- c(tmp.ca, tmp.mg, tmp.na) %in% names(tmp.dsn)
 if(!all(tmp.ck))
 	stop("not all required cation columns found in the dataset")
-# Conversion to numeric requireed if data of class "qw"
+# Conversion to numeric required if data of class "qw"
 tmp.ca <- as.numeric(tmp.dsn[[tmp.ca]])
 if(tmp.cvt) 
 	tmp.ca <- conc2meq(tmp.ca, "calcium")

@@ -1,6 +1,6 @@
 # Create a bar chart of annual flows
-library(USGSwsGraphs)
-library(USGSwsData)
+library(smwrGraphs)
+library(smwrData)
 data(UraniumTDS)
 # Set up the page, for this demo, use the default layout
 setGD("UraniumTDS")

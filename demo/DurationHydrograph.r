@@ -1,7 +1,7 @@
 # Create a duration hydrograph for water year 2010
 # No explanation created for this graph
-library(USGSwsGraphs)
-library(USGSwsData)
+library(smwrGraphs)
+library(smwrData)
 data(ChoptankFlow)
 
 # Construct the daily duration statistics by water year The final output

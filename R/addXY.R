@@ -85,15 +85,15 @@ function(x, y, # data
     renderX(rax, bottom=list(ticks=FALSE, labels=FALSE), top=list(ticks=TRUE,
                                                                   labels=TRUE),
             bottitle='', toptitle=new.title)
-    ## update current
+    ## update current, no reverse x-axis
     current$xaxis.log <- new.log
-    current$xaxis.rev <- new.rev
-    
-  } else { # Use current y axis
-    y <- numericData(y, lev=current$yaxis.lev)
-    y <- transData(y, current$yaxis.log, current$yaxis.rev,
-                   current$ytrans, current$ytarg)
+    if(new.rev)
+    	warning("x-axis cannot be reversed")
   }
+  ## Transform the axis
+  y <- numericData(y, lev=current$yaxis.lev)
+  y <- transData(y, current$yaxis.log, current$yaxis.rev,
+  							 current$ytrans, current$ytarg)
   x <- numericData(x, lev=current$xaxis.lev) # Convert dates to consistent numeric
   x <- transData(x, current$xaxis.log, FALSE,
                  current$xtrans, current$xtarg)

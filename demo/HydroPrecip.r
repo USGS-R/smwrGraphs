@@ -21,8 +21,8 @@ c(0.02, 0.06, 0.09, 0.01, 0.07, 0.06, 0.01, 0.01, 0.03, 0.01,
 0.05, 0.03, 0.08, 0.04, 0.08, 0.01, 0.01, 0.06, 0.05, 0.04, 0.02, 
 0.01, 0.03, 0.02, 0.03, 0.05, 0.02, 0.06, 0.06, 0.05, 0.04, 0.05, 
 0.1, 0.04, 0.08, 0.01, 0.02, 0.01, 0.02, 0.09))
-library(USGSwsGraphs)
-library(USGSwsData)
+library(smwrGraphs)
+library(smwrData)
 data(GlacialRidge)
 # Set up the page
 setGD("GlacialRidge")

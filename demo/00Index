@@ -6,3 +6,4 @@ FlowDur-Measurements	Flow-duration curve with overlaid discharge measurements.
 HydroPrecip	Stacked hydrographs of precipitation and groundwater levels.
 PiperScript	Create a Piper diagram.
 RightAxisExample	An example graph demonstrating how to set up a right-hand axis.
+TopAxisExample	An example graph demonstrating how to set up a top axis.
