@@ -25,5 +25,5 @@ install.packages("smwrGraphs",
 ```R
 install.packages("smwrGraphs", 
     repos=c("http://usgs-r.github.com","http://cran.us.r-project.org"), 
-    dependencies=TRUE, type = ‘both’)
+    dependencies=TRUE, type = "both")
 ```
