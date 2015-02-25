@@ -24,10 +24,18 @@
 #' \code{Plot=list(what="none")} in the original call to \code{xyPlot} or
 #' \code{timePlot} and then add the symbols with a call to \code{addXY}. Note
 #' that this is only necessary if the color of the symbol and the color of the
-#' error bars are different.
+#' error bars are different.\cr
+#' The symbol drawn for errors bars in the explantion does not have caps due to a
+#' limitation in the system for creating the explanation.
+#' 
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},
 #' \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addErrorBars:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export addErrorBars
 addErrorBars <- function(x, yup, ylo,
                     Bars=list(name="", cap=0.09, width="standard", color="black"),

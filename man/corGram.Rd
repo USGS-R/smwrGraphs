@@ -50,6 +50,12 @@ Create a correlogram for irregularly spaced data
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{corGram}.
 }
+\examples{
+\dontrun{
+# See for examples of corGram:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}
 }

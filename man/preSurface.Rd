@@ -60,6 +60,12 @@ be used in the call to \code{surfacePlot}
 \description{
 Select the projection for a surface plot.
 }
+\examples{
+\dontrun{
+# See for examples of preSurface:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{surfacePlot}}
 }

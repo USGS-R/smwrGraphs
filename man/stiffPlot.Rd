@@ -98,6 +98,14 @@ The values for \code{axis.range} must be expressed as a negative value for the
 \code{cation} data, left-hand side of the diagram, and a positive value for
 \code{anion} data, right-hand side of the diagram.
 }
+\examples{
+\dontrun{
+# See for examples of stiffPlot:
+vignette(topic="PiperPlot", package="smwrGraphs")
+# See for examples of addStiff:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
 \references{
 Hem J.D., 1989, Study and interpretation of the chemical
 characteristics of natural water: U.S. Geological Survey Water-Supply Paper

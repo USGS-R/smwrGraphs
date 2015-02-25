@@ -20,6 +20,11 @@
 #'the data that should have been plotted, and the explanation is not updated.
 #' @seealso \code{\link{addXY}}, \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addSmooth:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export addSmooth
 addSmooth <- function(x, y, # data
                       Smooth="loess.smooth", ..., # smoothing parameters

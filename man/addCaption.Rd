@@ -17,5 +17,12 @@ Adds a caption at the bottom of the graph
 \note{
 Useful for adding 1-line captions.
 }
+\examples{
+\dontrun{
+# See for examples of addCaption:
+vignette(topic="GraphSetup", package="smwrGraphs")
+demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+}
+}
 \keyword{aplot}
 

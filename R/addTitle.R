@@ -17,6 +17,13 @@
 #' @seealso \code{\link{addCaption}}, \code{\link{addAnnotation}},
 #' \code{\link{addTable}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addTitle:
+#' vignette(topic="BoxPlots", package="smwrGraphs")
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' }
 #' @export addTitle
 addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE) { 
 	# Coding History:

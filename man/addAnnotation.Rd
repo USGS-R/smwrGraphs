@@ -45,6 +45,13 @@ This function places only a single text on the graph for each call.\cr A
 leader from \code{x}, \code{y} to \code{leaderx}, \code{leadery} if
 \code{leaderx} is not \code{NULL}.
 }
+\examples{
+\dontrun{
+# See for examples of addAnnotation:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+demo(topic="TopAxisExample", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{labelPoints}}, \code{\link{addTable}},
 \code{\link{xyPlot}}

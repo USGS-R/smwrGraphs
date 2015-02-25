@@ -24,6 +24,11 @@
 #' environment before calling \code{ecdfPlot}.
 #' @seealso \code{\link{setPage}}, \code{\link{probPlot}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of ecdfPlot:
+#' vignette(topic="ProbabilityPlots", package="smwrGraphs")
+#' }
 #' @export ecdfPlot
 ecdfPlot <- function(x, group=NULL, # data specification
                      Plot=list(name="Auto", what="stairstep", type="solid",

@@ -19,6 +19,13 @@
 #' @seealso \code{\link{setLayout}}, \code{\link{setGraph}},
 #' \code{\link{addXY}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of setRtMargin:
+#' demo(topic="RightAxisExample", package="smwrGraphs")
+#' # See for examples of setTopMargin:
+#' demo(topic="TopAxisExample", package="smwrGraphs")
+#' }
 #' @export setRtMargin
 setRtMargin <- function(y, margin=c(NA,NA,NA,NA), right.labels=7, 
 												right.log=FALSE, right.range=c(NA, NA)) {

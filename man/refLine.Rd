@@ -35,6 +35,13 @@ Information about the graph.
 \description{
 Add a reference line (vertical, horizontal, or regression) to a graph.
 }
+\examples{
+\dontrun{
+# See for examples of refLine:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{addXY}}, \code{\link{addSmooth}}, \code{\link{xyPlot}}
 }

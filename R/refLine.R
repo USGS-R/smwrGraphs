@@ -17,6 +17,12 @@
 #' @return Information about the graph.
 #' @seealso \code{\link{addXY}}, \code{\link{addSmooth}}, \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of refLine:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+#' }
 #' @export refLine
 refLine <- function(horizontal, vertical, coefficients, # data, at least one must be used
                   Plot=list(name="", what='lines', type='solid',

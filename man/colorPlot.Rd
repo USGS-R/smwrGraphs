@@ -98,6 +98,12 @@ where the line is colored by a third variable, or a colored scatter plot over ti
 where the line is colored by a third variable, or a colored scatter plot over time. }
  }
 }
+\examples{
+\dontrun{
+# See for examples of colorPlot:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{xyPlot}}
 }

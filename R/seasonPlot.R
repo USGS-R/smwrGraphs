@@ -43,6 +43,11 @@
 #' "Jaunary 01." Typically used to plot daily mean values. } }
 #' @seealso \code{\link{setPage}}, \code{\link{timePlot}}
 #' @keywords methods hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of seasonPlot:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @exportMethod seasonPlot
 setGeneric("seasonPlot", function(x, y, Plot=list(),
                                   yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),

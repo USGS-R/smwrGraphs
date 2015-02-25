@@ -1,6 +1,5 @@
 \documentclass{article}
-\parskip 3pt
-\parindent 30pt
+\parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Box Plot Examples}
 %\VignetteDepends{smwrGraphs}
@@ -8,7 +7,6 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 \raggedright
-\parindent 30pt
 \title{Box Plot Examples}
 
 \author{Dave Lorenz}
@@ -74,10 +72,9 @@ addTitle("Extended")
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{boxplot01.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{boxplot01.pdf}
+\paragraph{}
 
 \textbf{Figure 1.} The four basic types of box plots.
 
@@ -99,10 +96,9 @@ setGraph("explanation", AA.lo)
 addExplanation(AA.bp, title="Truncated Boxplot")
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{boxplot02.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{boxplot02.pdf}
+\paragraph{}
 
 \textbf{Figure 2.} Box plot with explanation.
 
@@ -131,10 +127,9 @@ setSweave("boxplot03", 6 ,5)
 boxPlot(BP, bp, Box=list(fill="gray80", width=1.0), xlabels=c("Big", "Small"))
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{boxplot03.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{boxplot03.pdf}
+\paragraph{}
 
 \textbf{Figure 3.} Box plot variations.
 
@@ -152,10 +147,9 @@ setSweave("boxplot04", 6 ,6)
 boxPlot(BP, group=Gchar)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{boxplot04.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{boxplot04.pdf}
+\paragraph{}
 
 \textbf{Figure 4.} A grouped box plot.
 
@@ -174,10 +168,9 @@ setSweave("boxplot05", 6 ,6)
 boxPlot(BP, group=Gnum)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{boxplot05.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{boxplot05.pdf}
+\paragraph{}
 
 \textbf{Figure 5.} A box plot grouped by a numeric variable.
 

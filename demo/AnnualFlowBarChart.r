@@ -7,7 +7,7 @@ setGD("Conecuh")
 # Set up x margin to suppress ticks and labels. the selected value
 # for the first element (bottom margin) will work for 4-digit years
 AA.margin <- c(-3.5, NA, -0.5, NA)
-# The default x-axis range would be from 1940 - 1965.
+# The default x-axis range would be from 1935 - 1965.
 # Set the x-axis range so that each year can be labeled and maximize the 
 #  plotted area.
 AA.xr <- range(ConecuhFlows$Year) + c(-1, 1)
@@ -15,8 +15,10 @@ AA.xr <- range(ConecuhFlows$Year) + c(-1, 1)
 #  maximim value.
 AA.yr <- c(0, max(pretty(ConecuhFlows$Flow)))
 # Suppress plotting anything
+# Note that for these data, both the xaxis.range and xlabels must be set.
 AA.pl <- with(ConecuhFlows, timePlot(Year, Flow, Plot=list(what="none"),
-  yaxis.range=AA.yr, xaxis.range=AA.xr, xtitle="Water Year",
+  yaxis.range=AA.yr, xaxis.range=AA.xr, xlabels=AA.xr,
+  xtitle="Water Year",
   ytitle="Mean Annual Streamflow, in cubic feet per second",
   margin=AA.margin))
 # Add the bars

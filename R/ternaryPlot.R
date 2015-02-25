@@ -35,6 +35,11 @@
 #' \code{\link{piperPlot}}, \code{\link{addTernary}}
 #' @references Lorenz D.L., 2015, smwrGraphs
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of ternaryPlot:
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' }
 #' @export ternaryPlot
 ternaryPlot <- function(x, y, z, # data to plot (this will sum to range)
                         Plot=list(name="", what="points", type="solid",

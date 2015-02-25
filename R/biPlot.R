@@ -11,6 +11,11 @@
 #' @seealso \code{\link{setPage}}, \code{\link{biPlot.default}}, 
 #' \code{\link{biPlot.princomp}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of biPlot:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export
 biPlot <- function(x, ...)
   UseMethod("biPlot")

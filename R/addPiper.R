@@ -19,6 +19,11 @@
 #' @return Information about the graph.
 #' @seealso \code{\link{piperPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addPiper:
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' }
 #' @export addPiper
 addPiper <- function(xCat, yCat, zCat, xAn, yAn, zAn, xPip, yPip,
                      ## data (need not sum to 100); xP, yP are the piper x, y

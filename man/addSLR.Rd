@@ -54,6 +54,12 @@ transformed; "exp" indicates that the model equation should be expressed as an e
 anything else indicates thet the model should be expressed using the transformation
 functions; and \code{where} indicates where to place the equation.
 }
+\examples{
+\dontrun{
+# See for examples of addSLR:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{addXY}}, \code{\link{xyPlot}}
 }

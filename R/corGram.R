@@ -24,6 +24,11 @@
 #' environment before calling \code{corGram}.
 #' @seealso \code{\link{setPage}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of corGram:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export corGram
 corGram <- function(x, y, # data specs
                     Plot=list(name="Standardized Observations",

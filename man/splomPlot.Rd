@@ -45,6 +45,12 @@ information. The function is called for each individual plot.
 A call must be made to \code{setPage} and to \code{setSplom} to set up
 the graphics environment before calling \code{splomPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of splomPlot:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{setSplom}}
 }

@@ -28,6 +28,14 @@ bold italics. If both \code{Heading} and \code{Main} are non blank, then the
 title is a single letter followed by a period in bold italics followed by
 \code{Main} in bold if \code{Bold} is \code{TRUE}.
 }
+\examples{
+\dontrun{
+# See for examples of addTitle:
+vignette(topic="BoxPlots", package="smwrGraphs")
+vignette(topic="GraphGallery", package="smwrGraphs")
+vignette(topic="GraphSetup", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{addCaption}}, \code{\link{addAnnotation}},
 \code{\link{addTable}}

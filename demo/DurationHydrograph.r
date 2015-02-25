@@ -14,9 +14,9 @@ Choptank.dur <- do.call(rbind, Choptank.dur)
 setGD("Chpptank")
 # Create the empty graph
 AA.pl <- with(ChoptankFlow, timePlot(datetime, Flow, Plot=list(what="none"),
-																		 ytitle="Streamflow, in cubic feet per second",
-																		 yaxis.log=TRUE,
-																		 xaxis.range=as.Date(c("2009-10-01", "2010-09-30"))))
+    ytitle="Streamflow, in cubic feet per second",
+    yaxis.log=TRUE,
+    xaxis.range=as.Date(c("2009-10-01", "2010-09-30"))))
 # Create a sequence of 5 areas shaded quantiles of flow
 Colors <- warmCool.colors(5)
 # Modify the duration matrix to match the desired date range of the output
@@ -25,16 +25,15 @@ Choptank.dur <- Choptank.dur[-152L,]
 # Generate data sequence
 Choptank.dates <- seq(as.Date("2009-10-01"), as.Date("2010-09-30"), by="days")
 for(i in seq(5))
-	addArea(Choptank.dates,
-					Choptank.dur[, i+1], Choptank.dur[, i],
-					Area=list(color=Colors[i], outline="none"),
-					current=AA.pl)
+    addArea(Choptank.dates,
+        Choptank.dur[, i+1], Choptank.dur[, i],
+        Area=list(color=Colors[i], outline="none"),
+        current=AA.pl)
 
 # Note the offest of 0.7485 must be added to the x values to adjust for the
-# water0year offset. a value of 0.248 would need to be added for cliamte-year
+# water-year offset. a value of 0.248 would need to be added for climate-year
 # data. These are the offsets in the transformation function for the x-axis data
 
 # Now add the hydrograph for water-year 2010
 with(subset(ChoptankFlow, datetime >= "2009-10-01" & datetime <= "2010-09-30"),
-		 addXY(datetime, Flow, current=AA.pl))
-
+    addXY(datetime, Flow, current=AA.pl))

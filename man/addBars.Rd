@@ -47,6 +47,12 @@ Use of \code{addBars} adds 1 step to creating bar charts, but adds
 flexibility in axis set up from existing high-level plotting functions such
 as \code{xyPlot} or \code{timePlot}.
 }
+\examples{
+\dontrun{
+# See for examples of addBars:
+demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},
 \code{\link{xyPlot}}

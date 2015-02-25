@@ -22,6 +22,11 @@
 #' 
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addGrid:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export addGrid
 addGrid <- function(current, Xgrid=list(grid="gray50", finegrid="none"),
                     Ygrid=list(grid="gray50", finegrid="none")) {

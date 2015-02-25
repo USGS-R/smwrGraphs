@@ -24,6 +24,11 @@
 #' the graphics environment before calling \code{splomPlot}.
 #' @seealso \code{\link{setPage}}, \code{\link{setSplom}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of splomPlot:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @export splomPlot
 splomPlot <- function(x, layout, # data and layout info
                       Plot=list(name="", what='points', type='solid',

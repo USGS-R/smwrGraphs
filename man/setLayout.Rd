@@ -132,6 +132,17 @@ numbered cell and anything can be placed in the "explanation" cell. As an exampl
 the "explanation" at the bottom of the figure can be used for a description of
 the figure that is more than one line in height.
 }
+\examples{
+\dontrun{
+# See for examples of setLayout:
+vignette(topic="BoxPlots", package="smwrGraphs")
+vignette(topic="GraphGallery", package="smwrGraphs")
+vignette(topic="GraphSetup", package="smwrGraphs")
+vignette(topic="PiperPlot", package="smwrGraphs")
+demo(topic="HydroPrecip", package="smwrGraphs")
+demo(topic="PiperScript", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{setGraph}}, \code{\link{setRtMargin}},
 \code{\link{addTitle}}

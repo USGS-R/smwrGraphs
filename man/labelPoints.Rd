@@ -32,6 +32,12 @@ A list containing \code{x}, \code{y}, and \code{labels}.
 \description{
 Label points on a graph.
 }
+\examples{
+\dontrun{
+# See for examples of labelPoints:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{addAnnotation}},, \code{\link{xyPlot}}
 }

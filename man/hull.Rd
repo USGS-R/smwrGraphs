@@ -20,6 +20,12 @@ A list containing the x- and y-coordinates of the hull.
 \description{
 Construct an enclosing hull from x- and y-coordinate data.
 }
+\examples{
+\dontrun{
+# See for examples of hull:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{dataEllipse}}
 }

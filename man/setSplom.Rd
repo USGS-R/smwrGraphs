@@ -49,6 +49,12 @@ is the cell number in the grid. Cell numbers are sequential starting in the
 upper left and increasing by column. In this case \code{num.graphs} must be
 set to some number less than \code{num.cols} times \code{num.rows}.\cr
 }
+\examples{
+\dontrun{
+# See for examples of setSplom:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setLayout}}
 }

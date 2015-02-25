@@ -1,6 +1,5 @@
 \documentclass{article}
-\parskip 3pt
-\parindent 30pt
+\parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Graph Additions}
 %\VignetteDepends{smwrGraphs}
@@ -8,7 +7,6 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 \raggedright
-\parindent 30pt
 
 \title{Graph Additions}
 
@@ -46,10 +44,10 @@ refLine(horizontal = median(Y), current=AA.pl)
 addAnnotation(min(X), median(Y), "Median Y", current=AA.pl)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph01.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph01.pdf}
+\paragraph{}
+
 
 \textbf{Figure 1.} Scatter plot with reference line and annotation.
 
@@ -73,15 +71,14 @@ AA.pl <- addXY(X, Y, Plot=list(what="points"))
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph02.pdf}\n")
-cat("\\paragraph{}\n")
-@
+\includegraphics{graph02.pdf}
+\paragraph{}
+
 
 \textbf{Figure 2.} Scatter plot with grid lines.
 
 \eject
-\section{Adding a Smoothed Lined}
+\section{Add a Smoothed Line}
 
 It is sometimes desireable to add a smoothed line to a scatter plot to show the
 general trend or relation between the data.
@@ -100,15 +97,15 @@ AA.pl <- addSmooth(X, Y, current=AA.pl)
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph03.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph03.pdf}
+\paragraph{}
+
 
 \textbf{Figure 3.} Scatter plot with smooth line.
 
 \eject
-\section{Add a Regression Line and Table}
+\section{Add a Regression Line with Confidence Intervals and Table}
 
 Sometimes a table needs to be added to a graph. That table may represent some
 statistical summary or other additional data.
@@ -118,9 +115,11 @@ statistical summary or other additional data.
 #  device would be setPage(layout=list(width=6, height=4)).
 setSweave("graph04", 6 ,4)
 # Create a scatter plot from the X and Y data. 
-AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="darkblue"))
-#  Create and add the regresion line
+AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
+# Create and add the regresion line and 95% confidence intervals
 AA.pl <- addSLR(AA.pl)
+# The output is discarded in this case becuase an explanation is not created
+addCI("SLR", current=AA.pl)
 # Create the table and add it to the graph
 # Note may actually want to reformat the last p-value so not 0
 AA.tbl <- format(round(coefficients(summary(AA.pl$lm)), 4))
@@ -129,10 +128,44 @@ addTable(AA.tbl, where="ul")
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph04.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph04.pdf}
+\paragraph{}
+
 \textbf{Figure 4.} Scatter plot with simple linear regression.
+
+\eject
+\section{Show area covered by data}
+
+Occasionally there is a need to show the general area coverd by a set of data. The \texttt{smwrGraphs} package has several functions that help the user draw areas covered by the data: \texttt{dataEllipse}, \texttt{cov2Ellipse}, and \texttt{hull} functions will provide closed polygons that represent some measure of the area covered by data. This example demonstrates \texttt{dataEllipse} and \texttt{hull}.
+
+This exmaple also identifies and labels selected points lying outside of the enclosing polygon. It demonstrates the use of the \texttt{lablePoints} function.
+
+<<echo=TRUE>>=
+# Set up the graphics environment, the equivalent call for an on screen
+#  device would be setPage(layout=list(width=6, height=4)).
+setSweave("graph05", 6, 3.5)
+# Create a scatter plot from the X and Y data. 
+AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
+# Create and draw an ellipse that covers 90 percent of the data
+AA.el <- dataEllipse(X, Y, percent=90)
+with(AA.el, addXY(x, y, Plot=list(what="lines", color="darkred"), current=AA.pl))
+# Now do the same with a smooth hull
+AA.hl <- hull(X, Y, percent=90, smooth=TRUE)
+with(AA.hl, addXY(x, y, Plot=list(what="lines", color="magenta"), current=AA.pl))
+# Now find the distance from the center of the ellipse and which are greater than 
+# the 90th percentile
+AA.ds <- mahalanobis(cbind(X,Y), c(mean(X), mean(Y)), var(cbind(X,Y)))
+AA.sel <- which(AA.ds > quantile(AA.ds, probs=0.9, type=2))
+# Add the labels--the sequence number of the point
+labelPoints(X[AA.sel], Y[AA.sel], as.character(AA.sel), current=AA.pl)
+# Required call to close PDF output graphics
+graphics.off()
+@
+
+\includegraphics{graph05.pdf}
+\paragraph{}
+
+\textbf{Figure 5.} Scatter plot showing area covered by the data.
 
 \end{document}

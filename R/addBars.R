@@ -31,6 +31,11 @@
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},
 #' \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addBars:
+#' demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+#' }
 #' @export addBars
 addBars <- function(x, y, base=0,
                     Bars=list(name="Auto", fill="gray80", outline="black",

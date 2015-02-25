@@ -82,6 +82,13 @@ The \code{what} component of the \code{Plot} argument must be either
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{piperPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of piperPlot:
+vignette(topic="PiperPlot", package="smwrGraphs")
+demo(topic="PiperScript", package="smwrGraphs")
+}
+}
 \references{
 Hem J.D., 1989, Study and interpretation of the chemical
 characteristics of natural water: U.S. Geological Survey Water-Supply Paper

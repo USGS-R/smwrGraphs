@@ -131,6 +131,17 @@ time-series plot for annual summaries of numeric data. }
 \item{signature(x = "difftime", y = "numeric")}{ Create a
 time-series plot for difftime and numeric data. } }
 }
+\examples{
+\dontrun{
+# See for examples of timePlot:
+vignette(topic="DateAxisFormats", package="smwrGraphs")
+vignette(topic="LineScatter", package="smwrGraphs")
+demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+demo(topic="DurationHydrograph", package="smwrGraphs")
+demo(topic="HydroPrecip", package="smwrGraphs")
+demo(topic="RightAxisExample", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{xyPlot}}, \code{\link{seasonPlot}}
 }

@@ -35,6 +35,11 @@
 #' @seealso \code{\link{setPage}}, \code{\link{ecdfPlot}},
 #' \code{\link{probPlot}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of qqPlot:
+#' vignette(topic="ProbabilityPlots", package="smwrGraphs")
+#' }
 #' @export qqPlot
 qqPlot <- function(x, y, # data
                    alpha=0.4,

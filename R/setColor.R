@@ -8,6 +8,12 @@
 #' interpreted as a color.
 #' @seealso \code{link{colors}}, \code{link{rainbow}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of setColor:
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' demo(topic="PiperScript", package="smwrGraphs")
+#' }
 #' @export setColor
 setColor <- function(Color) {
 	# Coding history:

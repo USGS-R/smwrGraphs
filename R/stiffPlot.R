@@ -63,6 +63,13 @@
 #' characteristics of natural water: U.S. Geological Survey Water-Supply Paper
 #' 2254, 263 p.
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of stiffPlot:
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' # See for examples of addStiff:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export stiffPlot
 stiffPlot <- function(cations, anions, # the data matrices
                       Stiff=list(fill="gray50", outline="black",

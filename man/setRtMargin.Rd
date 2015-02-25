@@ -35,6 +35,14 @@ graphics function to allocate space for an additional label and title.
 The values for \code{right.labels}, \code{right.log}, and \code{right.range}
 should be set exactly as in the call to \code{addXY}.
 }
+\examples{
+\dontrun{
+# See for examples of setRtMargin:
+demo(topic="RightAxisExample", package="smwrGraphs")
+# See for examples of setTopMargin:
+demo(topic="TopAxisExample", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setLayout}}, \code{\link{setGraph}},
 \code{\link{addXY}}

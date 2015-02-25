@@ -36,6 +36,13 @@ value in which case the area between \code{ybase} and \code{y} is treated as
 the area, or \code{ybase} can be a vector as long as \code{y} and the area
 between is treated as the area to be shaded.
 }
+\examples{
+\dontrun{
+# See for examples of addArea:
+vignette(topic="GraphSetup", package="smwrGraphs")
+demo(topic="DurationHydrograph", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{areaPlot}}, \code{\link{addXY}}, \code{\link{xyPlot}}
 }

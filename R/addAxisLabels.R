@@ -1,4 +1,4 @@
-#' Add Axis Ticks and Labels
+#' Axis Ticks and Labels
 #' 
 #' Add axis ticks, labels, and title
 #' 
@@ -17,15 +17,20 @@
 #' @note In general, all functions that create plots will draw the necessary
 #' axes. This function should be used only to add axis labels to an unlabeled
 #' axis. Axis labels can be suppressed by setting up the margins with negative
-#' values, see the AnnualFlowBarChart.r demo.
+#' values.
 #' @seealso \code{\link{linearPretty}}, \code{\link{logPretty}},
 #' \code{\link{datePretty}}, \code{\link{transPretty}}, \code{\link{addLabel}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addAxisLabels:
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' }
 #' @export addAxisLabels
 addAxisLabels <- function(which, current, title="", ticks=FALSE, labels=TRUE) {
 	# Coding History:
 	#    2011Aug03 DLLorenz Original coding.
-	#    2104Jun26 DLLorenz Converted to roxygen
+	#    2014Jun26 DLLorenz Converted to roxygen
   ##
   which <- match.arg(which, c("bottom", "left", "top", "right"))
   thisside=list(ticks=ticks, labels=labels, grid=FALSE, finegrid=FALSE, angle=0)

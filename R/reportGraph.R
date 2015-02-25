@@ -15,6 +15,11 @@
 #' @note The report is always placed in the upper left hand corner of the graph and is 
 #'left justified. If the report is longer than the height of the graph or wider than
 #'the width of the graph, then the report is truncated.
+#' @examples
+#' \dontrun{
+#' # See for examples of reportGraph:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export
 reportGraph <- function(x, family="Auto", size = 60 * par("csi")) {
   ## Coding history:
@@ -31,10 +36,12 @@ reportGraph <- function(x, family="Auto", size = 60 * par("csi")) {
     if(family == "Auto")
       family="USGS"
   }
+  ## Remove tabs from txt
+  txt <- gsub("\t", " ", txt)
   ## Draw the text
   plot.new()
   par(mar=c(0.5,0.5,0.5,0.5), usr=c(0,1,0,1))
-  text(0, 1, paste(txt, collapse="\n"), family="mono", adj=c(0,1),
+  text(0, 1, paste(txt, collapse="\n"), family=family, adj=c(0,1),
        cex=size/(60 * par("csi")))
   return(invisible())
 }

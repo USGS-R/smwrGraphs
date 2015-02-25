@@ -63,6 +63,12 @@ The \code{what} component of the \code{Plot} argument must be either
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{piperPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of ternaryPlot:
+vignette(topic="PiperPlot", package="smwrGraphs")
+}
+}
 \references{
 Lorenz D.L., 2015, smwrGraphs
 }

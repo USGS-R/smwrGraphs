@@ -26,8 +26,13 @@
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{transPlot}.
-#' @seealso \code{\link{setPage}}, \code{link{transPretty}}
+#' @seealso \code{\link{setPage}}, \code{\link{transPretty}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of transPlot:
+#' demo(topic="MeasurementRating", package="smwrGraphs")
+#' }
 #' @export transPlot
 transPlot <- function(x, xtrans, xinv, xtargs=NULL, y, ytrans,
                       yinv, ytargs=NULL, # data
@@ -59,10 +64,20 @@ transPlot <- function(x, xtrans, xinv, xtargs=NULL, y, ytrans,
     xlabels=length(pretty(x))
   if(ylabels[1] == "Auto")
     ylabels=length(pretty(y))
-  yax <- do.call("transPretty", c(list(x=y, labels=ylabels, func=ytrans, Ifunc=yinv), ytargs))
+  if(any(is.na(yaxis.range))) {
+  	yax <- do.call("transPretty", c(list(x=y, labels=ylabels, func=ytrans, 
+  																			 Ifunc=yinv), ytargs))
+  } else
+  	yax <- do.call("transPretty", c(list(x=yaxis.range, hard=TRUE, labels=ylabels, 
+  																			 func=ytrans, Ifunc=yinv), ytargs))
   y <- do.call(ytrans, c(list(y), ytargs))
-  xax <- do.call("transPretty", c(list(x=x, labels=xlabels, func=xtrans, Ifunc=xinv), xtargs))
-  x <- do.call(xtrans, c(list(x), xtargs))
+  if(any(is.na(xaxis.range))) {
+  	xax <- do.call("transPretty", c(list(x=x, labels=xlabels, func=xtrans, 
+  																			 Ifunc=xinv), xtargs))
+  } else
+  	xax <- do.call("transPretty", c(list(x=xaxis.range, hard=TRUE, labels=xlabels,
+  																			 func=xtrans, Ifunc=xinv), xtargs))
+  	x <- do.call(xtrans, c(list(x), xtargs))
   ## set margins and controls
   margin.control <- setMargin(margin, yax)
   margin <- margin.control$margin

@@ -22,6 +22,11 @@
 #' function.
 #' @seealso \code{\link{transPlot}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of interpLine:
+#' demo(topic="FlowDur-Measurements", package="smwrGraphs")
+#' }
 #' @export interpLine
 interpLine <- function(object, # output from call to plotXXX
                        xfromy, yfromx, warn=TRUE, ...) { # convert from to

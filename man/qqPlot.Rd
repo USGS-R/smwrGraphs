@@ -77,6 +77,12 @@ set to "none" to suppress drawing of either line.
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{qqPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of qqPlot:
+vignette(topic="ProbabilityPlots", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{ecdfPlot}},
 \code{\link{probPlot}}

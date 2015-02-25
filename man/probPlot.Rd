@@ -92,6 +92,13 @@ truncation.
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{probPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of probPlot:
+vignette(topic="ProbabilityPlots", package="smwrGraphs")
+demo(topic="FlowDur-Measurements", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{ecdfPlot}}, \code{\link{qqPlot}}
 }

@@ -49,5 +49,19 @@ If the graph area is smaller than required for the box plot explanation, then
 either a modified explanation is created or a warning is printed and the
 explanation may be unreadable.
 }
+\examples{
+\dontrun{
+# See for examples of addExplanation:
+vignette(topic="BoxPlots", package="smwrGraphs")
+vignette(topic="GraphGallery", package="smwrGraphs")
+vignette(topic="GraphSetup", package="smwrGraphs")
+vignette(topic="LineScatter", package="smwrGraphs")
+vignette(topic="PiperPlot", package="smwrGraphs")
+demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+demo(topic="FlowDur-Measurements", package="smwrGraphs")
+demo(topic="PiperScript", package="smwrGraphs")
+demo(topic="RightAxisExample", package="smwrGraphs")
+}
+}
 \keyword{aplot}
 

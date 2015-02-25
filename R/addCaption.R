@@ -6,6 +6,12 @@
 #' @return Nothing is returned.
 #' @note Useful for adding 1-line captions.
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addCaption:
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+#' }
 #' @export addCaption
 addCaption <- function(caption='') {
 	# Coding History:

@@ -30,6 +30,12 @@ Information about the graph.
 \description{
 Adds points or lines to a Ternary Diagram.
 }
+\examples{
+\dontrun{
+# See for examples of addTernary:
+vignette(topic="PiperPlot", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{ternaryPlot}}
 }

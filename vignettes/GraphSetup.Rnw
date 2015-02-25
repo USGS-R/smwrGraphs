@@ -1,6 +1,5 @@
 \documentclass{article}
-\parskip 3pt
-\parindent 30pt
+\parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Graph Set Up}
 %\VignetteDepends{smwrGraphs}
@@ -8,7 +7,6 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 \raggedright
-\parindent 30pt
 
 \title{Graph Set Up}
 
@@ -32,6 +30,7 @@ set.seed(27036)
 X <- rnorm(32)
 Y <- X + rnorm(32)
 Z <- rnorm(32, sd=1.2)
+Zfill <- runif(32, -2, 0)
 @
 
 Some basic nomenclature is necessary to understand the instructions in this
@@ -66,10 +65,9 @@ xyPlot(X, Y)
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph01.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph01.pdf}
+\paragraph{}
 
 \textbf{Figure 1.} A simple x-y scatter plot.
 
@@ -106,10 +104,9 @@ ytitle="Correlated Data")
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph02.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph02.pdf}
+\paragraph{}
 
 \textbf{Figure 2.} Scatter plot variations.
 
@@ -143,10 +140,9 @@ ytitle="Correlated Data")
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph03.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph03.pdf}
+\paragraph{}
 
 \textbf{Figure 3.} Scatter plot label variations.
 
@@ -180,10 +176,9 @@ addExplanation(AA.pl, where="ul", title="")
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph04.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph04.pdf}
+\paragraph{}
 
 \textbf{Figure 4.} Example of multiple plots in a graph.
 
@@ -228,10 +223,9 @@ addTitle("B")
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph05.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph05.pdf}
+\paragraph{}
 
 \eject
 \section{Multiple Graphs with an Explanation}
@@ -272,10 +266,9 @@ AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph06.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph06.pdf}
+\paragraph{}
 
 \textbf{Figure 6.} Figure with multiple graphs and an explanation.
 
@@ -307,11 +300,38 @@ AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
 # Required call to close PDF output graphics
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph07.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph07.pdf}
+\paragraph{}
 
 \textbf{Figure 7.} Figure of multiple graphs with a shared x-axis.
+
+\eject
+\section{Restoring Axis Labels}
+
+Sometimes it is necessary to suppress drawing the axis ticks, labels, and title until the graph is complete. This is unusual, but can easily happen when drawing shaded areas. This example illustrates how to add the ticks, labels, and title after adding a shaded area.
+
+<<echo=TRUE>>=
+# Set up the graphics environment, the equivalent call for an on screen
+#  device would be setPage(layout=list(width=6, height=4)).
+setSweave("graph08", 6 ,5)
+# Set the layout for 2 graphs in one column with shared x-axes
+# Create a scatter plot from the X and Z data. 
+AA.pl <- xyPlot(X, Z, Plot=list(color="blue"),
+  xaxis.range=c(-2,2), xlabels=-5,
+  yaxis.range=c(-3,2),
+  ytitle="Uncorrelated Data", xtitle="")
+# Add the shaded are just above the bottom x-axis
+addArea(sort(X), Zfill, ybase=-3, current=AA.pl)
+# Now add ticks, labels and title
+addAxisLabels("bottom", AA.pl, ticks=TRUE, labels=TRUE, title="X")
+# Required call to close PDF output graphics
+graphics.off()
+@
+
+\includegraphics{graph08.pdf}
+\paragraph{}
+
+\textbf{Figure 8.} Graph showing axis ticks on top of shaded area.
 
 \end{document}

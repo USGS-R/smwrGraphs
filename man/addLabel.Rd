@@ -36,9 +36,22 @@ Nothing is returned.
 \description{
 Adds text in the margin for axis labels.
 }
+\note{
+In general, all functions that create plots will draw the necessary
+axes. This function should be used only to add axis labels to an unlabeled
+axis. Axis labels can be suppressed by setting up the margins with negative
+values.
+}
+\examples{
+\dontrun{
+# See for examples of addLabel:
+vignette(topic="GraphGallery", package="smwrGraphs")
+demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+}
+}
 \seealso{
-\code{\link{mtext}}, \code{\link{plotmath}} for example
-expressions, \code{\link{xyPlot}}
+\code{\link{mtext}} and \code{\link{plotmath}} for example
+expressions, \code{\link{addAxisLabels}}
 }
 \keyword{aplot}
 

@@ -11,6 +11,11 @@
 #' @return A list containing the x- and y-coordinates of the ellipse.
 #' @seealso \code{\link{cov2Ellipse}}, \code{\link{hull}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of dataEllipse:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export dataEllipse
 dataEllipse <- function(x, y, percent=100, smooth=0) { 
   ## smooth required for compatibiltiy, not used

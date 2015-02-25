@@ -86,6 +86,12 @@ plot for any valid date data and numeric y data. }
 seasonal plot for date data in the form of month and day, like "Jan 01" or
 "Jaunary 01." Typically used to plot daily mean values. } }
 }
+\examples{
+\dontrun{
+# See for examples of seasonPlot:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{timePlot}}
 }

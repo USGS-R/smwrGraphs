@@ -19,6 +19,11 @@
 #' column names than does the data frame.
 #' @seealso \code{\link{addExplanation}}, \code{\link{addAnnotation}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addTable:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export addTable
 addTable <- function(tbl, where='ll', title='') {
 	# Coding history:

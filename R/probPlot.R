@@ -46,6 +46,12 @@
 #' environment before calling \code{probPlot}.
 #' @seealso \code{\link{setPage}}, \code{\link{ecdfPlot}}, \code{\link{qqPlot}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of probPlot:
+#' vignette(topic="ProbabilityPlots", package="smwrGraphs")
+#' demo(topic="FlowDur-Measurements", package="smwrGraphs")
+#' }
 #' @export probPlot
 probPlot <- function(x, truncate=NA,
                      FLIP=FALSE, distribution="normal",

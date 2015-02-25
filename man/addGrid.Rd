@@ -35,6 +35,12 @@ setting up a graph with a high-level plotting function in the smwrGraphs
 package and setting the \code{what} component in the \code{Plot} argument to
 "none." The graph can be completed by using \code{addXY}.
 }
+\examples{
+\dontrun{
+# See for examples of addGrid:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}
 }

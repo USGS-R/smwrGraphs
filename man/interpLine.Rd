@@ -37,6 +37,12 @@ The back-transformation information is not included in the output from
 the graphics functions. This primarily affects the \code{transPlot}
 function.
 }
+\examples{
+\dontrun{
+# See for examples of interpLine:
+demo(topic="FlowDur-Measurements", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{transPlot}}
 }

@@ -32,6 +32,12 @@ right justification. The column names of the table are the column names of
 the matrix or data frame. The matrix gives the user mnore control over
 column names than does the data frame.
 }
+\examples{
+\dontrun{
+# See for examples of addTable:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{addExplanation}}, \code{\link{addAnnotation}}
 }

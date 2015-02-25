@@ -56,6 +56,12 @@ Produce a graph of the empirical distribution function of data.
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{ecdfPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of ecdfPlot:
+vignette(topic="ProbabilityPlots", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{probPlot}}
 }

@@ -16,6 +16,11 @@
 #' @return A list containing \code{x}, \code{y}, and \code{labels}.
 #' @seealso \code{\link{addAnnotation}},, \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of labelPoints:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export labelPoints
 labelPoints <- function(x, y, labels, # data
                         dir='E', offset=0.75, size=8, # placement control

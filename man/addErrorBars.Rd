@@ -42,7 +42,15 @@ symbol on top of the error bar, start with the argument
 \code{Plot=list(what="none")} in the original call to \code{xyPlot} or
 \code{timePlot} and then add the symbols with a call to \code{addXY}. Note
 that this is only necessary if the color of the symbol and the color of the
-error bars are different.
+error bars are different.\cr
+The symbol drawn for errors bars in the explantion does not have caps due to a
+limitation in the system for creating the explanation.
+}
+\examples{
+\dontrun{
+# See for examples of addErrorBars:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
 }
 \seealso{
 \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},

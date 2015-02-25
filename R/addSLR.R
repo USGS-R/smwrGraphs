@@ -25,6 +25,11 @@
 #'The regression model is included as the lm component.
 #' @seealso \code{\link{addXY}}, \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addSLR:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export
 addSLR <- function(x, y, # data
 									 Plot=list(name="", what="lines", type="solid",

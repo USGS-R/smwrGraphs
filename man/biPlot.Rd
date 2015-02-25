@@ -21,6 +21,12 @@ graph.
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{biPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of biPlot:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{biPlot.default}},
 \code{\link{biPlot.princomp}}

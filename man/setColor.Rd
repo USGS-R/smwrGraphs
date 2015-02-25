@@ -15,6 +15,13 @@ interpreted as a color.
 \description{
 Checks or converts anything to valid colors (support function).
 }
+\examples{
+\dontrun{
+# See for examples of setColor:
+vignette(topic="PiperPlot", package="smwrGraphs")
+demo(topic="PiperScript", package="smwrGraphs")
+}
+}
 \seealso{
 \code{link{colors}}, \code{link{rainbow}}
 }

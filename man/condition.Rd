@@ -84,11 +84,11 @@ The called plotting function must set the \code{margin} argument to
 \code{.margin}. See the demos for examples.
 }
 \examples{
-# See the Coplot demos for examples
-.pager <- options("pager")
-options(pager="console")
-demo(package="smwrGraphs")
-options(.pager)
+\dontrun{
+# See for examples of condition:
+demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+demo(topic="Coplot-simpleBoxPlot", package="smwrGraphs")
+}
 }
 \references{
 Cleveland, W.S., 1993, Visualizing data: Summit, New Jersey,

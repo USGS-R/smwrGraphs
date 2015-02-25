@@ -41,6 +41,11 @@
 #'graphics environment before calling \code{surfacePlot}.
 #' @seealso \code{\link{setPage}}, \code{\link{persp}}, \code{\link{preSurface}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of surfacePlot:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export surfacePlot
 surfacePlot <- function(pre, z.color="lightblue", # The data
 							 Surface=list(name="", lineColor="black",

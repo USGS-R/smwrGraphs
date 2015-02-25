@@ -47,6 +47,12 @@ If an error is generated from the smoother, then nothing is added to the
 graph, an error is printed, the returned object contains missing values for
 the data that should have been plotted, and the explanation is not updated.
 }
+\examples{
+\dontrun{
+# See for examples of addSmooth:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{addXY}}, \code{\link{xyPlot}}
 }

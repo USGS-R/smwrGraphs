@@ -62,13 +62,11 @@
 #' Hobart Press, 360 p.
 #' @keywords hplot
 #' @examples
-#' 
-#' # See the Coplot demos for examples
-#' .pager <- options("pager")
-#' options(pager="console")
-#' demo(package="smwrGraphs")
-#' options(.pager)
-#' 
+#' \dontrun{
+#' # See for examples of condition:
+#' demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+#' demo(topic="Coplot-simpleBoxPlot", package="smwrGraphs")
+#' }
 #' @export condition
 condition <- function(plot.call, data, group, format="grid",
                       num.cols=NA, num.rows=NA , explanation=NULL,

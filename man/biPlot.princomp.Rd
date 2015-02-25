@@ -98,6 +98,15 @@ label text.} }
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{biPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of biPlot:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
+\references{
+Gower, J.C. and Hand, D.J., 1996, Biplots, Chapman and Hall, London, 277 p.
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{biPlot}}
 }

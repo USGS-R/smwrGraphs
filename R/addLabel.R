@@ -18,9 +18,19 @@
 #' @param current the current plot parameters. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @return Nothing is returned.
-#' @seealso \code{\link{mtext}}, \code{\link{plotmath}} for example
-#' expressions, \code{\link{xyPlot}}
+#' @note In general, all functions that create plots will draw the necessary
+#' axes. This function should be used only to add axis labels to an unlabeled
+#' axis. Axis labels can be suppressed by setting up the margins with negative
+#' values.
+#' @seealso \code{\link{mtext}} and \code{\link{plotmath}} for example
+#' expressions, \code{\link{addAxisLabels}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addLabel:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+#' }
 #' @export addLabel
 addLabel <- function(label, x, side="bottom", size="Auto", distance=0.2,
                    justification="center", orientation="parallel",

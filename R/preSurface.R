@@ -34,6 +34,11 @@
 #' @return A list containg the projection inforamtion and the data for plotting. Must
 #'be used in the call to \code{surfacePlot}
 #' @seealso \code{\link{surfacePlot}}
+#' @examples
+#' \dontrun{
+#' # See for examples of preSurface:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export preSurface
 preSurface <- function(x, y, z.surf, # The data
 										zaxis.log = FALSE,  zaxis.range = c(NA, NA),
@@ -51,7 +56,13 @@ preSurface <- function(x, y, z.surf, # The data
 	if(length(y) != ncol(z.surf))
 		stop("the length of y must match the number of columns in z.surf")
 	# Open a graphics window 
-	setGD("preSurf")
+	if(is.logical(batch) && !batch) {
+		setGD("preSurf")
+		Clean_pdf <- FALSE
+	} else {
+		setSweave("preSurf", 6, 6,)
+		Clean_pdf <- TRUE
+	}
 	# Set up axis 
 	zax <- setAxis(z.surf, zaxis.range, zaxis.log, FALSE, zlabels, 
 								 extend.range=FALSE)
@@ -125,5 +136,7 @@ preSurface <- function(x, y, z.surf, # The data
 								 xax=xax$dax, yax=yax$dax, zax=zax$dax,
 								 transform=transform, plotrange=plotrange,
 								 xlim= xlim, ylim= ylim, zlim=zlim, farcorn=farcorn)
+	if(Clean_pdf)
+		unlink("preSurf.pdf")
 	invisible(retval)
 }

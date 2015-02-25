@@ -31,6 +31,11 @@
 #'Hydrology Committee Bulletin 17B, Washington D.C., 190 p., 1 plate.
 #' @seealso \code{\link{addSLR}}, \code{\link{qqPlot}}, \code{\link{addErrorBars}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addCI:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export addCI
 addCI <- function(type, level=0.95, # data
 									Plot=list(name="", what="lines", type="solid",

@@ -40,6 +40,11 @@
 #' x-coordinate data and any (discrete) y-coordinate data. } }
 #' @seealso \code{\link{setPage}}, \code{\link{boxPlot}}
 #' @keywords methods hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of dotPlot:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @exportMethod dotPlot
 setGeneric("dotPlot", function(x, y, Plot=list(),
                                yaxis.orient="", yaxis.order="", yaxis.grid=TRUE,

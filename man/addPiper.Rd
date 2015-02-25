@@ -37,6 +37,12 @@ Information about the graph.
 \description{
 Adds points or lines to a Piper plot.
 }
+\examples{
+\dontrun{
+# See for examples of addPiper:
+vignette(topic="PiperPlot", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{piperPlot}}
 }

@@ -45,6 +45,13 @@ through yellow. \code{redGreen.colors} generates a sequence from red to
 green through yellow. \code{pastel.colors} genereates a sequence of
 well-separated pastel colors useful for areas or bars.
 }
+\examples{
+\dontrun{
+# See for examples of warmCool.colors:
+demo(topic="DurationHydrograph", package="smwrGraphs")
+# All have similar usage
+}
+}
 \seealso{
 \code{\link{rainbow}}, \code{\link{hcl}}
 }

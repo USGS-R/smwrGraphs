@@ -12,6 +12,16 @@
 #' graph.
 #' @seealso \code{\link{setLayout}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of setGraph:
+#' vignette(topic="BoxPlots", package="smwrGraphs")
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' demo(topic="HydroPrecip", package="smwrGraphs")
+#' demo(topic="PiperScript", package="smwrGraphs")
+#' }
 #' @export setGraph
 setGraph <- function(graphNum, layout, noTicks=NULL) {
 	# Coding History:

@@ -30,4 +30,10 @@ The report is always placed in the upper left hand corner of the graph and is
 left justified. If the report is longer than the height of the graph or wider than
 the width of the graph, then the report is truncated.
 }
+\examples{
+\dontrun{
+# See for examples of reportGraph:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
 

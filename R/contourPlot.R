@@ -28,7 +28,13 @@
 #' @param caption the figure caption.
 #' @param margin set the plot area margins.
 #' @param \dots not used, required for other methods.
+#' @return Information about the graph.
 #' @importFrom akima interp
+#' @examples
+#' \dontrun{
+#' # See for examples of contourPlot:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export contourPlot
 contourPlot <- function(z, ...)
   UseMethod("contourPlot")

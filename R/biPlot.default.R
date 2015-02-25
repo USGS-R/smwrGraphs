@@ -75,20 +75,21 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
 	#    2013Apr09 DLLorenz Added setGD 
 	#    2014Jun25 DLLorenz Converted to roxygen
   ## Set up plot
-  if(dev.cur() == 1)
+  if(dev.cur() == 1L)
     setGD("BiPlot")
   ## The only way to guarantee 'pretty axes' is to force 0,0 to center
-  obsmax <- max(abs(x))
-  varmax <- max(abs(y))
+  ## And must increase by a bit for force labeles to draw
+  obsmax <- max(abs(x)) * 1.25
+  varmax <- max(abs(y)) * 1.25
   if(!separate.axes)
     obsrange <- varrange <- c(-max(obsmax, varmax), max(obsmax, varmax))
   else {
     obsrange <- c(-obsmax, obsmax)
     varrange <- c(-varmax, varmax)
     ## make sure top and right margins are not missing
-    if(is.na(margin[3]))
+    if(is.na(margin[3L]))
       margin[3] <- 3.1
-    if(is.na(margin[4]))
+    if(is.na(margin[4L]))
       margin[4] <- 5.1
   }
   yax <- linearPretty(obsrange, labels=ylabels)
@@ -119,8 +120,8 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
     plot.info$x <- x[,1]
     plot.info$y <- x[,2]
     by(plot.info, plot.info$name, FUN=function(x) {
-      points(x$x, x$y, type=x$what[1], lwd=x$lwd[1], lty=x$lty[1],
-             pch=x$pch[1], cex=x$cex[1], col=x$col[1], bg=x$col)
+      points(x$x, x$y, type=x$what[1], lwd=x$lwd[1L], lty=x$lty[1L],
+             pch=x$pch[1L], cex=x$cex[1L], col=x$col[1L], bg=x$col)
       return(1) })
     explan <- parms$Explan
   }
@@ -130,17 +131,17 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
                      filled=TRUE, size=0.05, color='black') # force defaults if not set
     explan <- setExplan(xPlot) # add info to set up explanation
     plotPars <- explan$current
-    points(x[,1], x[,2], type=plotPars$type, lwd=plotPars$lwd, lty=plotPars$lty,
+    points(x[,1L], x[,2L], type=plotPars$type, lwd=plotPars$lwd, lty=plotPars$lty,
         pch=plotPars$pch, cex=plotPars$cex, col=plotPars$col, bg=plotPars$col)
   }
   ## Label those points if requested
   if(!is.null(xPlotLabels$labels) && tolower(xPlotLabels$labels[1]) != 'none') { # OK do it
-    if(tolower(xPlotLabels$labels[1]) == 'rownames') {
+    if(tolower(xPlotLabels$labels[1L]) == 'rownames') {
       labels <- rownames(x)
       if(is.null(labels))
-        labels <- as.character(seq(1, nrow(x)))
+        labels <- as.character(seq(1L, nrow(x)))
     }
-    else if(tolower(xPlotLabels$labels[1]) == 'letters')
+    else if(tolower(xPlotLabels$labels[1L]) == 'letters')
       labels <- rep(c(letters, LETTERS), length.out=nrow(x))
     else
       labels <- rep(xPlotLabels$labels, length.out=nrow(x))
@@ -153,7 +154,7 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
     size <- xPlotLabels$size
     if(is.null(size))
       size <- 8
-    labelPoints(x[,1], x[,2], labels=labels, dir=dir, offset=offset, size=size)
+    labelPoints(x[,1L], x[,2L], labels=labels, dir=dir, offset=offset, size=size)
   }
   ## Do the vectorsarrows!
   ## first save usr
@@ -174,7 +175,7 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
   if(is.null(what))
     what <- 'arrow'
   if(what == 'arrow')
-    arrows(0, 0, y[,1], y[,2], length=size, col=color, lwd=lwd)
+    arrows(0, 0, y[,1L], y[,2L], length=size, col=color, lwd=lwd)
   else { # draw points
     if(separate.axes)
       warning("Plotting points instead of arrows is valid only for common axes")
@@ -182,7 +183,7 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
     yPlot <- setPlot(yPlot)
     explan <- setExplan(yPlot) # add info to set up explanation
     plotPars <- explan$current
-    points(y[,1], y[,2], type=plotPars$type, lwd=plotPars$lwd, lty=plotPars$lty,
+    points(y[,1L], y[,2L], type=plotPars$type, lwd=plotPars$lwd, lty=plotPars$lty,
         pch=plotPars$pch, cex=plotPars$cex, col=plotPars$col, bg=plotPars$col)
   }
   ## need to figure out how to put arrows into an explanation
@@ -192,22 +193,24 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
             caption='')
   }
   ## Label the arrows, or points
-  if(!is.null(yPlotLabels$labels) && tolower(yPlotLabels$labels[1]) != 'none') { # OK do it
-    if(tolower(yPlotLabels$labels[1]) == 'colnames') {
+  if(!is.null(yPlotLabels$labels) && tolower(yPlotLabels$labels[1L]) != 'none') { # OK do it
+    if(tolower(yPlotLabels$labels[1L]) == 'colnames') {
       labels <- rownames(y)
       if(is.null(labels))
         labels <- paste('Var', seq(nrow(y)), sep='-')
     }
-    else if(tolower(yPlotLabels$labels[1]) == 'letters')
+    else if(tolower(yPlotLabels$labels[1L]) == 'letters')
       labels <- rep(c(LETTERS), length.out=nrow(x))
     else
       labels <- rep(yPlotLabels$labels, length.out=nrow(x))
     ## Determine direction of the arrow to set direction of the label
     dir <- yPlotLabels$dir
-    if(is.null(dir) || tolower(dir[1]) == 'auto') {
+    if(is.null(dir) || tolower(dir[1L]) == 'auto') {
       ## generate an index to the direction, two are needed because N could be the
       ## smallest or the largest value
-      dir <- as.integer(atan2(y[,1], y[,2])/pi*8 + 1)
+      dir <- as.integer(atan2(y[,1L], y[,2L])/pi*8 + 1)
+      ## Fix negs
+      dir[dir <= 0L] <- 16L + dir[dir <= 0L]
       dir <- c("N", "NE", "NE", "E", "E", "SE", "SE", "S", "S", "SW", "SW", "W", "W",
                "NW", "NW", "N")[dir]
     }
@@ -221,7 +224,7 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
   color <- yPlotLabels$color
   if(is.null(color))
     color <- 'darkblue'
-  labelPoints(y[,1], y[,2], labels=labels, dir=dir, offset=offset, size=size,
+  labelPoints(y[,1L], y[,2L], labels=labels, dir=dir, offset=offset, size=size,
               color=color)
   ## Restore usr
   par(usr=usr)
@@ -230,7 +233,7 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
   renderY(yax, lefttitle=ytitle, left=left, right=right)
   renderX(xax, bottitle=xtitle, bottom=bot, top=top, caption=caption)
   invisible()
-  return(list(x=x[,1], y=x[,2], yaxis.log=FALSE, yaxis.rev=FALSE,
+  return(list(x=x[,1L], y=x[,2L], yaxis.log=FALSE, yaxis.rev=FALSE,
               xaxis.log=FALSE, explanation=explan, margin=margin,
               yax=yax, xax=xax))
 }

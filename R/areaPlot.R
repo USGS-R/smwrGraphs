@@ -2,8 +2,19 @@
 #' 
 #' Produces an plot where the area between lines is filled with color.
 #' 
-#' 
-#' @param x x-axis coordinates in increasing order.
+#' @details The components of \code{Areas} are \code{name}, the name or names
+#'to use to describe the areas in the explanation, the default "Auto" generates
+#'names from the column names of \code{y}; \code{fillDir}, how to 
+#'fill---must be either "between" or "under;" \code{base}, the base value when
+#'\code{fillDir} is "under," can be "Auto" to draw to the x-axis or any numeric value;
+#'\code{lineColor} specifies the color to draw the lines around each area, may be
+#'"none" for no line drawn; \code{fillColors} specifies colors for each area, when only
+#'a single area is drawn, then the value must be the name of a color, otherwise either a
+#'vector of colornames or the prefix name of a function that generates a sequence of
+#'colors. The prefix name is prepended to ".colors" for the name of the function. See the
+#'documentation for these functions in the \bold{See Also} section.
+#'
+#' @param x numeric x-axis coordinates in increasing order.
 #' @param y a numeric matrix of y-axis coordinates.
 #' @param Areas parameters controlling the areas. See \bold{Details}.
 #' @param yaxis.log logical: log transform y axis?
@@ -18,6 +29,13 @@
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the caption for the graph.
 #' @param margin set up the plot area margins.
+#' @return Information about the graph.
+#' @seealso \code{\link{addArea}}, \code{\link{smwr.colors}}, \code{\link[grDevices]{heat.colors}}
+#' @examples
+#' \dontrun{
+#' # See for examples of areaPlot:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export areaPlot
 areaPlot <- function(x, y, # data specs
                      Areas=list(name="Auto", fillDir="between", base="Auto",
@@ -46,6 +64,7 @@ areaPlot <- function(x, y, # data specs
   y <- as.matrix(y) # Force to matrix if data.frame, for example
   xRng <- range(x, na.rm=TRUE)
   yRng <- range(y, na.rm=TRUE)
+	Areas$fillDir <- match.arg(Areas$fillDir, c("between", "under"))
   ## Adjust y range if needed
   if(Areas$fillDir == "under" && Areas$base != "Auto")
     yRng[1] <- as.double(Areas$base)
@@ -54,7 +73,7 @@ areaPlot <- function(x, y, # data specs
                   axis.rev=FALSE), ylabels)
   else
     yax <- list(data=yRng, axis.range=yaxis.range, axis.log=yaxis.log,
-                axis.rev=FALSE, axis.labels=ylabels, extend.ranage=FALSE)
+                axis.rev=FALSE, axis.labels=ylabels, extend.range=FALSE)
   yax <- do.call("setAxis", yax)
   yax <- yax$dax
   if(isDateLike(x)) { # Set up time axis

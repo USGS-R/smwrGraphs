@@ -85,6 +85,12 @@ x-coordinate data and any (discrete) y-coordinate data. }
 \item{signature(x = "Date"))}{ Create a dot plot for Date
 x-coordinate data and any (discrete) y-coordinate data. } }
 }
+\examples{
+\dontrun{
+# See for examples of dotPlot:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{boxPlot}}
 }

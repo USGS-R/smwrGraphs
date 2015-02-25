@@ -2,8 +2,9 @@
 #' 
 #' Create a line or scatter plot.
 #' 
-#' Setting \code{ylabels} or \code{xlabels} to 0 will suppress ticks and
-#' labels. That can be useful for relative axes or specialized labeling.
+#' Setting \code{ylabels} or \code{xlabels} to 0 or negtive values will 
+#'suppress ticks and labels. If negative, then try to create that absolute value
+#'number of labels. That can be useful for relative axes or specialized labeling.
 #' 
 #' @name xyPlot
 #' @rdname xyPlot
@@ -41,6 +42,16 @@
 #' @seealso \code{\link{setPage}}, \code{\link{timePlot}},
 #' \code{\link{colorPlot}}
 #' @keywords methods hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of xyPlot:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+#' demo(topic="TopAxisExample", package="smwrGraphs")
+#' }
 #' @exportMethod xyPlot
 setGeneric("xyPlot", function(x, y, Plot=list(),
                               yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),
@@ -93,10 +104,10 @@ function(x, y, # data
     yax <- c(list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,
                   axis.rev=yaxis.rev), ylabels)
   else {
-    if(is.numeric(ylabels) && length(ylabels) == 1 && ylabels == 0) {
+    if(is.numeric(ylabels) && length(ylabels) == 1 && ylabels <= 0) {
       ylabel0 <- TRUE
       yax <- list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,
-                  axis.rev=yaxis.rev, axis.labels=2)
+                  axis.rev=yaxis.rev, axis.labels=max(2, -ylabels))
     }
     else
       yax <- list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,
@@ -112,10 +123,10 @@ function(x, y, # data
     xax <- c(list(data=x, axis.range=xaxis.range, axis.log=xaxis.log,
                   axis.rev=FALSE), xlabels)
   else {
-    if(is.numeric(xlabels) && length(xlabels) == 1 && xlabels == 0) {
+    if(is.numeric(xlabels) && length(xlabels) == 1 && xlabels <= 0) {
       xlabel0 <- TRUE
       xax <- list(data=x, axis.range=xaxis.range, axis.log=xaxis.log,
-                axis.rev=FALSE, axis.labels=2)
+                axis.rev=FALSE, axis.labels=max(2, -xlabels))
     }
     else
       xax <- list(data=x, axis.range=xaxis.range, axis.log=xaxis.log,
@@ -184,10 +195,10 @@ function(x, y, # data
     yax <- c(list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,
                   axis.rev=yaxis.rev), ylabels)
   else {
-    if(is.numeric(ylabels) && length(ylabels) == 1 && ylabels == 0) {
+    if(is.numeric(ylabels) && length(ylabels) == 1 && ylabels <= 0) {
       ylabel0 <- TRUE
       yax <- list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,
-                  axis.rev=yaxis.rev, axis.labels=2)
+                  axis.rev=yaxis.rev, axis.labels=max(2, ylabels))
     }
     else
       yax <- list(data=y, axis.range=yaxis.range, axis.log=yaxis.log,

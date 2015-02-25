@@ -46,6 +46,32 @@
 #' up the graphics environment if the user fails to do so.
 #' @seealso \code{\link{setLayout}}, \code{\link{setGraph}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of setGD:
+#' demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+#' demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+#' demo(topic="Coplot-simpleBoxPlot", package="smwrGraphs")
+#' demo(topic="DurationHydrograph", package="smwrGraphs")
+#' demo(topic="FlowDur-Measurements", package="smwrGraphs")
+#' demo(topic="HydroPrecip", package="smwrGraphs")
+#' # See for examples of setPage:
+#' demo(topic="PiperScript", package="smwrGraphs")
+#' # See for examples of setPDF:
+#' demo(topic="MeasurementRating", package="smwrGraphs")
+#' demo(topic="PiperScript", package="smwrGraphs")
+#' demo(topic="RightAxisExample", package="smwrGraphs")
+#' demo(topic="TopAxisExample", package="smwrGraphs")
+#' # See for examples of setSweave:
+#' vignette(topic="BoxPlots", package="smwrGraphs")
+#' vignette(topic="DateAxisFormats", package="smwrGraphs")
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' vignette(topic="ProbabilityPlots", package="smwrGraphs")
+#' }
 #' @export setPage
 setPage <- function(layout="portrait", font="preview", name="USGS",
                     multiple=FALSE, device="default") {

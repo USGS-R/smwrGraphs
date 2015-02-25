@@ -21,7 +21,8 @@
 #' @param xlabels set the x-axis labels and number of seasons when \code{x} is
 #' a simple numeric vector, may be a single numeric value indicating the number
 #' of seasons in \code{x} or a vector of the names of the seasons. See
-#' \code{\link{namePretty}} for details.
+#' \code{\link{namePretty}} for details. If \code{X} is a time-series object,
+#' then the labels are set to the frequency characteristic of \code{x}.
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
@@ -33,6 +34,11 @@
 #' @seealso \code{\link{setPage}}, \code{\link{monthplot}},
 #' \code{\link{seasonPlot}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of seriesPlot:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @export seriesPlot
 seriesPlot <- function(x, # data
                        SeasonLine=list(name="", what="vertical", color="black"),
@@ -63,12 +69,15 @@ seriesPlot <- function(x, # data
 }
 
 ## Numeric data:
+#' @rdname seriesPlot
+#' @export
+#' @method seriesPlot default
 seriesPlot.default <- function(x, # data
                                SeasonLine=list(name="", what="vertical", color="black"),
                                SeasonPoint=list(name="", what="points", symbol="circle", 
                                  filled=TRUE, size=0.09, color="black"),
                                yaxis.log=FALSE, yaxis.range=c(NA,NA), # y-axis controls
-                               ylabels=7, xlabels=1, # labels, just 1 for x by default
+                               ylabels=7, xlabels=frequency(x), # number of labels
                                xtitle="",
                                ytitle=deparse(substitute(x)), # axis titles
                                caption="", # caption 

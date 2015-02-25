@@ -59,6 +59,12 @@ x-axis. For latitude and longitude data, set the scale to
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{scalePlot}.
 }
+\examples{
+\dontrun{
+# See for examples of scalePlot:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{xyPlot}}
 }

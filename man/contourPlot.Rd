@@ -60,6 +60,9 @@ plotted along the x or y axis.}
 
 \item{\dots}{not used, required for other methods.}
 }
+\value{
+Information about the graph.
+}
 \description{
 Produce a contour plot or a colored surface with colors corresponding to
 values in \code{z}.
@@ -70,5 +73,11 @@ method and are removed, with a warning. before constructing the surface.\cr
 Missing values are not permitted in \code{rows} or \code{columns} but are permitted
 in \code{z} for the matrix method. Missing values in \code{z} result in blank areas
 in the plot.
+}
+\examples{
+\dontrun{
+# See for examples of contourPlot:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
 }
 

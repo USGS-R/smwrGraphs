@@ -16,8 +16,8 @@ functions so the user does not need to manage graphical information.
 \tabular{ll}{
 Package: \tab smwrGraphs\cr
 Type: \tab Package\cr
-Version: \tab 1.0.2\cr
-Date: \tab 2015-01-27\cr
+Version: \tab 1.0.3\cr
+Date: \tab 2015-02-08\cr
 License: \tab file LICENSE\cr
 Depends: \tab smwrBase (>= 1.0.0), methods\cr
 Imports: \tab KernSmooth, akima, lubridate\cr
@@ -38,13 +38,15 @@ add to graphs to see examples of calls to base \code{R} graphics that use
 the lower level tools to adhere to the statndards.\cr
 
 Functions to set up and initialize the \code{smwrGraphs} environment:\cr
+\code{\link{setGD}}\cr
 \code{\link{setGraph}}\cr
 \code{\link{setLayout}}\cr
 \code{\link{setPDF}}\cr
 \code{\link{setPage}}\cr
+\code{\link{setRtMargin}}\cr
 \code{\link{setSplom}}\cr
-\code{\link{setGD}}\cr
-\code{\link{setSweave}}\cr\cr
+\code{\link{setSweave}}\cr
+\code{\link{setTopMargin}}\cr\cr
 Main plotting functions:\cr
 \code{\link{areaPlot}}\cr
 \code{\link{biPlot}}\cr
@@ -68,7 +70,7 @@ Main plotting functions:\cr
 \code{\link{timePlot}}\cr
 \code{\link{transPlot}}\cr
 \code{\link{xyPlot}}\cr
-\code{\link{condition}}\cr \cr
+\code{\link{condition}}\cr\cr
 Functions to add features to a plot:\cr
 \code{\link{addAnnotation}}\cr
 \code{\link{addArea}}\cr

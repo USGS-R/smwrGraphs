@@ -28,6 +28,11 @@
 #' environment before calling \code{scalePlot}.
 #' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of scalePlot:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @export scalePlot
 scalePlot <- function(x, y, # data
                       scale=1, 

@@ -25,6 +25,11 @@
 #' @seealso \code{\link{linearPretty}}, \code{\link{addAxisLabels}},
 #' \code{\link{addLabel}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addMinorTicks:
+#' vignette(topic="DateAxisFormats", package="smwrGraphs")
+#' }
 #' @export addMinorTicks
 addMinorTicks <- function(which, current, ticks) {
 	# Coding History:

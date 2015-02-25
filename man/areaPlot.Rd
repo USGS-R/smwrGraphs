@@ -10,7 +10,7 @@ areaPlot(x, y, Areas = list(name = "Auto", fillDir = "between", base = "Auto",
   caption = "", margin = c(NA, NA, NA, NA))
 }
 \arguments{
-\item{x}{x-axis coordinates in increasing order.}
+\item{x}{numeric x-axis coordinates in increasing order.}
 
 \item{y}{a numeric matrix of y-axis coordinates.}
 
@@ -38,7 +38,32 @@ details.}
 
 \item{margin}{set up the plot area margins.}
 }
+\value{
+Information about the graph.
+}
 \description{
 Produces an plot where the area between lines is filled with color.
+}
+\details{
+The components of \code{Areas} are \code{name}, the name or names
+to use to describe the areas in the explanation, the default "Auto" generates
+names from the column names of \code{y}; \code{fillDir}, how to
+fill---must be either "between" or "under;" \code{base}, the base value when
+\code{fillDir} is "under," can be "Auto" to draw to the x-axis or any numeric value;
+\code{lineColor} specifies the color to draw the lines around each area, may be
+"none" for no line drawn; \code{fillColors} specifies colors for each area, when only
+a single area is drawn, then the value must be the name of a color, otherwise either a
+vector of colornames or the prefix name of a function that generates a sequence of
+colors. The prefix name is prepended to ".colors" for the name of the function. See the
+documentation for these functions in the \bold{See Also} section.
+}
+\examples{
+\dontrun{
+# See for examples of areaPlot:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
+\seealso{
+\code{\link{addArea}}, \code{\link{smwr.colors}}, \code{\link[grDevices]{heat.colors}}
 }
 

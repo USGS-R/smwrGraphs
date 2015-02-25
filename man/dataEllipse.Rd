@@ -21,6 +21,12 @@ A list containing the x- and y-coordinates of the ellipse.
 \description{
 Construct an ellipse from x- and y-coordinate data.
 }
+\examples{
+\dontrun{
+# See for examples of dataEllipse:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{cov2Ellipse}}, \code{\link{hull}}
 }

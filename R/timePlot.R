@@ -62,6 +62,16 @@
 #'
 #' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}, \code{\link{seasonPlot}}
 #' @keywords methods hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of timePlot:
+#' vignette(topic="DateAxisFormats", package="smwrGraphs")
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' demo(topic="AnnualFlowBarChart", package="smwrGraphs")
+#' demo(topic="DurationHydrograph", package="smwrGraphs")
+#' demo(topic="HydroPrecip", package="smwrGraphs")
+#' demo(topic="RightAxisExample", package="smwrGraphs")
+#' }
 #' @exportMethod timePlot
 setGeneric("timePlot", function(x, y, Plot=list(),
                                 yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),

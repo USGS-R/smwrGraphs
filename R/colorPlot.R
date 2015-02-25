@@ -46,6 +46,11 @@
 #'  }
 #' @seealso \code{\link{setPage}}, \code{\link{xyPlot}}
 #' @keywords methods hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of colorPlot:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @exportMethod colorPlot
 setGeneric("colorPlot", function(x, y, color, Plot=list(),
                               yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA),

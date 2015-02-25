@@ -9,6 +9,13 @@ seriesPlot(x, SeasonLine = list(name = "", what = "vertical", color =
   filled = TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
   yaxis.range = c(NA, NA), ylabels = 7, xlabels, xtitle = "",
   ytitle = "", caption = "", margin = c(NA, NA, NA, NA), ...)
+
+\method{seriesPlot}{default}(x, SeasonLine = list(name = "", what =
+  "vertical", color = "black"), SeasonPoint = list(name = "", what = "points",
+  symbol = "circle", filled = TRUE, size = 0.09, color = "black"),
+  yaxis.log = FALSE, yaxis.range = c(NA, NA), ylabels = 7,
+  xlabels = frequency(x), xtitle = "", ytitle = deparse(substitute(x)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 }
 \arguments{
 \item{x}{data that can be treated as a regularly-spaced time series. Missing
@@ -30,7 +37,8 @@ details.}
 \item{xlabels}{set the x-axis labels and number of seasons when \code{x} is
 a simple numeric vector, may be a single numeric value indicating the number
 of seasons in \code{x} or a vector of the names of the seasons. See
-\code{\link{namePretty}} for details.}
+\code{\link{namePretty}} for details. If \code{X} is a time-series object,
+then the labels are set to the frequency characteristic of \code{x}.}
 
 \item{xtitle}{the x-axis title (also called x-axis caption).}
 
@@ -57,6 +65,12 @@ drawing of that feature.
 \note{
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{seriesPlot}.
+}
+\examples{
+\dontrun{
+# See for examples of seriesPlot:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
 }
 \seealso{
 \code{\link{setPage}}, \code{\link{monthplot}},

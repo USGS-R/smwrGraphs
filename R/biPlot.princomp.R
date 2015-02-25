@@ -60,7 +60,13 @@
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{biPlot}.
 #' @seealso \code{\link{setPage}}, \code{\link{biPlot}}
+#' @references Gower, J.C. and Hand, D.J., 1996, Biplots, Chapman and Hall, London, 277 p.
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of biPlot:
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' }
 #' @export
 #' @method biPlot princomp
 biPlot.princomp <- function(x, Which=1:2, # data
@@ -86,7 +92,7 @@ biPlot.princomp <- function(x, Which=1:2, # data
 	#    2011Apr15 DLLorenz Begin modifications for R
 	#    2014Jun25 DLLorenz Converted to roxygen
 	#
-  if(length(Which) != 2)
+  if(length(Which) != 2L)
     stop("length of choices must be 2")
   scores <- x$scores
   if(!length(scores))
@@ -100,8 +106,8 @@ biPlot.princomp <- function(x, Which=1:2, # data
   obs <- scores[, Which]
   vars <- loadings[, Which]
   lambdas <- lambdas[Which]
-  p <- dim(vars)[1]
-  n <- dim(obs)[1]
+  p <- dim(vars)[1L]
+  n <- dim(obs)[1L]
   if(is.character(Scale)) {
     Scale <- match.arg(tolower(Scale), c("auto", "distance", "symmetric",
                                          "variance", "interpolative"))
@@ -114,21 +120,21 @@ biPlot.princomp <- function(x, Which=1:2, # data
       scaled <- "scaled " # these have been scaled to mean 0 and sd 1.
     if(xtitle == 'Auto')
       xtitle <- switch(Scale ,
-                       distance=paste("Component ", Which[1], " (", scaled,
+                       distance=paste("Component ", Which[1L], " (", scaled,
                          "Euclidean distance)", sep=''),
-                       variance=paste("Component ", Which[1], " (", scaled,
+                       variance=paste("Component ", Which[1L], " (", scaled,
                          "Mahalanobis distance)", sep=''),
-                       symmetric=paste("Component ", Which[1], sep=''),
-                       interpolative=paste("Component ", Which[1], " (", scaled,
+                       symmetric=paste("Component ", Which[1L], sep=''),
+                       interpolative=paste("Component ", Which[1L], " (", scaled,
                          "Euclidean distance)", sep=''))
     if(ytitle == 'Auto')
       ytitle <- switch(Scale ,
-                       distance=paste("Component ", Which[2], " (", scaled,
+                       distance=paste("Component ", Which[2L], " (", scaled,
                          "Euclidean distance)", sep=''),
-                       variance=paste("Component ", Which[2], " (", scaled,
+                       variance=paste("Component ", Which[2L], " (", scaled,
                          "Mahalanobis distance)", sep=''),
-                       symmetric=paste("Component ", Which[2], sep=''),
-                       interpolative=paste("Component ", Which[2], " (", scaled,
+                       symmetric=paste("Component ", Which[2L], sep=''),
+                       interpolative=paste("Component ", Which[2L], " (", scaled,
                          "Euclidean distance)", sep=''))
     if(xtitle2 == 'Auto')
       xtitle2 <- switch(Scale ,
@@ -155,14 +161,14 @@ biPlot.princomp <- function(x, Which=1:2, # data
     scale <- Scale # better be numeric
     ## Now set the titles and top and right margins
     if(xtitle == 'Auto')
-      xtitle <- paste("Component ", Which[1], sep='')
+      xtitle <- paste("Component ", Which[1L], sep='')
     if(ytitle == 'Auto')
-      ytitle <- paste("Component ", Which[2], sep='')
+      ytitle <- paste("Component ", Which[2L], sep='')
     if(xtitle2 == 'Auto')
       xtitle2 <- ""
     if(ytitle2 == 'Auto')
       ytitle2 <- ""
-    margin[4] <- margin[3] <- 0.5
+    margin[4] <- margin[3L] <- 0.5
   }
   if(scale < 0) { # this produces an interpolation biplot
     vars <- vars # this needs work, see Joliffe

@@ -17,6 +17,11 @@
 #' @return Information about the graph.
 #' @seealso \code{\link{ternaryPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addTernary:
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' }
 #' @export addTernary
 addTernary <- function(x, y, z,# data (need not sum to 100)
                        Plot=list(name="", what='points', type='solid',

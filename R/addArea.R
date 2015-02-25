@@ -21,6 +21,12 @@
 #' @return The current plot information is returned invisibly.
 #' @seealso \code{\link{areaPlot}}, \code{\link{addXY}}, \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addArea:
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' demo(topic="DurationHydrograph", package="smwrGraphs")
+#' }
 #' @export addArea
 addArea <- function(x, y, ybase=NULL, # data
                     Area=list(name="", color="gray",

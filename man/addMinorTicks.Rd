@@ -37,6 +37,12 @@ otherwise it will be 1/10 that even multiple.
 In general, this should be used only with linear axes. Other axis
 types can result in unexpected results.
 }
+\examples{
+\dontrun{
+# See for examples of addMinorTicks:
+vignette(topic="DateAxisFormats", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{linearPretty}}, \code{\link{addAxisLabels}},
 \code{\link{addLabel}}

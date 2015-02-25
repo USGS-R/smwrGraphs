@@ -60,8 +60,14 @@ Produce an x-y plot using arbitrary monotonic transforms for the axes.
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{transPlot}.
 }
+\examples{
+\dontrun{
+# See for examples of transPlot:
+demo(topic="MeasurementRating", package="smwrGraphs")
+}
+}
 \seealso{
-\code{\link{setPage}}, \code{link{transPretty}}
+\code{\link{setPage}}, \code{\link{transPretty}}
 }
 \keyword{hplot}
 

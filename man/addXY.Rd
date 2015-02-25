@@ -63,6 +63,19 @@ Add points or lines to the current graph.
 the right-axis arguments are not valid.}
 }
 }
+\examples{
+\dontrun{
+# See for examples of addXY:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+vignette(topic="GraphSetup", package="smwrGraphs")
+vignette(topic="ProbabilityPlots", package="smwrGraphs")
+demo(topic="DurationHydrograph", package="smwrGraphs")
+demo(topic="FlowDur-Measurements", package="smwrGraphs")
+demo(topic="MeasurementRating", package="smwrGraphs")
+demo(topic="RightAxisExample", package="smwrGraphs")
+demo(topic="TopAxisExample", package="smwrGraphs")
+}
+}
 \keyword{aplot}
 \keyword{methods}
 

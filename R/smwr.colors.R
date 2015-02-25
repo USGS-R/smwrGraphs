@@ -19,6 +19,12 @@
 #' well-separated pastel colors useful for areas or bars.
 #' @seealso \code{\link{rainbow}}, \code{\link{hcl}}
 #' @keywords color
+#' @examples
+#' \dontrun{
+#' # See for examples of warmCool.colors:
+#' demo(topic="DurationHydrograph", package="smwrGraphs")
+#' # All have similar usage
+#' }
 #' @export greenRed.colors
 greenRed.colors <- function(n, alpha=1)
   rev(rainbow(n, start=0, end=1/3, alpha=alpha))

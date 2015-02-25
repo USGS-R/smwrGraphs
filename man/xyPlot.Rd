@@ -69,8 +69,9 @@ Information about the graph
 Create a line or scatter plot.
 }
 \details{
-Setting \code{ylabels} or \code{xlabels} to 0 will suppress ticks and
-labels. That can be useful for relative axes or specialized labeling.
+Setting \code{ylabels} or \code{xlabels} to 0 or negtive values will
+suppress ticks and labels. If negative, then try to create that absolute value
+number of labels. That can be useful for relative axes or specialized labeling.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics
@@ -83,6 +84,17 @@ environment before calling \code{xyPlot}.
 y data. }
 \item{signature(x = "factor", y ="numeric")")}{ Create a vertical
 dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
+}
+}
+\examples{
+\dontrun{
+# See for examples of xyPlot:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+vignette(topic="GraphGallery", package="smwrGraphs")
+vignette(topic="GraphSetup", package="smwrGraphs")
+vignette(topic="LineScatter", package="smwrGraphs")
+demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
+demo(topic="TopAxisExample", package="smwrGraphs")
 }
 }
 \seealso{

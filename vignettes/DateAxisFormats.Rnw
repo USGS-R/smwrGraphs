@@ -1,6 +1,5 @@
 \documentclass{article}
 \parskip 3pt
-\parindent 30pt
 \usepackage[margin=1.25in]{geometry}
 %\VignetteIndexEntry{Date Axis Formats}
 %\VignetteDepends{smwrGraphs}
@@ -8,7 +7,6 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 \raggedright
-\parindent 30pt
 
 \title{Date Axis Formats}
 
@@ -48,10 +46,9 @@ addMinorTicks("bottom", AA.pl, 3)
 addMinorTicks("top", AA.pl, 3)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph01.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph01.pdf}
+\paragraph{}
 
 \textbf{Figure 1.} Hour format with 15-minute minor ticks.
 
@@ -69,10 +66,9 @@ addMinorTicks("bottom", AA.pl, 5)
 addMinorTicks("top", AA.pl, 5)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph02.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph02.pdf}
+\paragraph{}
 
 \textbf{Figure 2.} The default hour format for a time span of 1 day.
 
@@ -96,10 +92,9 @@ addMinorTicks("bottom", AA.pl, 23)
 addMinorTicks("top", AA.pl, 23)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph03.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph03.pdf}
+\paragraph{}
 
 \textbf{Figure 3.} The day format for a time span of 1 day.
 
@@ -116,10 +111,9 @@ addMinorTicks("bottom", AA.pl)
 addMinorTicks("top", AA.pl)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph04.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph04.pdf}
+\paragraph{}
 
 \textbf{Figure 4.} The format for a time span of 1 day with the day label placed between the ticks.
 
@@ -134,10 +128,9 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-01", "2009-07-05")))
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph05.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph05.pdf}
+\paragraph{}
 
 \textbf{Figure 5.} The default format for a time span of 4 days.
 
@@ -150,10 +143,9 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-28", "2009-07-05")))
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph06.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph06.pdf}
+\paragraph{}
 
 \textbf{Figure 6.} The default format for a time span of 7 days.
 
@@ -166,10 +158,9 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-20", "2009-07-18")))
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph07.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph07.pdf}
+\paragraph{}
 
 \textbf{Figure 7.} The default format for a time span of 28 days.
 
@@ -192,10 +183,9 @@ addMinorTicks("bottom", AA.pl)
 addMinorTicks("top", AA.pl)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph08.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph08.pdf}
+\paragraph{}
 
 \textbf{Figure 8.} The default format for a time span of 2 months.
 
@@ -208,10 +198,9 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-01", "2010-06-01")))
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph09.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph09.pdf}
+\paragraph{}
 
 \textbf{Figure 9.} The default format for a time span of 1 year.
 
@@ -225,10 +214,9 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
 
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph10.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph10.pdf}
+\paragraph{}
 
 \textbf{Figure 10.} The default format for a time span of 18 months.
 
@@ -252,10 +240,9 @@ addMinorTicks("bottom", AA.pl)
 addMinorTicks("top", AA.pl)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph11.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph11.pdf}
+\paragraph{}
 
 \textbf{Figure 11.} The years format for a time span of 2 years.
 
@@ -271,10 +258,9 @@ addMinorTicks("bottom", AA.pl, 1)
 addMinorTicks("top", AA.pl, 1)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph12.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph12.pdf}
+\paragraph{}
 
 \textbf{Figure 12.} The default format for a time span of 18 months.
 
@@ -298,10 +284,9 @@ addMinorTicks("bottom", AA.pl)
 addMinorTicks("top", AA.pl)
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph13.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph13.pdf}
+\paragraph{}
 
 \textbf{Figure 13.} The format for a time span of 1 water year.
 
@@ -315,10 +300,9 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xlabels="water year")
 graphics.off()
 @
-<<results=tex, echo=FALSE>>=
-cat("\\includegraphics{graph14.pdf}\n")
-cat("\\paragraph{}\n")
-@
+
+\includegraphics{graph14.pdf}
+\paragraph{}
 
 \textbf{Figure 14.} The format for a time span of 5 water years.
 

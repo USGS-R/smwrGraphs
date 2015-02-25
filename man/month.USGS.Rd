@@ -10,6 +10,12 @@ month.USGS
 \description{
 A vector of USGS-style month abbreviations.
 }
+\examples{
+\dontrun{
+# See for examples of month.USGS:
+vignette(topic="LineScatter", package="smwrGraphs")
+}
+}
 \references{
 Hansen, W.R., 1991, Suggestions to Authors of the United States Geological Survey,
 7th Ed.: U.S. Govenement Printing Office, 289 p.

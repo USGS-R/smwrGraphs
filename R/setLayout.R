@@ -108,6 +108,16 @@
 #' @seealso \code{\link{setPage}}, \code{\link{setGraph}}, \code{\link{setRtMargin}},
 #' \code{\link{addTitle}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of setLayout:
+#' vignette(topic="BoxPlots", package="smwrGraphs")
+#' vignette(topic="GraphGallery", package="smwrGraphs")
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' demo(topic="HydroPrecip", package="smwrGraphs")
+#' demo(topic="PiperScript", package="smwrGraphs")
+#' }
 #' @export setLayout
 setLayout <- function(width=NULL, height=NULL, # Size of graphs or graph area
 											num.cols=max(1, length(width)),

@@ -10,6 +10,11 @@
 #' @return A list containing the x- and y-coordinates of the hull.
 #' @seealso \code{\link{dataEllipse}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of hull:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' }
 #' @export hull
 hull <- function(x, y, percent=100, smooth=FALSE) {
 	# Coding History:

@@ -45,6 +45,12 @@
 #' characteristics of natural water: U.S. Geological Survey Water-Supply Paper
 #' 2254, 263 p.
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of piperPlot:
+#' vignette(topic="PiperPlot", package="smwrGraphs")
+#' demo(topic="PiperScript", package="smwrGraphs")
+#' }
 #' @export piperPlot
 piperPlot <- function(xCat, yCat, zCat, xAn, yAn, zAn, # data (need not sum to 100)
                       Plot=list(name="", what="points", type="solid",

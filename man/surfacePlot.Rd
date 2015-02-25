@@ -61,6 +61,12 @@ The \code{Surface} argument must be a tagged list with these components:
 A call must be made to \code{setPage} or \code{setPDF} to set up the
 graphics environment before calling \code{surfacePlot}.
 }
+\examples{
+\dontrun{
+# See for examples of surfacePlot:
+vignette(topic="GraphGallery", package="smwrGraphs")
+}
+}
 \seealso{
 \code{\link{setPage}}, \code{\link{persp}}, \code{\link{preSurface}}
 }

@@ -23,8 +23,15 @@
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{histGram}.
 #' @seealso \code{\link{ecdfPlot}}
-#' @references Helsel and Hirsch, Chapter 2
+#' @references #'Helsel, D.R., and Hirsch, R.M., 2002, Statistical methods in water resources: 
+#'U.S. Geological Survey Techniques of Water-Resources Investigations, book 4, 
+#'chap. A3, 522 p.
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of histGram:
+#' vignette(topic="ProbabilityPlots", package="smwrGraphs")
+#' }
 #' @export histGram
 histGram <- function(x, breaks="Sturges", # data specs
                      Hist=list(), # plot cntrls

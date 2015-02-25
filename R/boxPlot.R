@@ -49,6 +49,13 @@
 #' assumption of a log-normal distribution for most water-quality constituents.
 #' @seealso \code{\link{setPage}}, \code{\link{dotPlot}}
 #' @keywords hplot
+#' @examples
+#' \dontrun{
+#' # See for examples of boxPlot:
+#' vignette(topic="BoxPlots", package="smwrGraphs")
+#' vignette(topic="GraphSetup", package="smwrGraphs")
+#' demo(topic="Coplot-simpleBoxPlot", package="smwrGraphs")
+#' }
 #' @export boxPlot
 boxPlot <- function(..., group=NULL, # data
                     Box=list(type="truncated", show.counts=TRUE, 

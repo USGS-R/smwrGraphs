@@ -38,6 +38,12 @@ U.S. Water Resources Council (1982). Owen (1968) describes the application of th
 noncentral \emph{t}-distribution for computing the tolerance limits for a normal
 distribition.
 }
+\examples{
+\dontrun{
+# See for examples of addCI:
+vignette(topic="GraphAdditions", package="smwrGraphs")
+}
+}
 \references{
 Helsel, D.R., and Hirsch, R.M., 2002, Statistical methods in water resources:
 U.S. Geological Survey Techniques of Water-Resources Investigations, book 4,

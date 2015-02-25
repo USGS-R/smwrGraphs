@@ -1,6 +1,6 @@
 Package: smwrGraphs
-Version: 1.0.2
-Date: 2015-01-27
+Version: 1.0.3
+Date: 2015-02-08
 Title: Graphing Functions
 Author: Dave Lorenz <lorenz@usgs.gov>.
 Maintainer: Dave Lorenz <lorenz@usgs.gov>

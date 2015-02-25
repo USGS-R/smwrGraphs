@@ -24,6 +24,12 @@
 #' @seealso \code{\link{labelPoints}}, \code{\link{addTable}},
 #' \code{\link{xyPlot}}
 #' @keywords aplot
+#' @examples
+#' \dontrun{
+#' # See for examples of addAnnotation:
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
+#' demo(topic="TopAxisExample", package="smwrGraphs")
+#' }
 #' @export addAnnotation
 addAnnotation <- function(x, y, annotation, # data
                           leaderx=NULL, leadery=NULL, leadercol="black", # leader controls

@@ -34,6 +34,11 @@
 #' \code{setSplom}.
 #' @seealso \code{\link{setLayout}}
 #' @keywords dplot
+#' @examples
+#' \dontrun{
+#' # See for examples of setSplom:
+#' vignette(topic="LineScatter", package="smwrGraphs")
+#' }
 #' @export setSplom
 setSplom <- function(size=NULL, # Size of splom, must be square
                       num.variables, show.all=FALSE,
