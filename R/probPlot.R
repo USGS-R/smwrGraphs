@@ -25,8 +25,9 @@
 #' @param Plot control parameters of the plot.
 #' @param yaxis.log log-transform the y axis?
 #' @param yaxis.range set the range of the y axis.
-#' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
-#' details.
+#' @param ylabels set the y-axis labels. See \code{\link{logPretty}} 
+#'for \code{yaxis.log} set to \\ceode{TRUE} or 
+#'\code{\link{linearPretty}} for \code{yaxis.log} set to \\ceode{FALSE} for details.
 #' @param xlabels set the x-axis labels. See \code{\link{probPretty}} for
 #' details.
 #' @param CDF if TRUE, then label with increasing probabilities. Otherwise
@@ -97,7 +98,7 @@ probPlot.default <- function(x, truncate=NA,
                                width="standard", symbol="circle", filled=TRUE,
                                size=0.09, color="black"), # plot controls
                              yaxis.log=TRUE, yaxis.range=c(NA, NA), # y-axis controls
-                             ylabels=11,  xlabels=11, CDF=!RI, # labels
+                             ylabels="Auto",  xlabels=11, CDF=!RI, # labels
                              xtitle=ifelse(CDF, "Cumulative Probability",
                                "Exceedence Probability"),
                              RI=FALSE, RItitle="Recurrence Interval, in years",
@@ -119,7 +120,11 @@ probPlot.default <- function(x, truncate=NA,
   ## set up the axes and transform data
   if(dev.cur() == 1)
     setGD("ProbabilityPlot")
-  yax <- setAxis(x[plotthese], yaxis.range, yaxis.log, FALSE, ylabels)
+  if(is.list(ylabels)) {
+  	yax <- do.call(setAxis, c(list(data=x[plotthese], axis.range=yaxis.range, 
+  																 axis.log=yaxis.log, axis.rev=FALSE), ylabels))
+  } else 
+  	yax <- setAxis(x[plotthese], yaxis.range, yaxis.log, FALSE, ylabels)
   x <- yax$data
   yax <- yax$dax
   ## Plot the full range of probability, but truncate pp to match x

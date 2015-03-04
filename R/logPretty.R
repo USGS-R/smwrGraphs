@@ -2,15 +2,19 @@
 #' 
 #' Construct information for making a nicely formatted log-scale numeric axis.
 #' 
-#' 
 #' @param x data defining the range to be plotted on the axis. Missing value
 #' are permitted, but ignored.
 #' @param hard use the minimum and maximum of \code{x} as the fixed range of
 #' the axis?
 #' @param labels either "Auto," which lets the function decide how many labels,
-#' the approximate number of labels, or the actual labels to use.
-#' @param style a character string indicating the style of the axis labels if
-#' they are not specifically listed in \code{labels}.
+#' the approximate number of labels, or the actual numeric values of the labels.
+#' @param style a character string indicating the style of the axis labels.
+#'Valid values are "numeric,"
+#'which forces the labels to be displayed as numbers; "scientific," which forces
+#'the labels displayed using scientific notation; or "Auto" (the default), which
+#'disaplays labels as numbers but switches to scientific notation for large ranges.
+#'Only the first letter is required. Any invalid value will produce simply formatted
+#'labels.
 #' @param extend.pct extend the axis range by \code{extend.pct}. Only valid
 #' when \code{hard} is FALSE.
 #' @param extend.range if \code{TRUE}, then extend the data range by a bit to
@@ -24,7 +28,7 @@
 #' \code{\link{xyPlot}}
 #' @keywords dplot
 #' @export logPretty
-logPretty <- function(x, hard=FALSE, labels="Auto", style='numeric',
+logPretty <- function(x, hard=FALSE, labels="Auto", style="Auto",
                       extend.pct=0, extend.range=NA) {
 	# Coding history:
 	#    2000Dec   Peter Shaw Original Coding
@@ -179,21 +183,22 @@ logPretty <- function(x, hard=FALSE, labels="Auto", style='numeric',
   yax$finegrid <- log10(gridd)
   yax$labelpos <- log10(ticxs)
   ## set label style
-  style <- pmatch(style, c("numeric", "scientific"), nomatch=0)
-  if(style == 0) # assume decimal, use no formatting
+  style <- pmatch(style, c("Auto", "numeric", "scientific"), nomatch=0)
+  if(style == 0L) # assume decimal, use no formatting
     labs <- as.character(ticxs)
-  else if(style == 1) { # numeric-- insert commas
+  else if(style == 1L) { # Auto-- numeric, up to a point, but scientific
     labs <- format(ticxs, big.mark=',', scientific=1)
     if(length(grep('e', labs, fixed=TRUE)) > 0) { # used scientific notation
       labs <- format(labs) # seems to be needed to reset the call to scientific
       labs <- sapply(strsplit(labs, split='e', fixed=TRUE), function(x) {
         x <- as.numeric(x)
         as.expression(substitute(num %*% 10^exp, list(num=x[1], exp=x[2])))})
-    }
-    else
+    } else
       labs <- strip.blanks(labs)
-  }
-  else { # style must be scientific
+  } else if(style == 2L) { # numeric
+  	labs <- format(ticxs, big.mark=',', scientific=9)
+  	labs <- strip.blanks(labs)
+  } else { # style must be scientific
     labs <- format(ticxs, scientific=TRUE)
     ## convert to expression
     labs <- format(labs) # seems to be needed to reset the call to scientific

@@ -3,7 +3,7 @@
 \alias{linearPretty}
 \title{Pretty Axis}
 \usage{
-linearPretty(x, hard = FALSE, labels = "Auto", style = "numeric",
+linearPretty(x, hard = FALSE, labels = "Auto", style = "Auto",
   extend.pct = 0, extend.range = TRUE)
 }
 \arguments{
@@ -14,10 +14,18 @@ are permitted, but ignored.}
 the axis?}
 
 \item{labels}{either "Auto," which lets the function decide how many labels,
-the approximate number of labels, or the actual labels to use.}
+the approximate number of labels, or the actual labels to use. If the actual
+labels are numeric, then the will be formatted using \code{style}. If they are
+character, then they must be able to be converted to numeric values (commas
+are removed before conversion).}
 
 \item{style}{a character string indicating the style of the axis labels if
-they are not specifically listed in \code{labels}.}
+they are not specifically listed in \code{labels}. Valid values are "numeric,"
+which forces the labels to be displayed as numbers; "scientific," which forces
+the labels displayed using scientific notation; or "Auto" (the default), which
+disaplays labels as numbers but switches to scientific notation for large ranges.
+Only the first letter is required. Any invalid value will produce simply formatted
+labels.}
 
 \item{extend.pct}{extend the axis range by \code{extend.pct}. Only valid
 when \code{hard} is FALSE.}

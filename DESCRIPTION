@@ -1,6 +1,6 @@
 Package: smwrGraphs
-Version: 1.0.3
-Date: 2015-02-08
+Version: 1.0.4
+Date: 2015-03-04
 Title: Graphing Functions
 Author: Dave Lorenz <lorenz@usgs.gov>.
 Maintainer: Dave Lorenz <lorenz@usgs.gov>
@@ -12,10 +12,11 @@ Imports:
     akima,
     lubridate
 Suggests:
-    smwrData (>= 1.0.0)
+    smwrData (>= 1.0.0),
+    dataRetrieval
 Description: Functions to create high-quality graphs to support statistical
-    met5hods in water resources. These graphs meet or
-    nearly meet the publications standards of the USGS.
-License: file LICENSE
+    methods in water resources. These graphs meet or
+    nearly meet the publication standards of the U.S. Geological Survey.
+License: file CC0
 LazyLoad: yes
 LazyData: yes

@@ -10,8 +10,8 @@
 #' \tabular{ll}{ 
 #' Package: \tab smwrGraphs\cr 
 #' Type: \tab Package\cr 
-#' Version: \tab 1.0.3\cr 
-#' Date: \tab 2015-02-08\cr 
+#' Version: \tab 1.0.4\cr 
+#' Date: \tab 2015-03-04\cr 
 #' License: \tab file LICENSE\cr 
 #' Depends: \tab smwrBase (>= 1.0.0), methods\cr 
 #' Imports: \tab KernSmooth, akima, lubridate\cr
@@ -89,7 +89,7 @@
 #' @docType package
 #' @author Dave Lorenz <lorenz@@usgs.gov>
 #' @references Lorenz, D.L. in preparation, smwrGraphs---an R package for
-#'graphing hydrologic data, version 1.0.1.\cr
+#'graphing hydrologic data, version 1.0.4.\cr
 #'U.S. Geological Survey, 2012, Author\verb{'}s guide to standards for U.S. 
 #'Geological Survey page-size illustrations, 37 p.
 #' @keywords package
@@ -106,4 +106,7 @@
 #' vignette(package="smwrGraphs")
 #' options(.pager)
 #' 
-NULL
+## Check citation too
+.onAttach <- function(libname, pkgname) {
+	packageStartupMessage("Although this software program has been used by the U.S. Geological Survey (USGS), no warranty, expressed or implied, is made by the USGS or the U.S. Government as to the accuracy and functioning of the program and related program material nor shall the fact of distribution constitute any such warranty, and no responsibility is assumed by the USGS in connection therewith.")
+}

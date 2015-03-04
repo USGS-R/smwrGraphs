@@ -18,7 +18,7 @@ probPlot(x, truncate = NA, FLIP = FALSE, distribution = "normal",
   distribution = "normal", alpha = 0.4, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
   TRUE, size = 0.09, color = "black"), yaxis.log = TRUE, yaxis.range = c(NA,
-  NA), ylabels = 11, xlabels = 11, CDF = !RI, xtitle = ifelse(CDF,
+  NA), ylabels = "Auto", xlabels = 11, CDF = !RI, xtitle = ifelse(CDF,
   "Cumulative Probability", "Exceedence Probability"), RI = FALSE,
   RItitle = "Recurrence Interval, in years",
   ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA, NA,
@@ -45,8 +45,9 @@ positions.}
 
 \item{yaxis.range}{set the range of the y axis.}
 
-\item{ylabels}{set the y-axis labels. See \code{\link{linearPretty}} for
-details.}
+\item{ylabels}{set the y-axis labels. See \code{\link{logPretty}}
+for \code{yaxis.log} set to \\ceode{TRUE} or
+\code{\link{linearPretty}} for \code{yaxis.log} set to \\ceode{FALSE} for details.}
 
 \item{xlabels}{set the x-axis labels. See \code{\link{probPretty}} for
 details.}

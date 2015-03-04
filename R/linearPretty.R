@@ -8,9 +8,17 @@
 #' @param hard use the minimum and maximum of \code{x} as the fixed range of
 #' the axis?
 #' @param labels either "Auto," which lets the function decide how many labels,
-#' the approximate number of labels, or the actual labels to use.
+#'the approximate number of labels, or the actual labels to use. If the actual
+#'labels are numeric, then the will be formatted using \code{style}. If they are
+#'character, then they must be able to be converted to numeric values (commas
+#'are removed before conversion).
 #' @param style a character string indicating the style of the axis labels if
-#' they are not specifically listed in \code{labels}.
+#'they are not specifically listed in \code{labels}. Valid values are "numeric,"
+#'which forces the labels to be displayed as numbers; "scientific," which forces
+#'the labels displayed using scientific notation; or "Auto" (the default), which
+#'disaplays labels as numbers but switches to scientific notation for large ranges.
+#'Only the first letter is required. Any invalid value will produce simply formatted
+#'labels. 
 #' @param extend.pct extend the axis range by \code{extend.pct}. Only valid
 #' when \code{hard} is FALSE.
 #' @param extend.range if \code{TRUE}, then extend the data range by a bit to
@@ -24,7 +32,7 @@
 #' \code{\link{xyPlot}}
 #' @keywords dplot
 #' @export linearPretty
-linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
+linearPretty <- function(x, hard=FALSE, labels="Auto", style="Auto",
                          extend.pct=0, extend.range=TRUE) {
 	# Coding history:
 	#    2000Dec   Peter Shaw Original coding
@@ -63,14 +71,26 @@ linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
     ticks <- ticks[ticks > xrange[1L] & ticks < xrange[2L]]
     return(c(xrange[1L], ticks, xrange[2L]))
   } # end of sel best
-  if(is.character(labels))
-    labels = 6L
+  do.labs <- TRUE
+  if(is.character(labels)) {
+  	if(length(labels) > 1) {
+  		labs <- labels
+  		labels <- as.numeric(gsub(",", "", labels))
+  		do.labs <- FALSE
+  	} else
+  		labels = 6L
+  }
   xclean <- x[is.finite(x)]
   if (is.null(xclean))
     stop("all data are missing.")
-  ## Extend range by a bit to avoid plotting on the axis. if requested
-  if(extend.range && !hard)
+  ## Extend range by a bit to avoid plotting on the axis if requested
+  ## and try to catch extending less than 0 if strictly positive values
+  if(extend.range && !hard) {
+  	xcl.min <- min(xclean)
   	xclean <- extendrange(xclean, f=0.01)
+  	if(xcl.min > 0 & xclean[1L] < 0)
+  		xclean[1L] <- 0
+  }
   if(length(labels) == 1L) {
     ticks <- pretty(xclean, n=labels-1L)
     ## if hard, then force limits of pretty to match limits of x
@@ -95,28 +115,30 @@ linearPretty <- function(x, hard=FALSE, labels="Auto", style="numeric",
     dgrid <- (diff(ticks)[1L]) / tsub
     finegrid <- seq(ticks[1L], ticks[length(ticks)], dgrid)
   }
-  style <- pmatch(style, c("numeric", "scientific"), nomatch=0L)
-  if(style == 2L){ # style is scientific
-    labs <- format(ticxs, scientific=TRUE)
-    ## convert to expression
-    labs <- format(labs) # seems to be needed to reset the call to scientific
-    labs <- sapply(strsplit(labs, split='e', fixed=TRUE), function(x) {
-      x <- as.numeric(x)
-      as.expression(substitute(num %*% 10^exp, list(num=x[1], exp=x[2])))})
+  if(do.labs) {
+  	style <- pmatch(style, c("Auto", "numeric", "scientific"), nomatch=0L)
+  	if(style == 3L){ # style is scientific
+  		labs <- format(ticxs, scientific=TRUE)
+  		## convert to expression
+  		labs <- format(labs) # seems to be needed to reset the call to scientific
+  		labs <- sapply(strsplit(labs, split='e', fixed=TRUE), function(x) {
+  			x <- as.numeric(x)
+  			as.expression(substitute(num %*% 10^exp, list(num=x[1], exp=x[2])))})
+  	} else if(style == 1L && max(ticxs) > 1000) { # "Auto-- insert commas
+  		labs <- format(ticxs, big.mark=',', scientific=1)
+  		if(length(grep('e', labs, fixed=TRUE)) > 0L) { # used scientific notation
+  			labs <- format(labs) # seems to be needed to reset the call to scientific
+  			labs <- sapply(strsplit(labs, split='e', fixed=TRUE), function(x) {
+  				x <- as.numeric(x)
+  				as.expression(substitute(num %*% 10^exp, list(num=x[1L], exp=x[2L])))})
+  		} else
+  			labs <- strip.blanks(labs)
+  	} else if(style == 2L) { # strictly numeric
+  		labs <- format(ticxs, big.mark=',', scientific=9)
+  		labs <- strip.blanks(labs)
+  	} else # assume decimal, use no formatting
+  		labs <- format(ticxs)
   }
-  else if(style == 1L && max(ticxs) > 1000) { # numeric-- insert commas
-    labs <- format(ticxs, big.mark=',', scientific=1)
-    if(length(grep('e', labs, fixed=TRUE)) > 0L) { # used scientific notation
-      labs <- format(labs) # seems to be needed to reset the call to scientific
-      labs <- sapply(strsplit(labs, split='e', fixed=TRUE), function(x) {
-        x <- as.numeric(x)
-        as.expression(substitute(num %*% 10^exp, list(num=x[1L], exp=x[2L])))})
-    }
-    else
-      labs <- strip.blanks(labs)
-  }
-  else # assume decimal, use no formatting
-    labs <- format(ticxs)
 ### Note that if commas are inserted and the number is originally formatted
 ### like 1000.0, then the output is 1,000--the trailing .0 is dropped!
   ## return info
