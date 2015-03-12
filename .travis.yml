@@ -21,7 +21,8 @@ before_script:
   - chmod 755 ./travis-tool.sh
   - "./travis-tool.sh bootstrap"
   - "./travis-tool.sh install_github USGS-R/smwrBase"
-  - "./travis-tool.sh install_deps - ./travis-tool.sh install_r KernSmooth akima lubridate methods"
+  - "./travis-tool.sh install_github USGS-R/smwrData"
+  - "./travis-tool.sh install_deps - ./travis-tool.sh install_r KernSmooth akima lubridate methods dataRetrieval"
 
 after_script:
   - "./travis-tool.sh dump_logs"
