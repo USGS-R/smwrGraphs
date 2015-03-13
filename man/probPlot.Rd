@@ -43,10 +43,10 @@ positions.}
 
 \item{yaxis.log}{log-transform the y axis?}
 
-\item{yaxis.range}{set the range of the y axis.}
+\item{yaxis.range}{set the range of the y axis. See \bold{Details}.}
 
 \item{ylabels}{set the y-axis labels. See \code{\link{logPretty}}
-for \code{yaxis.log} set to \\ceode{TRUE} or
+for \code{yaxis.log} set to \code{TRUE} or
 \code{\link{linearPretty}} for \code{yaxis.log} set to \\ceode{FALSE} for details.}
 
 \item{xlabels}{set the x-axis labels. See \code{\link{probPretty}} for
@@ -88,6 +88,12 @@ for \code{truncate} = NA, depends on \code{yaxis.log}. If \code{yaxis.log}
 is TRUE, then \code{truncate} is treated as though it was 0; otherwise
 \code{truncate} is treated as though it was \code{-Inf}, which results in no
 truncation.
+
+For linear axes, the range can be set to virtually any pair of values. For
+log axes, the choice of range is more resticted---for less than one log-cycle,
+powers of whole numbers can be used; from 1 to about 3 log cycles, the choces
+should be powers of 3 or 10; and for more than 3 log cycles, the range sould be
+expressed only in powers of 10.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

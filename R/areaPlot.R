@@ -14,13 +14,19 @@
 #'colors. The prefix name is prepended to ".colors" for the name of the function. See the
 #'documentation for these functions in the \bold{See Also} section.
 #'
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#'
 #' @param x numeric x-axis coordinates in increasing order.
 #' @param y a numeric matrix of y-axis coordinates.
 #' @param Areas parameters controlling the areas. See \bold{Details}.
 #' @param yaxis.log logical: log transform y axis?
-#' @param yaxis.range set y-axis range.
+#' @param yaxis.range set y-axis range. See \bold{Details}.
 #' @param xaxis.log logical: log transform x axis?
-#' @param xaxis.range set x-axis range.
+#' @param xaxis.range set x-axis range. See \bold{Details}.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
 #' details.
 #' @param xlabels set up x-axis labels. See \code{\link{linearPretty}} for

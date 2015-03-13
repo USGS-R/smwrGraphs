@@ -6,15 +6,21 @@
 #' x-axis. For latitude and longitude data, set the scale to
 #' 1/cos(midlat/180*pi), where midlat is the midrange of the latitude.
 #' 
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#' 
 #' @param x the x-axis data.
 #' @param y the y-axis data.
 #' @param scale the y/x ratio. See \bold{Details}.
 #' @param Plot control parameters of the plot.
 #' @param yaxis.log log-transform the y axis?
 #' @param yaxis.rev reverse the y axis?
-#' @param yaxis.range set the range of the y axis.
+#' @param yaxis.range set the range of the y axis. See \bold{Details}.
 #' @param xaxis.log log-transform the x axis?
-#' @param xaxis.range set the range of the x axis.
+#' @param xaxis.range set the range of the x axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.
 #' @param xlabels set the y-axis labels. See \code{\link{linearPretty}} for

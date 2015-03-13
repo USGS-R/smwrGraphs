@@ -28,7 +28,7 @@ line.}
 
 \item{xaxis.log}{log-transform the x axis?}
 
-\item{xaxis.range}{set the range of the x-axis.}
+\item{xaxis.range}{set the range of the x-axis. See \bold{Details}.}
 
 \item{xlabels}{set the x-axis labels. See \code{\link{linearPretty}} for
 details.}
@@ -51,6 +51,13 @@ Information about the graph.
 }
 \description{
 Produce a graph of the empirical distribution function of data.
+}
+\details{
+For linear axes, the range can be set to virtually any pair of values. For
+log axes, the choice of range is more resticted---for less than one log-cycle,
+powers of whole numbers can be used; from 1 to about 3 log cycles, the choces
+should be powers of 3 or 10; and for more than 3 log cycles, the range sould be
+expressed only in powers of 10.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

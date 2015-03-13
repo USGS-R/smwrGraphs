@@ -38,7 +38,7 @@ of object other than numeric.}
 
 \item{yaxis.log}{logical: log transform y axis?}
 
-\item{yaxis.range}{set y-axis range.}
+\item{yaxis.range}{set y-axis range. See \bold{Details}.}
 
 \item{ylabels}{set up y-axis labels. See \code{\link{linearPretty}} for
 details; the value for \code{ylabels} can be set to an valid value for the
@@ -80,6 +80,12 @@ the number of observations is less than or equal to this value;}
 \item{"width"}{the width of the box, in inches;} \item{"fill"}{The color of
 the filled box or "none" for no fill;} \item{"truncated"}{the percentiles to
 use for the truncated boxplot.} }
+
+For linear axes, the range can be set to virtually any pair of values. For
+log axes, the choice of range is more resticted---for less than one log-cycle,
+powers of whole numbers can be used; from 1 to about 3 log cycles, the choces
+should be powers of 3 or 10; and for more than 3 log cycles, the range sould be
+expressed only in powers of 10.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

@@ -38,11 +38,11 @@ xyPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
 
 \item{yaxis.rev}{reverse the y axis?}
 
-\item{yaxis.range}{set the range of the y-axis.}
+\item{yaxis.range}{set the range of the y-axis. See \bold{Details}.}
 
 \item{xaxis.log}{log-transform the x axis?}
 
-\item{xaxis.range}{set the range of the x-axis.}
+\item{xaxis.range}{set the range of the x-axis. See \bold{Details}.}
 
 \item{ylabels}{set up y-axis labels. See \code{\link{linearPretty}} for
 details.}
@@ -72,6 +72,12 @@ Create a line or scatter plot.
 Setting \code{ylabels} or \code{xlabels} to 0 or negtive values will
 suppress ticks and labels. If negative, then try to create that absolute value
 number of labels. That can be useful for relative axes or specialized labeling.
+
+For linear axes, the range can be set to virtually any pair of values. For
+log axes, the choice of range is more resticted---for less than one log-cycle,
+powers of whole numbers can be used; from 1 to about 3 log cycles, the choces
+should be powers of 3 or 10; and for more than 3 log cycles, the range sould be
+expressed only in powers of 10.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

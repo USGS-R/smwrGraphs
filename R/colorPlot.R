@@ -3,7 +3,12 @@
 #' Produce a line/scatter plot where each point or group of related points has a
 #'unique color or where sections along a line have different colors.
 #' 
-#' 
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#'
 #' @name colorPlot
 #' @rdname colorPlot
 #' @aliases colorPlot colorPlot,numeric,numeric-method
@@ -22,9 +27,9 @@
 #' "Index" valid only for integer or for specified colors.
 #' @param yaxis.log log-transform the y axis?
 #' @param yaxis.rev reverse the y axis?
-#' @param yaxis.range set the range of the y-axis.
+#' @param yaxis.range set the range of the y-axis. See \bold{Details}.
 #' @param xaxis.log log-transform the x axis.
-#' @param xaxis.range set the range of the x-axis.
+#' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set up y-axis labels.
 #' @param xlabels set up x-axis labels.
 #' @param xtitle the x-axis title (also called x-axis caption).

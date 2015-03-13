@@ -12,6 +12,12 @@
 #' \code{truncate} is treated as though it was \code{-Inf}, which results in no
 #' truncation.
 #' 
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#' 
 #' @aliases probPlot probPlot.default
 #' @param x the data to plot. Missing values are allowed and ignored.
 #' @param truncate truncate the data at the specified value. See
@@ -24,9 +30,9 @@
 #' positions.
 #' @param Plot control parameters of the plot.
 #' @param yaxis.log log-transform the y axis?
-#' @param yaxis.range set the range of the y axis.
+#' @param yaxis.range set the range of the y axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{logPretty}} 
-#'for \code{yaxis.log} set to \\ceode{TRUE} or 
+#'for \code{yaxis.log} set to \code{TRUE} or 
 #'\code{\link{linearPretty}} for \code{yaxis.log} set to \\ceode{FALSE} for details.
 #' @param xlabels set the x-axis labels. See \code{\link{probPretty}} for
 #' details.

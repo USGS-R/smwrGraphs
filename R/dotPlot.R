@@ -5,6 +5,12 @@
 #' The \code{what} component of the \code{Plot} argument must be either
 #' "points" or "none."
 #' 
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#'
 #' @name dotPlot
 #' @rdname dotPlot
 #' @aliases dotPlot dotPlot,numeric-method dotPlot,Date-method
@@ -19,7 +25,7 @@
 #' "ascending," or "descending."
 #' @param yaxis.grid draw grid lines?
 #' @param xaxis.log log-transform the x axis?
-#' @param xaxis.range set the range of the x-axis
+#' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set up y-axis labels.
 #' @param xlabels set up x-axis labels.
 #' @param xtitle x-axis title (also called x-axis caption).

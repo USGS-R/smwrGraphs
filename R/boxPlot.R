@@ -16,13 +16,19 @@
 #' the filled box or "none" for no fill;} \item{"truncated"}{the percentiles to
 #' use for the truncated boxplot.} }
 #' 
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#'
 #' @aliases boxPlot boxPlot.list boxPlot.data.frame boxPlot.numeric
 #' @param \dots the data to plot.
 #' @param group create groups of a single numeric vector. Invalid for any kind
 #' of object other than numeric.
 #' @param Box control parameters for the box. See \bold{Details}.
 #' @param yaxis.log logical: log transform y axis?
-#' @param yaxis.range set y-axis range.
+#' @param yaxis.range set y-axis range. See \bold{Details}.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
 #'details; the value for \code{ylabels} can be set to an valid value for the
 #'\code{label} argument in \code{linearPretty} or a tagged list with values

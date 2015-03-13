@@ -5,6 +5,12 @@
 #' The argument \code{what} for either \code{LineRef} or \code{Line1.1} may be
 #' set to "none" to suppress drawing of either line.
 #' 
+#' For linear axes, the range can be set to virtually any pair of values. For 
+#'log axes, the choice of range is more resticted---for less than one log-cycle,
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
+#'expressed only in powers of 10.
+#' 
 #' @aliases qqPlot qqPlot.default
 #' @param x the x-axis data, or data to plot if \code{y} is missing.
 #' @param y the y-axis data. If missing, then produce a quantile-normal
@@ -17,9 +23,9 @@
 #' @param Line1.1 control parameters for the 1:1 line. Drawn only for q-q plot.
 #' See \bold{Details}.
 #' @param yaxis.log log-transform the y axis?
-#' @param yaxis.range set the range of the y axis.
+#' @param yaxis.range set the range of the y axis. See \bold{Details}.
 #' @param xaxis.log log-transform the x axis?
-#' @param xaxis.range set the range of the x-axis.
+#' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.
 #' @param xlabels set the x-axis labels. See \code{\link{linearPretty}} for
