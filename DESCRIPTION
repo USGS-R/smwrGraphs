@@ -1,6 +1,6 @@
 Package: smwrGraphs
-Version: 1.0.5
-Date: 2015-03-13
+Version: 1.0.6
+Date: 2015-03-16
 Title: Graphing Functions
 Author: Dave Lorenz <lorenz@usgs.gov>.
 Maintainer: Dave Lorenz <lorenz@usgs.gov>
@@ -20,3 +20,4 @@ Description: Functions to create high-quality graphs to support statistical
 License: CC0
 LazyLoad: yes
 LazyData: yes
+VignetteBuilder: utils
