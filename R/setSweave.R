@@ -15,7 +15,7 @@ setSweave <- function(name, width, height, ...) {
   font <- PDFFont
   fname <- paste(name, ".pdf", sep="")
   pdf(file=fname, onefile=TRUE, width=width, height=height,
-      family=PDFFont, pointsize=8, colormodel="cmyk", title=name)
+      family=PDFFont, pointsize=8, colormodel="rgb", title=name)
   ## set up for export to PDF file.
   if(all(names(pdfFonts()) != "USGS")) # Check to see if already in the PDF font list
     pdfFonts("USGS" = Type1Font("Helvetica-Narrow",

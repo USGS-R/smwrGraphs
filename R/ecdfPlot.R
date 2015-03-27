@@ -13,7 +13,7 @@
 #' @param group create groups for \code{x}. Each group is plotted as a separate
 #' line.
 #' @param Plot control parameters of the plot.
-#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.

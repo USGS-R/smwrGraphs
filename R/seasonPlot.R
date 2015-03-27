@@ -13,8 +13,8 @@
 #' @param x the x-coordinate data.
 #' @param y the y-coordinate data.
 #' @param Plot control parameters of the plot
-#' @param yaxis.log log-transform the y axis?
-#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
+#' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis.
 #' @param xaxis.range set the range of the x-axis. Must be one of "calendar,"
 #' "water," or "climate" to set the type of year that is shown on the x-axis.

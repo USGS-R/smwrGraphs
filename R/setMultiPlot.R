@@ -1,7 +1,7 @@
 #' Plot Parameters
 #' 
-#' Sets the plotting parameters for high-levels graphs that allow individual
-#' symbols (support function).
+#' Sets the plotting parameters for high-level graphing functions that allow 
+#' individual symbols (support function).
 #' 
 #' Each of the arguments from \code{name} through \code{color} must have one
 #' entry for each observation. If a single value is given, then it is
@@ -21,17 +21,17 @@
 #' lines from the y-axis origin to the y value at each x value.
 #' @param type the type of line, if drawn. Must be one of "solid," "dashed,"
 #' "dotted."
-#' @param width the width of line, if drawn. Must be one of "standard,"
-#' resulting in a line width of about .8 points; "color," resulting in a line
-#' width of about 1 points; "bold," resulting in a line width of about 1.6
-#' points; or "hairline" resulting in a line width of about .5 points. Note
+#' @param width the width of the line, if drawn. Must be one of "standard,"
+#' resulting in a line width of about 0.7 points; "color," resulting in a line
+#' width of about 0.8 points; "bold," resulting in a line width of about 1
+#' point; or "hairline" resulting in a line width of about 0.5 points. Note
 #' these values are doubled if the \code{font} argument to \code{setPage} is
 #' "PPT."
 #' @param symbol type symbol, if drawn. Must be one of "circle;" "uptri,"
 #' upward pointing triangle; "plus;" "x;" "diamond;" "downtri," downward
 #' pointing triangle; "square;" or "dot."
-#' @param filled fill the symbol? Valid only for \code{symbol} equal to
-#' "circle," "uptri," "diamond," "downtri," or "square."
+#' @param filled logical, if \code{TRUE}, then fill the symbol. Valid only for
+#' \code{symbol} equal to "circle," "uptri," "diamond," "downtri," or "square."
 #' @param size the size of the symol in inches, if drawn.
 #' @param color the color of the plotted values. Can be a named color, such as
 #' "black" or "gray50" or an RGB color like "#4056FF."

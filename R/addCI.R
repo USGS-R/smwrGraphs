@@ -10,9 +10,8 @@
 #' @param level the confidence level desired.
 #' @param Plot parameters defining the characteristics of the plot. See
 #' \code{\link{setPlot}} for a description of the parameters.
-#' @param current the current plot information. This would is the
-#' output from one of the graph creation or addition functions like \code{qqPlot}
-#' or \code{addSLR}.
+#' @param current the current plot information, normally the output from a high-level
+#' graphics function like \code{qqPlot} or \code{xyPlot}.
 #' @return The current plot information, the x and y components are the data, not the line.
 #'The regression model is included as the lm component.
 #' @note The equation for the confidence intervals for a simple linear regression 

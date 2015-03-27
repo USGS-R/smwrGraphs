@@ -4,7 +4,8 @@
 #'values in \code{z}.
 #' 
 #' Missing values are permitted in \code{z}, \code{x}, and \code{y} for the default
-#'method and are removed, with a warning. before constructing the surface.\cr
+#'method and are removed, with a warning. before constructing the surface.
+#'
 #'Missing values are not permitted in \code{rows} or \code{columns} but are permitted
 #'in \code{z} for the matrix method. Missing values in \code{z} result in blank areas
 #'in the plot.

@@ -6,7 +6,7 @@
 #' @param x the x-coordinate data. Missing values are permitted, but ignored.
 #' @param y the y-coordinate data. Missing values are permitted, but ignored.
 #' @param percent the minimum percent to enclose.
-#' @param smooth smooth the bounding hull?
+#' @param smooth logical, if \code{TRUE}, then smooth the bounding hull.
 #' @return A list containing the x- and y-coordinates of the hull.
 #' @seealso \code{\link{dataEllipse}}
 #' @keywords dplot

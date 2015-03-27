@@ -4,8 +4,8 @@ library(smwrData)
 data(UraniumTDS)
 # Set up the page, for this demo, use the default layout
 setGD("UraniumTDS")
-# No explanation for this example
-# yleft must be set because of the range of the Iron values
+# The explanation is automatically set up after the last graph
+# but only displayed on the last page if multiple pages.
 condition({AA.ret <- xyPlot(TDS, Uranium, Plot=list(name="Sample data"),
                             xaxis.range=c(0, 1500),
                             yaxis.range=c(0, 16), 

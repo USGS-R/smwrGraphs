@@ -16,8 +16,8 @@
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @param new.axis character:  indicating which new axis to set up. Must be either "right," "top,"
 #' or "none," which indicates that the existing axes be used (default).
-#' @param new.log logical: log transform new axis?
-#' @param new.rev logical: reverse new axis?
+#' @param new.log logical, if \code{TRUE}, then log transform new axis.
+#' @param new.rev logical, if \code{TRUE}, then reverse new axis.
 #' @param new.range set new-axis range.
 #' @param new.labels set up new-axis labels.
 #' @param new.title the new-axis title.

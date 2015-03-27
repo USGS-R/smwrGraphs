@@ -16,13 +16,13 @@
 #' @rdname xyPlot
 #' @aliases xyPlot xyPlot,numeric,numeric-method
 #'xyPlot,factor,numeric-method
-#' @param x the x-axis data
-#' @param y the y-axis data to plot
+#' @param x the x-axis data to plot.
+#' @param y the y-axis data to plot.
 #' @param Plot control parameters of the plot.
-#' @param yaxis.log log-transform the y axis?
-#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
+#' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis. See \bold{Details}.
-#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
 #' details.
@@ -32,8 +32,9 @@
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
 #' @param margin set up the plot area margins.
-#' @param xlabels.rotate rotate x-axis labels 90 degrees (perpendicular to the axis)?
-#' @param ... arguments for specific methods.
+#' @param xlabels.rotate logical, if \code{TRUE}, then rotate x-axis labels 90
+#' degrees (perpendicular to the axis).
+#' @param ... additional arguments for specific methods.
 #' @return Information about the graph
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{xyPlot}.

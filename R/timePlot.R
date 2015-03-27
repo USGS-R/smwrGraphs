@@ -2,17 +2,17 @@
 #' 
 #' @description Produce a plot of time-series data.
 #' 
-#' @details For \code{timePlot} method where the time/date data is of class "Date,"
-#'"POSIXt," or "numeric," the value for \code{xlabels} must be one of
+#' @details For the \code{timePlot} methods where the time/date data are of class "Date,"
+#'"POSIXt," or "numeric," the values for \code{xlabels} must be one of
 #'"hours," "days," "months," "years," "water years," or "Auto," which will 
 #'select an appropriate axis labeling scheme based on the time span of the data. 
-#'May also be a list of valid arguments to \code{datePretty} for finer control.\cr
+#'May also be a list of valid arguments to \code{datePretty} for finer control.
 #'
-#'For \code{timePlot} method where the time/date data is of class "integer," 
+#'For the \code{timePlot} method where the time/date data are of class "integer," 
 #'the value for \code{xlabels} must be one of "Auto," a number indicating the approximate
-#'number of labels, or a list of valid arguments to \code{linearPretty} for finer control.\cr
+#'number of labels, or a list of valid arguments to \code{linearPretty} for finer control.
 #'
-#'For \code{timePlot} method where the time/date data is of class "difftime," 
+#'For the \code{timePlot} method where the time/date data are of class "difftime," 
 #'the value for \code{xlabels} must be one of "Auto" or a number indicating the approximate
 #'number of labels.\cr
 #'
@@ -30,8 +30,8 @@
 #' @param x the time/date data.
 #' @param y the y-axis data.
 #' @param Plot control parameters of the plot.
-#' @param yaxis.log log-transform the y axis?
-#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
+#' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis. See \bold{Details}.
 #' @param xaxis.range set the range of the x-axis. Set at January 1 through
 #'December 31 for \code{seasonPlot}.
@@ -43,8 +43,8 @@
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
 #' @param margin set up the plot area margins.
-#' @param xlabels.rotate rotate the x-axis labels so that they are perpendicular to the
-#' x-axis?
+#' @param xlabels.rotate logical, if \code{TRUE}, then rotate the x-axis labels 
+#' so that they are perpendicular to the x-axis.
 #' @param ... arguments for specific methods.
 #' @return Information about the graph.
 #' @note The function \code{timePlot} produces a time-series plot. The function

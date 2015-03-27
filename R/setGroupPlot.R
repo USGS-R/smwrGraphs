@@ -5,11 +5,13 @@
 #' If the \code{name} component in the original call to the high-level plot is
 #' "Auto," then the description for the explanation is taken from the value in
 #' the \code{Group} argument in that call. Otherwise the user must specify a
-#' name for each group.\cr If the \code{color} component in the original call
+#' name for each group.
+#' 
+#' If the \code{color} component in the original call
 #' to the high-level plot is "Auto," then the colors for each group are based
 #' on a sequence of 15 colors that are easily distinguished from each other. If
 #' there are more than 15 groups, then a gray scale is used with no guarantee
-#' if easily distinguished colors.
+#' of easily distinguished colors.
 #' 
 #' @param current the plot parameters specified in the call to the high-level
 #' graphing function.
@@ -23,16 +25,16 @@
 #' @param type the type of line, if drawn. Must be one of "solid," "dashed,"
 #' "dotted."
 #' @param width the width of line, if drawn. Must be one of "standard,"
-#' resulting in a line width of about .8 points; "color," resulting in a line
-#' width of about 1 points; "bold," resulting in a line width of about 1.6
-#' points; or "hairline" resulting in a line width of about .5 points. Note
+#' resulting in a line width of about 0.7 points; "color," resulting in a line
+#' width of about 0.8 points; "bold," resulting in a line width of about 1.
+#' point; or "hairline" resulting in a line width of about 0.5 points. Note
 #' these values are doubled if the \code{font} argument to \code{setPage} is
 #' "PPT."
-#' @param symbol type symbol, if drawn. Must be one of "circle;" "uptri,"
-#' upward pointing triangle; "plus;" "x;" "diamond;" "downtri," downward
-#' pointing triangle; "square;" or "dot."
-#' @param filled fill the symbol? Valid only for \code{symbol} equal to
-#' "circle," "uptri," "diamond," "downtri," or "square."
+#' @param symbol type symbol, if drawn. Must be one of "circle," "uptri"
+#' (upward pointing triangle), "plus," "x," "diamond," "downtri" (downward
+#' pointing triangle), "square," or "dot."
+#' @param filled logical, if \code{TRUE}, then fill the symbol. Valid only 
+#' for \code{symbol} equal to "circle," "uptri," "diamond," "downtri," or "square."
 #' @param size the size of the symol in inches, if drawn.
 #' @param color the color of the plotted values for each group. Can be a named
 #' color, such as "black" or "gray50" or an RGB color like "#A09623."

@@ -3,7 +3,7 @@
 #' Adds a filled polygon (area) to a graph
 #' 
 #' If \code{ybase} is NULL, then \code{x} and \code{y} should form a complete
-#' polygon, which can be close or open. Otherwise, \code{ybase} can be a single
+#' polygon, which can be closed or open. Otherwise, \code{ybase} can be a single
 #' value in which case the area between \code{ybase} and \code{y} is treated as
 #' the area, or \code{ybase} can be a vector as long as \code{y} and the area
 #' between is treated as the area to be shaded.

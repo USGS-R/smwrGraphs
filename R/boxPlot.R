@@ -27,7 +27,7 @@
 #' @param group create groups of a single numeric vector. Invalid for any kind
 #' of object other than numeric.
 #' @param Box control parameters for the box. See \bold{Details}.
-#' @param yaxis.log logical: log transform y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log transform y axis.
 #' @param yaxis.range set y-axis range. See \bold{Details}.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
 #'details; the value for \code{ylabels} can be set to an valid value for the
@@ -35,7 +35,7 @@
 #'spcified for the arguments in \code{linearPretty}.
 #' @param xlabels set up x-axis labels. Must be either "Auto" or a character 
 #'vector of the x-axis labels.
-#' @param xlabels.rotate rotate x-axis labels 90 degrees?
+#' @param xlabels.rotate logical, if \code{TRUE}, then rotate x-axis labels 90 degrees.
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption

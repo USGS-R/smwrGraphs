@@ -3,8 +3,9 @@
 #' Produce a plot.
 #' 
 #' The argument \code{what} for \code{SeasonLine} must be either "lines" or
-#' "vertical."  See \code{\link{monthplot}} for more information.\cr The
-#' argument \code{what} for \code{SeasonPoint} can be set to "none" to suppress
+#' "vertical."  See \code{\link{monthplot}} for more information.
+#' 
+#' The argument \code{what} for \code{SeasonPoint} can be set to "none" to suppress
 #' drawing of that feature.
 #' 
 #' For linear axes, the range can be set to virtually any pair of values. For 
@@ -20,7 +21,7 @@
 #' \bold{Details}.
 #' @param SeasonPoint control parameters of the points in the plot. See
 #' \bold{Details}.
-#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.range set the range of the y axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.

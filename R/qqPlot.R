@@ -22,9 +22,9 @@
 #' \code{x} and \code{y}. See \bold{Details}.
 #' @param Line1.1 control parameters for the 1:1 line. Drawn only for q-q plot.
 #' See \bold{Details}.
-#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.range set the range of the y axis. See \bold{Details}.
-#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.

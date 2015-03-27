@@ -3,25 +3,26 @@
 #' Adds text in the margin for axis labels.
 #' 
 #' 
-#' @param label The text or expression to add to the graph.
+#' @param label the text or expression to add to the graph.
 #' @param x the axis location in the correct user units.
 #' @param side the side to place \code{label}. Must be "bottom," "left," "top,"
 #' or "right." Only the first letter is necessary.
-#' @param size the sized of the text in points.
+#' @param size the size of the text in points.
 #' @param distance the distance from the axis, in lines of text.
 #' @param justification defines the placement of the text relative to \code{x}
-#' if \code{orientation} is "parallel" and relative to \code{distance} if if
-#' \code{orientation} is "perdendicular." Must be one of "left," "center," or
+#' if \code{orientation} is "parallel" and relative to \code{distance} if
+#' \code{orientation} is "perpendicular." Must be one of "left," "center," or
 #' "right."
 #' @param orientation the orientation of the label relative to the axis. Must
-#' be either "parallel" or "perdendicular."
+#' be either "parallel" or "perpendicular."
 #' @param current the current plot parameters. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @return Nothing is returned.
 #' @note In general, all functions that create plots will draw the necessary
 #' axes. This function should be used only to add axis labels to an unlabeled
 #' axis. Axis labels can be suppressed by setting up the margins with negative
-#' values.
+#' values or, for some functions, special arguments to \code{xlabels} or 
+#' \code{ylabels}.
 #' @seealso \code{\link{mtext}} and \code{\link{plotmath}} for example
 #' expressions, \code{\link{addAxisLabels}}
 #' @keywords aplot

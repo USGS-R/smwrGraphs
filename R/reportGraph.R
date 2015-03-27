@@ -2,7 +2,7 @@
 #' 
 #' Create a report of any R object in a graph.
 #'
-#' @details The value for \code{family} cna be any valid font family for the
+#' @details The value for \code{family} can be any valid font family for the
 #'device. In general "serif," "sans," "mono," and "USGS" are valid. The default,
 #'"Auto" selects "USGS" for character vectors, and "mono" for any other object. 
 #'

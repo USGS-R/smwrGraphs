@@ -12,8 +12,8 @@
 #' @param yfromx the x-axis coordinate values to use to create matching
 #' y-coordinate values. Missing values are permitted but result in missing
 #' values in the output.
-#' @param warn supress the warning message from probability or transformed axes
-#' plots?
+#' @param warn logical, if \code{TRUE}, then supress the warning message from
+#' probability or transformed axes plots.
 #' @param \dots any future additional arguments.
 #' @return A vector of numeric values corresponding to those values in either
 #' \code{xfromy} or \code{yfromx}.

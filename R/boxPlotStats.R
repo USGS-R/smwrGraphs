@@ -5,8 +5,8 @@
 #' 
 #' @param x a list containing the data to compute the statistics.
 #' @param Box control paramters for the box.
-#' @param yaxis.log logical: log transform data before computing the
-#' statistics?
+#' @param yaxis.log logical, if \code{TRUE}, then log transform data before computing the
+#' statistics.
 #' @return a list containing the statistics for each box plot.
 #' @seealso \code{\link{boxPlot}}
 #' @keywords dplot

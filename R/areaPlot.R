@@ -1,6 +1,6 @@
 #' Shaded Area Plot
 #' 
-#' Produces an plot where the area between lines is filled with color.
+#' Produces a plot where the area between lines is filled with color.
 #' 
 #' @details The components of \code{Areas} are \code{name}, the name or names
 #'to use to describe the areas in the explanation, the default "Auto" generates
@@ -23,9 +23,9 @@
 #' @param x numeric x-axis coordinates in increasing order.
 #' @param y a numeric matrix of y-axis coordinates.
 #' @param Areas parameters controlling the areas. See \bold{Details}.
-#' @param yaxis.log logical: log transform y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log transform y axis.
 #' @param yaxis.range set y-axis range. See \bold{Details}.
-#' @param xaxis.log logical: log transform x axis?
+#' @param xaxis.log logical, if \code{TRUE}, then log transform x axis.
 #' @param xaxis.range set x-axis range. See \bold{Details}.
 #' @param ylabels set up y-axis labels. See \code{\link{linearPretty}} for
 #' details.

@@ -2,14 +2,16 @@
 #' 
 #' Add axis ticks, labels, and title
 #' 
-#' The \code{current} argument must contain a component named \code{yax} if
-#' \code{which} is "left" or "right" or a component named \code{xax} if
-#' \code{which} is "bottom" or "top." Those arguments are generally constructed
-#' from functions like \code{linearPretty}.
+#' The \code{current} argument is generally the output from a high-level
+#' plotting function in \code{smwrGraphs}. If \code{which} is "left" or "right,"
+#' then \code{current} must contain a component named \code{yax}. If  \code{which} is
+#' "bottom" or "top," then \code{current} must containa component named \code{xax}.
+#' Those components are generally constructed from functions like \code{linearPretty} or
+#' or \code{logPretty}.
 #' 
 #' @param which which axis to label, must be one of "bottom," "left," "top," or
 #' "right."
-#' @param current the current plot information, see \bold{Details}.
+#' @param current a list containing the current plot information, see \bold{Details}.
 #' @param title the axis title.
 #' @param ticks draw the ticks.
 #' @param labels draw the labels.

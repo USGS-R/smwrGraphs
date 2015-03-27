@@ -26,7 +26,7 @@
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @return The current plot information is returned invisibly.
 #' @note Use of \code{addBars} adds 1 step to creating bar charts, but adds
-#' flexibility in axis set up from existing high-level plotting functions such
+#' flexibility in axis formatted from existing high-level plotting functions such
 #' as \code{xyPlot} or \code{timePlot}.
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},
 #' \code{\link{xyPlot}}

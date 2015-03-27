@@ -17,18 +17,18 @@
 #' @param y the y-axis data
 #' @param color the colors or a class to set colors, must match the length of
 #' \code{x} and \code{y}.
-#' @param Plot control parameters of the plot name="Auto" means derive class
-#' names from the argument color, otherwise, must be a tagged list of
-#' color=name, ... (in which case the color tag is not used).  what can be only
-#' "points" or "lines" in the current version.  color="Auto" means if color is
-#' double or dateLike create groups # of classes, otherwise create unique
-#' colors, alternate values are "Range" (treat like double), tagged list of
-#' group_name=color, and so forth, "Discrete" valid only for numeric, or
+#' @param Plot tagged list of control parameters of the plot: \code{name}="Auto"
+#' means derive class names from the argument color, otherwise, must be a tagged 
+#' list of color=name, ... (in which case the color tag is not used); \code{what}
+#' can be only "points" or "lines" in the current version; \code{color}="Auto"
+#' means if the argument \code{color} is double or dateLike create groups of classes,
+#' otherwise create unique colors, alternate values are "Range" (treat like double),
+#' tagged list of group_name=color, and so forth, "Discrete" valid only for numeric, or
 #' "Index" valid only for integer or for specified colors.
-#' @param yaxis.log log-transform the y axis?
-#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis
+#' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis. See \bold{Details}.
-#' @param xaxis.log log-transform the x axis.
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set up y-axis labels.
 #' @param xlabels set up x-axis labels.

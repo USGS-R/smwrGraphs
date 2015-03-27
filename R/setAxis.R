@@ -5,8 +5,8 @@
 #' 
 #' @param data the coordinates for the particular axis
 #' @param axis.range set axis range.
-#' @param axis.log log transform the axis?
-#' @param axis.rev reverse the axis direction?
+#' @param axis.log logical, if \code{TRUE}, then log transform the axis.
+#' @param axis.rev logical, if \code{TRUE}, then reverse the axis direction.
 #' @param axis.labels set axis labels.
 #' @param \dots additional arguments to the "pretty" functions.
 #' @return Information about the axis

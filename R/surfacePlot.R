@@ -15,7 +15,7 @@
 #'  \item{name}{the name of \code{z.color} used in the explanation.}
 #'  \item{lineColor}{the color for each line on the surface. If "none," then 
 #'  lines are not drawn.}
-#'  \item{levels}{the levels of the surface colors. Maybe either a single numeric 
+#'  \item{levels}{the levels of the surface colors. May be either a single numeric 
 #'  value that indicates the approximate number of levels, or a vector that 
 #'  indicates the exact breaks in the levels.}
 #'  \item{ramp}{the name of the color ramp. May be "gray" or "grey" for a gray 

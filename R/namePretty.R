@@ -4,17 +4,21 @@
 #' 
 #' 
 #' @param x the discrete data values.
-#' @param orientation the orientation of the data in \code{x}.\cr \tabular{lr}{
+#' @param orientation the orientation of the data in \code{x}.\cr \tabular{ll}{
 #' "table" \tab first in sequence at top (ends on right if x-axis)\cr "grid"
 #' \tab first in sequence at bottom \cr }
-#' @param order the oorder of the data in \code{x}.\cr \tabular{lr}{ "none"
-#' \tab accept order as is\cr "ascending" \tab sort in ascending alphabetical
-#' order\cr "descending" \tab sort in descending alphabetical order\cr named
-#' vector \tab sort by values (largest value at top if orientation is
-#' "table")\cr }
-#' @param label.abbr crate abbreviations for \code{x}?
+#' @param order the order of the data in \code{x}.\cr 
+#' \tabular{ll}{ 
+#' "none" \tab accept order as is\cr 
+#' "ascending" \tab sort in ascending alphabetical order\cr
+#' "descending" \tab sort in descending alphabetical order\cr 
+#' named numeric vector \tab sort by values (largest value at top if orientation is
+#' "table")\cr
+#' character vector \tab specifies the sequence of names\cr }
+#' @param label.abbr logical, if \code{TRUE}, then create abbreviations for \code{x},
+#' otherwise use the full text of \code{x} for labels.
 #' @param offset amount to offset the range, generally 0.5 or 1. The range of
-#' the data is from 1 to the number of elements in in \code{x}.
+#' the data is from 1 to the number of elements in \code{x}.
 #' @return Information about the axis labels
 #' @seealso \code{\link{dotPlot}}
 #' @keywords dplot
@@ -28,7 +32,7 @@ namePretty <- function(x, orientation="table", order="none", label.abbr=FALSE,
   ##
   ## offset (numeric scalar) ammount to offset the range, generally 0.5 or 1
   ## Determine kind of order
-  if(length(order) == 1)
+  if(length(order) == 1L)
     ckord <- match.arg(order, c("none", "ascending", "descending"))
   else
     ckord <- 0 # specified order

@@ -13,10 +13,12 @@
 #' the labels is placed relative to the object.} \item{color}{the color of the
 #' label text.} }
 #' 
-#' @param x a matrix of x- and y-coordinates for observations or equivalent.
-#' @param y a matrix of x- and y-coordinates for variables or equivalent.
-#' @param separate.axes logical: should \code{x} and \code{y} data be plotted
-#' on separate axes?
+#' @param x a 2-column matrix of x- (column 1) and y- (column 2) coordinates for 
+#' observations or equivalent.
+#' @param y a 2-column matrix of x- (column 1) and y- (column 2) coordinates for
+#' variables or equivalent.
+#' @param separate.axes logical, if \code{TRUE}, then plot \code{x} and \code{y} data
+#' on separate axes.
 #' @param xPlot control information to plot the \code{x} data.  See
 #' \code{\link{setPlot}} for a description of the parameters.
 #' @param yPlot control information to plot the \code{y} data.  See

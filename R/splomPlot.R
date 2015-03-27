@@ -5,12 +5,14 @@
 #' \code{Panel} may be a tagged list, with any one of these options:\cr
 #' loess=span, where span is the span argument to loess.smooth;\cr line=opt,
 #' where opt='slr' for simple linear regression, or 'loc' for line of organic
-#' correlation, or '1:1' for the 1:1 line.\cr The format of the lines is taken
-#' from \code{Plot}.\cr\cr \code{Panel} may also be a function with 3
+#' correlation, or '1:1' for the 1:1 line.\cr The format of the lines is taken 
+#' from \code{Plot}.
+#' 
+#' \code{Panel} may also be a function with 3
 #' arguments, x, y, and current, that adds to the plot and returns updated plot
 #' information. The function is called for each individual plot.
 #' 
-#' @param x the data to plot, must be eiterh a matrix or a data frame.
+#' @param x the data to plot, must be either a matrix or a data frame.
 #' @param layout the output from \code{setSplom}
 #' @param Plot control parameters for each plot.
 #' @param Panel a list or a function, see \bold{Details}.

@@ -3,10 +3,10 @@
 #' Construct information for making a nicely formatted linear numeric axis.
 #' 
 #' 
-#' @param x data defining the range to be plotted on the axis. Missing value
+#' @param x data defining the range to be plotted on the axis. Missing values
 #' are permitted, but ignored.
-#' @param hard use the minimum and maximum of \code{x} as the fixed range of
-#' the axis?
+#' @param hard logical, if \code{TRUE}, then use the minimum and maximum of 
+#' \code{x} as the fixed range of the axis, otherwise find "nice" limits.
 #' @param labels either "Auto," which lets the function decide how many labels,
 #'the approximate number of labels, or the actual labels to use. If the actual
 #'labels are numeric, then the will be formatted using \code{style}. If they are

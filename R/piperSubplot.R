@@ -14,13 +14,13 @@
 #' @param axis.range the range of the axes. Must be either c(0, 1) or c(0,
 #' 100).
 #' @param num.labels the number of labels to draw on each axis.
-#' @param ticks draw ticks?
-#' @param grids draw grid lines?
+#' @param ticks logical, if \code{TRUE}, then  draw ticks.
+#' @param grids logical, if \code{TRUE}, then draw grid lines.
 #' @param x1title the title (also called caption) of the bottom x-axis.
 #' @param y1title the title (also called caption) of the left y-axis.
 #' @param x2title the title (also called caption) of the top x-axis.
 #' @param y2title the title (also called caption) of the right y-axis.
-#' @param plot plot the data?
+#' @param plot logical, if \code{TRUE}, then plot the data.
 #' @return If \code{plot} is TRUE, then the range of the user coordinates.
 #' Otherwise, the transformed x- and y-coordinate values.
 #' @seealso \code{\link{piperPlot}}

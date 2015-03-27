@@ -10,4 +10,4 @@ condition(boxPlot(Iron, group=MineType, yaxis.log=TRUE,
                   yaxis.range=c(0.01, 1000),
                   xlabels.rotate=TRUE, margin=.margin),
           data=MiningIron, group="Rock", num.cols=2,
-          yleft=4.2, ytitle="Iron concentration, in mg/L")
+          ytitle="Iron concentration, in mg/L")

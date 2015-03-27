@@ -1,7 +1,7 @@
 #' Set Secondary Margin
 #' 
 #' Set the right or top margin for graphs with secondary axes. Used After
-#' setting up the graphics environment, but before the call the the high-level
+#' setting up the graphics environment, but before the call to the high-level
 #' graphics function to allocate space for an additional label and title.
 #' 
 #' The values for \code{right.labels}, \code{right.log}, and \code{right.range}
@@ -13,7 +13,7 @@
 #' \code{setGraph}.
 #' @param right.labels set up right-axis labels; the approximate number of
 #' labels.
-#' @param right.log logical: log transform right axis?
+#' @param right.log logical, if \code{TRUE}, then log transform right axis.
 #' @param right.range set right-axis range.
 #' @return The updated margin; only the right margin value is changed.
 #' @seealso \code{\link{setLayout}}, \code{\link{setGraph}},

@@ -6,19 +6,20 @@
 #' only,} \item{"lines"}{lines only,} \item{"both"}{lines connecting symbols
 #' with a small gap,} \item{"overlaid"}{lines connecting symbols,}
 #' \item{"stairstep"}{horizontal line to next x value with a vertical line to
-#' the y value,} \item{"vertical"}{vertical lines from the y-axis only.}
+#' the y value,} \item{"vertical"}{vertical lines from y equal 0 only.}
 #' \item{"none"}{draw nothing} } The value for \code{symbol} must be one of:
-#' \describe{ \item{"circle"}{an open circle or filled, depending on
-#' \code{filled},} \item{"uptri"}{an open up pointing triangle or filled,
+#' \describe{ \item{"circle"}{an open or filled circle, depending on
+#' \code{filled},} \item{"uptri"}{an open or filled up pointing triangle,
 #' depending on \code{filled},} \item{"plus"}{a plus sign (never filled),}
-#' \item{"x"}{an x (never filled),} \item{"diamond"}{an open diamond shape or
-#' filled, depending on \code{filled},} \item{"downtri"}{an open down pointing
-#' triangle or filled, depending on \code{filled},} \item{"square"}{an open
-#' square or filled, depending on \code{filled},} \item{"dot"}{a very small dot
+#' \item{"x"}{an x (never filled),} \item{"diamond"}{an open or filled diamond
+#' shape, depending on \code{filled},} \item{"downtri"}{an open  or filled 
+#' down pointing triangle, depending on \code{filled},} \item{"square"}{an open
+#'  or filled square, depending on \code{filled},} \item{"dot"}{a very small dot
 #' (never filled),} \item{"+"}{a plus sign (never filled),} \item{"none"}{no
 #' symbol or line.} }
 #' 
-#' @param current list containing the current or those requested by the user.
+#' @param current list containing the current plot information or those requested
+#' by the user.
 #' @param name the name of the object plotted; used in the explanation.
 #' @param what what to plot, see \bold{Details}.
 #' @param type the line type, if drawn, must be one of "solid," "dashed," or
@@ -27,16 +28,16 @@
 #' "color," a little wider than "standard;" "bold," substantially wider than
 #' "standard;" or "hairline," used for ticks and borders. 
 #' @param symbol the symbol to plot, if drawn, see \bold{Details}.
-#' @param filled if a symbol is drawn, fill with solid color?
-#' @param size the size of the symbol, in incehs, if drawn.
+#' @param filled logical, if \code{TRUE} and a symbol is drawn, then fill with solid color.
+#' @param size the size of the symbol, in inches, if drawn.
 #' @param color the color of the symbol or line.
 #' @param area.color the color of a shaded area, required for completeness.
 #' @param area.border the boundary color of a shaded area, required for
 #' completeness.
 #' @return A list like \code{current}, but with the defaults supplied for any
 #' missing component.
-#' @note Vertical lines drawn by setting \code{what} to "vertical" are drawn using
-#' the internal R graphics. The user will have more control over vertical lines by
+#' @note Vertical lines drawn by setting \code{what} to "vertical" are drawn from 
+#' y equal 0 to each y value. The user will have more control over vertical lines by
 #' using the \code{addBars} function and setting the bar width to 0.
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{qqPlot}},
 #' \code{\link{piperPlot}}, \code{\link{probPlot}}, \code{\link{colorPlot}},

@@ -5,14 +5,14 @@
 #' 
 #' @param x data defining the range to be plotted on the axis. Missing value
 #' are permitted, but ignored.
-#' @param hard use the minimum and maximum of \code{x} as the fixed range of
-#' the axis?
+#' @param hard logical, if \code{TRUE}, then use the minimum and maximum of
+#' \code{x} as the fixed range of the axis, otherwise find "nice" limits.
 #' @param labels either "Auto," which lets the function decide how many labels,
 #' the approximate number of labels, or the actual labels to use.
 #' @param style a character string indicating the style of the axis labels if
 #' they are not specifically listed in \code{labels}.
 #' @param func the forward transform function.
-#' @param Ifunc the bcakward (inverse) transform function.
+#' @param Ifunc the backward (inverse) transform function.
 #' @param \dots additional arguments to \code{func} and \code{Ifunc}.
 #' @return Information about the axis lables.
 #' @seealso \code{\link{transPlot}}

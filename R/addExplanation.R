@@ -342,9 +342,10 @@ addExplanation <- function(what, where="new",
   					 bg="white", box.lwd=frameWt(), box.col="black", y.intersp=1.1)
   	} else {
   		## Calculate inset if title is not blank
-  		if(title != "" && substring(pos, 1L, 3L) == "top") {
+  		title.blank <- !is.expression(title) && title == ""
+  		if(!title.blank && substring(pos, 1L, 3L) == "top") {
   			inset=c(0.05, 0.12)/par("pin")
-  		} else if(title == "" && substring(pos, 1L, 3L) == "top") {
+  		} else if(title.blank && substring(pos, 1L, 3L) == "top") {
   			inset=c(0.05, 0.)/par("pin")
   		} else
   			inset=0.05/par("pin")

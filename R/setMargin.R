@@ -7,8 +7,9 @@
 #' \code{setGraph}.
 #' @param yax the y-axis information from a "pretty" function, required if the
 #' second entry of \code{margin} is \code{NA}.
-#' @param aux.label second level of x-axis labels?
-#' @param caption account for figure caption?
+#' @param aux.label logical, if \code{TRUE}, then allocate space for asecond 
+#' level of x-axis labels.
+#' @param caption logical, if \code{TRUE}, then allocate space for figure caption?
 #' @return Complete plot margin specification.
 #' @seealso \code{\link{setPage}}, \code{\link{setGraph}},
 #' \code{\link{setLayout}}

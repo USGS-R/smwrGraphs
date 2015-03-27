@@ -14,7 +14,7 @@
 #' @name dotPlot
 #' @rdname dotPlot
 #' @aliases dotPlot dotPlot,numeric-method dotPlot,Date-method
-#' @param x the x-axis data
+#' @param x the x-axis data.
 #' @param y the y-axis data, expected to be be either character or factor.
 #' @param Plot control parameters of the plot, see \code{link{setMultiPlot}}
 #' and \bold{Details} for details.
@@ -23,8 +23,8 @@
 #' bottom to top.
 #' @param yaxis.order the order of the y-axis values, must be one of "none,"
 #' "ascending," or "descending."
-#' @param yaxis.grid draw grid lines?
-#' @param xaxis.log log-transform the x axis?
+#' @param yaxis.grid logical, if \code{TRUE}, then draw grid lines.
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set up y-axis labels.
 #' @param xlabels set up x-axis labels.
@@ -32,7 +32,8 @@
 #' @param ytitle y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
 #' @param margin the parameters of the margin.
-#' @param jitter.y adjust \code{y} values to reduce overlap for each group?
+#' @param jitter.y logical, if \code{TRUE}, then adjust \code{y} values to reduce
+#' overlap for each group.
 #' @param ... arguments for specific methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics

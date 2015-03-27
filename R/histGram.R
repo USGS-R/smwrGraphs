@@ -1,6 +1,6 @@
 #' Histogram
 #' 
-#' Create either a frequency of density histogram.
+#' Create either a frequency or density histogram.
 #' 
 #' To set the x-axis range, you must specify numeric breaks that span the
 #' complete range of \code{x}.

@@ -6,7 +6,7 @@
 #' @param x time difference data
 #' @param labels either "Auto," which lets the function decide how many labels,
 #' the approximate number of labels, or the actual labels to use.
-#' @return information about the axis labels.
+#' @return Information about the axis labels.
 #' @seealso \code{\link{timePlot}}
 #' @keywords dplot
 #' @export timePretty

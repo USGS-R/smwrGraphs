@@ -7,7 +7,7 @@
 #' @param y the y-coordinate data.
 #' @param percent a scale factor, adjusted to include \code{percent} of the
 #' data.
-#' @param smooth required for compatibiltiy, not used.
+#' @param smooth required for naming compatibility with other functions, not used.
 #' @return A list containing the x- and y-coordinates of the ellipse.
 #' @seealso \code{\link{cov2Ellipse}}, \code{\link{hull}}
 #' @keywords dplot
@@ -18,7 +18,6 @@
 #' }
 #' @export dataEllipse
 dataEllipse <- function(x, y, percent=100, smooth=0) { 
-  ## smooth required for compatibiltiy, not used
   ## Construct the data matrix and the ellispe info
   xy <- cbind(x,y)
   ell <- list(cov=var(xy), center=colMeans(xy), method='Covariance ellipse',

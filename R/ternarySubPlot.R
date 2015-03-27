@@ -4,9 +4,9 @@
 #' 
 #' Support function, to be called only from \code{piperPlot}.
 #' 
-#' @param x the x-ccordinate values
-#' @param y the y-coordinate values
-#' @param z the z-coordinate values
+#' @param x the x-ccordinate values.
+#' @param y the y-coordinate values.
+#' @param z the z-coordinate values.
 #' @param what the type of plot, must be either "points," "lines," or "none."
 #' @param symbol the symbol to use if \code{what} is "points."
 #' @param color the color of the plot.
@@ -14,8 +14,8 @@
 #' @param axis.range the range of the axes. Must be either c(0, 1) or c(0,
 #' 100).
 #' @param num.labels the number of labels to draw on each axis.
-#' @param ticks draw ticks?
-#' @param grids draw grid lines?
+#' @param ticks logical, if \code{TRUE}, then draw ticks.
+#' @param grids logical, if \code{TRUE}, then draw grid lines.
 #' @param orient a single character, "c" indicates clockwise orientation for
 #' \code{x}, \code{y}, and \code{z} anything else indicates counter-clockwise.
 #' @param xtitle the x-axis title (also called x-axis caption).

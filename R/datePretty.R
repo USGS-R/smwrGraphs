@@ -2,8 +2,8 @@
 #' 
 #' @description Construct information for making a "pretty" date axis.
 #' 
-#' @details Setting \code{major} to "water year" is practical for only for periods of
-#'time from 1 to 5 water years in length and also set the date range for water years.
+#' @details Setting \code{major} to "water year" is practical only for periods of
+#'time from 1 to 5 water years in length; also sets the date range to water years.
 #'
 #' @param x date and time data
 #' @param major the major tick interval, must be one of "hours," "days," "months,"

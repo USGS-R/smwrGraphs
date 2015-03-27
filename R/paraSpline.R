@@ -1,7 +1,7 @@
 #' Parametric Spline
 #' 
-#' Construct a parametric interpolating spline for x and y data for not
-#' necessarily strictly increasing x. Used as a support function.
+#' Construct a parametric interpolating spline for x and y data. The x data
+#' are not required to be strictly increasing. Used as a support function.
 #' 
 #' 
 #' @param x the x-coordinate data. Missing values are not permitted.

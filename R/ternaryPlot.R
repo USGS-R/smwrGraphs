@@ -16,8 +16,8 @@
 #' @param num.labels the number of labels to draw on each axis. Best selections
 #' are 2 giving (0, 100), 3 (0, 50, 100), 5 (0, 25, 50, 75, 100), or 6 (o, 20,
 #' 40, 60, 80, 100).
-#' @param ticks draw ticks?
-#' @param grids draw grid lines?
+#' @param ticks logical, if \code{TRUE}, then draw ticks.
+#' @param grids logical, if \code{TRUE}, then draw grid lines.
 #' @param orient the orientation of the graph. Must be "c" for clockwise or "a"
 #' for anti- or counter-clockwise
 #' @param xtitle title (also called caption) for the x-axis.

@@ -37,10 +37,10 @@
 #' @param xaxis.range the range of the x-axis corresponding to \code{width} in
 #' the call to \code{addStiff} or the range of the x-axis in the call to
 #' \code{stiffPlot}. See \bold{Details}.
-#' @param catlabels labels for the vales of the cations. For \code{addStiff},
+#' @param catlabels labels for the values of the cations. For \code{addStiff},
 #' the labels are applied to each Stiff diagram and for \code{stiffPlot}, the
 #' labels are stored and drawn on the explanation \code{addExplanation}.
-#' @param anlabels labels for the vales of the anions. For \code{addStiff}, the
+#' @param anlabels labels for the values of the anions. For \code{addStiff}, the
 #' labels are applied to each Stiff diagram and for \code{stiffPlot}, the
 #' labels are stored and drawn on the explanation \code{addExplanation}.
 #' @param current the current plotting parameters. Typically, this would be the

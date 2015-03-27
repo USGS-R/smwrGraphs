@@ -7,30 +7,30 @@
 #' the width of each column using \code{width} or setting equal-width columns
 #' by specifying \code{num.cols}. The rows can be specified in one of two ways,
 #' either by specifying the height of each column using \code{height} or
-#' setting equal-height rows by specifying \code{num.rows}.\cr 
+#' setting equal-height rows by specifying \code{num.rows}.
 #' 
 #' If an explanation is to be placed outside of the graphs, then \code{explanation}
 #' is used to indicate where the explanation is to be placed. The explanation
 #' can be placed either to the right of the grid of graphs, at the bottom of
-#' the grid, or in one of the grid cells.\cr 
+#' the grid, or in one of the grid cells.
 #' 
 #' To place an explanation to the
 #' right of the graphs, \code{explantion} should be set to
 #' \code{list(right=ewid)}, where \code{ewid} is the width of the explanation.
 #' In this case, the total of \code{width} and \code{ewid} must be less that
-#' the total available for the page.\cr 
+#' the total available for the page.
 #' 
 #' To place an explanation at the bottom
 #' of the graphs, \code{explantion} should be set to \code{list(bottom=ehei)},
 #' where \code{ehei} is the height of the explanation. In this case, the total
 #' pf \code{height} and \code{ehei} must be less than the total available for
-#' the page.\cr 
+#' the page.
 #' 
 #' To place an explanation within a cell of the grid,
 #' \code{explantion} should be set to \code{list(grid=enum)}, where \code{enum}
 #' is the cell number in the grid. Cell numbers are sequential starting in the
 #' upper left and increasing by column. In this case \code{num.graphs} must be
-#' set to some number less than \code{num.cols} times \code{num.rows}.\cr 
+#' set to some number less than \code{num.cols} times \code{num.rows}. 
 #' 
 #' The width of the explanation can be estimated by allocating 1 inch per 13
 #' characters for \code{font} set to "preview" or 1 inch per 17 characters for
@@ -47,10 +47,10 @@
 #' \code{xbottom}, and \code{xtop} are used to set up the plot areas. If axes
 #' are not shared, then the margin values are not set for any graph. If the
 #' axes are shared, then the margin values apply to the corresponding left
-#' column, right column, bottom row or top row.\cr 
+#' column, right column, bottom row or top row.
 #' 
 #' The axis ticks and labels can be supressed by setting the margins to a negative 
-#' value.  This is most useful when adding right-axes with \code{addXY} for example.\cr
+#' value.  This is most useful when adding right-axes with \code{addXY} for example.
 #' 
 #' The value for \code{yright} can be set using the \code{setRtMargin} 
 #' function if adding a plot using the secondary right axes; extract 
@@ -58,8 +58,8 @@
 #' set a narrow right-hand margin.
 #' 
 #' The value for \code{xtop} can be set to -2.2 if adding a plot using the 
-#' secondary top axis.
-#' The default is to set the margin to 1.5, which allows for a graph title.
+#' secondary top axis. The default is to set the margin to 1.5, which allows 
+#' for a graph title.
 #' 
 #' @param width the width of the graph area, exclusive of any explanation. Can
 #' be either the total width or the width of each column of graphs. If NULL,
@@ -99,7 +99,8 @@
 #' number always ranges from 1 to the number of columns times the number of
 #' rows. The graph number ranges from 1 to \code{num.graphs} and skips the
 #' grid cell number if defined in the \code{explanation} argument. Printing the
-#' output object can help understand the graph layout.\cr
+#' output object can help understand the graph layout.
+#' 
 #' There is nothing special about the cell allocated for the explanation; it has
 #' no special characteristics, therefore an explantion can be placed in any graph
 #' numbered cell and anything can be placed in the "explanation" cell. As an example,

@@ -16,10 +16,10 @@
 #' @param y the y-axis data.
 #' @param scale the y/x ratio. See \bold{Details}.
 #' @param Plot control parameters of the plot.
-#' @param yaxis.log log-transform the y axis?
-#' @param yaxis.rev reverse the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
+#' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y axis. See \bold{Details}.
-#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
 #' details.

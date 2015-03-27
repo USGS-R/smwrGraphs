@@ -12,7 +12,7 @@
 #' \bold{Details}
 #' @param Justification specifies the location of the title, must be one of
 #' "left," "center," or "right."
-#' @param Bold logical: should the title be in bold face type?
+#' @param Bold logical, if \code{TRUE}, then display the title be in bold face type.
 #' @return Nothing is returned.
 #' @seealso \code{\link{addCaption}}, \code{\link{addAnnotation}},
 #' \code{\link{addTable}}

@@ -9,11 +9,11 @@
 #' @param z.surf a numeric matrix representing the surface. The length of \code{x}
 #'must match the number of rows in \code{z.surf}. The length of \code{y}
 #'must match the number of columns in \code{z.surf}.
-#' @param zaxis.log log-transform the z axis?
+#' @param zaxis.log logical, if \code{TRUE}, then log-transform the z axis.
 #' @param zaxis.range set the range of the z-axis.
-#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.range set the range of the y-axis.
-#' @param xaxis.log log-transform the x axis?
+#' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis.
 #' @param xlabels set up x-axis labels.
 #' @param ylabels set up y-axis labels.
@@ -31,7 +31,7 @@
 #' then draw 9 candidate combinations of viewing angles and pause for user input 
 #' to select the desired viewing angles. If character, then select the viewing 
 #' angles specified by the letter selection, must be A through I.
-#' @return A list containg the projection inforamtion and the data for plotting. Must
+#' @return A list containg the projection information and the data for plotting. Must
 #'be used in the call to \code{surfacePlot}
 #' @seealso \code{\link{surfacePlot}}
 #' @examples

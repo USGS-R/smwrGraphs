@@ -6,8 +6,8 @@
 #' @aliases addSmooth addSmooth.default addSmooth.list
 #' @param x the x-axis data. For method \code{list}, x is a list that contains
 #' components \code{x} and \code{y} and the \code{y} argument is not used.
-#' Missing values are permitted but ignored.
-#' @param y the y-axis data. Missing values are permitted but ignored.
+#' Missing values are permitted but omitted.
+#' @param y the y-axis data. Missing values are permitted but omitted.
 #' @param Smooth the name of the smoothing function.
 #' @param \dots additional parameters for the function names in \code{Smooth}.
 #' @param Plot parameters defining the characteristics of the plot. See

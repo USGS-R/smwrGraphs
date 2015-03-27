@@ -3,21 +3,28 @@
 #' Sets up a graphics page.
 #' 
 #' If \code{layout} is "portrait," then the page size is 8.5 by 11 inches and
-#' the graph area is 7.25 by 9.5 inches.\cr If \code{layout} is "landscape,"
-#' then the page size is 11 by 8.5 inches and the graph area is 9.5 by 7.25
-#' inches.\cr If \code{layout} is "square," then the page size is 7 by 7 inches
-#' and the graph area is 6.5 by 6.5 inches (\code{setPage} only).\cr If
-#' \code{layout} is "slide," then the page size is 10 by 7.5 inches and the
-#' graph area is 9.5 by 7.0 inches (\code{setPage} only).\cr \code{Layout} may
-#' also be a tagged list, with components \code{width} and \code{height} giving
-#' the width and height of the page, the width and height of the graph area is
-#' 0.5 inch less that the page, except for \code{setPDF} where it is 0.1 inch
-#' less.\cr The user may specify a graphics device other than the default for
+#' the graph area is 7.25 by 9.5 inches.
+#' 
+#' If \code{layout} is "landscape," then the page size is 11 by 8.5 inches and 
+#' the graph area is 9.5 by 7.25 inches.
+#' 
+#' If \code{layout} is "square," then the page size is 7 by 7 inches
+#' and the graph area is 6.5 by 6.5 inches (\code{setPage} only).
+#' 
+#' If \code{layout} is "slide," then the page size is 10 by 7.5 inches and the
+#' graph area is 9.5 by 7.0 inches (\code{setPage} only).
+#' 
+#' \code{Layout} may also be a tagged list, with components \code{width} and 
+#' \code{height} giving the width and height of the page, the width and height
+#' of the graph area is 0.5 inch less that the page, except for \code{setPDF} 
+#' where it is 0.1 inch less.
+#' 
+#' The user may specify a graphics device other than the default for
 #' the system. This may be necessary when running under certain user
 #' environments like RStudio (TM).
 #' 
 #' @rdname setPage
-#' @aliases setPage setPDF setSweave setGD
+#' @aliases setPage setPDF setSweave setGD setKnitr setPNG
 #' @param layout A description of the orientation and shape of the graphics
 #' page. See \bold{Details}.
 #' @param font a description of the font. The choices are "preview," which is
@@ -27,22 +34,28 @@
 #' to be saved to a portable document format (pdf) file.
 #' @param name the name of the graphics page or the filename for
 #' \code{setSweave}.
-#' @param multiple allow multiple pages?
+#' @param multiple logical, if \code{TRUE}, then allow multiple pages.
 #' @param device the name of the graphics device. See \bold{Details}.
 #' @param basename the base name of the pdf file name.
-#' @param multiplefiles modify \code{basename} to create multiple files for
-#' multiple pages?
+#' @param multiplefiles logical, if \code{TRUE}, then modify \code{basename}
+#' to create multiple files for multiple pages.
 #' @param height the height of the graphics page.
-#' @param width the widht of the graphics page.
-#' @param \dots additional arguments, which are ignored by \code{setSweave}.
+#' @param width the width of the graphics page.
+#' @param \dots additional arguments, which are ignored by \code{setSweave},
+#' \code{setKnitr}, and \code{setPNG}.
 #' @return For \code{setPage} and \code{setPDF}, a list with two components:
-#' dev, the device number; and name, the name or basename. For \code{setSweave}
-#' nothing is returned.
-#' @note The function \code{setSweave} is an interface to be used when using
-#' \code{Sweave}. The functions \code{setSweave} and \code{setPDF} require a
-#' call to \code{dev.off} to close the graphics device after all graphics is
-#' completed.\cr The function \code{setGD} is designed to be a quick-and-dirty
-#' graphics page set up function. It is designed to be used by functions to set
+#' dev, the device number; and name, the name or basename. For \code{setGD}
+#' \code{setSweave}, \code{setKnitr}, and \code{setPNG} nothing is returned.
+#' @note The functions \code{setSweave}, \code{setKnitr}, and \code{setPNG}
+#' are graphics set up functions to be used when using \code{Sweave},
+#' \code{knitr} and \code{markdown}, respectively. The functions 
+#' \code{setSweave} and \code{setPDF} require a call to \code{dev.off} to 
+#' close the graphics device after all graphics are completed; \code{knitr} 
+#' and \code{markdown} automatically close the graphics device, so the call
+#' to \code{dev.off} is not needed in those scripts.
+#' 
+#' The function \code{setGD} is designed to be a quick and easy
+#' graphics page setup function. It is designed to be used by functions to set
 #' up the graphics environment if the user fails to do so.
 #' @seealso \code{\link{setLayout}}, \code{\link{setGraph}}
 #' @keywords dplot

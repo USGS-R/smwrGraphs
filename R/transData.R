@@ -4,9 +4,9 @@
 #' 
 #' 
 #' @param data data for axis
-#' @param logT log transform?
-#' @param revT reverse data?
-#' @param trans arbitrary transform function.
+#' @param logT logical, if \code{TRUE}, then log transform \code{data}
+#' @param revT logical, if \code{TRUE}, then reverse \code{data} to match the axis.
+#' @param trans arbitrary transform function to apply to \code{data}.
 #' @param transarg list of arguments to \code{trans}.
 #' @return A vector like \code{data} transformed to plot correctly on an axis.
 #' @seealso \code{\link{transPlot}}, \code{\link{probPlot}}

@@ -22,25 +22,25 @@
 #' @param x the data to plot. Missing values are allowed and ignored.
 #' @param truncate truncate the data at the specified value. See
 #' \bold{Details}.
-#' @param FLIP if TRUE, the plot the cumumlative distribution. Otherwise, plot
+#' @param FLIP if TRUE, then plot the cumulative distribution. Otherwise, plot
 #' as flipped data (largest values on left).
 #' @param distribution the name of the desired function converting from
 #' probabilities to coordinates.
 #' @param alpha the alpha value of the function for computing plotting
 #' positions.
 #' @param Plot control parameters of the plot.
-#' @param yaxis.log log-transform the y axis?
+#' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.range set the range of the y axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{logPretty}} 
 #'for \code{yaxis.log} set to \code{TRUE} or 
 #'\code{\link{linearPretty}} for \code{yaxis.log} set to \\ceode{FALSE} for details.
 #' @param xlabels set the x-axis labels. See \code{\link{probPretty}} for
 #' details.
-#' @param CDF if TRUE, then label with increasing probabilities. Otherwise
+#' @param CDF logical, if \code{TRUE}, then label with increasing probabilities. Otherwise
 #' label with decreasing probabilities.
 #' @param xtitle the x-axis title (also called x-axis caption).
-#' @param RI label the top axis with recurrence intervals? If \code{RI} is set
-#' to \code{TRUE}, then \code{CDF} will be set to \code{FALSE}.
+#' @param RI logical, if \code{TRUE}, then label the top axis with recurrence intervals.
+#' If \code{RI} is set to \code{TRUE}, then \code{CDF} will be set to \code{FALSE}.
 #' @param RItitle the top x-axis title if \code{RI} is \code{TRUE}.
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.

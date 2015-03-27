@@ -4,21 +4,22 @@
 #' 
 #' 
 #' @param x axis coordinates in range 0-1 or 0-100 allowed and assumed if
-#' max(x) > 1 note that only min and max are needed, missing values allowed,
-#' but ignored.
+#' max(x) > 1. Note that only the range (min and max) are needed. Missing 
+#' values allowed, but ignored.
 #' @param hard logical force min(x) and max(x) as axis limits, otherwise use
 #' "nice" limits.
-#' @param labels estimate of the number of labels desired, or label points if
-#' vector note if vector, can be expressed as character strings, which are
+#' @param labels an estimate of the number of labels desired, or specific 
+#' label points. If vector, then can be expressed as character strings, which are
 #' converted to numeric and automatically scaled. Default is "Auto", which is 9
-#' if minimum x is greater than .01 and 11 otherwise.
+#' if minimum \code{x} is greater than .01 and 11 otherwise.
 #' @param style can be either "probability" or "percent" indicates how the
 #' labels are formatted.
-#' @param exceedence \tabular{lr}{ TRUE \tab exceedence probs and additional
-#' recurrence interval labels\cr FALSE \tab cumulative probabilities\cr }
-#' @param priority \tabular{lr}{ "label" \tab "nice" labels given priority for
-#' selection\cr "positions" \tab uniform separation given priority for
-#' selection\cr }
+#' @param exceedence \tabular{ll}{ 
+#' TRUE \tab exceedence probs and additional recurrence interval labels\cr 
+#' FALSE \tab cumulative probabilities\cr }
+#' @param priority \tabular{ll}{ 
+#' "label" \tab "nice" labels given priority for selection\cr 
+#' "positions" \tab uniform separation given priority for selection\cr }
 #' @param distribution the name of the probability function, defaults to
 #' normal.
 #' @param \dots options for the distribution function.
@@ -26,7 +27,7 @@
 #' @seealso \code{\link{probPlot}}
 #' @keywords dplot
 #' @export probPretty
-probPretty <- function(x, hard=FALSE, labels='Auto', style='probability',
+probPretty <- function(x, hard=FALSE, labels="Auto", style="probability",
                        exceedence=TRUE, 
                        priority="label", distribution="normal", ...) {
   ## create ticks and labels for a probability axis
@@ -48,24 +49,26 @@ probPretty <- function(x, hard=FALSE, labels='Auto', style='probability',
 	#    2014Jun27 DLLorenz Converted to roxygen
   ##
   ## get the distribution
-  distribution=getDist.fcn(distribution, 'q')
+  distribution=getDist.fcn(distribution, "q")
   ## if labels are specified, then just make them
-  if(length(labels) > 1) {
+  if(length(labels) > 1L) {
     Xlabels <- as.double(labels)
-    labels <- as.character(labels)
+    if(is.numeric(labels)) {
+    	labels <- sapply(labels, format, scientific=2) # Force no conversion to e format
+    }
     if(any(is.na(Xlabels)))
       stop("Invalid labels")
-    if(max(Xlabels) > 1) # assume percentages
+    if(max(Xlabels) > 1L) # assume percentages
       Xlabels <- Xlabels / 100
     xticks <- distribution(Xlabels, ...)
     if(exceedence) {
       xticks <- rev(xticks)
       RI = as.character(round(1/Xlabels, 2))
-      retval <- list(ticks=xticks, labels=labels, labelpos=xticks, range=range(xticks), RI=RI, style='at')
+      retval <- list(ticks=xticks, labels=labels, labelpos=xticks, range=range(xticks), RI=RI, style="at")
     }
     else
       retval <- list(ticks=xticks, labels=labels, labelpos=xticks,
-                     range=range(xticks), style='at')
+                     range=range(xticks), style="at")
     return(retval)
   }
   ## Make best guess from range and label request.
@@ -81,7 +84,7 @@ probPretty <- function(x, hard=FALSE, labels='Auto', style='probability',
   if(is.character(labels) || labels > 9)
     labels <- ifelse(xmind > .01, 9, 11)
   ## convert style
-  probability <- pmatch(style, c('probability', 'percentage')) == 1
+  probability <- pmatch(style, c("probability", "percentage")) == 1
   ## allow limits to be 0 or 1 and adjust label limits to account for those limits
   txmn <- xmind
   if(xmind == 0.0) txmn <- 0.05
@@ -167,7 +170,7 @@ probPretty <- function(x, hard=FALSE, labels='Auto', style='probability',
     else if(N > labels) { # select label closest to uniform spacing
       lticks <- distribution(lab, ...)
       lrange <- range(lticks)
-      pticks <- seq(from=lrange[1], to=lrange[2], length=labels)
+      pticks <- seq(from=lrange[1L], to=lrange[2L], length=labels)
       wtlab[1] <- wtlab[length(wtlab)] <- 1.5 # need to adjust down
       sel <- sapply(pticks, function(x, targ, wt) {z<- abs(x - targ)/wt; which(z == min(z))[1]},
                     targ=lticks, wt=wtlab)
@@ -187,5 +190,5 @@ probPretty <- function(x, hard=FALSE, labels='Auto', style='probability',
   else # want percentage
     lab <- as.character(lab * 100)
   return(list(ticks=xticks, labels=lab, labelpos=lticks, range=range(xticks),
-              RI=RI, style='at'))
+              RI=RI, style="at"))
 }

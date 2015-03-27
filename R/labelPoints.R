@@ -11,7 +11,7 @@
 #' @param offset the relative offset from the point.
 #' @param size character size in points.
 #' @param color the color of the labels.
-#' @param current the cuurent plot controls. Typically, this would be the
+#' @param current the current plot controls. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @return A list containing \code{x}, \code{y}, and \code{labels}.
 #' @seealso \code{\link{addAnnotation}},, \code{\link{xyPlot}}

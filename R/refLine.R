@@ -11,9 +11,10 @@
 #' forced to "lines."
 #' @param current the current parameters of the graph. Typically, this would be
 #' the output from one of the graph creation functions like \code{xyPlot}.
-#' @param xrange limit x-axis range of horizontal or regression lines
-#' @param yrange limit y-axis range of vertical lines
-#' @param log10 was log base 10 transform used in the regression model?
+#' @param xrange limit x-axis range for horizontal or regression lines
+#' @param yrange limit y-axis range for vertical lines
+#' @param log10 logical, if \code{TRUE}, then log base 10 transform used in the 
+#' regression model, otherwise either the natural log was used or no transform.
 #' @return Information about the graph.
 #' @seealso \code{\link{addXY}}, \code{\link{addSmooth}}, \code{\link{xyPlot}}
 #' @keywords aplot

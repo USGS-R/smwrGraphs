@@ -4,25 +4,28 @@
 #' 
 #' 
 #' @aliases renderBXP renderBoxPlot
-#' @param x the x-coordinate of the box.
+#' @param x the x-coordinate for the box.
 #' @param width the width of the box in x-axis units.
 #' @param z a list containing the statistics for the individual boxplot.
 #' @param fill a character string describing the fill color for the box or
 #' "none" for no fill.
-#' @param draw.RL draw the reporting level?
+#' @param draw.RL logical, if \code{TRUE}, then draw the reporting level
+#' for the individual boxplot.
 #' @param xtoplot the x-axis locations for each boxplot.
 #' @param stats a list containing the statistics for the boxplots.
 #' @param Box a list containing the control info for the boxplots.
 #' @param explan a list containing the information for an explanation.
 #' @param expz a list containing the information for an explanation of the
 #' boxplot.
-#' @param yaxis.log logical: use a log transfor for the data nad the y-axis?
+#' @param yaxis.log logical, if \code{TRUE}, then use a log transform for 
+#' the data and the y-axis.
 #' @param yrange set the y-axis range.
 #' @param xrange set the x-axis range.
 #' @param ylabels either "Auto," the approximate number of labels, or the
 #' actual labels to use for the y-axis.
 #' @param xlabels either "Auto" or the x-axis labels for each boxplot.
-#' @param xlabels.rotate logical: rotate the x-axis lables by 90 degrees?
+#' @param xlabels.rotate logical, if \code{TRUE}, then rotate the x-axis 
+#' labels by 90 degrees.
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.

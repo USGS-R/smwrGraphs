@@ -5,7 +5,7 @@
 #' 
 #' The scaling between observations and variables is controlled by
 #' \code{Scale}, which can take any value between 0 and 1 or a character string
-#' indicating a specific scaling. The options for the character string are
+#' indicating a specific scaling. The options for the character string are:
 #' "distance," which produces a plot where the observations retain their
 #' approximate relation with respect to Eucldiean distances and correponds to a
 #' numeric value of 1; "variance," which produces a plot where the cosine of
@@ -28,9 +28,9 @@
 #' the labels is placed relative to the object.} \item{color}{the color of the
 #' label text.} }
 #' 
-#' @param x an object of class "princomp" that has the information to to create
+#' @param x an object of class "princomp" that has the information to create
 #' a biplot.
-#' @param Which sequence of two numberis indicating which components to plot.
+#' @param Which sequence of two numbers indicating which components to plot.
 #' @param Scale either a character string indicating the scaling option between
 #' observations and variables, or numeric value controling the scaling. If
 #' character, then must be one of "auto," "distance," "symmetric," "variance,"

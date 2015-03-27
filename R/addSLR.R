@@ -4,7 +4,7 @@
 #' 
 #' @details The \code{Model} argument sets up the information to include the regression
 #'model equation on the graphs. Within \code{Model}, \code{x} is the name to use for the
-#'explanatory variable, \code{x} is the name to use for the response variable, \code{form}
+#'explanatory variable, \code{y} is the name to use for the response variable, \code{form}
 #'indicates the form that the regression model should take if the variable are log
 #'transformed; "exp" indicates that the model equation should be expressed as an exponent,
 #'anything else indicates thet the model should be expressed using the transformation 
@@ -12,8 +12,8 @@
 #' @aliases addSLR addSLR.default addSLR.list
 #' @param x the x-axis data. For method \code{list}, x is a list that contains
 #' components \code{x} and \code{y} and the \code{y} argument is not used.
-#' Missing values are permitted but ignored in the regression.
-#' @param y the y-axis data. Missing values are permitted but ignored.
+#' Missing values are permitted but omitted in the regression.
+#' @param y the y-axis data. Missing values are permitted but omitted.
 #' @param Plot parameters defining the characteristics of the plot. See
 #' \code{\link{setPlot}} for a description of the parameters.
 #' @param Model parameters for displaying the simple linear regression model.

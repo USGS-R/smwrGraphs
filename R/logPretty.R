@@ -2,10 +2,10 @@
 #' 
 #' Construct information for making a nicely formatted log-scale numeric axis.
 #' 
-#' @param x data defining the range to be plotted on the axis. Missing value
+#' @param x data defining the range to be plotted on the axis. Missing values
 #' are permitted, but ignored.
-#' @param hard use the minimum and maximum of \code{x} as the fixed range of
-#' the axis?
+#' @param hard logical, if \code{TRUE}, then use the minimum and maximum of 
+#' \code{x} as the fixed range of the axis, otherwise find "nice" limits.
 #' @param labels either "Auto," which lets the function decide how many labels,
 #' the approximate number of labels, or the actual numeric values of the labels.
 #' @param style a character string indicating the style of the axis labels.
@@ -17,9 +17,7 @@
 #'labels.
 #' @param extend.pct extend the axis range by \code{extend.pct}. Only valid
 #' when \code{hard} is FALSE.
-#' @param extend.range if \code{TRUE}, then extend the data range by a bit to
-#' avoid plotting on axis. Otherwise do not extend the data range. Only valid
-#' when \code{hard} is FALSE; Ignored in \code{logPretty}
+#' @param extend.range required for naming consistency with other functions, not used.
 #' @return Information about the axis lables.
 #' @seealso \code{\link{areaPlot}}, \code{\link{boxPlot}},
 #' \code{\link{colorPlot}}, \code{\link{areaPlot}}, \code{\link{dotPlot}},
