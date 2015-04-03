@@ -23,9 +23,11 @@
 #'expressed only in powers of 10.
 #'
 #' @aliases boxPlot boxPlot.list boxPlot.data.frame boxPlot.numeric
-#' @param \dots the data to plot.
-#' @param group create groups of a single numeric vector. Invalid for any kind
-#' of object other than numeric.
+#' @param \dots the data to plot. Missing values are permitted and excluded from
+#'the summary statistics computations.
+#' @param group any vector containing distinct values to create groups of data for
+#'individual box plots. Missing values are not permitted. Valid only when a single
+#'numeric vector is supplied for \code{\dots}.
 #' @param Box control parameters for the box. See \bold{Details}.
 #' @param yaxis.log logical, if \code{TRUE}, then log transform y axis.
 #' @param yaxis.range set y-axis range. See \bold{Details}.

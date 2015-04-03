@@ -39,7 +39,8 @@
 #'details.
 #' @param xlabels set up x-axis labels. See \bold{Details} for details for
 #'valid values.
-#' @param xtitle the x-axis title (also called x-axis caption).
+#' @param xtitle the x-axis title (also called x-axis caption). Generally should
+#'be blank as titles are typically set up by the axis labeling routines.
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
 #' @param margin set up the plot area margins.
