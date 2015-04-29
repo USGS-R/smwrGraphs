@@ -40,7 +40,11 @@ distribition.
 }
 \examples{
 \dontrun{
-# See for examples of addCI:
+set.seed(1)
+X <- rnorm(32)
+AA.pl <- qqPlot(X)
+addCI("q-norm", current=AA.pl)
+# For more details of addCI see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 }
 }
@@ -49,7 +53,7 @@ Helsel, D.R., and Hirsch, R.M., 2002, Statistical methods in water resources:
 U.S. Geological Survey Techniques of Water-Resources Investigations, book 4,
 chap. A3, 522 p.\cr
 U.S. Water Resources Council, 1982, Guidelines for determining flood flow frequency,
-revised September 1981, Editorial Correciotns March 1982:
+revised September 1981, Editorial Corrections March 1982:
 Hydrology Committee Bulletin 17B, Washington D.C., 190 p., 1 plate.
 }
 \seealso{

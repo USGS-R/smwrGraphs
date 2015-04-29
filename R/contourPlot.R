@@ -188,6 +188,14 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
   Contours <- setDefaults(Contours, name="Auto", levels=10,
                           filled=F, lineColor="black", lineLabel="flattest",
                           fillColors="coolWarm")
+  # Set line weigth automatically
+  if(Contours$lineColor != "black") {
+  	Contours$lineWt <- lineWt("color")
+  	lineWid <- "color"
+  } else {
+  	Contours$lineWt <- lineWt("standard")
+  	lineWid <- "standard"
+  }
   ## Process levels if necessary
   if(length(Contours$levels) == 1)
     Contours$levels <- pretty(range(z, na.rm=TRUE), Contours$levels)
@@ -219,7 +227,7 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
     contour(x, y, z, levels=Contours$levels,
             drawlabels=Contours$lineLabel != "none", labcex=0.75,
             method=ifelse(Contours$lineLabel == "none", "flattest", Contours$lineLabel),
-            col=Contours$lineColor, lwd=stdWt(), add=TRUE)
+            col=Contours$lineColor, lwd=Contours$lineWt, add=TRUE)
   ## Finish
   box(lwd=frameWt())
   ## label the axes
@@ -237,13 +245,13 @@ contourPlot.matrix <- function(z, rows, cols, matrix.rows="x", # data specs
     if(name == "Auto")
     	name <- ""
     contour <- list(zvalues=zvalues, fillcol=fillcol, breaks=breaks, xvals=xvals,
-                    yvals=yvals, linecol=linecol, name=name)
+                    yvals=yvals, linecol=linecol, name=name, linewt=Contours$lineWt)
     explan <- list(contour=contour)
   }
   else { # Simple explanation
     name <- if(Contours$name == "Auto") "Line of equal value" else Contours$name
     Plot <- setPlot(list(), name=name, what="lines", type="solid",
-                    width="standard", symbol="circle", filled=TRUE,
+                    width=lineWid, symbol="circle", filled=TRUE,
                     size=0.09, Contours$lineColor) # force defaults if not set
     explan <- setExplan(Plot) # add info to set up explanation
   }

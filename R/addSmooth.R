@@ -22,7 +22,12 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addSmooth:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' Y <- X + rnorm(32)
+#' AA.pl <- xyPlot(X, Y)
+#' addSmooth(AA.pl)
+#' # For more details of addSmooth see
 #' vignette(topic="GraphAdditions", package="smwrGraphs")
 #' }
 #' @export addSmooth

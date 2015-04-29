@@ -39,7 +39,12 @@ between is treated as the area to be shaded.
 }
 \examples{
 \dontrun{
-# See for examples of addArea:
+set.seed(1)
+X <- seq(1, 9, by=.5)
+Y <- runif(17) + runif(17)
+AA.pl <- xyPlot(X, Y, Plot=list(what="none"))
+addArea(X, Y, ybase=0, current=AA.pl)
+# For more details of addArea see
 vignette(topic="GraphSetup", package="smwrGraphs")
 demo(topic="DurationHydrograph", package="smwrGraphs")
 }

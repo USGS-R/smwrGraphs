@@ -66,6 +66,12 @@ the right-axis arguments are not valid.}
 }
 \examples{
 \dontrun{
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+Y2 <- X + rnorm(32, sd=0.5)
+AA.pl <- xyPlot(X, Y)
+addXY(X, Y2, Plot=list(what="points", color="brown"))
 # See for examples of addXY:
 vignette(topic="GraphAdditions", package="smwrGraphs")
 vignette(topic="GraphSetup", package="smwrGraphs")

@@ -75,7 +75,9 @@ A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{seasonPlot}.
 
 To add a plot to the graph created by \code{seasonPlot}, the x-axis data
-must be expressed as decimal time relative to January 1.
+must be expressed as decimal time relative to January 1. The function
+\code{baseDay2decimal} can be used to convert data in the form of base day
+to decimal time.
 }
 \section{Methods}{
  \describe{
@@ -94,7 +96,8 @@ vignette(topic="LineScatter", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{setPage}}, \code{\link{timePlot}}
+\code{\link{setPage}}, \code{\link{timePlot}},
+\code{\link[smwrBase]{baseDay2decimal}}
 }
 \keyword{hplot}
 \keyword{methods}

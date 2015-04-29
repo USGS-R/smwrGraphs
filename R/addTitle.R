@@ -19,7 +19,12 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addTitle:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' Y <- X + rnorm(32)
+#' AA.pl <- xyPlot(X, Y)
+#' addTitle("X and Y")
+#' # For more details of addTitle see
 #' vignette(topic="BoxPlots", package="smwrGraphs")
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' vignette(topic="GraphSetup", package="smwrGraphs")

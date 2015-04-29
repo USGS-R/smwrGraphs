@@ -27,7 +27,13 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addMinorTicks:
+#' set.seed(1)
+#' X <- runif(25, .5, 9.5)
+#' Y <- runif(25)
+#' AA.pl <- xyPlot(X, Y)
+#' addMinorTicks("bottom", AA.pl)
+#' addMinorTicks("top", AA.pl)
+#' # For more details of addMinorTicks see
 #' vignette(topic="DateAxisFormats", package="smwrGraphs")
 #' }
 #' @export addMinorTicks
@@ -46,7 +52,7 @@ addMinorTicks <- function(which, current, ticks) {
 		ax <- current$yax
   at <- ax$finegrid[!(ax$finegrid %in% ax$ticks)]
   if(!missing(ticks)) {
-  	# Logic is not exaclty straightforward, but easy coding
+  	# Logic is not exactly straightforward, but easy coding
   	at <- apply(cbind(ax$ticks[-length(ax$ticks)], ax$ticks[-1L]),1L,
   							function(x) cumsum(rep(diff(x)/(ticks+1), ticks))+x[1])
   	at <- as.vector(at) # strip matrix attributes

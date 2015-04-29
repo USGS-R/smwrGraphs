@@ -40,7 +40,13 @@ types can result in unexpected results.
 }
 \examples{
 \dontrun{
-# See for examples of addMinorTicks:
+set.seed(1)
+X <- runif(25, .5, 9.5)
+Y <- runif(25)
+AA.pl <- xyPlot(X, Y)
+addMinorTicks("bottom", AA.pl)
+addMinorTicks("top", AA.pl)
+# For more details of addMinorTicks see
 vignette(topic="DateAxisFormats", package="smwrGraphs")
 }
 }

@@ -35,7 +35,13 @@ column names than does the data frame.
 }
 \examples{
 \dontrun{
-# See for examples of addTable:
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+AA.pl <- xyPlot(X, Y)
+Mat <- cbind(c("Mean of X", "Mean of Y"), round(c(mean(X), mean(Y)), 2))
+addTable(Mat, "ul")
+# For more details of addTable see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 }
 }

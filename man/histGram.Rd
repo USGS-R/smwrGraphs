@@ -6,7 +6,7 @@
 \title{Histogram}
 \usage{
 histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = 7, xtitle = "", ytitle = "Auto",
+  ylabels = 7, xlabels = "Auto", xtitle = "", ytitle = "Auto",
   caption = "", margin = c(NA, NA, NA, NA), ...)
 
 \method{histGram}{default}(x, breaks = "Sturges", Hist = list(type =
@@ -26,7 +26,8 @@ histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA, NA),
 
 \item{ylabels}{the approximate number of labels for the y axis.}
 
-\item{xlabels}{the approximate number of labels for the x axis.}
+\item{xlabels}{the approximate number of labels for the x axis. The default value,
+"Auto" sets labels that are aligned with the breaks.}
 
 \item{xtitle}{x-axis title (also called x-axis caption).}
 
@@ -49,6 +50,19 @@ Create either a frequency or density histogram.
 \details{
 To set the x-axis range, you must specify numeric breaks that span the
 complete range of \code{x}.
+
+The components of \code{Hist}:
+\describe{
+\item{"type"}{The type of the histogram. Must be one of "frequency" for actual counts
+in the bin, "density" for density in each bin, or "relative frequency" for percent in each bin.}
+\item{"fill"}{Logical value, \code{TRUE} means each bin will be shaded with \code{fill.color}.}
+\item{"boundary"}{Defines how values tied to bin limit boundaires are handled. If "upper,"
+then the bin limit boundary is the upper limit of the range and values tied to that value
+are placed in the bin corresponding to the upper limit of the boundary. If "lower," then
+the bijn limit is the lower limit of the bin.}
+\item{line.color}{The color of the lines around the bins.}
+\item{fill.color}{The color the bins.}
+}
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics
@@ -56,7 +70,10 @@ environment before calling \code{histGram}.
 }
 \examples{
 \dontrun{
-# See for examples of histGram:
+set.seed(1)
+Xbig <- rnorm(100)
+histGram(Xbig, breaks=seq(-3, 3, by=.5), Hist=list(type="density"))
+# For more details of histGram see
 vignette(topic="ProbabilityPlots", package="smwrGraphs")
 }
 }

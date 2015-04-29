@@ -33,7 +33,16 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addErrorBars:
+#' set.seed(1)
+#' X <- seq(1, 9, by=1.0)
+#' Y1 <- runif(9)
+#' Y2 <- runif(9)
+#' Y <- (Y1 + Y2)/2
+#' Ymin <- pmin(Y1, Y2)
+#' Ymax <- pmax(Y1, Y2)
+#' AA.pl <- xyPlot(X, Y, yaxis.range=c(0,1))
+#' addErrorBars(X,Ymax, Ymin)
+#' # For more details of addErrorBars see 
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' }
 #' @export addErrorBars

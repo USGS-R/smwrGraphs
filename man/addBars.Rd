@@ -50,7 +50,12 @@ as \code{xyPlot} or \code{timePlot}.
 }
 \examples{
 \dontrun{
-# See for examples of addBars:
+set.seed(1)
+X <- seq(1, 9, by=1.0)
+Y <- runif(9) + runif(9)
+AA.pl <- xyPlot(X, Y, Plot=list(what="none"), yaxis.range=c(0,2))
+addBars(X, Y, base=0, current=AA.pl)
+# For more details of addBars see
 demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 }
 }

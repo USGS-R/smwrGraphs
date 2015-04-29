@@ -31,7 +31,9 @@
 #' environment before calling \code{seasonPlot}.
 #' 
 #' To add a plot to the graph created by \code{seasonPlot}, the x-axis data
-#' must be expressed as decimal time relative to January 1. 
+#' must be expressed as decimal time relative to January 1. The function
+#' \code{baseDay2decimal} can be used to convert data in the form of base day
+#' to decimal time.
 #' @docType methods
 #' @section Methods: \describe{
 #' 
@@ -41,7 +43,8 @@
 #' \item{signature(x = "character", y = "numeric")}{ Create a
 #' seasonal plot for date data in the form of month and day, like "Jan 01" or
 #' "Jaunary 01." Typically used to plot daily mean values. } }
-#' @seealso \code{\link{setPage}}, \code{\link{timePlot}}
+#' @seealso \code{\link{setPage}}, \code{\link{timePlot}}, 
+#' \code{\link[smwrBase]{baseDay2decimal}}
 #' @keywords methods hplot
 #' @examples
 #' \dontrun{

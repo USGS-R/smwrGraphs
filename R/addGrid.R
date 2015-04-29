@@ -24,7 +24,14 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addGrid:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' Y <- X + rnorm(32)
+#' AA.pl <- xyPlot(X, Y, Plot=list(what="none"))
+#' # Grid first, then data to avoid over plotting
+#' addGrid(AA.pl)
+#' addXY(X, Y, Plot=list(what="points"))
+#' # For more details of addGrid see
 #' vignette(topic="GraphAdditions", package="smwrGraphs")
 #' }
 #' @export addGrid

@@ -57,7 +57,12 @@ functions; and \code{where} indicates where to place the equation.
 }
 \examples{
 \dontrun{
-# See for examples of addSLR:
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+AA.pl <- xyPlot(X, Y)
+addSLR(AA.pl)
+# For more details of addSLR see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 }
 }

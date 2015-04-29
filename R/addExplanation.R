@@ -34,7 +34,12 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addExplanation:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' Y <- X + rnorm(32)
+#' AA.pl <- xyPlot(X, Y, Plot=list(name="Random Points"))
+#' addExplanation(AA.pl, where='ul')
+#' # For more details of addExplanation see
 #' vignette(topic="BoxPlots", package="smwrGraphs")
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' vignette(topic="GraphSetup", package="smwrGraphs")
@@ -220,7 +225,7 @@ addExplanation <- function(what, where="new",
       stop('The where argument for a filled explanation  must be "new"')
     ## Dummy call to plot to set up drawing environment
     plot(0,0, axes=FALSE, type="n", xlab="", ylab="", mar=c(0,0,0,0))
-    par(lwd=stdWt(), mar=margin)
+    par(lwd=what$contour$linewt, mar=margin)
     fin <- par("fin")
     breaks <- what$contour$breaks # need to separate for explanation
     yname <- .5 # adjustment for name
@@ -242,7 +247,7 @@ addExplanation <- function(what, where="new",
       	breaks[picks] <- NA
       }
     }
-    if(fin[1L] < 1 + 1.e-6)
+    if(fin[1L] < 1 - 1.e-6)
       warning("Explanation for plot should be at least ",
               1, " inches wide")
     par(usr=c(0, fin[1L], 0, fin[2L]))
@@ -261,15 +266,16 @@ addExplanation <- function(what, where="new",
           what$contour$zvalues, col=what$contour$fillcol,
           add=TRUE, breaks=what$contour$breaks)
     if(what$contour$linecol != "none") {
+    	lwd <- if(is.null(what$contour$linewt)) stdWt() else what$contour$linewt
       segments(what$contour$xvals[1L], fin[2L] - min(what$contour$yvals),
                what$contour$xvals[1L], fin[2L] - max(what$contour$yvals),
-               col=what$contour$linecol)
+               col=what$contour$linecol, lwd=lwd)
       segments(what$contour$xvals[2L], fin[2L] - min(what$contour$yvals),
                what$contour$xvals[2L], fin[2L] - max(what$contour$yvals),
-               col=what$contour$linecol)
+               col=what$contour$linecol, lwd=lwd)
       for(y in fin[2L] - what$contour$yvals)
         segments(what$contour$xvals[1L], y, what$contour$xvals[2L],
-                 col=what$contour$linecol)
+                 col=what$contour$linecol, lwd=lwd)
     }
     ## Works most consistently, at least from what I've seen
     breaks <- format(breaks, big.mark =",")

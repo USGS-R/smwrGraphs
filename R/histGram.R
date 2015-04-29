@@ -2,16 +2,30 @@
 #' 
 #' Create either a frequency or density histogram.
 #' 
-#' To set the x-axis range, you must specify numeric breaks that span the
-#' complete range of \code{x}.
-#' 
+#' @details To set the x-axis range, you must specify numeric breaks that span the
+#'complete range of \code{x}.
+#'
+#' The components of \code{Hist}:
+#'\describe{
+#'\item{"type"}{The type of the histogram. Must be one of "frequency" for actual counts
+#'in the bin, "density" for density in each bin, or "relative frequency" for percent in each bin.}
+#'\item{"fill"}{Logical value, \code{TRUE} means each bin will be shaded with \code{fill.color}.}
+#'\item{"boundary"}{Defines how values tied to bin limit boundaires are handled. If "upper," 
+#'then the bin limit boundary is the upper limit of the range and values tied to that value 
+#'are placed in the bin corresponding to the upper limit of the boundary. If "lower," then
+#'the bijn limit is the lower limit of the bin.}
+#'\item{line.color}{The color of the lines around the bins.}
+#'\item{fill.color}{The color the bins.}
+#'}
+#'
 #' @aliases histGram histGram.default
 #' @param x a numeric vector to create the histogram
 #' @param breaks any valid value for \code{\link{hist}}. See \bold{Details}.
 #' @param Hist Controls for the histogram.
 #' @param yaxis.range set the range for the y axis, the first value must be 0.
 #' @param ylabels the approximate number of labels for the y axis.
-#' @param xlabels the approximate number of labels for the x axis.
+#' @param xlabels the approximate number of labels for the x axis. The default value,
+#'"Auto" sets labels that are aligned with the breaks.
 #' @param xtitle x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption), 
 #'"Frequency" for a frequency histogram,
@@ -29,14 +43,17 @@
 #' @keywords hplot
 #' @examples
 #' \dontrun{
-#' # See for examples of histGram:
+#' set.seed(1)
+#' Xbig <- rnorm(100)
+#' histGram(Xbig, breaks=seq(-3, 3, by=.5), Hist=list(type="density"))
+#' # For more details of histGram see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")
 #' }
 #' @export histGram
 histGram <- function(x, breaks="Sturges", # data specs
-                     Hist=list(), # plot cntrls
+                     Hist=list(), # plot controls
                      yaxis.range=c(NA,NA), # y-axis controls
-                     ylabels=7, xlabels=7, # labels
+                     ylabels=7, xlabels="Auto", # labels
                      xtitle="",
                      ytitle="Auto", # axis titles
                      caption="",# caption
@@ -54,7 +71,7 @@ histGram <- function(x, breaks="Sturges", # data specs
 #' @export
 histGram.default <- function(x, breaks="Sturges", # data specs
                              Hist=list(type="frequency", fill=FALSE, boundary="lower",
-                               line.color="black", fill.color="gray80"), # plot cntrls
+                               line.color="black", fill.color="gray80"), # plot controls
                              yaxis.range=c(NA,NA), # y-axis controls
                              ylabels=7, xlabels=7, # labels
                              xtitle=deparse(substitute(x)),
@@ -69,9 +86,18 @@ histGram.default <- function(x, breaks="Sturges", # data specs
   ## But then need to find nice labels for x too!
   Hist <- setDefaults(Hist, type="frequency", fill=FALSE, boundary="lower",
                       line.color="black", fill.color="gray80")
-  Hist$type <- match.arg(Hist$type, c("frequency", "density"))
+  Hist$type <- match.arg(Hist$type, c("frequency", "density", "relative frequency"))
+  if(Hist$type == "relative frequency") {
+  	tweakY <- TRUE
+  	Hist$type <- "density"
+  } else {
+  	tweakY <- FALSE
+  }
   Hist$boundary <- match.arg(Hist$boundary, c("lower", "upper"))
   ret <- hist(x, breaks, right=Hist$boundary == "upper", plot=FALSE)
+  if(xlabels == "Auto") {
+  	xlabels <- ret$breaks
+  }
   xax <- linearPretty(range(ret$breaks), TRUE, xlabels)
   if(Hist$type == "frequency") {
     if(any(is.na(yaxis.range)))
@@ -90,6 +116,17 @@ histGram.default <- function(x, breaks="Sturges", # data specs
     freq <- FALSE
     if(ytitle == "Auto")
       ytitle <- "Density"
+    # Adjust labels and title
+    if(tweakY) {
+    	tweakY <- unique(diff(ret$breaks))
+    	if(length(tweakY) != 1L) {
+    		stop("cannot compute relative frequency if breaks are not uniform")
+    	}
+    	if(ytitle == "Density") {
+    		ytitle <- "Relative Frequency, in percent"
+    	}
+    	yax$labels <- format(yax$labelpos * tweakY * 100)
+    }
   }
   ## Set margins, controls in calls to render
   margin.control <- setMargin(margin, yax)

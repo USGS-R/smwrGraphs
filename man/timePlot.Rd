@@ -77,7 +77,8 @@ details.}
 \item{xlabels}{set up x-axis labels. See \bold{Details} for details for
 valid values.}
 
-\item{xtitle}{the x-axis title (also called x-axis caption).}
+\item{xtitle}{the x-axis title (also called x-axis caption). Generally should
+be blank as titles are typically set up by the axis labeling routines.}
 
 \item{ytitle}{the y-axis title (also called y-axis caption).}
 

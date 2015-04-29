@@ -20,6 +20,11 @@ Useful for adding 1-line captions.
 }
 \examples{
 \dontrun{
+set.seed(1)
+X <- runif(25)
+Y <- runif(25)
+AA.pl <- xyPlot(X, Y)
+addCaption("Twenty five random points")
 # See for examples of addCaption:
 vignette(topic="GraphSetup", package="smwrGraphs")
 demo(topic="AnnualFlowBarChart", package="smwrGraphs")

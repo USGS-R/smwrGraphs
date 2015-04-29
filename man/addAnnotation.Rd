@@ -48,7 +48,14 @@ leader from \code{x}, \code{y} to \code{leaderx}, \code{leadery} if
 }
 \examples{
 \dontrun{
-# See for examples of addAnnotation:
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+AA.pl <- xyPlot(X, Y)
+# Add the median line of Y and annotation
+refLine(horizontal = median(Y), current=AA.pl)
+addAnnotation(min(X), median(Y), "Median Y", current=AA.pl)
+# For more details of addAnnotation see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 demo(topic="TopAxisExample", package="smwrGraphs")
 }

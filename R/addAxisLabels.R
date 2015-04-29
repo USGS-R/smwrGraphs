@@ -25,7 +25,12 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of addAxisLabels:
+#' set.seed(1)
+#' X <- runif(25)
+#' Y <- runif(25)
+#' AA.pl <- xyPlot(X, Y)
+#' addAxisLabels("top", AA.pl, labels=TRUE)
+#' # For more details of addAxisLabels see 
 #' vignette(topic="GraphSetup", package="smwrGraphs")
 #' }
 #' @export addAxisLabels
