@@ -113,7 +113,7 @@ graphics.off()
 The Q-Q plot is designed to compare the distribution of two samples. The larger
 sample is subsetted to match the length of the smaller sample, if necessary and
 matching quantiles are plotted against each other. For this plot, two lines are
-shown--the best fit line and the 1:1 line. If the distributions are similar the
+shown---the best fit line (black) and the 1:1 line (gray). If the distributions are similar the
 lines will be close to each other. No assumption is made about the distribution 
 other than similarity.
 
@@ -151,7 +151,7 @@ graphics.off()
 
 \textbf{Figure 5.} The histogram.
 \eject
-A frequent variation on the histogram is plotting the density curve on top of the histogram. That type of histogram requires the \texttt{type} component of the \texttt{Hist} argument be set to "density." Because density estimation generally extends the x-axis beyond the usual limits of histogram estimation, the first step should be to compute the density estimate and set the x-axis limits to match those from the density estimate.
+A frequent variation on the histogram is plotting the density curve on top of the histogram. That type of histogram requires the \texttt{type} component of the \texttt{Hist} argument be set to ''density.'' Because density estimation generally extends the x-axis beyond the usual limits of histogram estimation, the first step should be to compute the density estimate and set the x-axis limits to match those from the density estimate.
 
 <<echo=TRUE>>=
 # Compute the density

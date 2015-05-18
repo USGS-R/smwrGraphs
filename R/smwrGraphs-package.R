@@ -10,8 +10,8 @@
 #' \tabular{ll}{ 
 #' Package: \tab smwrGraphs\cr 
 #' Type: \tab Package\cr 
-#' Version: \tab 1.0.8\cr 
-#' Date: \tab 2015-04-29\cr 
+#' Version: \tab 1.0.10\cr 
+#' Date: \tab 2015-05-10\cr 
 #' License: \tab CC0\cr 
 #' Depends: \tab smwrBase (>= 1.0.0), methods\cr 
 #' Imports: \tab KernSmooth, akima, lubridate\cr
@@ -39,6 +39,7 @@
 #' \code{\link{setPDF}}\cr
 #' \code{\link{setPage}}\cr 
 #' \code{\link{setPNG}}\cr
+#' \code{\link{setRStudio}}\cr
 #' \code{\link{setRtMargin}}\cr
 #' \code{\link{setSplom}}\cr 
 #' \code{\link{setSweave}}\cr
@@ -85,13 +86,15 @@
 #' \code{\link{addXY}}\cr
 #' \code{\link{labelPoints}}\cr 
 #' \code{\link{refLine}}\cr
-#' 
+#' Selected Miscellaneous Functions:\cr
+#' \code{\link{copyDemo}}\cr
+#' \code{\link{strip.blanks}}\cr
 #' @name smwrGraphs-package
 #' @aliases smwrGraphs-package smwrGraphs
 #' @docType package
 #' @author Dave Lorenz <lorenz@@usgs.gov>
 #' @references Lorenz, D.L. in preparation, smwrGraphs---an R package for
-#'graphing hydrologic data, version 1.0.7.\cr
+#'graphing hydrologic data, version 1.0.10.\cr
 #'U.S. Geological Survey, 2012, Author\verb{'}s guide to standards for U.S. 
 #'Geological Survey page-size illustrations, 37 p.
 #' @keywords package
@@ -108,7 +111,6 @@
 #' vignette(package="smwrGraphs")
 #' options(.pager)
 #' 
-## Check citation too
 NULL
 .onAttach <- function(libname, pkgname) {
 	packageStartupMessage("This information is preliminary or provisional and is subject to revision. It is being provided to meet the need for timely best science. The information has not received final approval by the U.S. Geological Survey (USGS) and is provided on the condition that neither the USGS nor the U.S. Government shall be held liable for any damages resulting from the authorized or unauthorized use of the information. Although this software program has been used by the USGS, no warranty, expressed or implied, is made by the USGS or the U.S. Government as to the accuracy and functioning of the program and related program material nor shall the fact of distribution constitute any such warranty, and no responsibility is assumed by the USGS in connection therewith.")}

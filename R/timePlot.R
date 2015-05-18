@@ -71,7 +71,12 @@
 #' @keywords methods hplot
 #' @examples
 #' \dontrun{
-#' # See for examples of timePlot:
+#' # the months function is in lubridate
+#' X <- as.Date("2001-01-15") + months(0:11)
+#' set.seed(1)
+#' Y <- runif(12)
+#' timePlot(X, Y)
+#' # For more details of timePlot see
 #' vignette(topic="DateAxisFormats", package="smwrGraphs")
 #' vignette(topic="LineScatter", package="smwrGraphs")
 #' demo(topic="AnnualFlowBarChart", package="smwrGraphs")

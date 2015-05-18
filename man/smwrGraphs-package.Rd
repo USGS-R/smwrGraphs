@@ -17,8 +17,8 @@ functions so the user does not need to manage graphical information.
 \tabular{ll}{
 Package: \tab smwrGraphs\cr
 Type: \tab Package\cr
-Version: \tab 1.0.7\cr
-Date: \tab 2015-03-13\cr
+Version: \tab 1.0.10\cr
+Date: \tab 2015-05-10\cr
 License: \tab CC0\cr
 Depends: \tab smwrBase (>= 1.0.0), methods\cr
 Imports: \tab KernSmooth, akima, lubridate\cr
@@ -46,6 +46,7 @@ Functions to set up and initialize the \code{smwrGraphs} environment:\cr
 \code{\link{setPDF}}\cr
 \code{\link{setPage}}\cr
 \code{\link{setPNG}}\cr
+\code{\link{setRStudio}}\cr
 \code{\link{setRtMargin}}\cr
 \code{\link{setSplom}}\cr
 \code{\link{setSweave}}\cr
@@ -92,6 +93,9 @@ Functions to add features to a plot:\cr
 \code{\link{addXY}}\cr
 \code{\link{labelPoints}}\cr
 \code{\link{refLine}}\cr
+Selected Miscellaneous Functions:\cr
+\code{\link{copyDemo}}\cr
+\code{\link{strip.blanks}}\cr
 }
 \examples{
 # For these examples, print to console
@@ -108,7 +112,7 @@ Dave Lorenz <lorenz@usgs.gov>
 }
 \references{
 Lorenz, D.L. in preparation, smwrGraphs---an R package for
-graphing hydrologic data, version 1.0.7.\cr
+graphing hydrologic data, version 1.0.10.\cr
 U.S. Geological Survey, 2012, Author\verb{'}s guide to standards for U.S.
 Geological Survey page-size illustrations, 37 p.
 }

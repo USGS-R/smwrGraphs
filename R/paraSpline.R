@@ -10,6 +10,8 @@
 #' @return A list containing the components \code{x} and \code{y}, which are
 #' the coordinates of the parametric spline.
 #' @keywords dplot
+#' @examples
+#' paraSpline(c(1,2,3), c(0,1,0), n=5)
 #' @export paraSpline
 paraSpline <- function(x, y, n) {
 	# Coding history:

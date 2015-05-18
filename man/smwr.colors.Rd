@@ -48,7 +48,9 @@ well-separated pastel colors useful for areas or bars.
 }
 \examples{
 \dontrun{
-# See for examples of warmCool.colors:
+redGreen.colors(2)
+blueRed.colors(2)
+# For examples of warmCool.colors in graphs see
 demo(topic="DurationHydrograph", package="smwrGraphs")
 # All have similar usage
 }

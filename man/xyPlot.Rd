@@ -96,7 +96,11 @@ dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
 }
 \examples{
 \dontrun{
-# See for examples of xyPlot:
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+AA.pl <- xyPlot(X, Y, Plot=list(color="cyan4"))
+# For more details of xyPlot see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 vignette(topic="GraphGallery", package="smwrGraphs")
 vignette(topic="GraphSetup", package="smwrGraphs")

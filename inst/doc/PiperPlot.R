@@ -17,7 +17,7 @@ data(MiscGW)
 
 
 ###################################################
-### code chunk number 2: PiperPlot.Rnw:37-64
+### code chunk number 2: PiperPlot.Rnw:37-65
 ###################################################
 # Transform the data. This example will ignore potassium, fluoride, and nitrate
 # (carbonate is either 0 or missing and will also be ignored).
@@ -26,7 +26,8 @@ PD <- transform(MiscGW, Ca.meq = conc2meq(Calcium, "calcium"),
 		    Na.meq = conc2meq(Sodium, "sodium"),
 		    Cl.meq = conc2meq(Chloride, "chloride"),
 		    SO4.meq = conc2meq(Sulfate, "sulfate"),
-		    HCO3.meq = conc2meq(Bicarbonate, "bicarb")) # abbreviations allowed
+		    HCO3.meq = conc2meq(Bicarbonate, "bicarb")) 
+# abbreviations allowed in the cal to conc2meq
 # The row name identifies the sample source, create a column
 PD$SS <- row.names(PD)
 # setSweave is a specialized function that sets up the graphics page for
@@ -49,7 +50,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: PiperPlot.Rnw:80-104
+### code chunk number 3: PiperPlot.Rnw:81-105
 ###################################################
 # Use the data from the previous example
 setSweave("piperplot02", 7, 7)
@@ -78,7 +79,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: PiperPlot.Rnw:120-133
+### code chunk number 4: PiperPlot.Rnw:121-134
 ###################################################
 setSweave("piperplot03", 3.5, 3.5)
 # Accept all defaults
@@ -96,7 +97,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: PiperPlot.Rnw:145-155
+### code chunk number 5: PiperPlot.Rnw:146-156
 ###################################################
 setSweave("piperplot04", 6, 6)
 AA.lo <- setLayout(height=3.5, explanation=list(bottom=1.1))

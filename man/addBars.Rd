@@ -21,7 +21,8 @@ permitted but result in no bar.}
 \bold{Details}.}
 
 \item{current}{the current plot information. Typically, this would be the
-output from one of the graph creation functions like \code{xyPlot}.}
+output from one of the graph creation functions like \code{xyPlot}.
+See \bold{Note}.}
 }
 \value{
 The current plot information is returned invisibly.
@@ -31,15 +32,21 @@ Create a bar chart by adding bars to an existing graph.
 }
 \details{
 The \code{Bars} argument must be a tagged list with these components:
-\describe{ \item{name}{a name describing the data; used in the explanation.
-If "Auto," then derive the name from the column names in \code{y}.}
-\item{fill}{the name of the color to fill each bar.} \item{outline}{the name
-of the color to draw the outline or border for each bar. If "none," then no
-border is drawn.} \item{width}{the width of each bar proportional to the
-distance between bars. If 1, then the bars form a continuous filled area.
+\describe{
+\item{name}{a character vector describing each column of data; used in the
+explanation. If "Auto," then derive the name from the column names in \code{y}.}
+\item{fill}{the name of the color to fill each bar. For multiple bars, can be
+a vector of colors or the name of a color sequence generating function, such as
+"pastel.colors."}
+\item{outline}{the name of the color to draw the outline or border for each
+bar. If "none," then no border is drawn.}
+\item{width}{the width of each bar in x-axis units. For discrete x-axis,
+If \code{width} 1, then the bars form a continuous filled area.
 The default is "Auto," which fills 2/3 of the distance. If 0, then draw vertical
 lines rather than bars; the color of the line is based on \code{outline}.}
-\item{orientation}{the orientation of the bars.} } Only single bars are
+\item{orientation}{the orientation of the bars.} }
+
+Only single bars are
 permitted in the current version. The \code{orientation} component of
 \code{Bars} is ignored.
 }
@@ -47,6 +54,10 @@ permitted in the current version. The \code{orientation} component of
 Use of \code{addBars} adds 1 step to creating bar charts, but adds
 flexibility in axis formatted from existing high-level plotting functions such
 as \code{xyPlot} or \code{timePlot}.
+
+Bars are only valid for linear y-axes. Calling \code{addBars} when
+\code{yaxis.log} or \code{yaxis.rev} is \code{TRUE} or for any arbitrary
+transform of the y-axis will cause \code{addBars} to fail.
 }
 \examples{
 \dontrun{
@@ -60,8 +71,7 @@ demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}},
-\code{\link{xyPlot}}
+\code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}
 }
 \keyword{aplot}
 

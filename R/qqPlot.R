@@ -43,7 +43,10 @@
 #' @keywords hplot
 #' @examples
 #' \dontrun{
-#' # See for examples of qqPlot:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' qqPlot(X)
+#' # For more details of qqPlot see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")
 #' }
 #' @export qqPlot

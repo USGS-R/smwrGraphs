@@ -6,28 +6,33 @@
 \alias{addSmooth.list}
 \title{Add a Smooth Line}
 \usage{
-addSmooth(x, y, Smooth = "loess.smooth", ..., Plot = list(name = "", what =
-  "lines", type = "solid", width = "standard", color = "black"),
-  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+addSmooth(x, y, Smooth = "loess.smooth", ..., Smooth.along = "x",
+  Plot = list(name = "", what = "lines", type = "solid", width = "standard",
+  color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
+  xaxis.log = FALSE))
 
 \method{addSmooth}{default}(x, y, Smooth = "loess.smooth", ...,
-  Plot = list(name = "", what = "lines", type = "solid", width = "standard",
-  color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE))
+  Smooth.along = "x", Plot = list(name = "", what = "lines", type = "solid",
+  width = "standard", color = "black"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE))
 
 \method{addSmooth}{list}(x, y, Smooth = "loess.smooth", ...,
-  Plot = list(name = "", what = "lines", type = "solid", width = "standard",
-  color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE))
+  Smooth.along = "x", Plot = list(name = "", what = "lines", type = "solid",
+  width = "standard", color = "black"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{
 \item{x}{the x-axis data. For method \code{list}, x is a list that contains
 components \code{x} and \code{y} and the \code{y} argument is not used.
-Missing values are permitted but omitted.}
+Missing values are permitted and ignored in the smooth.}
 
-\item{y}{the y-axis data. Missing values are permitted but omitted.}
+\item{y}{the y-axis data. Missing values are permitted and ignored in the smooth.}
 
 \item{Smooth}{the name of the smoothing function.}
+
+\item{Smooth.along}{the data along which the smoother is run. Must be either "x,"
+which smooths \code{y} along \code{x} resulting in a horzontal line, or "y,"
+which smooths \code{x} along \code{y} resulting in a vereical line.}
 
 \item{Plot}{parameters defining the characteristics of the plot. See
 \code{\link{setPlot}} for a description of the parameters.}

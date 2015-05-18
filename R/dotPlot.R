@@ -49,7 +49,11 @@
 #' @keywords methods hplot
 #' @examples
 #' \dontrun{
-#' # See for examples of dotPlot:
+#' set.seed(1)
+#' X <- runif(12)
+#' Y <- LETTERS[1:12]
+#' dotPlot(X, Y)
+#' # For more details of dotPlot see
 #' vignette(topic="LineScatter", package="smwrGraphs")
 #' }
 #' @exportMethod dotPlot

@@ -6,10 +6,13 @@
 #' @aliases addSmooth addSmooth.default addSmooth.list
 #' @param x the x-axis data. For method \code{list}, x is a list that contains
 #' components \code{x} and \code{y} and the \code{y} argument is not used.
-#' Missing values are permitted but omitted.
-#' @param y the y-axis data. Missing values are permitted but omitted.
+#' Missing values are permitted and ignored in the smooth.
+#' @param y the y-axis data. Missing values are permitted and ignored in the smooth.
 #' @param Smooth the name of the smoothing function.
 #' @param \dots additional parameters for the function names in \code{Smooth}.
+#' @param Smooth.along the data along which the smoother is run. Must be either "x,"
+#'which smooths \code{y} along \code{x} resulting in a horzontal line, or "y,"
+#'which smooths \code{x} along \code{y} resulting in a vereical line.
 #' @param Plot parameters defining the characteristics of the plot. See
 #' \code{\link{setPlot}} for a description of the parameters.
 #' @param current the current plot information. Typically, this would be the
@@ -33,6 +36,7 @@
 #' @export addSmooth
 addSmooth <- function(x, y, # data
                       Smooth="loess.smooth", ..., # smoothing parameters
+											Smooth.along="x",
                       Plot=list(name="", what="lines", type="solid",
                         width="standard", color="black"), # plot controls
                       current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
@@ -56,6 +60,7 @@ addSmooth <- function(x, y, # data
 #' @export
 addSmooth.default <- function(x, y, # data
                               Smooth="loess.smooth", ..., # smoothing paramaters
+															Smooth.along="x",
                               Plot=list(name="", what="lines", type="solid",
                                 width="standard", color="black"), # plot controls
                               current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
@@ -69,6 +74,12 @@ addSmooth.default <- function(x, y, # data
   good <- complete.cases(x, y)
   ## Protect against a primarily linear arrangement of y
   Plot$what <- "lines" # Force lines
+  ## obey the request to change the smooting dir
+  if(Smooth.along == "y") {
+  	xtemp <- x
+  	x <- y
+  	y <- xtemp
+  }
   ry <- diff(range(y[good]))/1000
   if(ry > 0) {
   	N <- sum(good)
@@ -84,6 +95,12 @@ addSmooth.default <- function(x, y, # data
                   width="standard", color="black") # force defaults if not set
   explan <- setExplan(Plot, old=current$explanation) # add info to set up explanation
   plotPars <- explan$current
+  # recover original assignemtn of data if necessary
+  if(Smooth.along == "y") {
+  	xtemp <- smo$x
+  	smo$x <- smo$y
+  	smo$y <- xtemp
+  }
   lines(smo$x, smo$y, type=plotPars$type, lwd=plotPars$lwd, lty=plotPars$lty,
         pch=plotPars$pch, cex=plotPars$cex, col=plotPars$col, bg=plotPars$col)
   current$x <- smo$x
@@ -97,6 +114,7 @@ addSmooth.default <- function(x, y, # data
 #' @export
 addSmooth.list <- function(x, y, # data
                            Smooth="loess.smooth", ..., # smoothing paramaters
+													 Smooth.along="x",
                            Plot=list(name="", what="lines", type="solid",
                              width="standard", color="black"), # plot controls
                            current=list(yaxis.log=FALSE, yaxis.rev=FALSE,
@@ -122,8 +140,17 @@ addSmooth.list <- function(x, y, # data
     xin$yaxis.log <- FALSE
     restore <- TRUE
     current <- xin
+  } else if(!missing(current) && !is.null(xin$explanation)) {
+  	xlog <- current$xaxis.log
+  	current$xaxis.log <- FALSE
+  	yrev <- current$yaxis.rev
+  	current$yaxis.rev <- FALSE
+  	ylog <- xin$yaxis.log
+  	current$yaxis.log <- FALSE
+  	restore <- TRUE
   }
   current <- addSmooth.default(x, y, Smooth=Smooth, ...,
+  														 Smooth.along=Smooth.along,
                                Plot=Plot, current=current)
   if(restore) {
     current$xaxis.log <- xlog

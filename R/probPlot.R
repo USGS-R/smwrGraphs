@@ -55,7 +55,10 @@
 #' @keywords hplot
 #' @examples
 #' \dontrun{
-#' # See for examples of probPlot:
+#' set.seed(1)
+#' X <- rlnorm(32)
+#' probPlot(X)
+#' # For more details of probPlot see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")
 #' demo(topic="FlowDur-Measurements", package="smwrGraphs")
 #' }

@@ -35,7 +35,13 @@ Label points on a graph.
 }
 \examples{
 \dontrun{
-# See for examples of labelPoints:
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+xyPlot(X, Y)
+# Label the first point
+labelPoints(X[1], Y[1], "First")
+# For more details of labelPoints see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 }
 }

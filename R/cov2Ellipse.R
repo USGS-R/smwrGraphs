@@ -10,6 +10,11 @@
 #' @return A list containing the x- and y-coordinates of the ellipse.
 #' @seealso \code{\link{dataEllipse}}
 #' @keywords dplot
+#' @examples
+#' # make a few points on a unit circle
+#' TMP <- cov2Ellipse(matrix(c(1,0,0,1), ncol=2), c(0,0), n=5)
+#' # Pretty print the data
+#' lapply(TMP, zapsmall)
 #' @export cov2Ellipse
 cov2Ellipse <- function(cov, center, scale=1, n=151) {
   ## The arg cov must be a covariance matrix of N=2

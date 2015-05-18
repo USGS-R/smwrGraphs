@@ -76,7 +76,10 @@ environment before calling \code{seriesPlot}.
 }
 \examples{
 \dontrun{
-# See for examples of seriesPlot:
+set.seed(1)
+X <- rnorm(32)
+seriesPlot(X, xlabels=c("A", "B", "C", "D"))
+# For more details of  seriesPlot see
 vignette(topic="LineScatter", package="smwrGraphs")
 }
 }

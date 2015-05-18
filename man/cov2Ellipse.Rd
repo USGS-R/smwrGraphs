@@ -21,6 +21,12 @@ A list containing the x- and y-coordinates of the ellipse.
 \description{
 Constructs an ellipse from a covariance matrix.
 }
+\examples{
+# make a few points on a unit circle
+TMP <- cov2Ellipse(matrix(c(1,0,0,1), ncol=2), c(0,0), n=5)
+# Pretty print the data
+lapply(TMP, zapsmall)
+}
 \seealso{
 \code{\link{dataEllipse}}
 }

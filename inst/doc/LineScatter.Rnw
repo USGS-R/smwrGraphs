@@ -106,7 +106,8 @@ The \texttt{seriesPlot} function plots y-coordinate data arranged within a seaso
 # in a regular script.
 setSweave("lsplot05", 6 ,4)
 # Create the regular series of observations
-AA.rs <- with(KlamathTP, regularSeries(TP_ss, sample_dt, begin="1972-01-01", end="1980-01-10"))
+AA.rs <- with(KlamathTP, regularSeries(TP_ss, sample_dt, begin="1972-01-01", 
+  end="1980-01-10"))
 seriesPlot(AA.rs$Value, yaxis.range=c(0,1.5), xlabels=month.USGS)
 # Required call to close PDF output graphics
 graphics.off()

@@ -33,7 +33,13 @@
 #' @importFrom akima interp
 #' @examples
 #' \dontrun{
-#' # See for examples of contourPlot:
+#' set.seed(1)
+#' Xbig <- runif(100)
+#' Ybig <- runif(100)
+#' # Make a hill
+#' Zbig <- 1 - ((Xbig-.5)^2 + (Ybig-.5)^2)^.75)
+#' contourPlot(Zbig, Xbig, Ybig)
+#' # See for examples of contourPlot see
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' }
 #' @export contourPlot

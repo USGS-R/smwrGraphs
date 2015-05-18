@@ -19,12 +19,14 @@
 #' otherwise use the full text of \code{x} for labels.
 #' @param offset amount to offset the range, generally 0.5 or 1. The range of
 #' the data is from 1 to the number of elements in \code{x}.
+#' @param style character string indicating the placement of the ticks. If "at" (default),
+#'then place ticks at the labels. If "between," then place ticks between the labels.
 #' @return Information about the axis labels
 #' @seealso \code{\link{dotPlot}}
 #' @keywords dplot
 #' @export namePretty
 namePretty <- function(x, orientation="table", order="none", label.abbr=FALSE,
-                       offset=0.5) {
+                       offset=0.5, style="at") {
 	# Coding History:
 	#    2011Jun22 DLLorenz Original coding.
 	#    2011Oct24 DLLorenz Tweaks for package
@@ -71,6 +73,12 @@ namePretty <- function(x, orientation="table", order="none", label.abbr=FALSE,
   range <- c(1 - offset, length(xc) + offset)
   ## leaves enough for a two line title
   margin <- max(strwidth(labels, units='inches', family='USGS'))/par('cin')[2]+ 2.1 
+  # Fix ticks if requested by style arg.
+  if(style == "between") {
+  	ticks <- (ticks[-1L] + ticks[-length(ticks)])/2
+  } else if(style != "at") {
+  	stop("Invalid style: ", style)
+  }
   return(list(ticks=ticks, finegrid=ticks, labels=labels,
-              labelpos=labelpos, range=range, style='at', margin=margin))
+              labelpos=labelpos, range=range, style=style, margin=margin))
 }

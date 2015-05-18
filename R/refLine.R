@@ -20,7 +20,13 @@
 #' @keywords aplot
 #' @examples
 #' \dontrun{
-#' # See for examples of refLine:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' Y <- X + rnorm(32)
+#' xyPlot(X, Y)
+#' # Add the 1:1 line
+#' refLine(coefficient=c(0,1))
+#' # For more details of refLine see
 #' vignette(topic="GraphAdditions", package="smwrGraphs")
 #' demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
 #' }

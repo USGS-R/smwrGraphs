@@ -144,7 +144,7 @@ print(AA.lo)
 AA.gr <- setGraph(1, AA.lo)
 AA.bp <- boxPlot(Y, Z, Box=list(type="simple", show.counts=FALSE), 
   xlabels=c("Correlated", "Uncorrelated"))
-# The explanation for the box plot can be added now or after the other graphs, but add now
+# The explanation for the box plot can be added now or after the other graphs
 AA.gr <- setGraph("explanation", AA.lo)
 addExplanation(AA.bp, title=expression(bold("Box Plot Description")))
 # Create a scatter plot from the X and Y data. 

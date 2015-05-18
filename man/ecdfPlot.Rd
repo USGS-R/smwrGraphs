@@ -66,7 +66,10 @@ environment before calling \code{ecdfPlot}.
 }
 \examples{
 \dontrun{
-# See for examples of ecdfPlot:
+set.seed(1)
+X <- rlnorm(32)
+ecdfPlot(X)
+# For more details of ecdfPlot see
 vignette(topic="ProbabilityPlots", package="smwrGraphs")
 }
 }

@@ -5,7 +5,7 @@
 \title{Pretty Axis}
 \usage{
 namePretty(x, orientation = "table", order = "none", label.abbr = FALSE,
-  offset = 0.5)
+  offset = 0.5, style = "at")
 }
 \arguments{
 \item{x}{the discrete data values.}
@@ -28,6 +28,9 @@ otherwise use the full text of \code{x} for labels.}
 
 \item{offset}{amount to offset the range, generally 0.5 or 1. The range of
 the data is from 1 to the number of elements in \code{x}.}
+
+\item{style}{character string indicating the placement of the ticks. If "at" (default),
+then place ticks at the labels. If "between," then place ticks between the labels.}
 }
 \value{
 Information about the axis labels

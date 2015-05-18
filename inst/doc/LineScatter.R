@@ -56,21 +56,22 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: LineScatter.Rnw:103-112
+### code chunk number 5: LineScatter.Rnw:103-113
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
 # in a regular script.
 setSweave("lsplot05", 6 ,4)
 # Create the regular series of observations
-AA.rs <- with(KlamathTP, regularSeries(TP_ss, sample_dt, begin="1972-01-01", end="1980-01-10"))
+AA.rs <- with(KlamathTP, regularSeries(TP_ss, sample_dt, begin="1972-01-01", 
+  end="1980-01-10"))
 seriesPlot(AA.rs$Value, yaxis.range=c(0,1.5), xlabels=month.USGS)
 # Required call to close PDF output graphics
 graphics.off()
 
 
 ###################################################
-### code chunk number 6: LineScatter.Rnw:126-135
+### code chunk number 6: LineScatter.Rnw:127-136
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -84,7 +85,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: LineScatter.Rnw:148-158
+### code chunk number 7: LineScatter.Rnw:149-159
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -99,7 +100,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: LineScatter.Rnw:171-179
+### code chunk number 8: LineScatter.Rnw:172-180
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -112,7 +113,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 9: LineScatter.Rnw:191-200
+### code chunk number 9: LineScatter.Rnw:192-201
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 

@@ -3,6 +3,7 @@ Coplot-complexScatterPlot	A conditioned scatter plot with an explanation.
 Coplot-simpleBoxPlot	A conditioned boxplot.
 DurationHydrograph	A duration hydrograph showing daily statistics with 1 year flow.
 FlowDur-Measurements	Flow-duration curve with overlaid discharge measurements.
+HeatMap	A heat map showing the values in a matrix organized by cluster analysis.
 HydroPrecip	Stacked hydrographs of precipitation and groundwater levels.
 MeasurementRating	Discharge measurements plotted with the log-offset rating curve
 PiperScript	Create a Piper diagram.

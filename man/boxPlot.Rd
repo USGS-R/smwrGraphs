@@ -106,7 +106,10 @@ assumption of a log-normal distribution for most water-quality constituents.
 }
 \examples{
 \dontrun{
-# See for examples of boxPlot:
+set.seed(1)
+Xbig <- rnorm(100)
+boxPlot(Xbig)
+# For more details of boxPlot see
 vignette(topic="BoxPlots", package="smwrGraphs")
 vignette(topic="GraphSetup", package="smwrGraphs")
 demo(topic="Coplot-simpleBoxPlot", package="smwrGraphs")

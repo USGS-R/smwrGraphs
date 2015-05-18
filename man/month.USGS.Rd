@@ -12,8 +12,9 @@ month.USGS
 A vector of USGS-style month abbreviations.
 }
 \examples{
+print(month.USGS)
 \dontrun{
-# See for examples of month.USGS:
+# For examples of month.USGS in graphs see
 vignette(topic="LineScatter", package="smwrGraphs")
 }
 }

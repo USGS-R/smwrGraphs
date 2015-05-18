@@ -21,5 +21,8 @@ the coordinates of the parametric spline.
 Construct a parametric interpolating spline for x and y data. The x data
 are not required to be strictly increasing. Used as a support function.
 }
+\examples{
+paraSpline(c(1,2,3), c(0,1,0), n=5)
+}
 \keyword{dplot}
 

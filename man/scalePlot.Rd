@@ -68,7 +68,11 @@ environment before calling \code{scalePlot}.
 }
 \examples{
 \dontrun{
-# See for examples of scalePlot:
+set.seed(1)
+X <- rnorm(32)
+Y <- X + rnorm(32)
+scalePlot(X, Y, Plot=list(what="points", size=0.05))
+# For more details of scalePlot see
 vignette(topic="LineScatter", package="smwrGraphs")
 }
 }

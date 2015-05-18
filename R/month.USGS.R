@@ -6,8 +6,9 @@
 #' @references Hansen, W.R., 1991, Suggestions to Authors of the United States Geological Survey, 
 #'7th Ed.: U.S. Govenement Printing Office, 289 p.
 #' @examples
+#' print(month.USGS)
 #' \dontrun{
-#' # See for examples of month.USGS:
+#' # For examples of month.USGS in graphs see
 #' vignette(topic="LineScatter", package="smwrGraphs")
 #' }
 #' @export

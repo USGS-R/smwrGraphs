@@ -63,7 +63,12 @@ environment before calling \code{transPlot}.
 }
 \examples{
 \dontrun{
-# See for examples of transPlot:
+X <- seq(.25, 9.75, by=.25)
+# The Box-Cox transform (power of 1.5)
+# The labels represent the original values; the line represents the transformed value
+transPlot(X, I, I, y=X, ytrans=boxCox, yinv=IboxCox,
+  ytargs=list(lambda=1.5, GM=1), Plot=list(what="lines"))
+# For more details of transPlot see
 demo(topic="MeasurementRating", package="smwrGraphs")
 }
 }

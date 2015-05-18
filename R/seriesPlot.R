@@ -43,7 +43,10 @@
 #' @keywords hplot
 #' @examples
 #' \dontrun{
-#' # See for examples of seriesPlot:
+#' set.seed(1)
+#' X <- rnorm(32)
+#' seriesPlot(X, xlabels=c("A", "B", "C", "D"))
+#' # For more details of  seriesPlot see
 #' vignette(topic="LineScatter", package="smwrGraphs")
 #' }
 #' @export seriesPlot
@@ -106,7 +109,7 @@ seriesPlot.default <- function(x, # data
   if(length(xlabels) == 1)
     xlabels <- seq(xlabels)
   xlabels <- as.character(xlabels)
-  xax <- namePretty(xlabels, orientation="grid")
+  xax <- namePretty(xlabels, orientation="grid", style="between")
   ## set margins and controls
   margin.control <- setMargin(margin, yax)
   margin <- margin.control$margin

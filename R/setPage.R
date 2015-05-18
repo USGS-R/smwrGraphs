@@ -24,7 +24,7 @@
 #' environments like RStudio (TM).
 #' 
 #' @rdname setPage
-#' @aliases setPage setPDF setSweave setGD setKnitr setPNG
+#' @aliases setPage setPDF setSweave setGD setKnitr setPNG serRStudio
 #' @param layout A description of the orientation and shape of the graphics
 #' page. See \bold{Details}.
 #' @param font a description of the font. The choices are "preview," which is
@@ -45,7 +45,8 @@
 #' \code{setKnitr}, and \code{setPNG}.
 #' @return For \code{setPage} and \code{setPDF}, a list with two components:
 #' dev, the device number; and name, the name or basename. For \code{setGD}
-#' \code{setSweave}, \code{setKnitr}, and \code{setPNG} nothing is returned.
+#' \code{setSweave}, \code{setKnitr}, \code{setPNG}, and \code{setRStudio}
+#' nothing is returned.
 #' @note The functions \code{setSweave}, \code{setKnitr}, and \code{setPNG}
 #' are graphics set up functions to be used when using \code{Sweave},
 #' \code{knitr} and \code{markdown}, respectively. The functions 
@@ -53,6 +54,11 @@
 #' close the graphics device after all graphics are completed; \code{knitr} 
 #' and \code{markdown} automatically close the graphics device, so the call
 #' to \code{dev.off} is not needed in those scripts.
+#' 
+#' The function \code{setRStudio} is designed to set up the default graphics
+#' device in RStudio rather than open a separate graphics screen. This is useful
+#' for preview only as some features of the graphics system cannot be replicated
+#' on that graphics device.
 #' 
 #' The function \code{setGD} is designed to be a quick and easy
 #' graphics page setup function. It is designed to be used by functions to set

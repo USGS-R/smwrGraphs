@@ -133,8 +133,8 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
   	time.range$min <- c(0,0) # Assume that we can ignore minutes 
   	if(time.range$mday[2L] > 1 || time.range$hour[2L] > 0) {
   		## Can't add 1 month, so need to do it manually
-  		if(time.range$mon[2L] == 12) {
-  			time.range$mon[2L] <- 1
+  		if(time.range$mon[2L] == 11) {
+  			time.range$mon[2L] <- 0
   			time.range$year[2L] <- time.range$year[2L] + 1
   		} else
   			time.range$mon[2L] <- time.range$mon[2L] + 1
@@ -148,7 +148,7 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
   		time.range$year[1L] <- time.range$year[1L] - 1
   	if(time.range$yday[2L] - leap_year(time.range[2L]) > 273)
   		time.range$year[2L] <- time.range$year[2L] + 1
-  	time.range$mon <- c(10,10)
+  	time.range$mon <- c(9,9)
   	time.range$mday <- c(1,1)
   	time.range$yday <- 273 + leap_year(time.range)
   	# Reset step to years for seq processing
@@ -157,14 +157,14 @@ datePretty <- function(x, major="Auto", minor="Auto", tick.span=1,
   	time.range$min <- time.range$hour <- c(0,0) # Assume that we can ignore these 
   	if(time.range$mday[2L] > 1 || time.range$mon[2L] > 1)
       time.range$year[2L] <- time.range$year[2L] + 1 # need to do manually
-    time.range$mon <- c(1,1)
+    time.range$mon <- c(0,0)
     time.range$mday <- c(1,1)
   	time.range$yday <- c(0,0)
     ## Round to tick.spans
     years.spans <- (time.range$year %/% tick.span) * tick.span
     if(time.range$year[2L] > years.spans[2L])
       years.spans[2L] <- years.spans[2L] + tick.span
-    time.range$year <- years.spans  
+    time.range$year <- years.spans
   }
   ticks <- as.POSIXlt(seq(from=time.range[1L], to=time.range[2L], 
                           by=paste(tick.span, step, sep=" ")))

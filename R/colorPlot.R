@@ -53,6 +53,11 @@
 #' @keywords methods hplot
 #' @examples
 #' \dontrun{
+#' set.seed(1)
+#' X <- rnorm(32)
+#' Y <- X + rnorm(32)
+#' Z <- sample(c("red", "orange2", "yellow3"), 32, replace=TRUE)
+#' colorPlot(X, Y, Z, Plot=list(color="Index"))
 #' # See for examples of colorPlot:
 #' vignette(topic="LineScatter", package="smwrGraphs")
 #' }

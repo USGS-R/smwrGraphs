@@ -39,7 +39,12 @@
 #' @seealso \code{\link{addArea}}, \code{\link{smwr.colors}}, \code{\link[grDevices]{heat.colors}}
 #' @examples
 #' \dontrun{
-#' # See for examples of areaPlot:
+#' set.seed(1)
+#' X <- seq(1, 9, by=.5)
+#' Y <- runif(17) + runif(17)
+#' # The default fillDir, between, requires at least a 2-column matrix
+#' areaPlot(X, cbind(rep(0, 17),Y))
+#' # For more details of areaPlot see
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' }
 #' @export areaPlot

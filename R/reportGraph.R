@@ -17,7 +17,8 @@
 #'the width of the graph, then the report is truncated.
 #' @examples
 #' \dontrun{
-#' # See for examples of reportGraph:
+#' reportGraph("Hello world!")
+#' # For more details of reportGraph see
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' }
 #' @export

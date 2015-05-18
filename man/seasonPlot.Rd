@@ -91,7 +91,12 @@ seasonal plot for date data in the form of month and day, like "Jan 01" or
 }
 \examples{
 \dontrun{
-# See for examples of seasonPlot:
+# the months function is in lubridate
+X <- as.Date("2001-01-15") + months(0:11)
+set.seed(1)
+Y <- runif(12)
+seasonPlot(X, Y)
+# For more details of seasonPlot see
 vignette(topic="LineScatter", package="smwrGraphs")
 }
 }
