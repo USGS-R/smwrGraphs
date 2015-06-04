@@ -10,9 +10,11 @@
 #' @param Main the main text of the title.
 #' @param Heading The title heading, generally a single letter. See
 #' \bold{Details}
-#' @param Justification specifies the location of the title, must be one of
+#' @param Justification specify the horizontal location of the title, must be one of
 #' "left," "center," or "right."
-#' @param Bold logical, if \code{TRUE}, then display the title be in bold face type.
+#' @param Bold logical, if \code{TRUE}, then display the title in bold face type.
+#' @param Position specify the vertical location of the title, must be either
+#' "above" or "inside."
 #' @return Nothing is returned.
 #' @seealso \code{\link{addCaption}}, \code{\link{addAnnotation}},
 #' \code{\link{addTable}}
@@ -30,36 +32,35 @@
 #' vignette(topic="GraphSetup", package="smwrGraphs")
 #' }
 #' @export addTitle
-addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE) { 
-	# Coding History:
-	#    2010Nov22 DLLorenz Original coding.
-	#    2011Oct24 DLLorenz Tweaks for package
-	#    2013Mar15 DLLorenz Fixed top margin issues.
-	#    2014Jun25 DLLorenz Converted to roxygen
+addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE, 
+										 Position="above") { 
 	##
+	Position <- match.arg(Position, c("above", "inside"))
 	## get the margin for side 3 (top)
 	TopMar <- par("mar")[3L]
-	if(TopMar < 1.49)
-		cat("Not enough room for title!\n")
-	else {
-		just=(pmatch(Justification, c("left", "center", "right")) - 1)/2
-		xadj <- strwidth(expression(bold(" ")), family="USGS", cex=9/8, units="user")
-		if(Heading != "") {
-			# Insert letter heading
-			if(Main == "") {
-				Heading <- paste(" ", Heading, sep="")
-			} else
-				Heading <- paste(" ", Heading, ".", sep="")
-			# Convert to expression
-			Heading <- as.expression(substitute(bolditalic(x), list(x=Heading)))
-			mtext(text=Heading, side=3L, line=0.2, adj=just, font=1L,
-						family="USGS", cex=9/8)
-			xat <- par("usr")[1L] + xadj + strwidth(Heading, family="USGS", cex=9/8, units="user")
-		} else
-			xat <- par("usr")[1L] + xadj
-		if(just > 0) # Subvert computations to place title where user wants
-			xat <- NA
-		mtext(text=Main, side=3L, at=xat, line=0.2, adj=just, font=1L + Bold,
+	if(TopMar < 1.49 && Position == "above") {
+		warning("Not enough room for title!\n")
+	} else {
+		just <- (pmatch(Justification, c("left", "center", "right")) - 1)/2
+		just <- (just - .5)*.98 + .5 # move away from edges
+		line <- 0.2
+		if(Position == "inside") {
+			# Modify line and just
+			line <- -1.5
+			just <- (just - .5)*.96 + .5 # move away from plot ticks
+		}
+		if(Heading != "" && Main != "") {
+			Heading <- paste(Heading, ".", sep="")
+		}
+		# Convert to expression
+		if(Bold) {
+			Heading <- as.expression(substitute(paste(bolditalic(x), " ", bold(y)), 
+																					list(x=Heading, y=Main)))
+		} else {
+			Heading <- as.expression(substitute(paste(italic(x), " ", y), 
+																					list(x=Heading, y=Main)))
+		}
+		mtext(text=Heading, side=3L, line=line, adj=just, font=1L,
 					family="USGS", cex=9/8)
 	}
 	invisible()

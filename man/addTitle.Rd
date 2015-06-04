@@ -4,7 +4,8 @@
 \alias{addTitle}
 \title{Add a Title}
 \usage{
-addTitle(Main = "", Heading = "", Justification = "left", Bold = TRUE)
+addTitle(Main = "", Heading = "", Justification = "left", Bold = TRUE,
+  Position = "above")
 }
 \arguments{
 \item{Main}{the main text of the title.}
@@ -12,10 +13,13 @@ addTitle(Main = "", Heading = "", Justification = "left", Bold = TRUE)
 \item{Heading}{The title heading, generally a single letter. See
 \bold{Details}}
 
-\item{Justification}{specifies the location of the title, must be one of
+\item{Justification}{specify the horizontal location of the title, must be one of
 "left," "center," or "right."}
 
-\item{Bold}{logical, if \code{TRUE}, then display the title be in bold face type.}
+\item{Bold}{logical, if \code{TRUE}, then display the title in bold face type.}
+
+\item{Position}{specify the vertical location of the title, must be either
+"above" or "inside."}
 }
 \value{
 Nothing is returned.
