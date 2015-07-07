@@ -28,9 +28,10 @@ dotPlot(x, y, Plot = list(), yaxis.orient = "", yaxis.order = "",
   caption = "", margin = c(NA, NA, NA, NA), jitter.y = TRUE, ...)
 }
 \arguments{
-\item{x}{the x-axis data.}
+\item{x}{the x-axis data. Missing values are permitted and not plotted.}
 
-\item{y}{the y-axis data, expected to be be either character or factor.}
+\item{y}{the y-axis data, expected to be be either character or factor.
+Missing values are permitted and removed before plotting.}
 
 \item{Plot}{control parameters of the plot, see \code{link{setMultiPlot}}
 and \bold{Details} for details.}
@@ -63,7 +64,8 @@ bottom to top.}
 \item{...}{arguments for specific methods.}
 
 \item{jitter.y}{logical, if \code{TRUE}, then adjust \code{y} values to reduce
-overlap for each group.}
+overlap for each group, or adjust randomly if no groups. If \code{FALSE}, then
+no adjustment is made.}
 }
 \value{
 Information about the graph.

@@ -53,6 +53,8 @@
 #' @param ytitle y-axis title (also called y-axis caption) for the observation data.
 #' @param xtitle2 x-axis title (also called x-axis caption) for the variable data.
 #' @param ytitle2 y-axis title (also called y-axis caption) for the variable data.
+#' @param range.factor a numeric factor by which to expand the axis ranges so
+#'that labels can be drawn.
 #' @param caption the figure caption.
 #' @param margin set up the plot area margins.
 #' @param \dots not used, required for other methods.
@@ -85,6 +87,7 @@ biPlot.princomp <- function(x, Which=1:2, # data
                             ylabels2='Auto',  xlabels2='Auto', # axis labels
                             xtitle='Auto', ytitle='Auto', 
                             xtitle2='Auto', ytitle2='Auto', # axis titles
+														range.factor=1.25,
                             caption="", # caption
                             margin=c(NA, NA, NA, NA), ...) {
 	# Coding History:
@@ -188,5 +191,129 @@ biPlot.princomp <- function(x, Which=1:2, # data
                            ylabels2=ylabels2, xlabels2=xlabels2,
                            xtitle=xtitle, ytitle=ytitle,
                            xtitle2=xtitle2, ytitle2=ytitle2,
+  												 range.factor=range.factor,
                            caption=caption, margin=margin))
+}
+
+#' @rdname biPlot.princomp
+#' @export
+#' @method biPlot prcomp
+biPlot.prcomp <- function(x, Which=1:2, # data
+														Scale='Auto',
+														obsPlot=list(name="observations", what='points', 
+																				 type='solid', width='standard', symbol='circle', 
+																				 filled=TRUE, size=0.05, color='black'),
+														varPlot=list(name='variables', width='color',
+																				 size=0.2, color='darkblue', symbol='arrow',
+																				 filled=FALSE), # plot controls
+														obsPlotLabels=list(labels='rownames', dir='NE',
+																							 size=8, offset=0.75),
+														varPlotLabels=list(labels='colnames', dir='Auto',
+																							 size=8, offset=0.75, color='darkblue'), # object labels
+														ylabels=5,  xlabels=5,
+														ylabels2='Auto',  xlabels2='Auto', # axis labels
+														xtitle='Auto', ytitle='Auto', 
+														xtitle2='Auto', ytitle2='Auto', # axis titles
+														range.factor=1.25,
+														caption="", # caption
+														margin=c(NA, NA, NA, NA), ...) {
+	#
+	if(length(Which) != 2L)
+		stop("length of choices must be 2")
+	scores <- x$x
+	if(!length(scores))
+		stop("x must contain scores")
+	loadings <- x$rotation
+	if(!length(loadings))
+		stop("x must contain loadings")
+	## may add options as new classes are created
+	lambdas <- x$sdev
+	## prepare the data
+	obs <- scores[, Which]
+	vars <- loadings[, Which]
+	lambdas <- lambdas[Which]
+	p <- dim(vars)[1L]
+	n <- dim(obs)[1L]
+	if(is.character(Scale)) {
+		Scale <- match.arg(tolower(Scale), c("auto", "distance", "symmetric",
+																				 "variance", "interpolative"))
+		if(Scale == "auto")
+			Scale <- "variance"
+		## set titles if necessary
+		if(all(x$scale == 1))
+			scaled <- "" # raw data
+		else
+			scaled <- "scaled " # these have been scaled to mean 0 and sd 1.
+		if(xtitle == 'Auto')
+			xtitle <- switch(Scale ,
+											 distance=paste("Component ", Which[1L], " (", scaled,
+											 							 "Euclidean distance)", sep=''),
+											 variance=paste("Component ", Which[1L], " (", scaled,
+											 							 "Mahalanobis distance)", sep=''),
+											 symmetric=paste("Component ", Which[1L], sep=''),
+											 interpolative=paste("Component ", Which[1L], " (", scaled,
+											 										"Euclidean distance)", sep=''))
+		if(ytitle == 'Auto')
+			ytitle <- switch(Scale ,
+											 distance=paste("Component ", Which[2L], " (", scaled,
+											 							 "Euclidean distance)", sep=''),
+											 variance=paste("Component ", Which[2L], " (", scaled,
+											 							 "Mahalanobis distance)", sep=''),
+											 symmetric=paste("Component ", Which[2L], sep=''),
+											 interpolative=paste("Component ", Which[2L], " (", scaled,
+											 										"Euclidean distance)", sep=''))
+		if(xtitle2 == 'Auto')
+			xtitle2 <- switch(Scale ,
+												distance=paste(scaled, "variable contribution", sep=''),
+												variance=paste(scaled, "variable standard deviation", sep=''),
+												symmetric="",
+												interpolative="")
+		if(ytitle2 == 'Auto')
+			ytitle2 <- switch(Scale ,
+												distance=paste(scaled, "variable contribution", sep=''),
+												variance=paste(scaled, "variable standard deviation", sep=''),
+												symmetric="",
+												interpolative="")
+		## set margins 3 and 4 (to default value that allow reasonable room)
+		margin[4] <- margin[3] <- switch(Scale,
+																		 distance=-4.1, variance=-4.1,
+																		 symmetric=0.5, interpolative=0.5)
+		## Set scale to numeric value for correct computation of obs and var
+		scale <- switch(Scale,
+										distance=1, variance=0,
+										symmetric=0.5, interpolative=-1)
+	}
+	else {
+		scale <- Scale # better be numeric
+		## Now set the titles and top and right margins
+		if(xtitle == 'Auto')
+			xtitle <- paste("Component ", Which[1L], sep='')
+		if(ytitle == 'Auto')
+			ytitle <- paste("Component ", Which[2L], sep='')
+		if(xtitle2 == 'Auto')
+			xtitle2 <- ""
+		if(ytitle2 == 'Auto')
+			ytitle2 <- ""
+		margin[4] <- margin[3L] <- 0.5
+	}
+	if(scale < 0) { # this produces an interpolation biplot
+		vars <- vars # this needs work, see Joliffe
+		warning("Interpolation not yet implemented")
+	}
+	else if(scale >= 0 && scale <= 1) {
+		vars <- vars * rep(lambdas^(1 - scale), c(p, p))
+		obs <- obs * rep(lambdas^(scale - 1), c(n, n))
+	}
+	else stop("bad value for scale")
+	## Call biplot.default to do the plotting!
+	invisible(biPlot.default(obs, vars, is.character(Scale),
+													 xPlot=obsPlot, yPlot=varPlot,
+													 xPlotLabels=obsPlotLabels,
+													 yPlotLabels=varPlotLabels,
+													 ylabels=ylabels, xlabels=xlabels,
+													 ylabels2=ylabels2, xlabels2=xlabels2,
+													 xtitle=xtitle, ytitle=ytitle,
+													 xtitle2=xtitle2, ytitle2=ytitle2,
+													 range.factor=range.factor,
+													 caption=caption, margin=margin))
 }

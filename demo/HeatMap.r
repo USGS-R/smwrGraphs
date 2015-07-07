@@ -64,7 +64,7 @@ if(tmp.exp > 0) {
 }
 # OK, do the dendrograms
 tmp.cgm <- as.dendrogram(tmp.ccl)
-# As it happens the unlisted dendrogram is the order of the colmns or rows
+# As it happens the unlisted dendrogram is the order of the columns or rows
 tmp.mat <- tmp.mat[, unlist(tmp.cgm)]
 setGraph(2, tmp.lo)
 par(mai=c(0,0,0, tmp.rmr))

@@ -311,7 +311,34 @@ graphics.off()
 \includegraphics{ggplot08.pdf}
 \paragraph{}
 
-\textbf{Figure 7.} A graph showing the report from a simple linear regression.
+\textbf{Figure 8.} A graph showing the report from a simple linear regression.
+
+\eject
+\section{A Dendrogram}
+
+A dendrogram presents the results of a hierarchical cluster analysis in graphical form. This example will perform a cluster analysis of the the Calcium and Magnesuim data in the IonBalance dataset. The exmaple dendrogram suggests two clusters: smaples taken in the fall and winer and smaples taken in the spring and summer.
+
+<<echo=TRUE>>=
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot09", 6 ,6)
+# Extract the data and assigne rownames based on sample date
+CaMg <- data.matrix(IonBalance[, c("Ca", "Mg")])
+rownames(CaMg) <- as.character(IonBalance$DATES)
+# Construct the distance matrix and the cluster analysis
+CaMg.dist <- dist(CaMg)
+CaMg.hclust <- hclust(CaMg.dist, method="average")
+# Dreaw the dendrogram
+dendGram(CaMg.hclust, ytitle="Tree Height")
+# Required call to close PDF output graphics
+graphics.off()
+@
+
+\includegraphics{ggplot09.pdf}
+\paragraph{}
+
+\textbf{Figure 9.} The dendrogram of the example cluster analysis.
 
 \begin{thebibliography}{9}
 

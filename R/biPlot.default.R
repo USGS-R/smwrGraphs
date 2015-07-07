@@ -41,6 +41,8 @@
 #' @param ytitle y-axis title (also called y-axis caption) for \code{x} data.
 #' @param xtitle2 x-axis title (also called x-axis caption) for \code{y} data.
 #' @param ytitle2 y-axis title (also called y-axis caption) for \code{y} data.
+#' @param range.factor a numeric factor by which to expand the axis ranges so
+#'that labels can be drawn.
 #' @param caption the figure caption.
 #' @param margin set up the plot area margins.
 #' @param \dots not used, required for other methods.
@@ -67,6 +69,7 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
                            ylabels2=5,  xlabels2=5, # axis labels
                            xtitle='', ytitle='', 
                            xtitle2='', ytitle2='', # axis titles
+													 range.factor=1.25,
                            caption="", # caption
                            margin=c(NA, NA, NA, NA), ...) {
 	# Coding History:
@@ -80,9 +83,9 @@ biPlot.default <- function(x, y, # data, both must be 2-column matrix
   if(dev.cur() == 1L)
     setGD("BiPlot")
   ## The only way to guarantee 'pretty axes' is to force 0,0 to center
-  ## And must increase by a bit for force labeles to draw
-  obsmax <- max(abs(x)) * 1.25
-  varmax <- max(abs(y)) * 1.25
+  ## And must increase by a bit for force labels to draw
+  obsmax <- max(abs(x)) * range.factor
+  varmax <- max(abs(y)) * range.factor
   if(!separate.axes)
     obsrange <- varrange <- c(-max(obsmax, varmax), max(obsmax, varmax))
   else {

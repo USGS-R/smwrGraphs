@@ -221,3 +221,22 @@ reportGraph(summary(AA.lm))
 graphics.off()
 
 
+###################################################
+### code chunk number 10: GraphGallery.Rnw:321-335
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot09", 6 ,6)
+# Extract the data and assigne rownames based on sample date
+CaMg <- data.matrix(IonBalance[, c("Ca", "Mg")])
+rownames(CaMg) <- as.character(IonBalance$DATES)
+# Construct the distance matrix and the cluster analysis
+CaMg.dist <- dist(CaMg)
+CaMg.hclust <- hclust(CaMg.dist, method="average")
+# Dreaw the dendrogram
+dendGram(CaMg.hclust, ytitle="Tree Height")
+# Required call to close PDF output graphics
+graphics.off()
+
+

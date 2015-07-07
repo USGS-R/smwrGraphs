@@ -14,8 +14,9 @@
 #' @name dotPlot
 #' @rdname dotPlot
 #' @aliases dotPlot dotPlot,numeric-method dotPlot,Date-method
-#' @param x the x-axis data.
+#' @param x the x-axis data. Missing values are permitted and not plotted.
 #' @param y the y-axis data, expected to be be either character or factor.
+#'Missing values are permitted and removed before plotting.
 #' @param Plot control parameters of the plot, see \code{link{setMultiPlot}}
 #' and \bold{Details} for details.
 #' @param yaxis.orient orientation of the y-axis values, must be either "table"
@@ -33,7 +34,8 @@
 #' @param caption the figure caption.
 #' @param margin the parameters of the margin.
 #' @param jitter.y logical, if \code{TRUE}, then adjust \code{y} values to reduce
-#' overlap for each group.
+#'overlap for each group, or adjust randomly if no groups. If \code{FALSE}, then
+#'no adjustment is made. 
 #' @param ... arguments for specific methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
@@ -104,6 +106,10 @@ function(x, y, # data
   ## Quick fix for numeric Y
   if(is.numeric(y))
     y <- as.character(y)
+  ## Remove missing ys
+  good <- !is.na(y)
+  x <- x[good]
+  y <- y[good]
   yax <- namePretty(y, orientation=yaxis.orient, order=yaxis.order,
                     label.abbr=ylabels == "abbreviate")
   ylev <- yax$labels
@@ -142,7 +148,7 @@ function(x, y, # data
   if(jitter.y) {
     Grps <- unique(plot.info$name)
     if(length(Grps) == 1L)
-      jitter.y <- 0
+      jitter.y <- runif(length(y), -.3333, .3333)
     else {
       Rng <- .4 - exp(-length(Grps)) # more-or-less works to expand range
       jitter.y <- seq(-Rng, Rng, length.out=length(Grps))
@@ -191,6 +197,10 @@ function(x, y, # data
   ## Quick fix for numeric Y
   if(is.numeric(y))
     y <- as.character(y)
+  ## Remove missing ys
+  good <- !is.na(y)
+  x <- x[good]
+  y <- y[good]
   yax <- namePretty(y, orientation=yaxis.orient, order=yaxis.order,
                     label.abbr=ylabels == "abbreviate")
   ylev <- yax$labels
@@ -222,7 +232,7 @@ function(x, y, # data
   if(jitter.y) {
     Grps <- unique(plot.info$name)
     if(length(Grps) == 1L)
-      jitter.y <- 0
+      jitter.y <- runif(length(y), -.3333, .3333)
     else {
       Rng <- .4 - exp(-length(Grps)) # more-or-less works to expand range
       jitter.y <- seq(-Rng, Rng, length.out=length(Grps))

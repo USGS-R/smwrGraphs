@@ -74,7 +74,7 @@ setPlot <- function(current, name="", what="lines", type="solid",
   else
     current$type <- match.arg(current$type, c("solid", "dashed", "dotted"))
   if(is.null(current$width))
-    current$width <- 'standard'
+    current$width <- width
   else
     current$width <- match.arg(current$width, c("standard", "color", "bold", "hairline"))
   if(is.null(current$symbol))

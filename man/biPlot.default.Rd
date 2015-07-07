@@ -12,8 +12,8 @@
   "NE", size = 8, offset = 0.35), yPlotLabels = list(labels = "colnames", dir
   = "Auto", size = 8, offset = 0.35, color = "darkblue"), ylabels = 5,
   xlabels = 5, ylabels2 = 5, xlabels2 = 5, xtitle = "", ytitle = "",
-  xtitle2 = "", ytitle2 = "", caption = "", margin = c(NA, NA, NA, NA),
-  ...)
+  xtitle2 = "", ytitle2 = "", range.factor = 1.25, caption = "",
+  margin = c(NA, NA, NA, NA), ...)
 }
 \arguments{
 \item{x}{a 2-column matrix of x- (column 1) and y- (column 2) coordinates for
@@ -58,6 +58,9 @@ origin.}
 \item{xtitle2}{x-axis title (also called x-axis caption) for \code{y} data.}
 
 \item{ytitle2}{y-axis title (also called y-axis caption) for \code{y} data.}
+
+\item{range.factor}{a numeric factor by which to expand the axis ranges so
+that labels can be drawn.}
 
 \item{caption}{the figure caption.}
 
