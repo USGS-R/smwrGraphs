@@ -53,6 +53,9 @@ of that range are plotted as individual symbols. The extended box plot is a
 variation on the simple box plot where all observed values outside of the upper and lower percentiles are plotted as individual symbols. For the default 10 and 90 percentile limits, no more than 10 percent of the total number of observed value will be individually plotted. Note that the y-axis range is set by the range of the data and not the range of the box plot.
 
 ```{r fig.cap="The four basic types of box plots."}
+# Set up the graphics environment, the equivalent call for an on screen
+#  device could be setPage("square")
+
 # Set layout for 4 graphs
 AA.lo <- setLayout(width=rep(1.25, 4), height=4, xtop=1.5)
 # Only need to create the margins once in this case

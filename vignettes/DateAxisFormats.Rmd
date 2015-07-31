@@ -5,12 +5,12 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   rmarkdown::html_vignette:
     fig_height:  1.5
-    fig_width: 7
+    fig_width: 6
     toc: yes
     fig_caption: yes
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{Box Plot Examples}
+  %\VignetteIndexEntry{Date Axis Formats}
   \usepackage[utf8]{inputenc}
 ---
 

@@ -10,7 +10,7 @@ output:
     fig_caption: yes
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{Box Plot Examples}
+  %\VignetteIndexEntry{Graph Additions}
   \usepackage[utf8]{inputenc}
 ---
 
