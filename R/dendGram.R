@@ -48,7 +48,7 @@ dendGram <- function(x, # data specification
 		if(any(is.na(axis.range))) {
 			yax <- linearPretty(c(0, xmax), labels=labels, extend.range=FALSE)
 		} else {
-			yax <- linearpretty(axis.range, hard=TRUE, labels=labels, 
+			yax <- linearPretty(axis.range, hard=TRUE, labels=labels, 
 													extend.range=FALSE)
 		}
 		xax <- namePretty(xlab, orientation="grid", offset=1)
@@ -84,7 +84,7 @@ dendGram <- function(x, # data specification
 		if(any(is.na(axis.range))) {
 			xax <- linearPretty(c(0, xmax), labels=labels, extend.range=FALSE)
 		} else {
-			xax <- linearpretty(axis.range, hard=TRUE, labels=labels, 
+			xax <- linearPretty(axis.range, hard=TRUE, labels=labels, 
 													extend.range=FALSE)
 		}
 		yax <- namePretty(xlab, orientation="grid", offset=1)
