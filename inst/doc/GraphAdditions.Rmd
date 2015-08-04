@@ -17,9 +17,9 @@ vignette: >
 ```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
 library(knitr)
 library(rmarkdown)
-library(kfigr)
+library(captioner)
 opts_chunk$set(message=FALSE,warning=FALSE,dev="png")
-opts_knit$set(eval.after='fig.cap')
+fig_nums <- captioner()
 ```
 
 
@@ -40,7 +40,7 @@ Y <- X + rnorm(32)
 This example draws a simple scatter plot, then adds a line representing the
 median y value and annotates that line. Adding annotation generally requires a trail and error approach to placement of the annotation. The simple method used in this example works because X and Y are correlated.
 
-```{r chunk1, anchor="figure", fig.cap=paste0("**Figure ** ", figr('chunk1'),": Scatter plot with reference line and annotation.")}
+```{r chunk1}
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
 
@@ -51,6 +51,7 @@ addAnnotation(min(X), median(Y), "Median Y", current=AA.pl)
 
 ```
 
+`r fig_nums('chunk1',"Scatter plot with reference line and annotation.")`
 
 #Grid Lines
 
@@ -58,22 +59,22 @@ Adding grid lines is a 3-step process---1 create the graph with nothing
 plotted, 2 add the grid lines, and 3 then add the plotted data. This process
 guarantees that the data will overplot the grid lines.
 
-```{r chunk2, anchor="figure", fig.cap=paste0("**Figure ** ", figr('chunk2'),": Scatter plot with grid lines.")}
+```{r chunk2}
 # Step 1
 AA.pl <- xyPlot(X, Y, Plot=list(what="none"))
 # Step 2
 addGrid(AA.pl)
 # Step 3
 AA.pl <- addXY(X, Y, Plot=list(what="points"))
-
-
 ```
+
+`r fig_nums('chunk2',"Scatter plot with grid lines.")`
 
 #Add a Smoothed Line
 
 It is sometimes desireable to add a smoothed line to a scatter plot to show the general trend or relation between the data.
 
-```{r chunk3, anchor="figure", fig.cap=paste0("**Figure ** ", figr('chunk3'),": Scatter plot with smooth line.")}
+```{r chunk3}
 # Create a scatter plot from the X and Y data. The name of the output (AA.pl)
 #  is completely arbiutrary, but consistently used through these examples.
 AA.pl <- xyPlot(X, Y)
@@ -81,16 +82,16 @@ AA.pl <- xyPlot(X, Y)
 # graph. Accept all defaults for this example. A very useful additional
 # argument would be span for the loess.smooth
 AA.pl <- addSmooth(X, Y, current=AA.pl)
-
-
 ```
+
+`r fig_nums('chunk3',"Scatter plot with smooth line.")`
 
 #Add a Regression Line with Confidence Intervals and Table
 
 Sometimes a table needs to be added to a graph. That table may represent some
 statistical summary or other additional data.
 
-```{r chunk4, anchor="figure", fig.cap=paste0("**Figure ** ", figr('chunk4'),": Scatter plot with simple linear regression."), fig.height=5}
+```{r chunk4, fig.height=5}
 # Create a scatter plot from the X and Y data. 
 AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
 # Create and add the regresion line and 95% confidence intervals
@@ -102,9 +103,9 @@ addCI("SLR", current=AA.pl)
 AA.tbl <- format(round(coefficients(summary(AA.pl$lm)), 4))
 AA.tbl <- cbind(" "=c("Intercept", "X"), AA.tbl)
 addTable(AA.tbl, where="ul")
-
-
 ```
+
+`r fig_nums('chunk4',"Scatter plot with simple linear regression.")`
 
 #Show area covered by data
 
@@ -112,7 +113,7 @@ Occasionally there is a need to show the general area coverd by a set of data. T
 
 This exmaple also identifies and labels selected points lying outside of the enclosing polygon. It demonstrates the use of the `lablePoints` function.
 
-```{r chunk5, anchor="figure", fig.cap=paste0("**Figure ** ", figr('chunk5'),": Scatter plot showing area covered by the data."),fig.height=3.5}
+```{r chunk5, fig.height=3.5}
 # Create a scatter plot from the X and Y data. 
 AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
 # Create and draw an ellipse that covers 90 percent of the data
@@ -127,7 +128,7 @@ AA.ds <- mahalanobis(cbind(X,Y), c(mean(X), mean(Y)), var(cbind(X,Y)))
 AA.sel <- which(AA.ds > quantile(AA.ds, probs=0.9, type=2))
 # Add the labels--the sequence number of the point
 labelPoints(X[AA.sel], Y[AA.sel], as.character(AA.sel), current=AA.pl)
-
-
 ```
+
+`r fig_nums('chunk5',"Scatter plot showing area covered by the data.")`
 

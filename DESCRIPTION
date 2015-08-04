@@ -16,11 +16,11 @@ Suggests:
     dataRetrieval,
     knitr,
     rmarkdown,
-    kfigr
-BuildVignettes: true
+    captioner
 Description: Functions to create high-quality graphs to support statistical
     methods in water resources. These graphs meet or nearly meet the publication standards of the U.S. Geological Survey.
 License: CC0
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+BuildVignettes: true
