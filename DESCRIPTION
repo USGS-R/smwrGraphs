@@ -13,11 +13,14 @@ Imports:
     lubridate
 Suggests:
     smwrData (>= 1.0.0),
-    dataRetrieval
+    dataRetrieval,
+    knitr,
+    rmarkdown,
+    captioner
 Description: Functions to create high-quality graphs to support statistical
-    methods in water resources. These graphs meet or
-    nearly meet the publication standards of the U.S. Geological Survey.
+    methods in water resources. These graphs meet or nearly meet the publication standards of the U.S. Geological Survey.
 License: CC0
 LazyLoad: yes
 LazyData: yes
-VignetteBuilder: utils
+VignetteBuilder: knitr
+BuildVignettes: true

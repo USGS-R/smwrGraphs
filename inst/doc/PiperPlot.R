@@ -1,8 +1,11 @@
-### R code from vignette source 'PiperPlot.Rnw'
+## ----setup, echo=FALSE, warning=FALSE, message=FALSE---------------------
+library(knitr)
+library(captioner)
+library(rmarkdown)
+opts_chunk$set(message=FALSE,warning=FALSE,dev="png")
+fig_nums <- captioner()
 
-###################################################
-### code chunk number 1: PiperPlot.Rnw:18-29
-###################################################
+## ------------------------------------------------------------------------
 # Load the smwrGraphs package
 library(smwrGraphs)
 # Generate a random sample for the ternary diagram
@@ -15,10 +18,7 @@ Z <- runif(25, .3, 1.)
 library(smwrData)
 data(MiscGW)
 
-
-###################################################
-### code chunk number 2: PiperPlot.Rnw:37-65
-###################################################
+## ----chunk1, fig.height=7, fig.width=7-----------------------------------
 # Transform the data. This example will ignore potassium, fluoride, and nitrate
 # (carbonate is either 0 or missing and will also be ignored).
 PD <- transform(MiscGW, Ca.meq = conc2meq(Calcium, "calcium"),
@@ -30,12 +30,10 @@ PD <- transform(MiscGW, Ca.meq = conc2meq(Calcium, "calcium"),
 # abbreviations allowed in the cal to conc2meq
 # The row name identifies the sample source, create a column
 PD$SS <- row.names(PD)
-# setSweave is a specialized function that sets up the graphics page for
-# Sweave scripts. It should be replaced by a call to setPage or setPDF 
-# in a regular script.
+
 # The minimum page size for a Piper plot is 7 inches. No check is made,
 #  but the axis title spacings require a graph area of at least 6 inches.
-setSweave("piperplot01", 7, 7)
+
 # For this example, a separate graph area for an explanation is not needed
 #  because there are only 4 groups (individuals).
 AA.pl <- with(PD, piperPlot(Ca.meq, Mg.meq, Na.meq, 
@@ -45,15 +43,9 @@ AA.pl <- with(PD, piperPlot(Ca.meq, Mg.meq, Na.meq,
   xAn.title = "Chloride",
   yAn.title = "Bicarbonate"))
 addExplanation(AA.pl, where="ul", title="")
-# Required call to close PDF output graphics
-graphics.off()
 
 
-###################################################
-### code chunk number 3: PiperPlot.Rnw:81-105
-###################################################
-# Use the data from the previous example
-setSweave("piperplot02", 7, 7)
+## ----chunk2, fig.height=7, fig.width=7-----------------------------------
 # Create the empty Piper plot
 AA.pl <- with(PD, piperPlot(Ca.meq, Mg.meq, Na.meq, 
     Cl.meq, HCO3.meq, SO4.meq,
@@ -74,14 +66,8 @@ PD.size <- 0.2*sqrt(PD$TotalCat)/mean(sqrt(PD$TotalCat))
 with(AA.pl, addPiper(xCat=NA, yCat=NA, xAn=NA, yAn=NA, 
   xPip=piper$x, yPip=piper$y,
   Plot=list(size=PD.size, filled=FALSE), current=AA.pl))
-# Required call to close PDF output graphics
-graphics.off()
 
-
-###################################################
-### code chunk number 4: PiperPlot.Rnw:121-134
-###################################################
-setSweave("piperplot03", 3.5, 3.5)
+## ----chunk3, fig.height=3.5, fig.width=3.5-------------------------------
 # Accept all defaults
 AA.pl <- ternaryPlot(X, Y, Z)
 # Use the chull function to extract the points that define the 
@@ -92,22 +78,15 @@ AA.pts[length(AA.pts) + 1] <- AA.pts[1]
 # Select those points and draw the hull
 addTernary(X[AA.pts], Y[AA.pts], Z[AA.pts],
   Plot=list(what="lines"), current=AA.pl)
-# Required call to close PDF output graphics 
-graphics.off() 
 
 
-###################################################
-### code chunk number 5: PiperPlot.Rnw:146-156
-###################################################
-setSweave("piperplot04", 6, 6)
-AA.lo <- setLayout(height=3.5, explanation=list(bottom=1.1))
-setGraph(1, AA.lo)
-# Accept all defaults, but subset the data for the small graph size
-AA.pl <- with(PD, stiffPlot(cbind(Ca.meq, Mg.meq, Na.meq),
-         cbind(Cl.meq, SO4.meq, HCO3.meq), ylabels=SS))
-setGraph("explanation", AA.lo)
-addExplanation(AA.pl)
-# Required call to close PDF output graphics 
-graphics.off() 
-
+## ----chunk4, eval=FALSE--------------------------------------------------
+#  
+#  AA.lo <- setLayout(height=3.5, explanation=list(bottom=1.1))
+#  setGraph(1, AA.lo)
+#  # Accept all defaults, but subset the data for the small graph size
+#  AA.pl <- with(PD, stiffPlot(cbind(Ca.meq, Mg.meq, Na.meq),
+#           cbind(Cl.meq, SO4.meq, HCO3.meq), ylabels=SS))
+#  setGraph("explanation", AA.lo)
+#  addExplanation(AA.pl)
 

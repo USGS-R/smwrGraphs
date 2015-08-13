@@ -1,8 +1,8 @@
-### R code from vignette source 'BoxPlots.Rnw'
+## ----setup, echo=FALSE, warning=FALSE------------------------------------
+library(knitr)
+opts_chunk$set(message=FALSE, warning=FALSE, dev="png")
 
-###################################################
-### code chunk number 1: BoxPlots.Rnw:24-34
-###################################################
+## ----message=FALSE-------------------------------------------------------
 # Load the smwrGraphs package
 library(smwrGraphs)
 # Generate a random sample for the box plot
@@ -14,14 +14,10 @@ bp <- rchisq(4, 3)
 Gchar <- rep(c("A", "B"), 16)
 Gnum <- rep(c(1998, 2002), 16)
 
+## ----fig.cap="The four basic types of box plots."------------------------
+# Set up the graphics environment, the equivalent call for an on screen
+#  device could be setPage("square")
 
-###################################################
-### code chunk number 2: BoxPlots.Rnw:52-73
-###################################################
-# setSweave is a specialized function that sets up the graphics page for
-# Sweave scripts. It should be replaced by a call to setPage or setPDF 
-# in a regular script.
-setSweave("boxplot01", 6 ,6)
 # Set layout for 4 graphs
 AA.lo <- setLayout(width=rep(1.25, 4), height=4, xtop=1.5)
 # Only need to create the margins once in this case
@@ -37,14 +33,10 @@ addTitle("Tukey")
 setGraph(4, AA.lo)
 boxPlot(BP, Box=list(type="extended"), margin=AA.gr)
 addTitle("Extended")
-# Required call to close PDF output graphics
-graphics.off()
 
 
-###################################################
-### code chunk number 3: BoxPlots.Rnw:88-97
-###################################################
-setSweave("boxplot02", 6 ,6)
+## ----fig.cap="Box plot with explanation."--------------------------------
+
 # Set layout for 1 graph and an explanation
 AA.lo <- setLayout(width=1.5, height=4, explanation=list(right=1.5))
 # Only need to create the margins once in this case
@@ -52,34 +44,20 @@ AA.gr <- setGraph(1, AA.lo)
 AA.bp <- boxPlot(BP, margin=AA.gr)
 setGraph("explanation", AA.lo)
 addExplanation(AA.bp, title="Truncated Boxplot")
-graphics.off()
 
 
-###################################################
-### code chunk number 4: BoxPlots.Rnw:123-128
-###################################################
-setSweave("boxplot03", 6 ,5)
-# The figure is set to a heigth of 5 inches to fit on the page.
+## ----fig.cap="Box plot variations.", fig.height=5------------------------
 # The color gray80 is a very light gray and works well for the fill
 boxPlot(BP, bp, Box=list(fill="gray80", width=1.0), xlabels=c("Big", "Small"))
-graphics.off()
 
 
-###################################################
-### code chunk number 5: BoxPlots.Rnw:144-148
-###################################################
-setSweave("boxplot04", 6 ,6)
+## ----fig.cap="A grouped box plot."---------------------------------------
 # Accept default graph size for this example
 boxPlot(BP, group=Gchar)
-graphics.off()
 
+## ----fig.cap="A box plot grouped by a numeric variable."-----------------
 
-###################################################
-### code chunk number 6: BoxPlots.Rnw:165-169
-###################################################
-setSweave("boxplot05", 6 ,6)
 # Accept default graph size for this example
 boxPlot(BP, group=Gnum)
-graphics.off()
 
 
