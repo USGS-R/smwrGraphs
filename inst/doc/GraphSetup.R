@@ -19,11 +19,12 @@ Zfill <- runif(32, -2, 0)
 ## ----chunk1--------------------------------------------------------------
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
- 
+setPNG()
 xyPlot(X, Y)
 
 
 ## ----chunk2--------------------------------------------------------------
+setPNG()
 xyPlot(X, Y, 
 # Change from solod black circles to blue plus signs
 Plot=list(symbol="+", color="blue"),
@@ -38,7 +39,7 @@ ytitle="Correlated Data")
 
 
 ## ----chunk3--------------------------------------------------------------
-
+setPNG()
 bigY <- exp(Y)
 xyPlot(X, bigY, 
 # Change from solod black circles to blue plus signs
@@ -56,6 +57,7 @@ ytitle="Correlated Data")
 
 
 ## ----chunk4--------------------------------------------------------------
+setPNG()
 # Create a scatter plot from the X and Y data. The name of the output (AA.pl)
 #  is completely arbiutrary, but consistently used through these examples.
 AA.pl <- xyPlot(X, Y, Plot=list(name="Correlated Data", color="blue"),
@@ -72,33 +74,34 @@ AA.pl <- addXY(X, Z, Plot=list(name="Uncorrelated Data", what="points",
 addExplanation(AA.pl, where="ul", title="")
 
 
-## ----chunk5, fig.height=4, eval=FALSE------------------------------------
-#  
-#  # Set the layout for 2 graphs in one row. and allocate room at the top for a graph title
-#  AA.lo <- setLayout(num.cols=2)
-#  # The first graph is the left-most graph
-#  AA.gr <- setGraph(1, AA.lo)
-#  # Create a scatter plot from the X and Y data.
-#  AA.pl <- xyPlot(X, Y, Plot=list(color="blue"),
-#    xaxis.range=c(-2,2), xlabels=5,
-#    xtitle="Random Data", ytitle="Correlated Data",
-#    margin=AA.gr)
-#  # Add the title
-#  addTitle("A")
-#  # The figure caption should always by the lower-left most graph
-#  addCaption("Figure 5. Example Graphs.")
-#  # Subsequent graphs are placed to the right in each row
-#  AA.gr <- setGraph(2, AA.lo)
-#  # Create a scatter plot from the X and Y data.
-#  AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
-#    xaxis.range=c(-2,2), xlabels=5,
-#    xtitle="Random Data", ytitle="Uncorrelated Data",
-#    margin=AA.gr)
-#  # Add the title
-#  addTitle("B")
-#  
+## ----chunk5, fig.height=4------------------------------------------------
+setPNG()
+# Set the layout for 2 graphs in one row. and allocate room at the top for a graph title
+AA.lo <- setLayout(num.cols=2)
+# The first graph is the left-most graph
+AA.gr <- setGraph(1, AA.lo)
+# Create a scatter plot from the X and Y data. 
+AA.pl <- xyPlot(X, Y, Plot=list(color="blue"),
+  xaxis.range=c(-2,2), xlabels=5,
+  xtitle="Random Data", ytitle="Correlated Data",
+  margin=AA.gr)
+# Add the title
+addTitle("A")
+# The figure caption should always by the lower-left most graph
+addCaption("Figure 5. Example Graphs.")
+# Subsequent graphs are placed to the right in each row
+AA.gr <- setGraph(2, AA.lo)
+# Create a scatter plot from the X and Y data. 
+AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
+  xaxis.range=c(-2,2), xlabels=5,
+  xtitle="Random Data", ytitle="Uncorrelated Data",
+  margin=AA.gr)
+# Add the title
+addTitle("B")
+
 
 ## ----chunk6--------------------------------------------------------------
+setPNG()
 # Set the layout for 2 rows and 2 columns with the explanation in grid cell 2
 # Note that num.graphs must be set
 AA.lo <- setLayout(num.cols=2, num.rows=2, num.graphs=3, explanation=list(grid=2))
@@ -126,26 +129,28 @@ AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
   margin=AA.gr)
 
 
-## ----chunk7, fig.width=4, eval=FALSE-------------------------------------
-#  # Set the layout for 2 graphs in one column with shared x-axes
-#  AA.lo <- setLayout(num.rows=2, shared.x=1)
-#  # The first graph is the upper graph
-#  AA.gr <- setGraph(1, AA.lo)
-#  # Create a scatter plot from the X and Y data.
-#  AA.pl <- xyPlot(X, Y, Plot=list(color="blue"),
-#    xaxis.range=c(-2,2), xlabels=5,
-#    ytitle="Correlated Data",
-#    margin=AA.gr)
-#  # The second graph is placed immediately below
-#  AA.gr <- setGraph(2, AA.lo)
-#  # Create a scatter plot from the X and Y data.
-#  AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
-#    xaxis.range=c(-2,2), xlabels=5,
-#    xtitle="Random Data", ytitle="Uncorrelated Data",
-#    margin=AA.gr)
-#  
+## ----chunk7, fig.width=4-------------------------------------------------
+setPNG()
+# Set the layout for 2 graphs in one column with shared x-axes
+AA.lo <- setLayout(num.rows=2, shared.x=1)
+# The first graph is the upper graph
+AA.gr <- setGraph(1, AA.lo)
+# Create a scatter plot from the X and Y data. 
+AA.pl <- xyPlot(X, Y, Plot=list(color="blue"),
+  xaxis.range=c(-2,2), xlabels=5,
+  ytitle="Correlated Data",
+  margin=AA.gr)
+# The second graph is placed immediately below
+AA.gr <- setGraph(2, AA.lo)
+# Create a scatter plot from the X and Y data. 
+AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
+  xaxis.range=c(-2,2), xlabels=5,
+  xtitle="Random Data", ytitle="Uncorrelated Data",
+  margin=AA.gr)
+
 
 ## ----chunk8, fig.width=5-------------------------------------------------
+setPNG()
 # Set the layout for 2 graphs in one column with shared x-axes
 # Create a scatter plot from the X and Z data. 
 AA.pl <- xyPlot(X, Z, Plot=list(color="blue"),
