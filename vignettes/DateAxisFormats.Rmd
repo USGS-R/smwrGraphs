@@ -4,7 +4,7 @@ author: "Dave Lorenz"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   rmarkdown::html_vignette:
-    fig_height: 1.5
+    fig_height: 2.5
     fig_width: 6
     toc: yes
     fig_caption: yes
@@ -47,7 +47,7 @@ This example demonstrates the hour format for a short time frame, less than one 
 ```{r firstChunk}
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
-
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="")
 # add 15-minute minor ticks (3 internal per hour)
 addMinorTicks("bottom", AA.pl, 3)
@@ -60,6 +60,7 @@ addMinorTicks("top", AA.pl, 3)
 The next example demnonstrates the hour format suitable for a time frame between about 1 and 3 days. Note that the upper limit for the x-axis range is the day after the day being plotted. That is required because the class "Date" data are always interpreted as midnight of the day. Minor ticks at hourly intervals are added in this example.
 
 ```{r secondChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-02", "2009-07-03")))
 # add hourly minor ticks (5 internal per hour)
@@ -75,6 +76,7 @@ addMinorTicks("top", AA.pl, 5)
 Day formats are suitable for date ranges between 1 and several days, generally less than 2 months though. The format of the displayed day changes from the full date to just the day number as the length of the date range increases. Minor ticks are by default hours when the major ticks and labels are days. These examples replicates `r fig_nums("secondChunk", display="cite")`, but forces the format to be days. 
 
 ```{r thirdChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-02", "2009-07-03")),
                   xlabels="days")
@@ -88,6 +90,7 @@ addMinorTicks("top", AA.pl, 23)
 
 
 ```{r fourthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-02", "2009-07-03")),
                   xlabels=list(major="days", style="between"))
@@ -103,6 +106,7 @@ The default day labels are placed at the ticks in `r fig_nums("thirdChunk", disp
 
 
 ```{r fifthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-01", "2009-07-05")))
 
@@ -112,6 +116,7 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
 
 
 ```{r sixthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-28", "2009-07-05")))
 
@@ -120,6 +125,7 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
 `r fig_nums("sixthChunk", "The default format for a time span of 7 days.")`
 
 ```{r seventhChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-20", "2009-07-18")))
 
@@ -135,6 +141,7 @@ The default x-axis format for time frames longer than 3 days, but shorter than t
 Just as the format of the day changes as the time span chagnes, the format of the month name changes from the full month name to the abbreviated month name to single letters. Single letter abbreviations are not acceptable for U.S. Geological Survey (2012) publication standards, but are included as an option for quick plot review, editing by an illustrator, or others who wish to use them. Minor ticks are by default days when the major ticks and labels are months. To draw minor ticks at specific day intervals requires inlcuding an argument set up like `xlabels=list(major="months", minor="5 days")` in the call to `timePlot`.
 
 ```{r eighthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-01", "2009-08-01")))
 # add daily minor ticks
@@ -147,6 +154,7 @@ addMinorTicks("top", AA.pl)
 
 
 ```{r ninthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-06-01", "2010-06-01")))
 
@@ -156,6 +164,7 @@ AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
 
 
 ```{r tenthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-01-01", "2010-06-01")))
 
@@ -172,6 +181,7 @@ Year formats are suitable for time spans from 1 to many years, although the mont
 
 
 ```{r eleventhChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-01-01", "2011-01-01")),
                   xlabels="year")
@@ -184,6 +194,7 @@ addMinorTicks("top", AA.pl)
 
 
 ```{r twelthChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2000-01-01", "2013-06-01")))
 # add intervening year minor ticks
@@ -200,6 +211,7 @@ addMinorTicks("top", AA.pl, 1)
 Thw water year begins on October 1 of the previous year and ends on September 30 of that year. Water Year formats are suitable for time spans from 1 to several years, although the month format may be used for time spans of a single year. Long-term water-year summary data can be displayed using a numeric axis with axis titles, or captions, indicating that the unit of time is the water year. The water year format is never a default, it must always be specified by the `xlabels` argument.
 
 ```{r thirteenChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2008-10-01", "2009-10-01")),
                   xlabels="water year")
@@ -213,6 +225,7 @@ addMinorTicks("top", AA.pl)
 
 
 ```{r fourteenChunk}
+setPNG()
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2005-10-01", "2010-10-01")),
                   xlabels="water year")

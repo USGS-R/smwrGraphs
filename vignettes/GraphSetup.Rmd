@@ -62,7 +62,7 @@ required to close the graph if the output were a PDF file created by
 ```{r chunk1}
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
- 
+setPNG()
 xyPlot(X, Y)
 
 ```
@@ -75,6 +75,7 @@ The default plot created by `xyPlot` is a simple x-y scatter plot. The
 axes are scaled to a range that fits the data and labeled according accepted practices within the USGS The x- and y-axis titles are derived from the names of the `x` and `y` arguments. Each of those options are controlled by a simple argument to `xyPlot`. The plot is filled black circles. The `Plot` argument is a list that controls what is actually plotted, any individual component of that list can be omitted and the default value will be used. This example shows several options. Each line is commented to describe the desired change. they would not necessarily need to be commented in any call.
 
 ```{r chunk2}
+setPNG()
 xyPlot(X, Y, 
 # Change from solod black circles to blue plus signs
 Plot=list(symbol="+", color="blue"),
@@ -96,7 +97,7 @@ ytitle="Correlated Data")
 The previous section showed some simple ways to modify axis labels. The user has a great deal of control over axis labels by using the arguments to `linearPretty` for linear axes, `logPretty` for log axes, `datePretty` for date axes, and `probPretty` for probability axes. For all label arguments as list, the `labels} argument must be supplied.
 
 ```{r chunk3}
-
+setPNG()
 bigY <- exp(Y)
 xyPlot(X, bigY, 
 # Change from solod black circles to blue plus signs
@@ -121,6 +122,7 @@ ytitle="Correlated Data")
 All of the high-level plotting functions in the smwrGraphs package return much information about the graph and the plot. This information can be used to add a plot to an existing graph or add an explanation. The information returned from a high-level plotting function is passed to other functions that add to the graph as the `current` argument.
 
 ```{r chunk4}
+setPNG()
 # Create a scatter plot from the X and Y data. The name of the output (AA.pl)
 #  is completely arbiutrary, but consistently used through these examples.
 AA.pl <- xyPlot(X, Y, Plot=list(name="Correlated Data", color="blue"),
@@ -144,8 +146,8 @@ addExplanation(AA.pl, where="ul", title="")
 
 Sometimes, complete figures need multiple graphs instead of multiple plots within a graph. In that case, or when the graph area needs to be changed from the default, two additional functions (`setLayout` and `setGraph`) are needed. The `setLayout` function can be used to set up a grid of graphs and the `setGraph` functions sets up each individual graph. The graphs set up by `setLayout` can share axes or stand alone.
 
-```{r chunk5, fig.height=4, eval=FALSE}
-
+```{r chunk5, fig.height=4}
+setPNG()
 # Set the layout for 2 graphs in one row. and allocate room at the top for a graph title
 AA.lo <- setLayout(num.cols=2)
 # The first graph is the left-most graph
@@ -180,6 +182,7 @@ Sometimes multiple graphs require a separate explanation, also called a legend, 
 The example below illustates how to set up an explanation within a grid cell. The layout is printed to illustrate the configuration of the graph number is the cells. 
 
 ```{r chunk6}
+setPNG()
 # Set the layout for 2 rows and 2 columns with the explanation in grid cell 2
 # Note that num.graphs must be set
 AA.lo <- setLayout(num.cols=2, num.rows=2, num.graphs=3, explanation=list(grid=2))
@@ -214,7 +217,8 @@ AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
 
 Sometimes it is desireable that either x- or y-axes be shared across a column or row. Sharing axes requires that the axis ranges be controlled for all graphs in the column or row. The `setLayout` function controls axis sharing by the `shared.x` and  `shared.y` arguments. Nonnegative values to those arguments indicate sharing---a value of 0 indicates touching axes, positive value are relative spacing based on the default character size. The example below illustates a simple case.
 
-```{r chunk7, fig.width=4, eval=FALSE}
+```{r chunk7, fig.width=4}
+setPNG()
 # Set the layout for 2 graphs in one column with shared x-axes
 AA.lo <- setLayout(num.rows=2, shared.x=1)
 # The first graph is the upper graph
@@ -241,6 +245,7 @@ AA.pl <- xyPlot(X, Z, Plot=list(color="darkred"),
 Sometimes it is necessary to suppress drawing the axis ticks, labels, and title until the graph is complete. This is unusual, but can easily happen when drawing shaded areas. This example illustrates how to add the ticks, labels, and title after adding a shaded area.
 
 ```{r chunk8, fig.width=5}
+setPNG()
 # Set the layout for 2 graphs in one column with shared x-axes
 # Create a scatter plot from the X and Z data. 
 AA.pl <- xyPlot(X, Z, Plot=list(color="blue"),

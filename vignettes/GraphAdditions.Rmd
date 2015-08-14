@@ -37,13 +37,12 @@ Y <- X + rnorm(32)
 
 #Reference Line with Annotation
 
-This example draws a simple scatter plot, then adds a line representing the
-median y value and annotates that line. Adding annotation generally requires a trail and error approach to placement of the annotation. The simple method used in this example works because X and Y are correlated.
+This example draws a simple scatter plot, then adds a line representing the median y value and annotates that line. Adding annotation generally requires a trail and error approach to placement of the annotation. The simple method used in this example works because X and Y are correlated.
 
 ```{r chunk1}
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
-
+setPNG()
 AA.pl <- xyPlot(X, Y)
 # Add the median line of Y and annotation
 refLine(horizontal = median(Y), current=AA.pl)
@@ -55,11 +54,10 @@ addAnnotation(min(X), median(Y), "Median Y", current=AA.pl)
 
 #Grid Lines
 
-Adding grid lines is a 3-step process---1 create the graph with nothing
-plotted, 2 add the grid lines, and 3 then add the plotted data. This process
-guarantees that the data will overplot the grid lines.
+Adding grid lines is a 3-step process---1 create the graph with nothing plotted, 2 add the grid lines, and 3 then add the plotted data. This process guarantees that the data will overplot the grid lines.
 
 ```{r chunk2}
+setPNG()
 # Step 1
 AA.pl <- xyPlot(X, Y, Plot=list(what="none"))
 # Step 2
@@ -75,6 +73,7 @@ AA.pl <- addXY(X, Y, Plot=list(what="points"))
 It is sometimes desireable to add a smoothed line to a scatter plot to show the general trend or relation between the data.
 
 ```{r chunk3}
+setPNG()
 # Create a scatter plot from the X and Y data. The name of the output (AA.pl)
 #  is completely arbiutrary, but consistently used through these examples.
 AA.pl <- xyPlot(X, Y)
@@ -92,6 +91,7 @@ Sometimes a table needs to be added to a graph. That table may represent some
 statistical summary or other additional data.
 
 ```{r chunk4, fig.height=5}
+setPNG()
 # Create a scatter plot from the X and Y data. 
 AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
 # Create and add the regresion line and 95% confidence intervals
@@ -114,6 +114,7 @@ Occasionally there is a need to show the general area coverd by a set of data. T
 This exmaple also identifies and labels selected points lying outside of the enclosing polygon. It demonstrates the use of the `lablePoints` function.
 
 ```{r chunk5, fig.height=3.5}
+setPNG()
 # Create a scatter plot from the X and Y data. 
 AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
 # Create and draw an ellipse that covers 90 percent of the data

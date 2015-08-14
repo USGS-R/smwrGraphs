@@ -33,7 +33,7 @@ PD$SS <- row.names(PD)
 
 # The minimum page size for a Piper plot is 7 inches. No check is made,
 #  but the axis title spacings require a graph area of at least 6 inches.
-
+setPNG()
 # For this example, a separate graph area for an explanation is not needed
 #  because there are only 4 groups (individuals).
 AA.pl <- with(PD, piperPlot(Ca.meq, Mg.meq, Na.meq, 
@@ -46,6 +46,7 @@ addExplanation(AA.pl, where="ul", title="")
 
 
 ## ----chunk2, fig.height=7, fig.width=7-----------------------------------
+setPNG()
 # Create the empty Piper plot
 AA.pl <- with(PD, piperPlot(Ca.meq, Mg.meq, Na.meq, 
     Cl.meq, HCO3.meq, SO4.meq,
@@ -68,6 +69,7 @@ with(AA.pl, addPiper(xCat=NA, yCat=NA, xAn=NA, yAn=NA,
   Plot=list(size=PD.size, filled=FALSE), current=AA.pl))
 
 ## ----chunk3, fig.height=3.5, fig.width=3.5-------------------------------
+setPNG()
 # Accept all defaults
 AA.pl <- ternaryPlot(X, Y, Z)
 # Use the chull function to extract the points that define the 
@@ -80,13 +82,13 @@ addTernary(X[AA.pts], Y[AA.pts], Z[AA.pts],
   Plot=list(what="lines"), current=AA.pl)
 
 
-## ----chunk4, eval=FALSE--------------------------------------------------
-#  
-#  AA.lo <- setLayout(height=3.5, explanation=list(bottom=1.1))
-#  setGraph(1, AA.lo)
-#  # Accept all defaults, but subset the data for the small graph size
-#  AA.pl <- with(PD, stiffPlot(cbind(Ca.meq, Mg.meq, Na.meq),
-#           cbind(Cl.meq, SO4.meq, HCO3.meq), ylabels=SS))
-#  setGraph("explanation", AA.lo)
-#  addExplanation(AA.pl)
+## ----chunk4--------------------------------------------------------------
+setPNG()
+AA.lo <- setLayout(height=3.5, explanation=list(bottom=1.1))
+setGraph(1, AA.lo)
+# Accept all defaults, but subset the data for the small graph size
+AA.pl <- with(PD, stiffPlot(cbind(Ca.meq, Mg.meq, Na.meq),
+         cbind(Cl.meq, SO4.meq, HCO3.meq), ylabels=SS))
+setGraph("explanation", AA.lo)
+addExplanation(AA.pl)
 

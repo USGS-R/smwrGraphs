@@ -53,7 +53,7 @@ numeric y-coordinate data. This example plots factor data and over plots the err
 ```{r chunk1}
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
-
+setPNG()
 # Construct means and 95 percent confidence intervals for selected constituents
 # in the IonBalance dataset (smwrData)
 Stats <- lapply(IonBalance[, c("Ca", "Mg", "Na")],
@@ -84,6 +84,7 @@ The biplot is a type of exploratory graph to show a simple two-variable scatterp
 The scaling between observations and variables is controlled by the `Scale` argument, which can take any value between 0 and 1 or a character string indicating a specific scaling. The options for the character string are "distance," which produces a plot where the observations retain their approximate relation with respect to Eucldiean distances and correponds to a numeric value of 1; "variance," which produces a plot where the cosine of the angle between the variable vectors is related to the correlation between the variables and corresponds to a numeric value of 0; "symmetric," which tries to balance the range of values for observations and variables to give a pleasing graph and corresponds to a numeric value of 0.5; or "Auto," which is the same as "variance." This scaling scheme echoes the presentation in Gower and Hand (1996).
 
 ```{r  chunk2}
+setPNG()
 # Construct the PCA from calcium, magnesium, and sodium and print it
 MGW.pp <- princomp(data.matrix(MiscGW[, c("Calcium", "Magnesium", "Sodium")]), 
   cor=TRUE, scores=TRUE)
@@ -101,6 +102,7 @@ Scales on ordination graphs are relative to the data shown and have no absolute 
 This example shows a scaleless graph from the previous principal component analysis and illustrates the use of `addStiff` to show the actual ionic strengths.
 
 ```{r chunk3}
+setPNG()
 # Use the PCA from the previous example. The scores component provides the
 # coordinate information for each observation.
 # From the biplot, the first axis repesent increasing calcium and the second
@@ -149,7 +151,8 @@ areaPlot(Xdata, dlpearsonIII(Xdata, 0, 1, .5), Areas=list(fillDir="under",
 
 The `contourPlot` function can draw contour lines or filled contours from either x, y, and z data or from a matrix with x and y grid locations. The example in this section creates a filled contour graph of soil-temperature data from data collected at known depths at regular intervals, but uses the methods for arbitrary x, y, and z data.
 
-```{r  chunk5, eval=FALSE, fig.height=7,fig.width=7}
+```{r  chunk5, fig.height=7,fig.width=7}
+setPNG()
 # First set up the data in proper form--separate columns for the x- (JULIAN),
 # y-(Depth), and z-axis (Temperature) data.
 # setPNG("test", width=6, height = 6)
@@ -179,7 +182,7 @@ The `corGram` function is used primarily as a diagnostic plot for regressions on
 
 This example shows 5 conditions typically shown in regression diagnostics: no correlations structure, serial correlation, seasonal or temporal lack of fit, and time-series anomalies. It uses randomly generated data to display the conditions. Each of the y values for the conditions will be scaled to a mean of 0 and standard deviation of 1 because the y values are not centered by `corGram`.
 
-```{r  chunk6, eval=FALSE}
+```{r  chunk6}
 # Generate the random data.
 set.seed(1236)
 # Use sorted observations in decimal format for 4 years of data collection
@@ -195,6 +198,7 @@ Ytime <- scale(Yrand + seq(-1, 1, length.out=100))
 Yanom <- scale(Yrand + 0.75*(Rdates > 2011.1 & Rdates < 2011.7))
 # Set up for the graphs and create the correlograms
 # These use gray90 color and reset the yaxis range to emphasize the line
+setPNG()
 AA.lo <- setLayout(num.rows=3, num.cols=2)
 setGraph(1, AA.lo)
 corGram(Rdates, Yrand, Plot=list(color="gray90"), yaxis.range = c(-1, 1))
@@ -224,6 +228,7 @@ The smooth line correlogram for random, uncorrelated data shows only small and i
 A surface plot is a three dimensional presentation of a surface in contrast to a contour plot that uses either lines or colors to indicate the surface. There are two steps to displaying a surface plot using the functions in `smwrGraphs`: the first step is to set the projection for the surface plot using `preSurface`, the second step is to draw the surface using `surfacePlot}. This exmaple sets up a simple surface plot of the MC11 data used in the contour plot example.
 
 ```{r  chunk7}
+setPNG()
 # First set up the projection. The preSurface function can be interactive,
 # This script sets the projection to A and supresses the request for user input.
 AA.pre <- with(MC11_1993, preSurface(JULIAN, c(-2.5, -2.0, -1.5, -1.0, -0.5), 
@@ -256,6 +261,7 @@ reportGraph(summary(AA.lm))
 A dendrogram presents the results of a hierarchical cluster analysis in graphical form. This example will perform a cluster analysis of the the Calcium and Magnesuim data in the IonBalance dataset. The exmaple dendrogram suggests two clusters: smaples taken in the fall and winer and smaples taken in the spring and summer.
 
 ```{r chunk9}
+setPNG()
 # Extract the data and assigne rownames based on sample date
 CaMg <- data.matrix(IonBalance[, c("Ca", "Mg")])
 rownames(CaMg) <- as.character(IonBalance$DATES)

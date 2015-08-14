@@ -44,6 +44,7 @@ The empirical distribution function describes the cumulative distribution given 
 # Create the graph. Note that by default, the x-axis is log-transformed and
 #  requires strictly positive data. Setting xaxis.log to
 #  FALSE relaxes that requirement.
+setPNG()
 ecdfPlot(Xmix)
 ```
 
@@ -63,6 +64,7 @@ logarithms of the data.
 #  supplied, then a line for the fitted distribution is drawn. The default
 #  setting for yaxis.log is TRUE, so the logs of the data are required for the
 #  mean and standard deviation.
+setPNG()
 probPlot(Xlogn, mean=mean(log(Xlogn)), sd=sd(log(Xlogn)))
 ```
 
@@ -75,6 +77,7 @@ The Q-normal plot is related to the probability plot for normal distributions, b
 ```{r chunk3}
 # Accept all of the defaults, the line is based on the mean and the standard
 #  deviation of the data.
+setPNG()
 qqPlot(Xnorm)
 ```
 
@@ -85,6 +88,7 @@ qqPlot(Xnorm)
 The Q-Q plot is designed to compare the distribution of two samples. The larger sample is subsetted to match the length of the smaller sample, if necessary and matching quantiles are plotted against each other. For this plot, two lines are shown---the best fit line (black) and the 1:1 line (gray). If the distributions are similar the lines will be close to each other. No assumption is made about the distribution other than similarity.
 
 ```{r chunk4}
+setPNG()
 # Accept all of the defaults.
 qqPlot(Xnorm, Xbig)
 
@@ -97,6 +101,7 @@ qqPlot(Xnorm, Xbig)
 The histogram describes the probability distribution given counts or the proportion of the data in bins along the range of the observations. The density of the data are portrayed as rectangles with fixed width and height proportional to the number of observations within each bin. The histogram is most useful for relatively large datasets because the appearance is sensitive the number in each bin, which can vary widely for small data sets. No assumption is made about the distribution.
 
 ```{r chunk5}
+setPNG()
 histGram(Xbig)
 ```
 
@@ -105,6 +110,7 @@ histGram(Xbig)
 A frequent variation on the histogram is plotting the density curve on top of the histogram. That type of histogram requires the `type` component of the `Hist` argument be set to "density." Because density estimation generally extends the x-axis beyond the usual limits of histogram estimation, the first step should be to compute the density estimate and set the x-axis limits to match those from the density estimate.
 
 ```{r chunk6, fig.height=4}
+setPNG()
 # Compute the density
 Xbig.den <- density(Xbig)
 range(Xbig.den$x)
@@ -127,8 +133,8 @@ Adding plots to the graphs created by the `probPlot` function requires sorting t
 
 Adding plots to a Q-normal graph created with the `qqPlot` function is very similar to adding plots to the probability plot, except that the x-axis coordiante must be converted to the normal quaintiles. The steps for adding to a Q-normal plot are described for the production of figure 7C shown in the following code.
 
-```{r chunk7, fig.height=8, eval=FALSE}
-
+```{r chunk7, fig.height=8}
+setPNG()
 # Allocate 3 graphs
 AA.lo <- setLayout(num.rows=3)
 # Figure 7A
