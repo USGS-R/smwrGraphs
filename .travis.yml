@@ -7,7 +7,7 @@ before_install:
 install:
   - ./travis-tool.sh install_deps
   - ./travis-tool.sh install_github usgs-r/smwrBase
-  - ./travis-tool.sh install_github usgs-r/swmrData
+  - ./travis-tool.sh install_github usgs-r/smwrData
  
 script: ./travis-tool.sh run_tests
 
