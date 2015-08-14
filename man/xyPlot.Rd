@@ -3,6 +3,7 @@
 \docType{methods}
 \name{xyPlot}
 \alias{xyPlot}
+\alias{xyPlot,character,numeric-method}
 \alias{xyPlot,factor,numeric-method}
 \alias{xyPlot,numeric,numeric-method}
 \title{Plot Data}
@@ -21,6 +22,14 @@ xyPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
   NA), ...)
 
 \S4method{xyPlot}{factor,numeric}(x, y, Plot = list(name = "", what =
+  "points", type = "solid", width = "standard", symbol = "circle", filled =
+  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
+  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
+  ylabels = 7, xlabels = "Auto", xtitle = "",
+  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
+  NA), xlabels.rotate = FALSE, ...)
+
+\S4method{xyPlot}{character,numeric}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
   TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
   yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
@@ -91,6 +100,8 @@ environment before calling \code{xyPlot}.
 "numeric")}{ Create a line or scatter plot from numeric x and
 y data. }
 \item{signature(x = "factor", y ="numeric")")}{ Create a vertical
+dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
+\item{signature(x = "character", y ="numeric")")}{ Create a vertical
 dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
 }
 }

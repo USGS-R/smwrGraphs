@@ -37,15 +37,35 @@ Z <- rnorm(32, sd=1.2)
 Zfill <- runif(32, -2, 0)
 ```
 
-Some basic nomenclature is necessary to understand the instructions in this vignette.
+The focus of the graphics functions in smwrGraphs is to produce nearly publication ready
+graphs for U.S. Geological Survey series reports. As such, the graphs have some very
+specific requirements that must be set up in calls to functions in smwrGraphs that set up
+the correct graphics environment. The primary function for setting up the graphics
+environment in preparation for publication in U.S. Geological Survey series reports is
+`setPDF`. There are several other functions in smwrGraphs that set up the graphics
+environemt primarily for preview or other applications. They are described below. The use
+of any other plotting device will generate warnings from the funcitons in smwrGraphs and
+the graphs will not appear to meet U.S. Geological Survey graphics standards.
 
-* **figure** The completed product, consisting of one or more graphs and
-an optional explanation.
+* **setGD** A very basic and simple to use function that sets up a square, onscreen graphics device for preview.
+* **setKnitr** Used to create PDF output files when using `knitr` to process the script.
+* **setPage** Set up an onscreen graphics device for preview or presentation.
+* **setPDF** The function to set up a PDf file that can be easily edited by U.S. 
+Geological Survey illustrators.
+* **setPNG** Used to create PNG files for HTML documents or other documents that require a bitmap format.
+* **setRStudio** Can be used to configure the default graphics output in RStudio@ to accept plots created using the functions in smwrgraphs without warnings.
+* **setSweave** Used to create PDF files when using `sweave`.
+
+Some basic nomenclature is necessary to understand the instructions and concepts in this
+vignette.
+
+* **figure** The completed product, consisting of one or more graphs,
+an optional explanation, and an optional figure caption.
 * **graph** The area containing the plot, axis labels and titles and graph
 title.
-* **plot**  The data plotted as lines, points, or other.
+* **plot**  The data plotted as lines, points, or other objects.
 * **axis labels** Labels for each major tick.
-* **axis title** A brief description of the axis.
+* **axis title** A brief description of the axis, also called the axis caption.
 * **graph title** A description or identifier for the graph.
 * **explanation** An explanation of the symbols in the graphs, also called
 legend or key.
@@ -57,7 +77,7 @@ legend or key.
 The simplest graph can be created using only two functions, one to set up the
 graphics environment and one to create the graph. An additional call would be
 required to close the graph if the output were a PDF file created by
-`setPDF` or `setSweave`.
+`setPDF`, `setSweave`, or `setPNG`.
 
 ```{r chunk1}
 # Set up the graphics environment, the equivalent call for an on screen

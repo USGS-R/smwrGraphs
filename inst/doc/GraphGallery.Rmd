@@ -249,6 +249,7 @@ A report graph is simply formatted text written to a graphics device. The intent
 # Construct the regression
 AA.lm <- lm(Mg ~ Ca, data=IonBalance)
 # And write the report
+setPNG()
 reportGraph(summary(AA.lm))
 
 ```

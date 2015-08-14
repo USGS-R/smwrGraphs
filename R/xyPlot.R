@@ -45,6 +45,8 @@
 #' y data. } 
 #' \item{signature(x = "factor", y ="numeric")")}{ Create a vertical
 #'dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
+#' \item{signature(x = "character", y ="numeric")")}{ Create a vertical
+#'dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
 #'}
 #' @seealso \code{\link{setPage}}, \code{\link{timePlot}},
 #' \code{\link{colorPlot}}
@@ -260,5 +262,31 @@ function(x, y, # data
   invisible((list(x=x, y=y, yaxis.log=yaxis.log, yaxis.rev=yaxis.rev,
                   xaxis.log=xaxis.log, explanation=explan, margin=margin,
                   yax=yax, xax=xax)))
+}
+)
+
+#' @rdname xyPlot
+setMethod("xyPlot", signature("character", "numeric"),
+function(x, y, # data
+         Plot=list(name="", what="points", type="solid",
+           width="standard", symbol="circle", filled=TRUE,
+           size=0.09, color="black"), # plot controls
+         yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.range=c(NA,NA), # y-axis controls
+         xaxis.log=FALSE, xaxis.range=c(NA,NA), # x-axis controls
+         ylabels=7, xlabels="Auto", # labels
+         xtitle="",
+         ytitle=deparse(substitute(y)), # axis titles
+         caption="", # caption 
+         margin=c(NA, NA, NA, NA), xlabels.rotate=FALSE, ...) { # margin controls
+  ## build a simple (single line or scatter) x-y plot
+  ##
+  ## Initial
+  ytitle <- ytitle # needed to 'set' names
+  ## conveert x to factor and call xyPlot
+  x <- as.factor(x)
+  xyPlot(x=x, y=y, Plot=Plot, yaxis.log=yaxis.log, yaxis.rev=yaxis.rev,
+  yaxis.range=yaxis.range, xaxis.log=xaxis.log, ylabels=ylabels,
+  xlabels=xlabels, xtitle=xtitle, ytitle=ytitle, caption=caption,
+  margin=margin, xlabels.rotate=xlabels.rotate)
 }
 )

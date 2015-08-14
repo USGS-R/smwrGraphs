@@ -43,7 +43,7 @@ AA.lo <- setLayout(width=1.5, height=4, explanation=list(right=1.5))
 AA.gr <- setGraph(1, AA.lo)
 AA.bp <- boxPlot(BP, margin=AA.gr)
 setGraph("explanation", AA.lo)
-addExplanation(AA.bp, title="Truncated Boxplot")
+addExplanation(AA.bp, title=expression(bold("Truncated Boxplot")))
 
 
 ## ----fig.cap="Box plot variations.", fig.height=5------------------------

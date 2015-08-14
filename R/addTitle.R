@@ -43,10 +43,10 @@ addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE,
 	} else {
 		just <- (pmatch(Justification, c("left", "center", "right")) - 1)/2
 		just <- (just - .5)*.98 + .5 # move away from edges
-		line <- 0.2
+		line <- 1.0
 		if(Position == "inside") {
 			# Modify line and just
-			line <- -1.5
+			line <- -0.75
 			just <- (just - .5)*.96 + .5 # move away from plot ticks
 		}
 		if(Heading != "" && Main != "") {
@@ -60,7 +60,7 @@ addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE,
 			Heading <- as.expression(substitute(paste(italic(x), " ", y), 
 																					list(x=Heading, y=Main)))
 		}
-		mtext(text=Heading, side=3L, line=line, adj=just, font=1L,
+		mtext(text=Heading, side=3L, line=line, adj=just, font=1L, padj=1,
 					family="USGS", cex=9/8)
 	}
 	invisible()

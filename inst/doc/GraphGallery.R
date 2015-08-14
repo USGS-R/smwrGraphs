@@ -157,6 +157,7 @@ surfacePlot(AA.pre, xtitle="Julian Day, 1993", ytitle="Depth below landsurface",
 # Construct the regression
 AA.lm <- lm(Mg ~ Ca, data=IonBalance)
 # And write the report
+setPNG()
 reportGraph(summary(AA.lm))
 
 

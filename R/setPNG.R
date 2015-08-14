@@ -15,7 +15,7 @@ setPNG <- function(name, width, height, ...) {
 		options(.lwt_factor = 1)
 		options(.pdf_graph = TRUE)
 		png(filename=name, width=width, height=height, units="in",
-				res=120, family=PNGFont, pointsize=8, type="windows")
+				res=300, family=PNGFont, pointsize=8, type="windows")
 		windowsFonts(USGS=windowsFont("Arial Narrow"))
 		## set up for export to PNG file.
 		dev <- dev.cur()
