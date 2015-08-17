@@ -1,31 +1,18 @@
-# Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
+language: objective-c
 
-language: c
-
-os:
-  - osx
-  - linux
-
-env:
-   global:
-     - CRAN: http://cran.rstudio.com
-     - R_BUILD_ARGS="--no-build-vignettes --no-manual"
-     - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
-     - BOOTSTRAP_LATEX=""
-     - NOT_CRAN="true" 
-
-script: "./travis-tool.sh run_tests"
-
-before_script:
+before_install:
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
-  - "./travis-tool.sh bootstrap"
-  - "./travis-tool.sh install_github USGS-R/smwrBase"
-  - "./travis-tool.sh install_github USGS-R/smwrData"
-  - "./travis-tool.sh install_deps - ./travis-tool.sh install_r KernSmooth akima lubridate methods dataRetrieval"
+  - ./travis-tool.sh bootstrap
+install:
+  - ./travis-tool.sh install_deps
+  - ./travis-tool.sh install_github usgs-r/smwrBase
+  - ./travis-tool.sh install_github usgs-r/smwrData
+ 
+script: ./travis-tool.sh run_tests
 
-after_script:
-  - "./travis-tool.sh dump_logs"
+after_failure:
+  - ./travis-tool.sh dump_logs
 
 notifications:
   email:

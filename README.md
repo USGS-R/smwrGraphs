@@ -21,6 +21,6 @@ install.packages("smwrGraphs",
     dependencies = TRUE)
 ```
 
-Linux: [![travis](https://travis-ci.org/USGS-R/smwrGraphs.svg?branch=master)](https://travis-ci.org/USGS-R/smwrGraphs)
+[![travis](https://api.travis-ci.org/USGS-R/smwrGraphs.svg?branch=master)](https://travis-ci.org/USGS-R/smwrGraphs)
 
 
