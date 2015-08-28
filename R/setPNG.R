@@ -4,11 +4,17 @@ setPNG <- function(name, width, height, ...) {
 	
   Windoze <- TRUE
   Strikes <- 0L
+  pngType <- "win"
+  wfont <- "Arial Narrow"
+  qfont <- paste("Arial Narrow", c("", " Bold", " Italic",
+                                   " Bold Italic"), sep="")
+  xfont <- "Helvetica"
   if(!exists("windows", mode="function")) {
     Windoze <- FALSE
     Strikes <- 1L
     windowsFonts <- function(...) return()
     windowsFont <- function(...) return()
+    pngType <- getOption("bitmapType")
   }
   if(!exists("quartz", mode="function")) {
     Strikes <- Strikes + 1L
@@ -24,6 +30,9 @@ setPNG <- function(name, width, height, ...) {
     X11Fonts <- function(...) return()
   if(Strikes == 3L) # You're outa here
     stop("Interactive graphics device not found.")
+  windowsFonts(USGS = windowsFont(wfont))
+  quartzFonts(USGS = quartzFont(qfont))
+  X11Fonts(USGS = X11Fonts(xfont)[[1L]])
   
   if(missing(name)) { # only reset graphics parameters, needed for knitr
 		fig <- par("din")
@@ -42,7 +51,7 @@ setPNG <- function(name, width, height, ...) {
 		options(.lwt_factor = 1)
 		options(.pdf_graph = TRUE)
 		png(filename=name, width=width, height=height, units="in",
-				res=300, family=PNGFont, pointsize=8, type="windows")
+				res=300, family=PNGFont, pointsize=8, type=pngType)
 		windowsFonts(USGS=windowsFont("Arial Narrow"))
 		## set up for export to PNG file.
 		dev <- dev.cur()
