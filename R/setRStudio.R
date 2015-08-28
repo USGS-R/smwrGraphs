@@ -1,5 +1,5 @@
 #' @rdname setPage
-#' @export setPage
+#' @export setRStudio
 setRStudio <- function() {
 	# Set up simple RStudio graphics device
 	#
