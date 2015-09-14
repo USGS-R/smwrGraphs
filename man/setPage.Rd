@@ -87,6 +87,13 @@ the system. This may be necessary when running under certain user
 environments like RStudio (TM).
 }
 \note{
+The focus of all of the graphics functions is on producing near-publication
+ready figures for U.S. Geological Survey (USGS) report series. The function \code{setPDF}
+should be used to create the PDF files for those figures. The fonts that are used in
+graphs created by calling \code{setPDF} closely mimic those required in USGS reports.
+One peculiarity of the fonts is that bold expressions do not appear bold in the PDF, but
+the font is tagged bold.
+
 The functions \code{setSweave}, \code{setKnitr}, and \code{setPNG}
 are graphics set up functions to be used when using \code{Sweave},
 \code{knitr} and \code{markdown}, respectively. The functions

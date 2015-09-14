@@ -17,8 +17,8 @@ functions so the user does not need to manage graphical information.
 \tabular{ll}{
 Package: \tab smwrGraphs\cr
 Type: \tab Package\cr
-Version: \tab 1.0.12\cr
-Date: \tab 2015-08-17\cr
+Version: \tab 1.0.14\cr
+Date: \tab 2015-09-14\cr
 License: \tab CC0\cr
 Depends: \tab smwrBase (>= 1.0.0), methods\cr
 Imports: \tab KernSmooth, akima, lubridate\cr
@@ -32,7 +32,7 @@ The font used in production very closely matches the standard Univers
 Condensed, and was selected because of its broad availability on many
 computer platforms.\cr
 
-Use of base \code{R} or other gaphics functions can result in inconsistent
+Use of base \code{R} or other graphics functions can result in inconsistent
 lineweights, font sizes and styles, and can require manual manipulation of
 the explanation. The Programmer's Guide section in Lorenz (2015) shows
 examples of calls to lower level graphics functions in base \code{R}
