@@ -69,10 +69,11 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
 		yrange <- c(mindat, maxdat)
 		hard <- FALSE
 		if(Box$show.counts)
-			if(yaxis.log)
-				yrange <- yrange + c(0, 0.0414) * diff(yrange)
-		else
-			yrange <- yrange * c(1, 1.10)
+			if(yaxis.log) {
+				yrange <- yrange * c(1, 10^(0.0414 * diff(log10(yrange))))
+			}	else {
+				yrange <- yrange * c(1, 1.10)
+			}
 	}
 	else
 		hard <- TRUE # setting yrange forces hard limits
@@ -147,7 +148,7 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
 					bottom=bot, top=top)
 	renderY(yax, lefttitle=ytitle, left=left, right=right)
 	if(Box$show.counts)
-		mtext(3, line=-1.4, at=xtoplot, text=as.character(nobs), family='USGS')
+		mtext(3, line=-1.4, at=xtoplot, text=prettyNum(nobs, big.mark=","), family='USGS')
 	box(lwd=frameWt())
 	resbox <- list(stats=stats)
 	resbox$positions <- xtoplot

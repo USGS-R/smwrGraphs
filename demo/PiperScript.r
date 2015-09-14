@@ -163,7 +163,7 @@ piperPlot(xCat=tmp.ca,
 		tmp.color <- tmp.dsn[[tmp.color]]
 	## Set graph layout
 	# Set explanation from documentation for setLayout
-	tmp.expl <- max(nchar(tmp.grp)) / 17 + 0.5
+	tmp.expl <- max(nchar(tmp.grp)) / 17 + 1.0
 	#tmp.expl <- 2.5
 	tmp.size <- min(tmp.height - 1, tmp.width - 1 - tmp.expl)
   tmp.lo <- setLayout(width=tmp.size, height=tmp.size, 
