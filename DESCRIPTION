@@ -1,6 +1,6 @@
 Package: smwrGraphs
-Version: 1.0.14
-Date: 2015-09-14
+Version: 1.0.15
+Date: 2015-10-02
 Title: Graphing Functions
 Author: Dave Lorenz <lorenz@usgs.gov>.
 Maintainer: Dave Lorenz <lorenz@usgs.gov>
@@ -18,9 +18,9 @@ Suggests:
     rmarkdown,
     captioner
 Description: Functions to create high-quality graphs to support statistical
-    methods in water resources. These graphs meet or nearly meet the publication standards of the U.S. Geological Survey.
+    methods in water resources. These graphs meet or nearly meet the 
+    publication standards of the U.S. Geological Survey.
 License: CC0
 LazyLoad: yes
 LazyData: yes
-VignetteBuilder: knitr
-BuildVignettes: true
+

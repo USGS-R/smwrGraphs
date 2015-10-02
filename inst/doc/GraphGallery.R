@@ -1,11 +1,8 @@
-## ----setup, echo=FALSE, warning=FALSE, message=FALSE---------------------
-library(knitr)
-library(captioner)
-library(rmarkdown)
-opts_chunk$set(message=FALSE,warning=FALSE,dev="png")
-fig_nums <- captioner()
+### R code from vignette source 'GraphGallery.Rnw'
 
-## ------------------------------------------------------------------------
+###################################################
+### code chunk number 1: GraphGallery.Rnw:27-42
+###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
 # Load the smwrData package and some data
@@ -22,10 +19,14 @@ PD <- transform(MiscGW, Ca.meq = conc2meq(Calcium, "calcium"),
   HCO3.meq = conc2meq(Bicarbonate, "bicarb")) # abbreviations allowed
 data(MC11_1993)
 
-## ----chunk1--------------------------------------------------------------
-# Set up the graphics environment, the equivalent call for an on screen
-#  device could be setPage("square")
-setPNG()
+
+###################################################
+### code chunk number 2: GraphGallery.Rnw:52-76
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot01", 6 ,6)
 # Construct means and 95 percent confidence intervals for selected constituents
 # in the IonBalance dataset (smwrData)
 Stats <- lapply(IonBalance[, c("Ca", "Mg", "Na")],
@@ -44,18 +45,34 @@ AA.pl <- with(Stats, addErrorBars(Constituent, L95, U95,
 	Bars=list(name="95 percent confidence interval"), current=AA.pl))
 # And the explanation
 addExplanation(AA.pl, "ur")
+# Required call to close PDF output graphics
+graphics.off()
 
-## ----chunk2--------------------------------------------------------------
-setPNG()
+
+###################################################
+### code chunk number 3: GraphGallery.Rnw:92-104
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot02", 6 ,6)
 # Construct the PCA from calcium, magnesium, and sodium and print it
 MGW.pp <- princomp(data.matrix(MiscGW[, c("Calcium", "Magnesium", "Sodium")]), 
   cor=TRUE, scores=TRUE)
 print(MGW.pp)
 # Create the biplot using the default settings
 biPlot(MGW.pp)
+# Required call to close PDF output graphics
+graphics.off()
 
-## ----chunk3--------------------------------------------------------------
-setPNG()
+
+###################################################
+### code chunk number 4: GraphGallery.Rnw:120-148
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot03", 6 ,6)
 # Use the PCA from the previous example. The scores component provides the
 # coordinate information for each observation.
 # From the biplot, the first axis repesent increasing calcium and the second
@@ -78,20 +95,36 @@ AA.pl <- with(MiscGW, addStiff(MGW.pp$scores[,1], MGW.pp$scores[,2],
   catlabels=c("Ca", "Mg", "Na"), anlabels=c("HCO3", "SO4", "Cl"),
   current=AA.pl))
 # Note that there will be overlapping of the Stiff diagram
+# Required call to close PDF output graphics
+graphics.off()
 
 
-## ----chunk4--------------------------------------------------------------
+###################################################
+### code chunk number 5: GraphGallery.Rnw:163-174
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot04", 6 ,6)
 # First generate the sequence of x-coordinate values
 Xdata <- seq(0, 5, length.out=101)
 # Draw the curve
 areaPlot(Xdata, dlpearsonIII(Xdata, 0, 1, .5), Areas=list(fillDir="under", 
   fillColors="gray"), xaxis.range=c(0,5))
+# Required call to close PDF output graphics
+graphics.off()
 
-## ----chunk5, fig.height=7,fig.width=7------------------------------------
-setPNG()
+
+###################################################
+### code chunk number 6: GraphGallery.Rnw:187-210
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot05", 6 ,6)
+#
 # First set up the data in proper form--separate columns for the x- (JULIAN),
 # y-(Depth), and z-axis (Temperature) data.
-# setPNG("test", width=6, height = 6)
 MC11_stack <- reshape(MC11_1993[, c(2, 6:10)], direction="long", varying=list(2:6),
   timevar="Depth", times=c(0.5, 1.0, 1.5, 2.0, 2.5), v.names="Temperature")
 # Set up for an explanation
@@ -106,10 +139,18 @@ AA.pl <- with(MC11_stack, contourPlot(Temperature,JULIAN, -Depth,
 # Add the explanation
 setGraph("explanation", AA.lo)
 addExplanation(AA.pl)
-# graphics.off()
+# Required call to close PDF output graphics
+graphics.off()
 
 
-## ----chunk6--------------------------------------------------------------
+###################################################
+### code chunk number 7: GraphGallery.Rnw:225-263
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot06", 6 ,6)
+#
 # Generate the random data.
 set.seed(1236)
 # Use sorted observations in decimal format for 4 years of data collection
@@ -125,7 +166,6 @@ Ytime <- scale(Yrand + seq(-1, 1, length.out=100))
 Yanom <- scale(Yrand + 0.75*(Rdates > 2011.1 & Rdates < 2011.7))
 # Set up for the graphs and create the correlograms
 # These use gray90 color and reset the yaxis range to emphasize the line
-setPNG()
 AA.lo <- setLayout(num.rows=3, num.cols=2)
 setGraph(1, AA.lo)
 corGram(Rdates, Yrand, Plot=list(color="gray90"), yaxis.range = c(-1, 1))
@@ -142,27 +182,52 @@ addTitle("Temporal Lack of Fit")
 setGraph(5, AA.lo)
 corGram(Rdates, Yanom, Plot=list(color="gray90"), yaxis.range = c(-1, 1))
 addTitle("Anomaly")
+# Required call to close PDF output graphics
+graphics.off()
 
-## ----chunk7--------------------------------------------------------------
-setPNG()
+
+###################################################
+### code chunk number 8: GraphGallery.Rnw:278-292
+###################################################
 # First set up the projection. The preSurface function can be interactive,
 # This script sets the projection to A and supresses the request for user input.
 AA.pre <- with(MC11_1993, preSurface(JULIAN, c(-2.5, -2.0, -1.5, -1.0, -0.5), 
   cbind(TEMP.2.5, TEMP.2.0, TEMP.1.5, TEMP.1.0, TEMP.0.5), batch="A"))
-
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot07", 6 ,6)
+#
+# Create the graph
 surfacePlot(AA.pre, xtitle="Julian Day, 1993", ytitle="Depth below landsurface", 
   ztitle="Soil Temperature")
+# Required call to close PDF output graphics
+graphics.off()
 
-## ----chunk8--------------------------------------------------------------
+
+###################################################
+### code chunk number 9: GraphGallery.Rnw:305-316
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot08", 6 ,4)
+#
 # Construct the regression
 AA.lm <- lm(Mg ~ Ca, data=IonBalance)
 # And write the report
-setPNG()
 reportGraph(summary(AA.lm))
+# Required call to close PDF output graphics
+graphics.off()
 
 
-## ----chunk9--------------------------------------------------------------
-setPNG()
+###################################################
+### code chunk number 10: GraphGallery.Rnw:329-343
+###################################################
+# setSweave is a specialized function that sets up the graphics page for
+# Sweave scripts. It should be replaced by a call to setPage or setPDF 
+# in a regular script.
+setSweave("ggplot09", 6 ,6)
 # Extract the data and assigne rownames based on sample date
 CaMg <- data.matrix(IonBalance[, c("Ca", "Mg")])
 rownames(CaMg) <- as.character(IonBalance$DATES)
@@ -171,4 +236,7 @@ CaMg.dist <- dist(CaMg)
 CaMg.hclust <- hclust(CaMg.dist, method="average")
 # Dreaw the dendrogram
 dendGram(CaMg.hclust, ytitle="Tree Height")
+# Required call to close PDF output graphics
+graphics.off()
+
 

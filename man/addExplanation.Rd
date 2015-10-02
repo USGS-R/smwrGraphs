@@ -5,7 +5,7 @@
 \title{Add Explanation}
 \usage{
 addExplanation(what, where = "new", title = expression(bold(EXPLANATION)),
-  box.off = where != "new", margin = rep(0, 4))
+  box.off = where != "new", margin = rep(0, 4), line.length = 2)
 }
 \arguments{
 \item{what}{a specialized object for an explanation, from the output from
@@ -21,6 +21,9 @@ blank background and black box, otherwise the background is not blanked and no
 bounding box is drawn.}
 
 \item{margin}{the margin for a new graph}
+
+\item{line.length}{the relative length of lines drawn in the explanation, see
+\bold{Details}.}
 }
 \value{
 Nothing is returned.
@@ -38,6 +41,12 @@ explanation for a box plot, stiff diagram, or contour plot must be placed
 in a new graph. If \code{box.off} is \code{TRUE}, then the explanation abuts
 the axes, otherwise it is placed slightly inset so that the text does not
 interfere with the ticks.
+
+In most cases, \code{line.length} does not need to be changed. In some cases,
+such as mass produced figures that will not be modified by an illustrator, the
+\code{line.length} can be increased to show full dashes if dashed lines are
+drawn. In gneralt, the illustrator should create dashed lines rather than drawing
+them in the graph.
 }
 \note{
 The call to \code{addExplanation} should be the last in any sequence of

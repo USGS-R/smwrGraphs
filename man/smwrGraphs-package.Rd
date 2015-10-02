@@ -17,8 +17,8 @@ functions so the user does not need to manage graphical information.
 \tabular{ll}{
 Package: \tab smwrGraphs\cr
 Type: \tab Package\cr
-Version: \tab 1.0.14\cr
-Date: \tab 2015-09-14\cr
+Version: \tab 1.0.15\cr
+Date: \tab 2015-10-02\cr
 License: \tab CC0\cr
 Depends: \tab smwrBase (>= 1.0.0), methods\cr
 Imports: \tab KernSmooth, akima, lubridate\cr

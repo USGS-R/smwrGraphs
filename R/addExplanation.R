@@ -11,6 +11,12 @@
 #'in a new graph. If \code{box.off} is \code{TRUE}, then the explanation abuts
 #'the axes, otherwise it is placed slightly inset so that the text does not
 #'interfere with the ticks.
+#'
+#' In most cases, \code{line.length} does not need to be changed. In some cases,
+#'such as mass produced figures that will not be modified by an illustrator, the
+#'\code{line.length} can be increased to show full dashes if dashed lines are
+#'drawn. In gneralt, the illustrator should create dashed lines rather than drawing
+#'them in the graph.
 #' 
 #' @param what a specialized object for an explanation, from the output from
 #'calls to the plotting functions
@@ -21,6 +27,8 @@
 #'blank background and black box, otherwise the background is not blanked and no
 #'bounding box is drawn.
 #' @param margin the margin for a new graph
+#' @param line.length the relative length of lines drawn in the explanation, see
+#'\bold{Details}.
 #' @return Nothing is returned.
 #' @note The call to \code{addExplanation} should be the last in any sequence of
 #'calls to construct a figure becuase it can alter some graphical parameters.\cr
@@ -54,7 +62,7 @@
 addExplanation <- function(what, where="new", 
 													 title=expression(bold(EXPLANATION)),
 													 box.off=where != "new",
-                           margin=rep(0,4)) {
+                           margin=rep(0,4), line.length=2) {
 	# Coding history:
 	#    2008Jun12 DLLorenz Original Coding and start of revisions
 	#    2010Nov30 DLLorenz Modified for R
@@ -345,7 +353,8 @@ addExplanation <- function(what, where="new",
   					 fill=Fill[Seq], border=Border[Seq],
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
   					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq],
-  					 bg="white", box.lwd=frameWt(), box.col="black", y.intersp=1.1)
+  					 bg="white", box.lwd=frameWt(), box.col="black", y.intersp=1.1,
+  					 seg.len=line.length)
   	} else {
   		## Calculate inset if title is not blank
   		title.blank <- !is.expression(title) && title == ""
@@ -358,7 +367,8 @@ addExplanation <- function(what, where="new",
   		legend(x=pos, legend=Etext[Seq], title=title, bty="n",
   					 fill=Fill[Seq], border=Border[Seq], inset=inset,
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
-  					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], y.intersp=1.1)
+  					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], y.intersp=1.1,
+  					 seg.len=line.length)
   		
   	}
   }  
