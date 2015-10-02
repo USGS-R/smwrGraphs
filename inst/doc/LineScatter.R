@@ -1,7 +1,7 @@
 ### R code from vignette source 'LineScatter.Rnw'
 
 ###################################################
-### code chunk number 1: LineScatter.Rnw:27-40
+### code chunk number 1: LineScatter.Rnw:28-41
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -19,7 +19,7 @@ data(KlamathTP)
 
 
 ###################################################
-### code chunk number 2: LineScatter.Rnw:50-57
+### code chunk number 2: LineScatter.Rnw:51-58
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -31,7 +31,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: LineScatter.Rnw:70-78
+### code chunk number 3: LineScatter.Rnw:71-79
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -44,7 +44,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: LineScatter.Rnw:91-98
+### code chunk number 4: LineScatter.Rnw:92-99
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -56,7 +56,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: LineScatter.Rnw:111-121
+### code chunk number 5: LineScatter.Rnw:112-122
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -71,7 +71,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: LineScatter.Rnw:135-144
+### code chunk number 6: LineScatter.Rnw:136-145
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -85,7 +85,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: LineScatter.Rnw:157-167
+### code chunk number 7: LineScatter.Rnw:158-168
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -100,7 +100,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: LineScatter.Rnw:180-188
+### code chunk number 8: LineScatter.Rnw:181-189
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -113,7 +113,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 9: LineScatter.Rnw:200-209
+### code chunk number 9: LineScatter.Rnw:201-210
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 

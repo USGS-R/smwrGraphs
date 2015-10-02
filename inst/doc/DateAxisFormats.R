@@ -1,7 +1,7 @@
 ### R code from vignette source 'DateAxisFormats.Rnw'
 
 ###################################################
-### code chunk number 1: DateAxisFormats.Rnw:30-35
+### code chunk number 1: DateAxisFormats.Rnw:31-36
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -11,7 +11,7 @@ YY <- c(0.14, 0.82)
 
 
 ###################################################
-### code chunk number 2: DateAxisFormats.Rnw:45-54
+### code chunk number 2: DateAxisFormats.Rnw:46-55
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -25,7 +25,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: DateAxisFormats.Rnw:64-74
+### code chunk number 3: DateAxisFormats.Rnw:65-75
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -40,7 +40,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: DateAxisFormats.Rnw:89-100
+### code chunk number 4: DateAxisFormats.Rnw:90-101
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -56,7 +56,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: DateAxisFormats.Rnw:108-119
+### code chunk number 5: DateAxisFormats.Rnw:109-120
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -72,7 +72,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: DateAxisFormats.Rnw:129-136
+### code chunk number 6: DateAxisFormats.Rnw:130-137
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -84,7 +84,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: DateAxisFormats.Rnw:144-151
+### code chunk number 7: DateAxisFormats.Rnw:145-152
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -96,7 +96,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: DateAxisFormats.Rnw:159-166
+### code chunk number 8: DateAxisFormats.Rnw:160-167
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -108,7 +108,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 9: DateAxisFormats.Rnw:181-191
+### code chunk number 9: DateAxisFormats.Rnw:182-192
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -123,7 +123,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 10: DateAxisFormats.Rnw:199-206
+### code chunk number 10: DateAxisFormats.Rnw:200-207
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -135,7 +135,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 11: DateAxisFormats.Rnw:214-222
+### code chunk number 11: DateAxisFormats.Rnw:215-223
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -148,7 +148,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 12: DateAxisFormats.Rnw:237-248
+### code chunk number 12: DateAxisFormats.Rnw:238-249
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -164,7 +164,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 13: DateAxisFormats.Rnw:256-266
+### code chunk number 13: DateAxisFormats.Rnw:257-267
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -179,7 +179,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 14: DateAxisFormats.Rnw:281-292
+### code chunk number 14: DateAxisFormats.Rnw:282-293
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")
@@ -195,7 +195,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 15: DateAxisFormats.Rnw:300-308
+### code chunk number 15: DateAxisFormats.Rnw:301-309
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device could be setPage("square")

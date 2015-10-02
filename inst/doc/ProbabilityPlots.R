@@ -1,7 +1,7 @@
 ### R code from vignette source 'ProbabilityPlots.Rnw'
 
 ###################################################
-### code chunk number 1: ProbabilityPlots.Rnw:33-41
+### code chunk number 1: ProbabilityPlots.Rnw:34-42
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -14,7 +14,7 @@ Xbig <- rnorm(100)
 
 
 ###################################################
-### code chunk number 2: ProbabilityPlots.Rnw:52-62
+### code chunk number 2: ProbabilityPlots.Rnw:53-63
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -29,7 +29,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: ProbabilityPlots.Rnw:83-90
+### code chunk number 3: ProbabilityPlots.Rnw:84-91
 ###################################################
 setSweave("probplot02", 6 ,6)
 # For the normal distribution, the mean and sd arguments are optional, if
@@ -41,7 +41,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: ProbabilityPlots.Rnw:106-111
+### code chunk number 4: ProbabilityPlots.Rnw:107-112
 ###################################################
 setSweave("probplot03", 6 ,6)
 # Accept all of the defaults, the line is based on the mean and the standard
@@ -51,7 +51,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: ProbabilityPlots.Rnw:128-132
+### code chunk number 5: ProbabilityPlots.Rnw:129-133
 ###################################################
 setSweave("probplot04", 6 ,6)
 # Accept all of the defaults.
@@ -60,7 +60,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: ProbabilityPlots.Rnw:150-154
+### code chunk number 6: ProbabilityPlots.Rnw:151-155
 ###################################################
 setSweave("probplot05", 6 ,6)
 histGram(Xbig)
@@ -69,7 +69,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: ProbabilityPlots.Rnw:164-174
+### code chunk number 7: ProbabilityPlots.Rnw:165-175
 ###################################################
 # Compute the density
 Xbig.den <- density(Xbig)
@@ -84,7 +84,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: ProbabilityPlots.Rnw:193-235
+### code chunk number 8: ProbabilityPlots.Rnw:194-236
 ###################################################
 # Set up the output
 setSweave("probplot07", 6, 8)

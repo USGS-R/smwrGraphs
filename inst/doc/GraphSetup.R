@@ -1,7 +1,7 @@
 ### R code from vignette source 'GraphSetup.Rnw'
 
 ###################################################
-### code chunk number 1: GraphSetup.Rnw:53-61
+### code chunk number 1: GraphSetup.Rnw:54-62
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -14,7 +14,7 @@ Zfill <- runif(32, -2, 0)
 
 
 ###################################################
-### code chunk number 2: GraphSetup.Rnw:86-93
+### code chunk number 2: GraphSetup.Rnw:87-94
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -26,7 +26,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: GraphSetup.Rnw:115-132
+### code chunk number 3: GraphSetup.Rnw:116-133
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -48,7 +48,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: GraphSetup.Rnw:148-168
+### code chunk number 4: GraphSetup.Rnw:149-169
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -73,7 +73,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: GraphSetup.Rnw:185-204
+### code chunk number 5: GraphSetup.Rnw:186-205
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -97,7 +97,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: GraphSetup.Rnw:223-251
+### code chunk number 6: GraphSetup.Rnw:224-252
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).
@@ -130,7 +130,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: GraphSetup.Rnw:264-294
+### code chunk number 7: GraphSetup.Rnw:265-295
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).
@@ -165,7 +165,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: GraphSetup.Rnw:307-328
+### code chunk number 8: GraphSetup.Rnw:308-329
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).
@@ -191,7 +191,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 9: GraphSetup.Rnw:341-356
+### code chunk number 9: GraphSetup.Rnw:342-357
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).

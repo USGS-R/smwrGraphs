@@ -1,7 +1,7 @@
 ### R code from vignette source 'PiperPlot.Rnw'
 
 ###################################################
-### code chunk number 1: PiperPlot.Rnw:26-37
+### code chunk number 1: PiperPlot.Rnw:27-38
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -17,7 +17,7 @@ data(MiscGW)
 
 
 ###################################################
-### code chunk number 2: PiperPlot.Rnw:45-73
+### code chunk number 2: PiperPlot.Rnw:46-74
 ###################################################
 # Transform the data. This example will ignore potassium, fluoride, and nitrate
 # (carbonate is either 0 or missing and will also be ignored).
@@ -50,7 +50,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: PiperPlot.Rnw:89-113
+### code chunk number 3: PiperPlot.Rnw:90-114
 ###################################################
 # Use the data from the previous example
 setSweave("piperplot02", 7, 7)
@@ -79,7 +79,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: PiperPlot.Rnw:129-142
+### code chunk number 4: PiperPlot.Rnw:130-143
 ###################################################
 setSweave("piperplot03", 3.5, 3.5)
 # Accept all defaults
@@ -97,7 +97,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: PiperPlot.Rnw:154-164
+### code chunk number 5: PiperPlot.Rnw:155-165
 ###################################################
 setSweave("piperplot04", 6, 6)
 AA.lo <- setLayout(height=3.5, explanation=list(bottom=1.1))

@@ -1,7 +1,7 @@
 ### R code from vignette source 'GraphAdditions.Rnw'
 
 ###################################################
-### code chunk number 1: GraphAdditions.Rnw:27-33
+### code chunk number 1: GraphAdditions.Rnw:28-34
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -12,7 +12,7 @@ Y <- X + rnorm(32)
 
 
 ###################################################
-### code chunk number 2: GraphAdditions.Rnw:44-53
+### code chunk number 2: GraphAdditions.Rnw:45-54
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -26,7 +26,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: GraphAdditions.Rnw:69-80
+### code chunk number 3: GraphAdditions.Rnw:70-81
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -42,7 +42,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: GraphAdditions.Rnw:94-106
+### code chunk number 4: GraphAdditions.Rnw:95-107
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -59,7 +59,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: GraphAdditions.Rnw:121-137
+### code chunk number 5: GraphAdditions.Rnw:122-138
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).
@@ -80,7 +80,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: GraphAdditions.Rnw:152-171
+### code chunk number 6: GraphAdditions.Rnw:153-172
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).

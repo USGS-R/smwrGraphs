@@ -1,6 +1,7 @@
 \documentclass{article}
 \parskip 6pt
 \usepackage[margin=1.25in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
 %\VignetteIndexEntry{Box Plot Examples}
 %\VignetteDepends{smwrGraphs}
 

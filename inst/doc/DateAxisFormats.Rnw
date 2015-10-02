@@ -1,6 +1,7 @@
 \documentclass{article}
 \parskip 3pt
 \usepackage[margin=1.25in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
 %\VignetteIndexEntry{Date Axis Formats}
 %\VignetteDepends{smwrGraphs}
 
