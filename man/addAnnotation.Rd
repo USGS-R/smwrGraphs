@@ -48,13 +48,15 @@ leader from \code{x}, \code{y} to \code{leaderx}, \code{leadery} if
 }
 \examples{
 \dontrun{
-set.seed(1)
-X <- rnorm(32)
-Y <- X + rnorm(32)
+set.seed(12)
+X <- rnorm(12)
+Y <- X + rnorm(12)
+# make an outlier
+X[1L] <- 1.5
+setGD()
 AA.pl <- xyPlot(X, Y)
-# Add the median line of Y and annotation
-refLine(horizontal = median(Y), current=AA.pl)
-addAnnotation(min(X), median(Y), "Median Y", current=AA.pl)
+# label the outlier
+addAnnotation(X[1L], Y[1L], "Outlier", current=AA.pl)
 # For more details of addAnnotation see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 demo(topic="TopAxisExample", package="smwrGraphs")

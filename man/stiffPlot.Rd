@@ -59,7 +59,8 @@ labels are stored and drawn on the explanation \code{addExplanation}.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{x}{the x-coordinates to place the center of each Stiff diagram.
 Missing values are permitted, but result in no Stiff diagram.}
@@ -113,7 +114,7 @@ characteristics of natural water: U.S. Geological Survey Water-Supply Paper
 2254, 263 p.
 }
 \seealso{
-\code{\link{stiffPlot}}, \code{\link{xyPlot}}
+\code{\link{addStiff}}, \code{\link{xyPlot}}
 }
 \keyword{hplot}
 

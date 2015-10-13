@@ -18,7 +18,7 @@
 #' otherwise the order is set by the order from \code{unique}.
 #' 
 #' @param plot.call either a simple call to a graphics function or a sequence
-#' of calls enclosed in curly braces({})
+#' of calls enclosed in curly braces(\{\})
 #' @param data the data.frame containing the variables used in \code{plot.call}
 #' and \code{group}.
 #' @param group a character string identifying the grouping variable in
@@ -41,7 +41,7 @@
 #' @param caption the figure caption.
 #' @return The value returned by \code{plot.call} is returned invisibly. If
 #' used correctly, it could be used to add an explanation.
-#' @note This function is desgined to facilitate the production of conditioned
+#' @note This function is designed to facilitate the production of conditioned
 #' graphs, but may not render each collection completely. For example, graphs
 #' arranged in table format will not have x-axis labels for incomplete
 #' columns.\cr

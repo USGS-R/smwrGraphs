@@ -29,8 +29,8 @@ in the plotted data.}
 
 \item{...}{arguments for specific methods.}
 
-\item{Plot}{parameters of the plot.  See \code{\link{setPlot}} for a
-description of the parameters.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{current}{the current plot information. Typically, this would be the
 output from one of the graph creation functions like \code{xyPlot}.}
@@ -70,6 +70,7 @@ set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
 Y2 <- X + rnorm(32, sd=0.5)
+setGD()
 AA.pl <- xyPlot(X, Y)
 addXY(X, Y2, Plot=list(what="points", color="brown"))
 # See for examples of addXY:

@@ -19,9 +19,10 @@ corGram(x, y, Plot = list(name = "Standardized Observations", what = "points",
 \item{y}{residuals or other observations, these will be scaled, but not
 centered.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
-\item{CorGram}{control parameters of the correlogram line.}
+\item{CorGram}{control parameters of the correlogram line. See \bold{Details}.}
 
 \item{yaxis.range}{set the y-axis range.}
 
@@ -39,13 +40,24 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 }
 \value{
 Information about the graph.
 }
 \description{
 Create a correlogram for irregularly spaced data
+}
+\details{
+\code{CorGram} is a list with these components:
+\describe{
+\item{band}{a measure of the bandwidth used by \code{\link[KernSmooth]{locpoly}}}
+\item{kernel}{the kernel used, currently ignored}
+\item{color}{the color of the line representing the correlogram}
+\item{width}{the line width of the line representing the correlogram}
+\item{add0line}{logical, if \code{TRUE}, then add the 0 line; if \code{FALSE},
+then do not draw the 0 line}}
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

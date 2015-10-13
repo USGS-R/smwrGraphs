@@ -44,11 +44,8 @@ bar. If "none," then no border is drawn.}
 If \code{width} 1, then the bars form a continuous filled area.
 The default is "Auto," which fills 2/3 of the distance. If 0, then draw vertical
 lines rather than bars; the color of the line is based on \code{outline}.}
-\item{orientation}{the orientation of the bars.} }
-
-Only single bars are
-permitted in the current version. The \code{orientation} component of
-\code{Bars} is ignored.
+\item{orientation}{the orientation of the bars. Must be either "stack" or
+"group." Can be abbreviated to a single letter.} }
 }
 \note{
 Use of \code{addBars} adds 1 step to creating bar charts, but adds
@@ -64,6 +61,7 @@ transform of the y-axis will cause \code{addBars} to fail.
 set.seed(1)
 X <- seq(1, 9, by=1.0)
 Y <- runif(9) + runif(9)
+setGD()
 AA.pl <- xyPlot(X, Y, Plot=list(what="none"), yaxis.range=c(0,2))
 addBars(X, Y, base=0, current=AA.pl)
 # For more details of addBars see

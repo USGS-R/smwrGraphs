@@ -7,7 +7,8 @@
 #' @param vertical draw vertical lines at the specified values.
 #' @param coefficients draw a fitted line from the coefficients of a regression
 #' model.
-#' @param Plot control parameters of the plot. The argument \code{what} is
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters. The argument \code{what} is
 #' forced to "lines."
 #' @param current the current parameters of the graph. Typically, this would be
 #' the output from one of the graph creation functions like \code{xyPlot}.
@@ -23,6 +24,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' xyPlot(X, Y)
 #' # Add the 1:1 line
 #' refLine(coefficient=c(0,1))

@@ -28,7 +28,8 @@
 #' probabilities to coordinates.
 #' @param alpha the alpha value of the function for computing plotting
 #' positions.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.range set the range of the y axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{logPretty}} 
@@ -44,7 +45,8 @@
 #' @param RItitle the top x-axis title if \code{RI} is \code{TRUE}.
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin of the plot area.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots parameters for the distribution function. If any parameter is
 #' specified, then an attempt is made to draw the fit between the computed
 #' distribution and the observed data.
@@ -57,6 +59,7 @@
 #' \dontrun{
 #' set.seed(1)
 #' X <- rlnorm(32)
+#' setGD()
 #' probPlot(X)
 #' # For more details of probPlot see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")

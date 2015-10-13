@@ -44,7 +44,8 @@
 #' @param range.factor a numeric factor by which to expand the axis ranges so
 #'that labels can be drawn.
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots not used, required for other methods.
 #' @return Information about the graph
 #' @note A call should be made to \code{setPage} to set up the graphics

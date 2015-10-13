@@ -2,12 +2,21 @@
 #' 
 #' Create a correlogram for irregularly spaced data
 #' 
+#' @details \code{CorGram} is a list with these components: 
+#' \describe{ 
+#' \item{band}{a measure of the bandwidth used by \code{\link[KernSmooth]{locpoly}}}
+#' \item{kernel}{the kernel used, currently ignored}
+#' \item{color}{the color of the line representing the correlogram}
+#' \item{width}{the line width of the line representing the correlogram}
+#' \item{add0line}{logical, if \code{TRUE}, then add the 0 line; if \code{FALSE}, 
+#' then do not draw the 0 line}}
 #' 
 #' @param x decimal time.
 #' @param y residuals or other observations, these will be scaled, but not
 #' centered.
-#' @param Plot control parameters of the plot.
-#' @param CorGram control parameters of the correlogram line.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
+#' @param CorGram control parameters of the correlogram line. See \bold{Details}.
 #' @param yaxis.range set the y-axis range.
 #' @param xaxis.range set the x-axis range.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
@@ -17,7 +26,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
 #' @importFrom KernSmooth locpoly
 #' @note A call should be made to \code{setPage} to set up the graphics

@@ -2,18 +2,30 @@
 #' 
 #' Label points on a graph.
 #' 
+#' @details The value for \code{dir} can be of length one or the length of \code{x}, 
+#' in which case, \code{dir} applies to the corresponding point. The value must be 
+#' "N," "NE," "E," "SE," "S," "SW," "W," or "NW" cooresponding to the compass
+#' direction or "C" to center the label.
+#' 
+#' The value for \code{offset} can be of length one or the length of \code{x}, in
+#' in which case, \code{offset} applies to the corresponding point. The value is relative
+#' to the size of the test. The default value of \code{offset} is correct for creating a 
+#' text plot, where the text is centered on the value.
 #' 
 #' @param x the x-axis data. Missing values are permitted, but ignored.
 #' @param y the y-axis data. Missing values are permitted, but ignored.
 #' @param labels the text labels, must be the same length as x and y. Missing
 #' values are permitted, but ignored.
-#' @param dir the direction relative to the point to place the label.
-#' @param offset the relative offset from the point.
+#' @param dir the direction relative to the point to place the label. See \bold{Details}.
+#' @param offset the relative offset from the point. See \bold{Details}.
 #' @param size character size in points.
 #' @param color the color of the labels.
 #' @param current the current plot controls. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @return A list containing \code{x}, \code{y}, and \code{labels}.
+#' @note The current version does not have any method to automatically eliminate
+#' overlapping labels. Several iterations may be required trying various values for
+#' \code{dir} and possibly \code{offset} to produce non overlapping labels.
 #' @seealso \code{\link{addAnnotation}},, \code{\link{xyPlot}}
 #' @keywords aplot
 #' @examples
@@ -21,6 +33,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' xyPlot(X, Y)
 #' # Label the first point
 #' labelPoints(X[1], Y[1], "First")
@@ -63,7 +76,7 @@ labelPoints <- function(x, y, labels, # data
   hoff <- c(0, 1, 1, 1, 0, -1, -1, -1, 0)
   names(hoff) <- c("N", "NE", "E", "SE", "S", "SW", "W", "NW", "C")
   x <- x + hoff[dir] * offset * cxy[1]
-  voff <- c(1, 1, 0, -1, -1, -1, 0, 1, 0)
+  voff <- c(1, 1, 0, -1, -1, -1, 0, 1, -.1)
   names(voff) <- c("N", "NE", "E", "SE", "S", "SW", "W", "NW", "C")
   y <- y +  voff[dir] * offset * cxy[2]
   ## force labels to be character

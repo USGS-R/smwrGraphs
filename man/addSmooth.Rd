@@ -28,11 +28,11 @@ Missing values are permitted and ignored in the smooth.}
 
 \item{y}{the y-axis data. Missing values are permitted and ignored in the smooth.}
 
-\item{Smooth}{the name of the smoothing function.}
+\item{Smooth}{the name of the smoothing function. See \bold{Details}.}
 
 \item{Smooth.along}{the data along which the smoother is run. Must be either "x,"
 which smooths \code{y} along \code{x} resulting in a horzontal line, or "y,"
-which smooths \code{x} along \code{y} resulting in a vereical line.}
+which smooths \code{x} along \code{y} resulting in a vertical line.}
 
 \item{Plot}{parameters defining the characteristics of the plot. See
 \code{\link{setPlot}} for a description of the parameters.}
@@ -48,6 +48,13 @@ The current plot information.
 \description{
 Computes a smooth line from x and y data and adds the line to a graph.
 }
+\details{
+The value for \code{Smooth} must the name of a smoothing function as a
+character string. The default is "loess.smooth" but any smoother that accepts arguments
+names \code{x} and \code{y} and other arguments controlling the smooth and returns a list
+with components named \code{x} and \code{y} can be used. Examples of other smoothers in base
+R are "supsmu" and "smooth.spline."
+}
 \note{
 If an error is generated from the smoother, then nothing is added to the
 graph, an error is printed, the returned object contains missing values for
@@ -58,6 +65,7 @@ the data that should have been plotted, and the explanation is not updated.
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 AA.pl <- xyPlot(X, Y)
 addSmooth(AA.pl)
 # For more details of addSmooth see

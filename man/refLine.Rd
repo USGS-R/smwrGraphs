@@ -18,7 +18,8 @@ refLine(horizontal, vertical, coefficients, Plot = list(name = "", what =
 \item{coefficients}{draw a fitted line from the coefficients of a regression
 model.}
 
-\item{Plot}{control parameters of the plot. The argument \code{what} is
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters. The argument \code{what} is
 forced to "lines."}
 
 \item{current}{the current parameters of the graph. Typically, this would be
@@ -42,6 +43,7 @@ Add a reference line (vertical, horizontal, or regression) to a graph.
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 xyPlot(X, Y)
 # Add the 1:1 line
 refLine(coefficient=c(0,1))

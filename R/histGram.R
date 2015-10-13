@@ -7,10 +7,10 @@
 #'
 #' The components of \code{Hist}:
 #'\describe{
-#'\item{"type"}{The type of the histogram. Must be one of "frequency" for actual counts
+#'\item{type}{The type of the histogram. Must be one of "frequency" for actual counts
 #'in the bin, "density" for density in each bin, or "relative frequency" for percent in each bin.}
-#'\item{"fill"}{Logical value, \code{TRUE} means each bin will be shaded with \code{fill.color}.}
-#'\item{"boundary"}{Defines how values tied to bin limit boundaires are handled. If "upper," 
+#'\item{fill}{Logical value, \code{TRUE} means each bin will be shaded with \code{fill.color}.}
+#'\item{boundary}{Defines how values tied to bin limit boundaires are handled. If "upper," 
 #'then the bin limit boundary is the upper limit of the range and values tied to that value 
 #'are placed in the bin corresponding to the upper limit of the boundary. If "lower," then
 #'the bijn limit is the lower limit of the bin.}
@@ -21,7 +21,7 @@
 #' @aliases histGram histGram.default
 #' @param x a numeric vector to create the histogram
 #' @param breaks any valid value for \code{\link{hist}}. See \bold{Details}.
-#' @param Hist Controls for the histogram.
+#' @param Hist control parameters of the histogram.  See \bold{Details}.
 #' @param yaxis.range set the range for the y axis, the first value must be 0.
 #' @param ylabels the approximate number of labels for the y axis.
 #' @param xlabels the approximate number of labels for the x axis. The default value,
@@ -31,7 +31,8 @@
 #'"Frequency" for a frequency histogram,
 #'"Density" for a density histogram.
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots additional arguments for other methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
@@ -45,6 +46,7 @@
 #' \dontrun{
 #' set.seed(1)
 #' Xbig <- rnorm(100)
+#' setGD()
 #' histGram(Xbig, breaks=seq(-3, 3, by=.5), Hist=list(type="density"))
 #' # For more details of histGram see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")

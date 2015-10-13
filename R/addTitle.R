@@ -7,7 +7,8 @@
 #' title is a single letter followed by a period in bold italics followed by
 #' \code{Main} in bold if \code{Bold} is \code{TRUE}.
 #' 
-#' @param Main the main text of the title.
+#' @param Main the main text of the title. Can be either a character string or an 
+#'"expression" object.
 #' @param Heading The title heading, generally a single letter. See
 #' \bold{Details}
 #' @param Justification specify the horizontal location of the title, must be one of
@@ -24,6 +25,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' addTitle("X and Y")
 #' # For more details of addTitle see

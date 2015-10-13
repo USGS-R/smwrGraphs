@@ -12,7 +12,7 @@ dendGram(x, Tree = list(orientation = "vertical", width = "standard", color =
 \item{x}{the data to plot. Must be able to be converted to class
 "dendrogram."}
 
-\item{Tree}{control parameters of the tree diagram.}
+\item{Tree}{control parameters of the tree diagram. See \bold{Details}.}
 
 \item{axis.range}{set the range of the tree-axis.}
 
@@ -25,7 +25,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin of the plot area.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 }
 \value{
 Information about the graph.
@@ -33,13 +34,21 @@ Information about the graph.
 \description{
 Produce a tree graph from a hiearchical cluster analysis.
 }
+\details{
+\code{Tree} is a list with these components:
+\describe{
+\item{orientation}{the orientation of the dendrogram, must be either "vertical" or
+"horizontal"}
+\item{width}{the line width of the line representing the dendrogram}
+\item{color}{the color of the line representing the dendrogram}}
+}
 \note{
 A call should be made to \code{setPage} to set up the graphics
 environment before calling \code{ecdfPlot}.
 }
 \examples{
 \dontrun{
-# For an exmaple of a dendGram  see
+# For an example of a dendGram  see
 vignette(topic="GraphGallery", package="smwrGraphs")
 }
 }

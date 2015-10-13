@@ -25,7 +25,8 @@ ecdfPlot(x, group = NULL, Plot = list(name = "Auto", what = "stairstep",
 \item{group}{create groups for \code{x}. Each group is plotted as a separate
 line.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{xaxis.log}{logical, if \code{TRUE}, then log-transform the x axis.}
 
@@ -43,7 +44,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin of the plot area.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{\dots}{any additional arguments needed by specific methods.}
 }
@@ -68,6 +70,7 @@ environment before calling \code{ecdfPlot}.
 \dontrun{
 set.seed(1)
 X <- rlnorm(32)
+setGD()
 ecdfPlot(X)
 # For more details of ecdfPlot see
 vignette(topic="ProbabilityPlots", package="smwrGraphs")

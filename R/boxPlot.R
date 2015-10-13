@@ -4,21 +4,22 @@
 #' 
 #' If group is numeric, then the boxes will be plotted along a continuous
 #' numeric axis. Otherwise the x-axis will be discrete groups.\cr \code{Box} is
-#' a list with these components: \describe{ \item{"type"}{the type of boxtplot:
+#' a list with these components: \describe{ \item{type}{the type of boxtplot:
 #' "simple" the whiskers extend to the minimum and maximum of the data,
-#' "truncated" the whisker extend to percentiles defined by \code{truncated},
-#' "tukey" the standard "Tukey" boxplot, and "extended" the whisker extend to
+#' "truncated" the whiskers extend to percentiles defined by \code{truncated},
+#' "tukey" the standard "Tukey" boxplot as described by Helsel and Hirsch (200),
+#' and "extended" the whisker extend to
 #' percentiles defined by \code{truncated} and values outside of that range are
-#' shown;} \item{"show.counts"}{show the number of observations used to compute
-#' the boxplot statistics;} \item{"nobox"}{only individual values are shown if
+#' shown;} \item{show.counts}{show the number of observations used to compute
+#' the boxplot statistics;} \item{nobox}{only individual values are shown if
 #' the number of observations is less than or equal to this value;}
-#' \item{"width"}{the width of the box, in inches;} \item{"fill"}{The color of
-#' the filled box or "none" for no fill;} \item{"truncated"}{the percentiles to
+#' \item{width}{the width of the box, in inches;} \item{fill}{The color of
+#' the filled box or "none" for no fill;} \item{truncated}{the percentiles to
 #' use for the truncated boxplot.} }
 #' 
 #' For linear axes, the range can be set to virtually any pair of values. For 
 #'log axes, the choice of range is more resticted---for less than one log-cycle,
-#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choces 
+#'powers of whole numbers can be used; from 1 to about 3 log cycles, the choices 
 #'should be powers of 3 or 10; and for more than 3 log cycles, the range sould be 
 #'expressed only in powers of 10.
 #'
@@ -41,7 +42,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{boxPlot}.\cr If \code{yaxis.log} is set to
@@ -55,13 +57,18 @@
 #' computations have a significant effect on the appearance the whiskers and
 #' outside values of the Tukey box plot and are motivated by the general
 #' assumption of a log-normal distribution for most water-quality constituents.
+#' @references Helsel, D.R. and Hirsch, R.M., 2002, Statistical methods in
+#' water resources: U.S. Geological Survey Techniques of Water-Resources
+#' Investigations, book 4, chap. A3, 522 p.
 #' @seealso \code{\link{setPage}}, \code{\link{dotPlot}}
 #' @keywords hplot
 #' @examples
 #' \dontrun{
 #' set.seed(1)
 #' Xbig <- rnorm(100)
-#' boxPlot(Xbig)
+#' setGD()
+#' # The simple type box plot
+#' boxPlot(Xbig, Box=list(type="simple"))
 #' # For more details of boxPlot see
 #' vignette(topic="BoxPlots", package="smwrGraphs")
 #' vignette(topic="GraphSetup", package="smwrGraphs")

@@ -14,7 +14,8 @@ splomPlot(x, layout, Plot = list(name = "", what = "points", type = "solid",
 
 \item{layout}{the output from \code{setSplom}}
 
-\item{Plot}{control parameters for each plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{Panel}{a list or a function, see \bold{Details}.}
 

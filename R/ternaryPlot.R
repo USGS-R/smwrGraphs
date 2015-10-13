@@ -31,7 +31,7 @@
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{piperPlot}.
-#' @seealso \code{\link{setPage}}, \code{link{setMultiPlot}},
+#' @seealso \code{\link{setPage}}, \code{\link{setMultiPlot}},
 #' \code{\link{piperPlot}}, \code{\link{addTernary}}
 #' @references Lorenz D.L., 2015, smwrGraphs
 #' @keywords hplot

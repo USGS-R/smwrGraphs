@@ -27,7 +27,7 @@ PD <- transform(MiscGW, Ca.meq = conc2meq(Calcium, "calcium"),
 		    Cl.meq = conc2meq(Chloride, "chloride"),
 		    SO4.meq = conc2meq(Sulfate, "sulfate"),
 		    HCO3.meq = conc2meq(Bicarbonate, "bicarb")) 
-# abbreviations allowed in the cal to conc2meq
+# abbreviations allowed in the call to conc2meq
 # The row name identifies the sample source, create a column
 PD$SS <- row.names(PD)
 # setSweave is a specialized function that sets up the graphics page for

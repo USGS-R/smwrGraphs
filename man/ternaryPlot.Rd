@@ -74,7 +74,7 @@ vignette(topic="PiperPlot", package="smwrGraphs")
 Lorenz D.L., 2015, smwrGraphs
 }
 \seealso{
-\code{\link{setPage}}, \code{link{setMultiPlot}},
+\code{\link{setPage}}, \code{\link{setMultiPlot}},
 \code{\link{piperPlot}}, \code{\link{addTernary}}
 }
 \keyword{hplot}

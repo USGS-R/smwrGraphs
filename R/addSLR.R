@@ -7,8 +7,12 @@
 #'explanatory variable, \code{y} is the name to use for the response variable, \code{form}
 #'indicates the form that the regression model should take if the variable are log
 #'transformed; "exp" indicates that the model equation should be expressed as an exponent,
-#'anything else indicates thet the model should be expressed using the transformation 
-#'functions; and \code{where} indicates where to place the equation.
+#'any other string indicates thet the model should be expressed using the transformation 
+#'functions; and \code{where} indicates where to place the equation. The value for
+#'\code{where} is a two letter code based on "upper," "center," or "lower" and "right,"
+#'"center," or "left"---for example "ul" would place the model equaiton in the upper left
+#'corner.
+#'
 #' @aliases addSLR addSLR.default addSLR.list
 #' @param x the x-axis data. For method \code{list}, x is a list that contains
 #' components \code{x} and \code{y} and the \code{y} argument is not used.
@@ -20,7 +24,7 @@
 #' See \bold{Details}.
 #' @param current the current plot information. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
-#' @param \dots not used required for other methods.
+#' @param \dots not used, required for other methods.
 #' @return The current plot information, the x and y components are the data, not the line.
 #'The regression model is included as the lm component.
 #' @seealso \code{\link{addXY}}, \code{\link{xyPlot}}
@@ -30,6 +34,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' addSLR(AA.pl)
 #' # For more details of addSLR see

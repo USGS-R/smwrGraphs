@@ -52,7 +52,9 @@ can be only "points" or "lines" in the current version; \code{color}="Auto"
 means if the argument \code{color} is double or dateLike create groups of classes,
 otherwise create unique colors, alternate values are "Range" (treat like double),
 tagged list of group_name=color, and so forth, "Discrete" valid only for numeric, or
-"Index" valid only for integer or for specified colors.}
+"Index" valid only for integer or for specified colors. No usable explanation
+is generated when color is set to "Index"---use repeated calls to \code{addXY} if
+an explanation is needed and specific colors are supplied.}
 
 \item{yaxis.log}{logical, if \code{TRUE}, then log-transform the y axis}
 
@@ -74,7 +76,8 @@ tagged list of group_name=color, and so forth, "Discrete" valid only for numeric
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{...}{arguments for specific methods.}
 }
@@ -111,8 +114,10 @@ where the line is colored by a third variable, or a colored scatter plot over ti
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
-Z <- sample(c("red", "orange2", "yellow3"), 32, replace=TRUE)
-colorPlot(X, Y, Z, Plot=list(color="Index"))
+Z <- sqrt(X^2 + Y^2) # distance from origin
+setGD()
+# All defaults: color ramp from Z
+colorPlot(X, Y, Z)
 # See for examples of colorPlot:
 vignette(topic="LineScatter", package="smwrGraphs")
 }

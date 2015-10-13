@@ -32,7 +32,8 @@
 #' @param xtitle x-axis title (also called x-axis caption).
 #' @param ytitle y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param jitter.y logical, if \code{TRUE}, then adjust \code{y} values to reduce
 #'overlap for each group, or adjust randomly if no groups. If \code{FALSE}, then
 #'no adjustment is made. 
@@ -54,6 +55,7 @@
 #' set.seed(1)
 #' X <- runif(12)
 #' Y <- LETTERS[1:12]
+#' setGD()
 #' dotPlot(X, Y)
 #' # For more details of dotPlot see
 #' vignette(topic="LineScatter", package="smwrGraphs")

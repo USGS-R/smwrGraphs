@@ -20,7 +20,7 @@ histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA, NA),
 
 \item{breaks}{any valid value for \code{\link{hist}}. See \bold{Details}.}
 
-\item{Hist}{Controls for the histogram.}
+\item{Hist}{control parameters of the histogram.  See \bold{Details}.}
 
 \item{yaxis.range}{set the range for the y axis, the first value must be 0.}
 
@@ -37,7 +37,8 @@ histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA, NA),
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{\dots}{additional arguments for other methods.}
 }
@@ -53,10 +54,10 @@ complete range of \code{x}.
 
 The components of \code{Hist}:
 \describe{
-\item{"type"}{The type of the histogram. Must be one of "frequency" for actual counts
+\item{type}{The type of the histogram. Must be one of "frequency" for actual counts
 in the bin, "density" for density in each bin, or "relative frequency" for percent in each bin.}
-\item{"fill"}{Logical value, \code{TRUE} means each bin will be shaded with \code{fill.color}.}
-\item{"boundary"}{Defines how values tied to bin limit boundaires are handled. If "upper,"
+\item{fill}{Logical value, \code{TRUE} means each bin will be shaded with \code{fill.color}.}
+\item{boundary}{Defines how values tied to bin limit boundaires are handled. If "upper,"
 then the bin limit boundary is the upper limit of the range and values tied to that value
 are placed in the bin corresponding to the upper limit of the boundary. If "lower," then
 the bijn limit is the lower limit of the bin.}
@@ -72,6 +73,7 @@ environment before calling \code{histGram}.
 \dontrun{
 set.seed(1)
 Xbig <- rnorm(100)
+setGD()
 histGram(Xbig, breaks=seq(-3, 3, by=.5), Hist=list(type="density"))
 # For more details of histGram see
 vignette(topic="ProbabilityPlots", package="smwrGraphs")

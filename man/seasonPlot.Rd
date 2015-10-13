@@ -33,7 +33,8 @@ seasonPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
 
 \item{y}{the y-coordinate data.}
 
-\item{Plot}{control parameters of the plot}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{yaxis.log}{logical, if \code{TRUE}, then log-transform the y axis.}
 
@@ -55,7 +56,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{...}{arguments for specific methods.}
 }
@@ -95,6 +97,7 @@ seasonal plot for date data in the form of month and day, like "Jan 01" or
 X <- as.Date("2001-01-15") + months(0:11)
 set.seed(1)
 Y <- runif(12)
+setGD()
 seasonPlot(X, Y)
 # For more details of seasonPlot see
 vignette(topic="LineScatter", package="smwrGraphs")

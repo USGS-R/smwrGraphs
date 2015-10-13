@@ -34,6 +34,7 @@
 #' \dontrun{
 #' set.seed(1)
 #' X <- rnorm(32)
+#' setGD()
 #' AA.pl <- qqPlot(X)
 #' addCI("q-norm", current=AA.pl)
 #' # For more details of addCI see

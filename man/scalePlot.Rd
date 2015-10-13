@@ -19,7 +19,8 @@ scalePlot(x, y, scale = 1, Plot = list(name = "", what = "lines", type =
 
 \item{scale}{the y/x ratio. See \bold{Details}.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{yaxis.log}{logical, if \code{TRUE}, then log-transform the y axis.}
 
@@ -43,7 +44,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin of the plot area.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 }
 \value{
 Information about the graph.
@@ -71,6 +73,7 @@ environment before calling \code{scalePlot}.
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 scalePlot(X, Y, Plot=list(what="points", size=0.05))
 # For more details of scalePlot see
 vignette(topic="LineScatter", package="smwrGraphs")

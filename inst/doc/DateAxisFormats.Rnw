@@ -2,6 +2,7 @@
 \parskip 3pt
 \usepackage[margin=1.25in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
 %\VignetteIndexEntry{Date Axis Formats}
 %\VignetteDepends{smwrGraphs}
 
@@ -24,7 +25,7 @@ These examples demonstrate the various date and time axis formats for graphs cre
 \eject
 \section{Introduction}
 
-The \texttt{timePlot} function controls the formatting of the date- (x-) axis with the \texttt{xlabels} argument. The default value for \texttt{xlabels} is "Auto" but may be any of "hours," "days," "months," "years," or "water years" that will select a specific format. The value for the \texttt{xlabels} argument may also be a list of the arguments to the \texttt{detePretty} function for even more control. The examples in this vignette use primarily the "Auto" option, but at least one example shows one of the other options.
+The \texttt{timePlot} function controls the formatting of the date- (x-) axis with the \texttt{xlabels} argument. The default value for \texttt{xlabels} is "Auto" but may be any of "hours," "days," "months," "years," or "water years" that will select a specific format. The value for the \texttt{xlabels} argument may also be a list of the arguments to the \texttt{datePretty} function for even more control. The examples in this vignette use primarily the "Auto" option, but at least one example shows one of the other options.
 
 All of these examples focus on the date-axis formatting when the x-axis data is class "Date" or "POSIXt." They plot no data and simplify the y-axis labeling. The x-axis range is set using the \texttt{xaxis.range} argument for these graphs, but the range may also be set by the range in the \texttt{x} argument to \texttt{timePlot} as done in the first example.
 
@@ -39,9 +40,9 @@ YY <- c(0.14, 0.82)
 \eject
 \section{Hour Formats}
 
-Hour formats are suitable for date ranges less than about 3 days. In general, hydrologic responses are not substantially shorter time frames than hours, therefore there are no option for axis formats shorter that hours. Minor ticks are by default minutes when the major ticks and labels are hours.
+Hour formats are suitable for date ranges less than about 3 days. The minimum time increment for axis formats is hours. Minor ticks are by default minutes when the major ticks and labels are hours.
 
-This example demonstrates the hour format for a short time frame, less than one day. It also demonstrates how to add minor ticks to the graph. The \texttt{ticks} argument for the hours axis forma can be computed as 60/min - 1, where min is the number of minutes desired between minor ticks.
+This example demonstrates the hour format for a short time frame, less than one day. It also demonstrates how to add minor ticks to the graph. The \texttt{ticks} argument for the hours axis format can be computed as 60/min - 1, where min is the number of minutes desired between minor ticks.
 
 <<echo=TRUE>>=
 # Set up the graphics environment, the equivalent call for an on screen
@@ -49,7 +50,7 @@ This example demonstrates the hour format for a short time frame, less than one 
 setSweave("graph01", 6, 1.5)
 # 
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="")
-# add 15-minute minor ticks (3 internal per hour)
+# add 15-minute minor ticks (3 minor ticks in 1 hour)
 addMinorTicks("bottom", AA.pl, 3)
 addMinorTicks("top", AA.pl, 3)
 graphics.off()
@@ -69,7 +70,7 @@ setSweave("graph02", 6, 1.5)
 # 
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-02", "2009-07-03")))
-# add hourly minor ticks (5 internal per hour)
+# add hourly minor ticks (5 minor ticks in 6 hours)
 addMinorTicks("bottom", AA.pl, 5)
 addMinorTicks("top", AA.pl, 5)
 graphics.off()
@@ -95,7 +96,7 @@ setSweave("graph03", 6, 1.5)
 AA.pl <- timePlot(DD, YY, Plot=list(what="none"), ylabels=c(0,1), ytitle="",
                   xaxis.range=as.Date(c("2009-07-02", "2009-07-03")),
                   xlabels="days")
-# add hourly minor ticks (5 internal per hour)
+# add hourly minor ticks (5 minor ticks in 6 hours)
 addMinorTicks("bottom", AA.pl, 23)
 addMinorTicks("top", AA.pl, 23)
 graphics.off()
@@ -233,7 +234,7 @@ graphics.off()
 
 Year formats are suitable for time spans from 1 to many years, although the month format may be used for time spans of a single year. In contrast to the previous formats, the year is always displayed in the 4-digit format, but longer time spans will force the displayed year to be displayed in multiples of 2, 5, 10, or longer. Minor ticks are by default months when the major ticks and labels are years. 
 
-Figures 11 and 12 show the year-axis formats for time spans of 2 years, where the individual years are shown and 12 years which shows the multiple year format. The default format for 2 years is months; figure 11 forces the format to be year. Minor ticks are drawn for months in figure 11 and the intervening year in figure 12.
+Figures 11 and 12 show the year-axis formats for time spans of 2 years, where the individual years are shown and 14 years which shows the multiple year format. The default format for 2 years is months; figure 11 forces the format to be year. Minor ticks are drawn for months in figure 11 and the intervening year in figure 12.
 
 <<echo=TRUE>>=
 # Set up the graphics environment, the equivalent call for an on screen
@@ -270,7 +271,7 @@ graphics.off()
 \includegraphics{graph12.pdf}
 \paragraph{}
 
-\textbf{Figure 12.} The default format for a time span of 18 months.
+\textbf{Figure 12.} The default format for a time span of 14 years.
 
 \eject
 \section{Water Year Formats}

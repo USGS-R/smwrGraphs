@@ -55,10 +55,11 @@
 #' @param xtitle x-axis title (also called x-axis caption).
 #' @param ytitle y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots not used, required for other methods.
 #' @return Information about the graph.
-#' @seealso \code{\link{stiffPlot}}, \code{\link{xyPlot}}
+#' @seealso \code{\link{addStiff}}, \code{\link{xyPlot}}
 #' @references Hem J.D., 1989, Study and interpretation of the chemical
 #' characteristics of natural water: U.S. Geological Survey Water-Supply Paper
 #' 2254, 263 p.
@@ -160,10 +161,18 @@ stiffPlot <- function(cations, anions, # the data matrices
           top=list(ticks = FALSE, labels = FALSE, grid = FALSE, 
             finegrid = FALSE), caption=caption)
   ## Need to complete the info needed in ret
-  invisible(list(cations=retval$cations, anions=retval$anions,
-                 yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.lev=ylev,
-                 xaxis.log=FALSE, explanation=retval$explan, margin=margin,
-                 yax=yax, xax=xax))
+  retval <- list(cations=retval$cations, anions=retval$anions,
+  							 yaxis.log=FALSE, yaxis.rev=FALSE, yaxis.lev=ylev,
+  							 xaxis.log=FALSE, explanation=retval$explan, margin=margin,
+  							 yax=yax, xax=xax)
+  # The width and xaxis.range must be set from the data
+  ck <- max(strwidth(c(retval$explanation$stiff$anlabels, retval$explanation$stiff$catlabels),
+  									 family="USGS", units="inches")) - .25
+  if(ck > 0) {
+  	retval$explanation$stiff$width <- 2 + 2*ck
+  	retval$explanation$stiff$xaxis.range <- retval$explanation$stiff$xaxis.range * (1 + ck)
+  }
+  invisible(retval)
 }
 
 

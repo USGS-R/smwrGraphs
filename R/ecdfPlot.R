@@ -12,7 +12,8 @@
 #' @param x the data to plot.
 #' @param group create groups for \code{x}. Each group is plotted as a separate
 #' line.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param xaxis.log logical, if \code{TRUE}, then log-transform the x axis.
 #' @param xaxis.range set the range of the x-axis. See \bold{Details}.
 #' @param ylabels set the y-axis labels. See \code{\link{linearPretty}} for
@@ -22,7 +23,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin of the plot area.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots any additional arguments needed by specific methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
@@ -33,6 +35,7 @@
 #' \dontrun{
 #' set.seed(1)
 #' X <- rlnorm(32)
+#' setGD()
 #' ecdfPlot(X)
 #' # For more details of ecdfPlot see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")

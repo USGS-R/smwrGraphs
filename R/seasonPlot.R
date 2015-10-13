@@ -12,7 +12,8 @@
 #' seasonPlot,character,numeric-method
 #' @param x the x-coordinate data.
 #' @param y the y-coordinate data.
-#' @param Plot control parameters of the plot
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis.
@@ -24,7 +25,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param ... arguments for specific methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
@@ -52,6 +54,7 @@
 #' X <- as.Date("2001-01-15") + months(0:11)
 #' set.seed(1)
 #' Y <- runif(12)
+#' setGD()
 #' seasonPlot(X, Y)
 #' # For more details of seasonPlot see
 #' vignette(topic="LineScatter", package="smwrGraphs")

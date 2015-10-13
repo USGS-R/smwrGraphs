@@ -1,6 +1,8 @@
 #' Graphics Page
 #' 
-#' Sets up a graphics page.
+#' Sets up a graphics page. The functions \code{setPage}, \code{setRStudio}, and 
+#'\code{setGD} set up onscreen devices. The functions \code{setPDF}, \code{setSweave},
+#'\code{setKnitr}, and \code{setPNG} set up files for graphics output.
 #' 
 #' If \code{layout} is "portrait," then the page size is 8.5 by 11 inches and
 #' the graph area is 7.25 by 9.5 inches.
@@ -24,7 +26,7 @@
 #' environments like RStudio (TM).
 #' 
 #' @rdname setPage
-#' @aliases setPage setPDF setSweave setGD setKnitr setPNG serRStudio
+#' @aliases setPage setPDF setSweave setGD setKnitr setPNG setRStudio
 #' @param layout A description of the orientation and shape of the graphics
 #' page. See \bold{Details}.
 #' @param font a description of the font. The choices are "preview," which is
@@ -101,19 +103,6 @@
 #' @export setPage
 setPage <- function(layout="portrait", font="preview", name="USGS",
                     multiple=FALSE, device="default") {
-	# Coding history:
-	#    2008May12 DLLorenz Original Coding and start of revisions.
-	#    2009Dec01 DLLorenz Added EST option, which apparently requires Times New Roman
-	#    2010Feb02 DLLorenz Convert to use current graphics
-	#    2010Mar28 DLLorenz Modified extensively for new interface
-	#    2010Nov15 DLLorenz Modified for R
-	#    2011Aug03 DLLorenz Added slide and custom options
-	#    2011Oct24 DLLorenz Tweaks for package
-	#    2012Feb14 DLLorenz Modifications for all platforms
-	#    2012Mar12 DLLorenz Added device argument to override some default devices
-	#                       as with RStudio
-	#    2012Nov01 DLLorenz Add options to produce circles in PDF output
-	#    2014Jun26 DLLorenz Converted to roxygen.
 	#
   font <- match.arg(font, c("preview", "USGS", "EST", "PPT", "PDF"))
   ## Set global variables for lineweights and PDF
@@ -227,7 +216,6 @@ setPage <- function(layout="portrait", font="preview", name="USGS",
                pdfFonts("Helvetica-Narrow")[[1L]]$metrics))
   dev <- dev.cur()
   ## Check to make sure fin is OK
-  plot.new
   Maxfin <- par("fin")
   par(fin=pmin(fin, Maxfin), las=1)
   invisible(list(dev=dev, name=name))

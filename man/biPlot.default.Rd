@@ -64,7 +64,8 @@ that labels can be drawn.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{\dots}{not used, required for other methods.}
 }

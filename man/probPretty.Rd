@@ -41,6 +41,7 @@ Information about the axis labels.
 }
 \description{
 Construct information for making a nicely formatted probability axis.
+A support function for creating probability axes.
 }
 \seealso{
 \code{\link{probPlot}}

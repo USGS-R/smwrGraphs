@@ -11,6 +11,7 @@
 #' set.seed(1)
 #' X <- runif(25)
 #' Y <- runif(25)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' addCaption("Twenty five random points")
 #' # See for examples of addCaption:

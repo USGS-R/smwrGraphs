@@ -32,7 +32,8 @@ quantile plot from the data in \code{x}.}
 \item{alpha}{the alpha value of the function for computing plotting
 positions.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{LineRef}{control parameters of the reference line (best fit between
 \code{x} and \code{y}. See \bold{Details}.}
@@ -60,7 +61,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin of the plot area.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{\dots}{any additional arguments required for specific methods.}
 }
@@ -88,6 +90,7 @@ environment before calling \code{qqPlot}.
 \dontrun{
 set.seed(1)
 X <- rnorm(32)
+setGD()
 qqPlot(X)
 # For more details of qqPlot see
 vignette(topic="ProbabilityPlots", package="smwrGraphs")

@@ -8,14 +8,17 @@
 #' @param percent the minimum percent to enclose.
 #' @param smooth logical, if \code{TRUE}, then smooth the bounding hull.
 #' @return A list containing the x- and y-coordinates of the hull.
-#' @seealso \code{\link{dataEllipse}}
+#' @seealso \code{\link{dataEllipse}}, \code{\link[grDevices]{chull}}
 #' @keywords dplot
 #' @examples
-#' \dontrun{
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' # The enclosing polygon
 #' hull(X, Y)
+#' # The points
+#' chull(X, Y)
+#' \dontrun{
 #' # For examples of hull in graphs see
 #' vignette(topic="GraphAdditions", package="smwrGraphs")
 #' }

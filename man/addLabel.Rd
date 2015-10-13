@@ -50,6 +50,7 @@ set.seed(1)
 X <- as.POSIXct(c("2010-12-22 10:30", "2010-12-28 13:45",
 "2011-01-05 9:30", "2011-01-07 14:50"))
 Y <- runif(4)
+setGD()
 AA.pl <- timePlot(X, Y, Plot=list(what="points"))
 # Insert verical bar between years
 addLabel("|", as.Date("2011-01-01"), distance=1.2)

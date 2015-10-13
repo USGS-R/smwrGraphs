@@ -36,10 +36,11 @@ avoid plotting on axis. Otherwise do not extend the data range. Only valid
 when \code{hard} is FALSE; Ignored in \code{logPretty}}
 }
 \value{
-Information about the axis lables.
+Information about the axis labels.
 }
 \description{
 Construct information for making a nicely formatted linear numeric axis.
+A support function for creating linear axes.
 }
 \seealso{
 \code{\link{areaPlot}}, \code{\link{boxPlot}},

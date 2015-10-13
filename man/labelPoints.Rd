@@ -16,9 +16,9 @@ labelPoints(x, y, labels, dir = "E", offset = 0.75, size = 8,
 \item{labels}{the text labels, must be the same length as x and y. Missing
 values are permitted, but ignored.}
 
-\item{dir}{the direction relative to the point to place the label.}
+\item{dir}{the direction relative to the point to place the label. See \bold{Details}.}
 
-\item{offset}{the relative offset from the point.}
+\item{offset}{the relative offset from the point. See \bold{Details}.}
 
 \item{size}{character size in points.}
 
@@ -33,11 +33,28 @@ A list containing \code{x}, \code{y}, and \code{labels}.
 \description{
 Label points on a graph.
 }
+\details{
+The value for \code{dir} can be of length one or the length of \code{x},
+in which case, \code{dir} applies to the corresponding point. The value must be
+"N," "NE," "E," "SE," "S," "SW," "W," or "NW" cooresponding to the compass
+direction or "C" to center the label.
+
+The value for \code{offset} can be of length one or the length of \code{x}, in
+in which case, \code{offset} applies to the corresponding point. The value is relative
+to the size of the test. The default value of \code{offset} is correct for creating a
+text plot, where the text is centered on the value.
+}
+\note{
+The current version does not have any method to automatically eliminate
+overlapping labels. Several iterations may be required trying various values for
+\code{dir} and possibly \code{offset} to produce non overlapping labels.
+}
 \examples{
 \dontrun{
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 xyPlot(X, Y)
 # Label the first point
 labelPoints(X[1], Y[1], "First")

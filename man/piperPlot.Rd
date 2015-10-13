@@ -66,7 +66,7 @@ graph.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins--- ignored, included for
+\item{margin}{set up the plot area margins---ignored, included for
 consistency with other plotting functions in this package.}
 }
 \value{
@@ -78,6 +78,9 @@ Produce a Piper Diagram
 \details{
 The \code{what} component of the \code{Plot} argument must be either
 "points" or "none."
+
+The units for \code{xCat}, \code{yCat}, \code{zCat}, \code{xAn},
+\code{yAn}, and \code{zAn} should be in milli-equivalents.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics
@@ -96,7 +99,7 @@ characteristics of natural water: U.S. Geological Survey Water-Supply Paper
 2254, 263 p.
 }
 \seealso{
-\code{\link{setPage}}, \code{link{setMultiPlot}},
+\code{\link{setPage}}, \code{\link{setMultiPlot}},
 \code{\link{ternaryPlot}}, \code{\link{addPiper}}
 }
 \keyword{hplot}

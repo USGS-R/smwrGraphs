@@ -24,7 +24,7 @@ demo(topic="PiperScript", package="smwrGraphs")
 }
 }
 \seealso{
-\code{link{colors}}, \code{link{rainbow}}
+\code{\link[grDevices]{colors}}, \code{\link[grDevices]{rainbow}}
 }
 \keyword{dplot}
 

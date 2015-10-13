@@ -7,16 +7,18 @@
 #' left or right.
 #' 
 #' @param tbl the data frame or matrix to add to graph. All data must be of
-#' mode character, which allows the user to format the data rather than the
-#' automatic formatting done by R.
+#'mode character, which allows the user to format the data rather than the
+#'automatic formatting done by R.
 #' @param where character specifying the corner the table should be placed, see
 #' \bold{Details}.
 #' @param title the title of the table.
 #' @return Nothing is returned.
-#' @note The table should be formatted by the user for anything other than
-#' right justification. The column names of the table are the column names of
-#' the matrix or data frame. The matrix gives the user mnore control over
-#' column names than does the data frame.
+#' @note Each column of the table can be formatted by the user, using the 
+#'\code{format} function, to control the alingment of the data in each column 
+#'of the table. The column names of the table are the column names of
+#'the matrix or data frame. If there are no column names in a matrix, then the
+#'table is printed without column names. A matrix gives the user more control over
+#'column names than does a data frame.
 #' @seealso \code{\link{addExplanation}}, \code{\link{addAnnotation}}
 #' @keywords aplot
 #' @examples
@@ -24,6 +26,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' Mat <- cbind(c("Mean of X", "Mean of Y"), round(c(mean(X), mean(Y)), 2))
 #' addTable(Mat, "ul")

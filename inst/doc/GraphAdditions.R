@@ -1,7 +1,7 @@
 ### R code from vignette source 'GraphAdditions.Rnw'
 
 ###################################################
-### code chunk number 1: GraphAdditions.Rnw:28-34
+### code chunk number 1: GraphAdditions.Rnw:29-35
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -12,7 +12,7 @@ Y <- X + rnorm(32)
 
 
 ###################################################
-### code chunk number 2: GraphAdditions.Rnw:45-54
+### code chunk number 2: GraphAdditions.Rnw:46-55
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -26,7 +26,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: GraphAdditions.Rnw:70-81
+### code chunk number 3: GraphAdditions.Rnw:71-82
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
@@ -42,45 +42,47 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: GraphAdditions.Rnw:95-107
+### code chunk number 4: GraphAdditions.Rnw:96-110
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage("square")
 setSweave("graph03", 6 ,6)
 # Create a scatter plot from the X and Y data. The name of the output (AA.pl)
 #  is completely arbiutrary, but consistently used through these examples.
-AA.pl <- xyPlot(X, Y)
+AA.pl <- xyPlot(X, Y, Plot=list(name="data"))
 # The addSmooth function will compute the smmothed line and add the plot to the
 # graph. Accept all defaults for this example. A very useful additional
 # argument would be span for the loess.smooth
-AA.pl <- addSmooth(X, Y, current=AA.pl)
+AA.pl <- addSmooth(X, Y, Plot=list(name="Default Span"),current=AA.pl)
+AA.pl <- addSmooth(X, Y, span=1, Plot=list(name="Span=1", color="blue"),current=AA.pl)
+addExplanation(AA.pl, 'ul') # ul is upper left corner
 # Required call to close PDF output graphics
 graphics.off()
 
 
 ###################################################
-### code chunk number 5: GraphAdditions.Rnw:122-138
+### code chunk number 5: GraphAdditions.Rnw:125-141
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).
 setSweave("graph04", 6 ,4)
 # Create a scatter plot from the X and Y data. 
 AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
-# Create and add the regresion line and 95% confidence intervals
+# Create and add the sregresion line and 95% confidence intervals
 AA.pl <- addSLR(AA.pl)
-# The output is discarded in this case becuase an explanation is not created
+# The output from addCI is discarded in this case--no explanation
 addCI("SLR", current=AA.pl)
 # Create the table and add it to the graph
 # Note may actually want to reformat the last p-value so not 0
 AA.tbl <- format(round(coefficients(summary(AA.pl$lm)), 4))
 AA.tbl <- cbind(" "=c("Intercept", "X"), AA.tbl)
-addTable(AA.tbl, where="ul")
+addTable(AA.tbl, where="ul") # ul is upper left corner
 # Required call to close PDF output graphics
 graphics.off()
 
 
 ###################################################
-### code chunk number 6: GraphAdditions.Rnw:153-172
+### code chunk number 6: GraphAdditions.Rnw:156-175
 ###################################################
 # Set up the graphics environment, the equivalent call for an on screen
 #  device would be setPage(layout=list(width=6, height=4)).

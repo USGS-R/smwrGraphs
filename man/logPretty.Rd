@@ -35,6 +35,7 @@ Information about the axis lables.
 }
 \description{
 Construct information for making a nicely formatted log-scale numeric axis.
+A support function for creating logarithmic axes.
 }
 \seealso{
 \code{\link{areaPlot}}, \code{\link{boxPlot}},

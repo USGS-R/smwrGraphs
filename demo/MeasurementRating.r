@@ -9,7 +9,7 @@ Basswood <- readNWISmeas("05127500", startDate="2008-10-01", endDate="2014-09-30
 # flow from 3.3 to 10.0 to a flow of 881 to 16,000 with an offset of 1.9
 # This graph will display only the lower part of the curve
 # Set up the graph and axes
-setPDF(layout=list(width=8, height=8), basename="Basswood")
+setGD()
 # Define the forward and inverse log-offset functions
 logoff <- function(x, off) log(x - off)
 Ilogoff <- function(x, off) exp(x) + off
@@ -20,4 +20,3 @@ AA.pl <- with(subset(Basswood, discharge_va < 900),
     xaxis.range=c(100, 900)))
 # Draw the rating curve
 addXY(c(44,881), c(1.6, 3.3), current=AA.pl)
-graphics.off()

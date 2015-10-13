@@ -2,6 +2,7 @@
 \parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
 %\VignetteIndexEntry{Graph Gallery}
 %\VignetteDepends{smwrGraphs,smwrData}
 
@@ -202,8 +203,10 @@ AA.lo <- setLayout(explanation=list(right=1.5))
 setGraph(1, AA.lo)
 AA.pl <- with(MC11_stack, contourPlot(Temperature,JULIAN, -Depth,
   Contours=list(name="Soil Temperature", filled=TRUE),
-  xaxis.range=c(50, 350), ytitle="Depth in me,ters below land surface",
+  xaxis.range=c(50, 350), ytitle="Depth in meters below land surface",
   xtitle="Julian day, 1993"))
+# Note to set the specific levels of the contours, for example to draw only
+# unfrozen ground, add levels=seq(0, 20, by=2) to the list defining Contours
 # Add the explanation
 setGraph("explanation", AA.lo)
 addExplanation(AA.pl)

@@ -1,7 +1,7 @@
 ### R code from vignette source 'GraphGallery.Rnw'
 
 ###################################################
-### code chunk number 1: GraphGallery.Rnw:28-43
+### code chunk number 1: GraphGallery.Rnw:29-44
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -21,7 +21,7 @@ data(MC11_1993)
 
 
 ###################################################
-### code chunk number 2: GraphGallery.Rnw:53-77
+### code chunk number 2: GraphGallery.Rnw:54-78
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -50,7 +50,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: GraphGallery.Rnw:93-105
+### code chunk number 3: GraphGallery.Rnw:94-106
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -67,7 +67,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: GraphGallery.Rnw:121-149
+### code chunk number 4: GraphGallery.Rnw:122-150
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -100,7 +100,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: GraphGallery.Rnw:164-175
+### code chunk number 5: GraphGallery.Rnw:165-176
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -116,7 +116,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: GraphGallery.Rnw:188-211
+### code chunk number 6: GraphGallery.Rnw:189-214
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -134,8 +134,10 @@ AA.lo <- setLayout(explanation=list(right=1.5))
 setGraph(1, AA.lo)
 AA.pl <- with(MC11_stack, contourPlot(Temperature,JULIAN, -Depth,
   Contours=list(name="Soil Temperature", filled=TRUE),
-  xaxis.range=c(50, 350), ytitle="Depth in me,ters below land surface",
+  xaxis.range=c(50, 350), ytitle="Depth in meters below land surface",
   xtitle="Julian day, 1993"))
+# Note to set the specific levels of the contours, for example to draw only
+# unfrozen ground, add levels=seq(0, 20, by=2) to the list defining Contours
 # Add the explanation
 setGraph("explanation", AA.lo)
 addExplanation(AA.pl)
@@ -144,7 +146,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: GraphGallery.Rnw:226-264
+### code chunk number 7: GraphGallery.Rnw:229-267
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -187,7 +189,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: GraphGallery.Rnw:279-293
+### code chunk number 8: GraphGallery.Rnw:282-296
 ###################################################
 # First set up the projection. The preSurface function can be interactive,
 # This script sets the projection to A and supresses the request for user input.
@@ -206,7 +208,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 9: GraphGallery.Rnw:306-317
+### code chunk number 9: GraphGallery.Rnw:309-320
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -222,7 +224,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 10: GraphGallery.Rnw:330-344
+### code chunk number 10: GraphGallery.Rnw:333-347
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 

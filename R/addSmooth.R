@@ -2,17 +2,22 @@
 #' 
 #' Computes a smooth line from x and y data and adds the line to a graph.
 #' 
-#' 
+#' @details The value for \code{Smooth} must the name of a smoothing function as a 
+#'character string. The default is "loess.smooth" but any smoother that accepts arguments
+#'names \code{x} and \code{y} and other arguments controlling the smooth and returns a list
+#'with components named \code{x} and \code{y} can be used. Examples of other smoothers in base
+#'R are "supsmu" and "smooth.spline."
+#'
 #' @aliases addSmooth addSmooth.default addSmooth.list
 #' @param x the x-axis data. For method \code{list}, x is a list that contains
 #' components \code{x} and \code{y} and the \code{y} argument is not used.
 #' Missing values are permitted and ignored in the smooth.
 #' @param y the y-axis data. Missing values are permitted and ignored in the smooth.
-#' @param Smooth the name of the smoothing function.
+#' @param Smooth the name of the smoothing function. See \bold{Details}.
 #' @param \dots additional parameters for the function names in \code{Smooth}.
 #' @param Smooth.along the data along which the smoother is run. Must be either "x,"
 #'which smooths \code{y} along \code{x} resulting in a horzontal line, or "y,"
-#'which smooths \code{x} along \code{y} resulting in a vereical line.
+#'which smooths \code{x} along \code{y} resulting in a vertical line.
 #' @param Plot parameters defining the characteristics of the plot. See
 #' \code{\link{setPlot}} for a description of the parameters.
 #' @param current the current plot information. Typically, this would be the
@@ -28,6 +33,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' addSmooth(AA.pl)
 #' # For more details of addSmooth see

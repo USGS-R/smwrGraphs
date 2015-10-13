@@ -8,7 +8,8 @@ addTitle(Main = "", Heading = "", Justification = "left", Bold = TRUE,
   Position = "above")
 }
 \arguments{
-\item{Main}{the main text of the title.}
+\item{Main}{the main text of the title. Can be either a character string or an
+"expression" object.}
 
 \item{Heading}{The title heading, generally a single letter. See
 \bold{Details}}
@@ -38,6 +39,7 @@ title is a single letter followed by a period in bold italics followed by
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 AA.pl <- xyPlot(X, Y)
 addTitle("X and Y")
 # For more details of addTitle see

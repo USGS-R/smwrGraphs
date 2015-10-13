@@ -17,7 +17,8 @@
 #' quantile plot from the data in \code{x}.
 #' @param alpha the alpha value of the function for computing plotting
 #' positions.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param LineRef control parameters of the reference line (best fit between
 #' \code{x} and \code{y}. See \bold{Details}.
 #' @param Line1.1 control parameters for the 1:1 line. Drawn only for q-q plot.
@@ -33,7 +34,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin of the plot area.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots any additional arguments required for specific methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
@@ -45,6 +47,7 @@
 #' \dontrun{
 #' set.seed(1)
 #' X <- rnorm(32)
+#' setGD()
 #' qqPlot(X)
 #' # For more details of qqPlot see
 #' vignette(topic="ProbabilityPlots", package="smwrGraphs")

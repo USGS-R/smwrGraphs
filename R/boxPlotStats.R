@@ -4,7 +4,8 @@
 #'(support function for \code{boxPlot}).
 #' 
 #' @param x a list containing the data to compute the statistics.
-#' @param Box control paramters for the box.
+#' @param Box control parameters for the box as set by the user and verified by
+#'\code{boxPlot}.
 #' @param yaxis.log logical, if \code{TRUE}, then log transform data before computing the
 #' statistics.
 #' @return a list containing the statistics for each box plot.

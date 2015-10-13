@@ -2,6 +2,7 @@
 \parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
 %\VignetteIndexEntry{Box Plot Examples}
 %\VignetteDepends{smwrGraphs}
 
@@ -52,12 +53,15 @@ percentiles. The other types can be created with a simple revision to the
 and maximum values. For the Tukey box plot, \texttt{type="tukey"}, the whiskers
 are extended to the observed value that is within 1.5 times the interquartile
 range above or below the upper or lower quartile and observed values outside
-of that range are plotted as individual symbols. The extended box plot is a
-variation on the simple box plot where all observed values outside of the upper
-and lower percentiles are plotted as individual symbols. For the default 10 and 90
+of that range are plotted as individual symbols (o is plotted for values within 3 times the 
+interquartile range and x for values greater than 3 times the intgerquartile range.
+The extended box plot is a variation on the simple box plot where all observed values 
+outside of the upper and lower percentiles are plotted as individual symbols 
+(o for all values). For the default 10 and 90
 percentile limits, no more than 10 percent of the total number of observed
-value will be individually plotted. Note that the y-axis range is set by the
+value will be individually plotted. Note that the default y-axis range is set by the
 range of the data and not the range of the box plot.
+
 <<echo=TRUE>>=
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -94,6 +98,7 @@ The explanation for the box plot is best created to the right of the graph
 rather than below. This example shows the explanation for the truncated box
 plot. The explanation for the Tukey box plot requires a width of about 2.5
 inches, rather than the 1.5 inches in the example that follows.
+
 <<echo=TRUE>>=
 setSweave("boxplot02", 6 ,6)
 # Set layout for 1 graph and an explanation
@@ -127,7 +132,7 @@ truncated and extended types of boxplot.
 This example demonstrates how to create a boxplot with a filled box, change the
 width, and demonstrates the individuals plotted for a small sample size. It
 also shows how to change the default x-axis labels. The user should verify the
-order before changing \texttt{xlables}.
+order before changing \texttt{xlabels}.
 
 <<echo=TRUE>>=
 setSweave("boxplot03", 6 ,5)
@@ -147,8 +152,11 @@ graphics.off()
 
 The Box argument includes the \texttt{group} argument, which can be used to
 split a single variable into multiple variables corresponding to each unique
-value in the group. This example demonstrates how to create a grouped
-boxplot. The user should verify the order before changing \texttt{xlables}.
+value in the group. The \texttt{group} argument will be treated as a discrete grouping
+variaible if it is type ''character'' or ''factor.'' If \texttt{group} is type ''character,''
+then the groups are sorted alphabetically; the user can control the order of the groups by
+using type ''factor'' where the order is set by the levels. This example demonstrates how to
+create a grouped boxplot. The user should verify the order before changing \texttt{xlabels}.
 
 <<echo=TRUE>>=
 setSweave("boxplot04", 6 ,6)

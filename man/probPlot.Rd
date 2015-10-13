@@ -40,7 +40,8 @@ probabilities to coordinates.}
 \item{alpha}{the alpha value of the function for computing plotting
 positions.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{yaxis.log}{logical, if \code{TRUE}, then log-transform the y axis.}
 
@@ -67,7 +68,8 @@ If \code{RI} is set to \code{TRUE}, then \code{CDF} will be set to \code{FALSE}.
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin of the plot area.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{\dots}{parameters for the distribution function. If any parameter is
 specified, then an attempt is made to draw the fit between the computed
@@ -104,6 +106,7 @@ environment before calling \code{probPlot}.
 \dontrun{
 set.seed(1)
 X <- rlnorm(32)
+setGD()
 probPlot(X)
 # For more details of probPlot see
 vignette(topic="ProbabilityPlots", package="smwrGraphs")

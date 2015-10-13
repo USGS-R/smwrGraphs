@@ -31,7 +31,8 @@ list if necessary, NULL otherwise.}
 \item{ytargs}{additional arguments to \code{ytrans} and \code{yinv}, as a
 list if necessary, NULL otherwise.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{yaxis.range}{set the range of the y-axis.}
 
@@ -49,7 +50,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 }
 \value{
 Information about the graph.
@@ -64,6 +66,7 @@ environment before calling \code{transPlot}.
 \examples{
 \dontrun{
 X <- seq(.25, 9.75, by=.25)
+setGD()
 # The Box-Cox transform (power of 1.5)
 # The labels represent the original values; the line represents the transformed value
 transPlot(X, I, I, y=X, ytrans=boxCox, yinv=IboxCox,

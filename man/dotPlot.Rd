@@ -59,7 +59,8 @@ bottom to top.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{the parameters of the margin.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{...}{arguments for specific methods.}
 
@@ -100,6 +101,7 @@ x-coordinate data and any (discrete) y-coordinate data. } }
 set.seed(1)
 X <- runif(12)
 Y <- LETTERS[1:12]
+setGD()
 dotPlot(X, Y)
 # For more details of dotPlot see
 vignette(topic="LineScatter", package="smwrGraphs")

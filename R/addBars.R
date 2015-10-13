@@ -15,11 +15,8 @@
 #' If \code{width} 1, then the bars form a continuous filled area.
 #' The default is "Auto," which fills 2/3 of the distance. If 0, then draw vertical
 #' lines rather than bars; the color of the line is based on \code{outline}.}
-#' \item{orientation}{the orientation of the bars.} } 
-#' 
-#' Only single bars are
-#' permitted in the current version. The \code{orientation} component of
-#' \code{Bars} is ignored.
+#' \item{orientation}{the orientation of the bars. Must be either "stack" or
+#' "group." Can be abbreviated to a single letter.} } 
 #' 
 #' @param x the x-coordinate data. Missing values are permitted but result in
 #' no bar.
@@ -46,6 +43,7 @@
 #' set.seed(1)
 #' X <- seq(1, 9, by=1.0)
 #' Y <- runif(9) + runif(9)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y, Plot=list(what="none"), yaxis.range=c(0,2))
 #' addBars(X, Y, base=0, current=AA.pl)
 #' # For more details of addBars see
@@ -69,6 +67,7 @@ addBars <- function(x, y, base=0,
   base <- rep(base, length.out=length(x))
   Bars <- setDefaults(Bars, name="Auto", fill="gray80", outline="black",
   										width="Auto", orientation="stack")
+  Bars$orientation <- match.arg(Bars$orientation, c("stack", "group"))
   if(Bars$width == "Auto") {
   	xoff <- 1/3
   } else {

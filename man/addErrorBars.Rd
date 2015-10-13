@@ -56,6 +56,7 @@ Y2 <- runif(9)
 Y <- (Y1 + Y2)/2
 Ymin <- pmin(Y1, Y2)
 Ymax <- pmax(Y1, Y2)
+setGD()
 AA.pl <- xyPlot(X, Y, yaxis.range=c(0,1))
 addErrorBars(X,Ymax, Ymin)
 # For more details of addErrorBars see

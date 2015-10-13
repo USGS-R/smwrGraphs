@@ -22,17 +22,20 @@ A list containing the x- and y-coordinates of the hull.
 Construct an enclosing hull from x- and y-coordinate data.
 }
 \examples{
-\dontrun{
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+# The enclosing polygon
 hull(X, Y)
+# The points
+chull(X, Y)
+\dontrun{
 # For examples of hull in graphs see
 vignette(topic="GraphAdditions", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{dataEllipse}}
+\code{\link{dataEllipse}}, \code{\link[grDevices]{chull}}
 }
 \keyword{dplot}
 

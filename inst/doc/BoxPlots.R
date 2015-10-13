@@ -1,7 +1,7 @@
 ### R code from vignette source 'BoxPlots.Rnw'
 
 ###################################################
-### code chunk number 1: BoxPlots.Rnw:33-43
+### code chunk number 1: BoxPlots.Rnw:34-44
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -16,7 +16,7 @@ Gnum <- rep(c(1998, 2002), 16)
 
 
 ###################################################
-### code chunk number 2: BoxPlots.Rnw:61-82
+### code chunk number 2: BoxPlots.Rnw:65-86
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -42,7 +42,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: BoxPlots.Rnw:97-106
+### code chunk number 3: BoxPlots.Rnw:102-111
 ###################################################
 setSweave("boxplot02", 6 ,6)
 # Set layout for 1 graph and an explanation
@@ -56,7 +56,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: BoxPlots.Rnw:132-137
+### code chunk number 4: BoxPlots.Rnw:137-142
 ###################################################
 setSweave("boxplot03", 6 ,5)
 # The figure is set to a heigth of 5 inches to fit on the page.
@@ -66,7 +66,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: BoxPlots.Rnw:153-157
+### code chunk number 5: BoxPlots.Rnw:161-165
 ###################################################
 setSweave("boxplot04", 6 ,6)
 # Accept default graph size for this example
@@ -75,7 +75,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: BoxPlots.Rnw:174-178
+### code chunk number 6: BoxPlots.Rnw:182-186
 ###################################################
 setSweave("boxplot05", 6 ,6)
 # Accept default graph size for this example

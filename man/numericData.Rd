@@ -2,7 +2,7 @@
 % Please edit documentation in R/numericData.R
 \name{numericData}
 \alias{numericData}
-\title{Numeric Vlues}
+\title{Numeric Values}
 \usage{
 numericData(x, lev = NULL)
 }

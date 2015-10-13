@@ -1,12 +1,14 @@
 #' Series Plot
 #' 
-#' Produce a plot.
+#' Create a plot of a regular series on a seasonal cycle; the annual values for each season
+#' is plotted.
 #' 
 #' The argument \code{what} for \code{SeasonLine} must be either "lines" or
 #' "vertical."  See \code{\link{monthplot}} for more information.
 #' 
 #' The argument \code{what} for \code{SeasonPoint} can be set to "none" to suppress
-#' drawing of that feature.
+#' drawing of symbols or "points" to draw symbols at the ends of the line segments
+#' described by \code{SeasonLine}.
 #' 
 #' For linear axes, the range can be set to virtually any pair of values. For 
 #'log axes, the choice of range is more resticted---for less than one log-cycle,
@@ -33,7 +35,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin of the plot area.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param \dots any additional arguments required for specific methods.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
@@ -45,6 +48,7 @@
 #' \dontrun{
 #' set.seed(1)
 #' X <- rnorm(32)
+#' setGD()
 #' seriesPlot(X, xlabels=c("A", "B", "C", "D"))
 #' # For more details of  seriesPlot see
 #' vignette(topic="LineScatter", package="smwrGraphs")

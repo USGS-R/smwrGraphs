@@ -34,7 +34,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the caption for the graph.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
 #' @seealso \code{\link{addArea}}, \code{\link{smwr.colors}}, \code{\link[grDevices]{heat.colors}}
 #' @examples
@@ -42,6 +43,7 @@
 #' set.seed(1)
 #' X <- seq(1, 9, by=.5)
 #' Y <- runif(17) + runif(17)
+#' setGD()
 #' # The default fillDir, between, requires at least a 2-column matrix
 #' areaPlot(X, cbind(rep(0, 17),Y))
 #' # For more details of areaPlot see

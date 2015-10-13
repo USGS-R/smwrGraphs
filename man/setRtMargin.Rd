@@ -35,6 +35,13 @@ graphics function to allocate space for an additional label and title.
 \details{
 The values for \code{right.labels}, \code{right.log}, and \code{right.range}
 should be set exactly as in the call to \code{addXY}.
+
+The \code{margin} is a numeric vector of length 4 specifying the bottom, left, top,
+and right margins around the plot, as decriibed in by the \code{mar} option in
+\code{\link{par}}. The function \code{setTopMargin} only changes the third value and
+the function \code{setRtMargin} only changes the fourth value. The value for
+\code{margin} is typically the output from \code{setGraph} or the defaults for
+these functions.
 }
 \examples{
 \dontrun{

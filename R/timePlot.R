@@ -29,7 +29,8 @@
 #' timePlot,integer,numeric-method timePlot,difftime,numeric-method
 #' @param x the time/date data.
 #' @param y the y-axis data.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis. See \bold{Details}.
@@ -43,7 +44,8 @@
 #'be blank as titles are typically set up by the axis labeling routines.
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param xlabels.rotate logical, if \code{TRUE}, then rotate the x-axis labels 
 #' so that they are perpendicular to the x-axis.
 #' @param ... arguments for specific methods.
@@ -75,6 +77,7 @@
 #' X <- as.Date("2001-01-15") + months(0:11)
 #' set.seed(1)
 #' Y <- runif(12)
+#' setGD()
 #' timePlot(X, Y)
 #' # For more details of timePlot see
 #' vignette(topic="DateAxisFormats", package="smwrGraphs")

@@ -9,7 +9,8 @@ boxPlotStats(x, Box, yaxis.log)
 \arguments{
 \item{x}{a list containing the data to compute the statistics.}
 
-\item{Box}{control paramters for the box.}
+\item{Box}{control parameters for the box as set by the user and verified by
+\code{boxPlot}.}
 
 \item{yaxis.log}{logical, if \code{TRUE}, then log transform data before computing the
 statistics.}

@@ -2,6 +2,7 @@
 \parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
 %\VignetteIndexEntry{Line/Scatter Example}
 %\VignetteDepends{smwrGraphs}
 
@@ -45,7 +46,7 @@ data(KlamathTP)
 \section{Scatter Plot}
 
 The \texttt{xyPlot} function plots paired x- and y-coordinate data. As of
-version 0.7, there are methods for factor and numeric x-coordinate data and
+version 1.1.0, there are methods for factor and numeric x-coordinate data and
 numeric y-coordinate data. This example plots only numeric data.
 
 <<echo=TRUE>>=
@@ -197,15 +198,21 @@ graphics.off()
 \eject
 \section{Scatter Plot Matrix}
 
-A scatter plot matrix shows multiple pairs of x and y data in separate graphs. This example plots some data in the IonBalance dataset to asses some of the relations among selected cations. The function \texttt{setSplom} must be used to set up the graphics device. For many pairs of data, a very large graphics device can be created. The \texttt{Panel} argument is a very flexible way to add statistics or selected lines to each plot.
+A scatter plot matrix shows multiple pairs of x and y data in separate graphs. This example plots some data in the IonBalance dataset to assess some of the relations among selected cations. The function \texttt{setSplom} must be used to set up the graphics device. For many pairs of data, a very large graphics device can be created. The \texttt{Panel} argument is a very flexible way to add statistics or selected lines to each plot.
 <<echo=TRUE>>=
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
 # in a regular script.
-setSweave("lsplot09", 6 ,6)
-# Plot Calcium and Magnesium and Sodium
-AA.lo <- with(IonBalance, setSplom(num.variables=3, touching=FALSE))
-with(IonBalance, splomPlot(cbind(Ca, Mg, Na), Panel=list(line="slr"), layout=AA.lo))
+setSweave("lsplot09", 6 ,8)
+# Plot Calcium and Magnesium and Sodium, and add explanation at bottom
+AA.lo <- with(IonBalance, setSplom(num.variables=3, touching=FALSE,
+  explanation=list(bottom=2)))
+# Do not call setGraph with splomPlot
+AA.pl <- with(IonBalance, splomPlot(cbind(Ca, Mg, Na), Plot=list(name="Ionic Strength"),
+  Panel=list(line="slr"), layout=AA.lo))
+# setGraph needed for explanation
+setGraph("explanation", AA.lo)
+addExplanation(AA.pl)
 # Required call to close PDF output graphics
 graphics.off()
 @
@@ -213,6 +220,6 @@ graphics.off()
 \includegraphics{lsplot09.pdf}
 \paragraph{}
 
-\textbf{Figure 9.} A scatter plot matrix.
+\textbf{Figure 9.} A scatter plot matrix with an explanation.
 
 \end{document}

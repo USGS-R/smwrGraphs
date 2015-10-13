@@ -1,4 +1,4 @@
-#' Numeric Vlues
+#' Numeric Values
 #' 
 #' Converts data to numeric values (support function).
 #' 

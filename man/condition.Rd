@@ -10,7 +10,7 @@ condition(plot.call, data, group, format = "grid", num.cols = NA,
 }
 \arguments{
 \item{plot.call}{either a simple call to a graphics function or a sequence
-of calls enclosed in curly braces({})}
+of calls enclosed in curly braces(\{\})}
 
 \item{data}{the data.frame containing the variables used in \code{plot.call}
 and \code{group}.}
@@ -67,7 +67,7 @@ The order of the graphs is controlled by the type of \code{group}. If
 otherwise the order is set by the order from \code{unique}.
 }
 \note{
-This function is desgined to facilitate the production of conditioned
+This function is designed to facilitate the production of conditioned
 graphs, but may not render each collection completely. For example, graphs
 arranged in table format will not have x-axis labels for incomplete
 columns.\cr

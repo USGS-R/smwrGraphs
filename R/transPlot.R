@@ -12,7 +12,8 @@
 #' @param yinv the inverse transformation for the y-axis.
 #' @param ytargs additional arguments to \code{ytrans} and \code{yinv}, as a
 #' list if necessary, NULL otherwise.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param yaxis.range set the range of the y-axis.
 #' @param xaxis.range set the range of the x-axis.
 #' @param ylabels set up y-axis labels. See \code{\link{transPretty}} for
@@ -22,7 +23,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{transPlot}.
@@ -31,6 +33,7 @@
 #' @examples
 #' \dontrun{
 #' X <- seq(.25, 9.75, by=.25)
+#' setGD()
 #' # The Box-Cox transform (power of 1.5)
 #' # The labels represent the original values; the line represents the transformed value
 #' transPlot(X, I, I, y=X, ytrans=boxCox, yinv=IboxCox, 

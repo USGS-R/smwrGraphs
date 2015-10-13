@@ -1,4 +1,4 @@
-# Create a bar chart of annual flows
+# Create a conditioned graph
 library(smwrGraphs)
 library(smwrData)
 data(UraniumTDS)

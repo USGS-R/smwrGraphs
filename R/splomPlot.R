@@ -14,7 +14,8 @@
 #' 
 #' @param x the data to plot, must be either a matrix or a data frame.
 #' @param layout the output from \code{setSplom}
-#' @param Plot control parameters for each plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param Panel a list or a function, see \bold{Details}.
 #' @param axis.log log-transform the x and y axis for all plots.
 #' @param axis.range set x- and y-axis ranges for all plots.

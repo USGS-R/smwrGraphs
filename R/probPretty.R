@@ -1,7 +1,7 @@
 #' Pretty Axis
 #' 
 #' Construct information for making a nicely formatted probability axis.
-#' 
+#'A support function for creating probability axes. 
 #' 
 #' @param x axis coordinates in range 0-1 or 0-100 allowed and assumed if
 #' max(x) > 1. Note that only the range (min and max) are needed. Missing 

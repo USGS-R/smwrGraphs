@@ -28,16 +28,19 @@ an abbreviation for upper or lower, the second letter is an abbreviation for
 left or right.
 }
 \note{
-The table should be formatted by the user for anything other than
-right justification. The column names of the table are the column names of
-the matrix or data frame. The matrix gives the user mnore control over
-column names than does the data frame.
+Each column of the table can be formatted by the user, using the
+\code{format} function, to control the alingment of the data in each column
+of the table. The column names of the table are the column names of
+the matrix or data frame. If there are no column names in a matrix, then the
+table is printed without column names. A matrix gives the user more control over
+column names than does a data frame.
 }
 \examples{
 \dontrun{
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 AA.pl <- xyPlot(X, Y)
 Mat <- cbind(c("Mean of X", "Mean of Y"), round(c(mean(X), mean(Y)), 2))
 addTable(Mat, "ul")

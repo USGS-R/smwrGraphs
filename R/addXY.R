@@ -10,8 +10,8 @@
 #' in the plotted data.
 #' @param y the y-axis data. Missing values are permitted, but result in breaks
 #' in the plotted data.
-#' @param Plot parameters of the plot.  See \code{\link{setPlot}} for a
-#' description of the parameters.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param current the current plot information. Typically, this would be the
 #' output from one of the graph creation functions like \code{xyPlot}.
 #' @param new.axis character:  indicating which new axis to set up. Must be either "right," "top,"
@@ -38,6 +38,7 @@
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
 #' Y2 <- X + rnorm(32, sd=0.5)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' addXY(X, Y2, Plot=list(what="points", color="brown"))
 #' # See for examples of addXY:
@@ -92,6 +93,10 @@ function(x, y, # data
     ## update current
     current$yaxis.log <- new.log
     current$yaxis.rev <- new.rev
+    ## convert x
+    x <- numericData(x, lev=current$xaxis.lev) # Convert dates to consistent numeric
+    x <- transData(x, current$xaxis.log, FALSE,
+    							 current$xtrans, current$xtarg)
   } else if (new.axis == "top"){
     rax <- setAxis(x, new.range, new.log, new.rev, new.labels)
     x <- rax$data
@@ -107,14 +112,18 @@ function(x, y, # data
     current$xaxis.log <- new.log
     if(new.rev)
     	warning("x-axis cannot be reversed")
+    # Convert y
+    y <- numericData(y, lev=current$yaxis.lev)
+    y <- transData(y, current$yaxis.log, current$yaxis.rev,
+    							 current$ytrans, current$ytarg)
+  } else { # convert the data according to the existing 
+  	x <- numericData(x, lev=current$xaxis.lev) # Convert dates to consistent numeric
+  	x <- transData(x, current$xaxis.log, FALSE,
+  								 current$xtrans, current$xtarg)
+  	y <- numericData(y, lev=current$yaxis.lev)
+  	y <- transData(y, current$yaxis.log, current$yaxis.rev,
+  								 current$ytrans, current$ytarg)
   }
-  ## Transform the axis
-  y <- numericData(y, lev=current$yaxis.lev)
-  y <- transData(y, current$yaxis.log, current$yaxis.rev,
-  							 current$ytrans, current$ytarg)
-  x <- numericData(x, lev=current$xaxis.lev) # Convert dates to consistent numeric
-  x <- transData(x, current$xaxis.log, FALSE,
-                 current$xtrans, current$xtarg)
   Plot <- setPlot(Plot, name="", what='lines', type='solid',
                   width='standard', symbol='circle', filled=TRUE,
                   size=0.09, color='black') # force defaults if not set

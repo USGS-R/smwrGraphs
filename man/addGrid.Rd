@@ -27,12 +27,12 @@ NULL is returned invisibly.
 Add grid lines to a graph.
 }
 \details{
-Information about grid lines is containined in the information returned from
+Information about grid lines is contained in the information returned from
 high-level plotting functions in the smwrGraphs package.
 }
 \note{
 The function \code{addGrid} should be used after
-setting up a graph with a high-level plotting function in the smwrGraphs
+setting up a graph with one of the main plotting functions in the smwrGraphs
 package and setting the \code{what} component in the \code{Plot} argument to
 "none." The graph can be completed by using \code{addXY}.
 }
@@ -41,6 +41,7 @@ package and setting the \code{what} component in the \code{Plot} argument to
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 AA.pl <- xyPlot(X, Y, Plot=list(what="none"))
 # Grid first, then data to avoid over plotting
 addGrid(AA.pl)

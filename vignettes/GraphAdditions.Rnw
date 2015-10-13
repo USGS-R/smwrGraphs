@@ -2,6 +2,7 @@
 \parskip 6pt
 \usepackage[margin=1.25in]{geometry}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
 %\VignetteIndexEntry{Graph Additions}
 %\VignetteDepends{smwrGraphs}
 
@@ -39,7 +40,7 @@ Y <- X + rnorm(32)
 
 This example draws a simple scatter plot, then adds a line representing the
 median y value and annotates that line. Adding annotation generally requires a
-trail and error approach to placement of the annotation. The simple method used
+trial and error approach to placement of the annotation. The simple method used
 in this example works because X and Y are correlated.
 
 <<echo=TRUE>>=
@@ -87,7 +88,7 @@ graphics.off()
 \textbf{Figure 2.} Scatter plot with grid lines.
 
 \eject
-\section{Add a Smoothed Line}
+\section{Add a Smoothed Line with Explanation}
 
 It is sometimes desirable to add a smoothed line to a scatter plot to show the
 general trend or relation between the data.
@@ -98,11 +99,13 @@ general trend or relation between the data.
 setSweave("graph03", 6 ,6)
 # Create a scatter plot from the X and Y data. The name of the output (AA.pl)
 #  is completely arbiutrary, but consistently used through these examples.
-AA.pl <- xyPlot(X, Y)
+AA.pl <- xyPlot(X, Y, Plot=list(name="data"))
 # The addSmooth function will compute the smmothed line and add the plot to the
 # graph. Accept all defaults for this example. A very useful additional
 # argument would be span for the loess.smooth
-AA.pl <- addSmooth(X, Y, current=AA.pl)
+AA.pl <- addSmooth(X, Y, Plot=list(name="Default Span"),current=AA.pl)
+AA.pl <- addSmooth(X, Y, span=1, Plot=list(name="Span=1", color="blue"),current=AA.pl)
+addExplanation(AA.pl, 'ul') # ul is upper left corner
 # Required call to close PDF output graphics
 graphics.off()
 @
@@ -111,7 +114,7 @@ graphics.off()
 \paragraph{}
 
 
-\textbf{Figure 3.} Scatter plot with smooth line.
+\textbf{Figure 3.} Scatter plot with smooth lines.
 
 \eject
 \section{Add a Regression Line with Confidence Intervals and Table}
@@ -125,15 +128,15 @@ statistical summary or other additional data.
 setSweave("graph04", 6 ,4)
 # Create a scatter plot from the X and Y data. 
 AA.pl <- xyPlot(X, Y, Plot=list(what="points", color="black"))
-# Create and add the regresion line and 95% confidence intervals
+# Create and add the sregresion line and 95% confidence intervals
 AA.pl <- addSLR(AA.pl)
-# The output is discarded in this case becuase an explanation is not created
+# The output from addCI is discarded in this case--no explanation
 addCI("SLR", current=AA.pl)
 # Create the table and add it to the graph
 # Note may actually want to reformat the last p-value so not 0
 AA.tbl <- format(round(coefficients(summary(AA.pl$lm)), 4))
 AA.tbl <- cbind(" "=c("Intercept", "X"), AA.tbl)
-addTable(AA.tbl, where="ul")
+addTable(AA.tbl, where="ul") # ul is upper left corner
 # Required call to close PDF output graphics
 graphics.off()
 @

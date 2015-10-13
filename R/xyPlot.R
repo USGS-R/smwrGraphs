@@ -18,7 +18,8 @@
 #'xyPlot,factor,numeric-method
 #' @param x the x-axis data to plot.
 #' @param y the y-axis data to plot.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y-axis. See \bold{Details}.
@@ -31,7 +32,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @param xlabels.rotate logical, if \code{TRUE}, then rotate x-axis labels 90
 #' degrees (perpendicular to the axis).
 #' @param ... additional arguments for specific methods.
@@ -56,6 +58,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y, Plot=list(color="cyan4"))
 #' # For more details of xyPlot see
 #' vignette(topic="GraphAdditions", package="smwrGraphs")

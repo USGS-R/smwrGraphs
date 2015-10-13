@@ -32,9 +32,10 @@ contourPlot(z, ...)
 
 \item{y}{the y-axis coordinates for each value in \code{z}.}
 
-\item{Grid}{control paramters for gridding irregularly spaced data.}
+\item{Grid}{control parameters for gridding irregularly spaced data. See \bold{Details}.}
 
-\item{Contours}{control parameters for the coutour lines or levels in the filled plot.}
+\item{Contours}{control parameters for the coutour lines or levels in the filled plot.
+See \bold{Details}.}
 
 \item{yaxis.range}{set the range of the y-axis.}
 
@@ -50,7 +51,8 @@ contourPlot(z, ...)
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{rows}{the coordinates for \code{z} represented by the rows in the matrix.}
 
@@ -70,11 +72,47 @@ values in \code{z}.
 }
 \details{
 Missing values are permitted in \code{z}, \code{x}, and \code{y} for the default
-method and are removed, with a warning. before constructing the surface.
+method and are removed, with a warning. before constructing the surface. Duplicated values,
+identical \code{x} and \code{y}, are not permitted and generate an error.
 
 Missing values are not permitted in \code{rows} or \code{columns} but are permitted
 in \code{z} for the matrix method. Missing values in \code{z} result in blank areas
 in the plot.
+
+The \code{Grid} argument must be a tagged list with these components:
+\describe{
+\item{method}{The method to use for constructung the grid. Must be either "interpolate"
+or "loess."  If "interpolate," then the \code{z} values are interpolated directly from the
+\code{x} and \code{y} values. If "loess," then the \code{z} values are smoothed prior to
+interpolation}
+\item{linear}{Logical, if \code{TRUE}, then use linear interpolation, if \code{FALSE}, then
+use spline interpolation.}
+\item{extrapolate}{Logical, if \code{TRUE}, then extrapolate to the limits of the grid, if
+\code{FALSE}, then do not extrapoalte outsite of the hull of the data values.}
+\item{density}{The density of the grid---the number of cells along \code{x} and \code{y}.}
+\item{span}{The \code{span} argument for \code{loess} if \code{method} is "loess." }
+\item{degree}{The \code{degree} argument for \code{loess} if \code{method} is "loess."}
+\item{family}{}The \code{family} argument for \code{loess} if \code{method} is "loess."
+}
+
+#'The \code{Contour} argument must be a tagged list with these components:
+\describe{
+\item{name}{The name to use to describe the contours. If "Auto" and \code{filled} is
+\code{TRUE}, then the descripotion is blank. If "Auto" and \code{filled} is \code{FALSE},
+the the description is Line of equal value." In all other cases, the description is the
+text assigned to \code{name}.}
+\item{levels}{Either the number of levels of contours or a vector of the desired contour
+levels.}
+\item{filled}{Logical, if \code{TRUE}, then draw filled contours, if \code{FALSE}, then
+only contour lines are drawn.}
+\item{lineColor}{The color to draw the contour lines. Can be set to "none" to supress
+drawing lines for filled contours.}
+\item{lineLabel}{A character string indicating how to draw the labels on the contours. May be
+"none" to supress draing the labels, or any valid value for the \code{method} argument
+to \code{\link{contour}}.}
+\item{fillColors}{The prefix corresponding to a color ramp generating function, like "warmCool"
+for the \code{\link{warmCool.colors}} function.}
+}
 }
 \examples{
 \dontrun{
@@ -82,7 +120,8 @@ set.seed(1)
 Xbig <- runif(100)
 Ybig <- runif(100)
 # Make a hill
-Zbig <- 1 - ((Xbig-.5)^2 + (Ybig-.5)^2)^.75)
+Zbig <- 1 - ((Xbig-.5)^2 + (Ybig-.5)^2)^.75
+setGD()
 contourPlot(Zbig, Xbig, Ybig)
 # See for examples of contourPlot see
 vignette(topic="GraphGallery", package="smwrGraphs")

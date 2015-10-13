@@ -21,7 +21,7 @@ AA.plt <- probPlot(LPR$Flow, distribution='uniform',
     FLIP=T, CDF=T, Plot=list(name="Daily Streamflow", what="lines"),
 	xlabels=100*(0:10)/10, ytitle="Streamflow, in cubic feet per second", 
 	xtitle="Percent of Time Streamflow is Exceeded",
-	caption="Streamflow duration and measured streamflow Long Prarie River water years 1971 to 2010")
+	caption="Streamflow duration and measured streamflow Long Prairie River water years 1971 to 2010")
 # AA.plt is a list with components x and y and others. The component y is the x-argument to the probPlot
 # call--in this case LPR$Flow, and because the y-axis is in log scale, the values
 # were log10 transformed. Both are also sorted by x. The component x is plotting postion corresponding

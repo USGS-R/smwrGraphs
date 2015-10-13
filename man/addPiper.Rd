@@ -14,17 +14,18 @@ addPiper(xCat, yCat, zCat, xAn, yAn, zAn, xPip, yPip, Plot = list(name = "",
 \item{yCat}{, and}
 
 \item{zCat}{the cations for the x-, y-, and z-axes. Need not sum to 1 or
-100.}
+100. See \bold{Details}.}
 
 \item{xAn}{,}
 
 \item{yAn}{, and}
 
-\item{zAn}{the anions for the x-, y-, and z-axes. Need not sum to 1 or 100.}
+\item{zAn}{the anions for the x-, y-, and z-axes. Need not sum to 1 or 100.
+See \bold{Details}.}
 
-\item{xPip}{and}
+\item{xPip}{, and}
 
-\item{yPip}{the coordinates for the internal piper diagram.}
+\item{yPip}{the coordinates for the internal piper diagram. See \bold{Details}.}
 
 \item{Plot}{parameters defining the characteristics of the plot. See
 \code{\link{setPlot}} for a description of the parameters.}
@@ -37,6 +38,21 @@ Information about the graph.
 }
 \description{
 Adds points or lines to a Piper plot.
+}
+\details{
+The values for \code{xCat}, \code{yCat}, \code{zCat}, \code{xAn},
+\code{yAn}, and \code{zAn} should match the constituents in the original
+call to \code{piperPlot}. The units should be in milli-equivalents if all
+three components are used to add to the Piper plot.
+
+There are two ways to add to a Piper plot, the first way is to specify new data
+by supplying values for \code{xCat}, \code{yCat}, \code{zCat}, \code{xAn},
+\code{yAn}, and \code{zAn}. In this case the data for the central middle (Piper)
+plot are generated from those data and the \code{xPip}, \code{yPip} arguments
+will be ignored. The other way is to use processed values from an already created
+Piper plot to add details to the plot, either customized symbols or closed lines
+showing groups for example. The vignette PiperPlot shows an example of customized
+symbols.
 }
 \examples{
 \dontrun{

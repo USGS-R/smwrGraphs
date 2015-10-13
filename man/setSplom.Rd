@@ -59,7 +59,13 @@ set to some number less than \code{num.cols} times \code{num.rows}.
 }
 \examples{
 \dontrun{
-# See for examples of setSplom:
+# A simple example
+library(smwrData)
+data(IonBalance)
+setGD() #  set up a simple graphics page
+AA.lo <- with(IonBalance, setSplom(num.variables=3, touching=FALSE))
+with(IonBalance, splomPlot(cbind(Ca, Mg, Na), Panel=list(line="slr"), layout=AA.lo))
+# See for another example of setSplom:
 vignette(topic="LineScatter", package="smwrGraphs")
 }
 }

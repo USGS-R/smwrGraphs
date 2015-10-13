@@ -15,7 +15,8 @@
 #' @param x the x-axis data.
 #' @param y the y-axis data.
 #' @param scale the y/x ratio. See \bold{Details}.
-#' @param Plot control parameters of the plot.
+#' @param Plot parameters defining the characteristics of the plot. See
+#' \code{\link{setPlot}} for a description of the parameters.
 #' @param yaxis.log logical, if \code{TRUE}, then log-transform the y axis.
 #' @param yaxis.rev logical, if \code{TRUE}, then reverse the y axis.
 #' @param yaxis.range set the range of the y axis. See \bold{Details}.
@@ -28,7 +29,8 @@
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin of the plot area.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{scalePlot}.
@@ -39,6 +41,7 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' scalePlot(X, Y, Plot=list(what="points", size=0.05))
 #' # For more details of scalePlot see
 #' vignette(topic="LineScatter", package="smwrGraphs")

@@ -52,7 +52,7 @@ PD <- transform(MiscGW, Ca.meq = conc2meq(Calcium, "calcium"),
 		    Cl.meq = conc2meq(Chloride, "chloride"),
 		    SO4.meq = conc2meq(Sulfate, "sulfate"),
 		    HCO3.meq = conc2meq(Bicarbonate, "bicarb")) 
-# abbreviations allowed in the cal to conc2meq
+# abbreviations allowed in the call to conc2meq
 # The row name identifies the sample source, create a column
 PD$SS <- row.names(PD)
 # setSweave is a specialized function that sets up the graphics page for
@@ -83,7 +83,7 @@ graphics.off()
 \eject
 \section{Custom Piper Plot}
 
-This example demonstrates how to use the information that is contained in the output from \texttt{piperPlot} to customize the Piper plot. The output from \texttt{piperPlot} contains 3 data frames, cations, anions, and piper. The first 3 column names for cations and anions are taken from the axis labels, forced to be valid names in R. The values in those first 3 columns are the normalized (sum to 1 or 100) data. The last 2 columns in those data sets are named x and y and are the data projected onto the respective triangular simplex. The columns in the piper data frame are called x and y an are the data projected onto the middle (Piper) plot. The data in the columns named x and y can be supplied to the corresponding arguments in \texttt{addPiper}; cation$x corresponds to the \texttt{xCat} argument and piper$x corresponds to \texttt{xPip} for example. When that scheme is used for adding to the Piper plot, the arguments \texttt{zCat} and \texttt{zAn} must not be used.
+This example demonstrates how to use the information that is contained in the output from \texttt{piperPlot} to customize the Piper plot. The output from \texttt{piperPlot} contains 3 data frames, cations, anions, and piper. The first 3 column names for cations and anions are taken from the axis labels, forced to be valid names in R. The values in those first 3 columns are the normalized (sum to 1 or 100) data. The last 2 columns in those data sets are named x and y and are the data projected onto the respective triangular simplex. The columns in the piper data frame are called x and y an are the data projected onto the middle (Piper) plot. The data in the columns named x and y can be supplied to the corresponding arguments in \texttt{addPiper}; cation\$x corresponds to the \texttt{xCat} argument and piper\$x corresponds to \texttt{xPip} for example. When that scheme is used for adding to the Piper plot, the arguments \texttt{zCat} and \texttt{zAn} must not be used.
 
 The example below approximately recreates Figure 37 in Hem (1989). The size of the symbol in the middle (Piper) plot are related to the Ionic strength in this case, instead of the total dissolved solids in Hem (1989).
 

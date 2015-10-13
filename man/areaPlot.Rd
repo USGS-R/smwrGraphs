@@ -37,7 +37,8 @@ details.}
 
 \item{caption}{the caption for the graph.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 }
 \value{
 Information about the graph.
@@ -69,6 +70,7 @@ expressed only in powers of 10.
 set.seed(1)
 X <- seq(1, 9, by=.5)
 Y <- runif(17) + runif(17)
+setGD()
 # The default fillDir, between, requires at least a 2-column matrix
 areaPlot(X, cbind(rep(0, 17),Y))
 # For more details of areaPlot see

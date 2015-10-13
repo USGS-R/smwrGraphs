@@ -45,10 +45,12 @@
 #' set.seed(1)
 #' X <- rnorm(32)
 #' Y <- X + rnorm(32)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y, Plot=list(name="Random Points"))
 #' addExplanation(AA.pl, where='ul')
 #' # For more details of addExplanation see
 #' vignette(topic="BoxPlots", package="smwrGraphs")
+#' vignette(topic="GraphAdditions", package="smwrGraphs")
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' vignette(topic="GraphSetup", package="smwrGraphs")
 #' vignette(topic="LineScatter", package="smwrGraphs")
@@ -342,8 +344,8 @@ addExplanation <- function(what, where="new",
   Pex <- Pex[what$lines$type != "n"]
   ## Sort by areas, lines and points--areas assigned 1, lines 2, and points 3
   ## Need to not sort overlaid points and lines last!
-  Seq <- (!is.na(Fill)) * 1L + (!is.na(Lty)) * 2L + (!is.na(Pch) & is.na(Lty)) *
-    3L
+  Seq <- (!is.na(Fill)) * 1L + (!is.na(Lty)) * 2L + 
+  	(!is.na(Pch) & is.na(Lty) & is.na(Fill)) * 3L
   Seq <- order(Seq) # Use this for the order to place in explanation
   ## Only do legend if length(Seq) > 0
   if(length(Seq) > 0L) {
@@ -371,6 +373,6 @@ addExplanation <- function(what, where="new",
   					 seg.len=line.length)
   		
   	}
-  }  
+  }
   invisible(what)
 }

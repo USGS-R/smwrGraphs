@@ -2,16 +2,24 @@
 #' 
 #' Produce a tree graph from a hiearchical cluster analysis.
 #' 
+#' @details \code{Tree} is a list with these components: 
+#' \describe{ 
+#' \item{orientation}{the orientation of the dendrogram, must be either "vertical" or
+#' "horizontal"}
+#' \item{width}{the line width of the line representing the dendrogram}
+#' \item{color}{the color of the line representing the dendrogram}}
+#' 
 #' @param x the data to plot. Must be able to be converted to class 
 #'"dendrogram."
-#' @param Tree control parameters of the tree diagram.
+#' @param Tree control parameters of the tree diagram. See \bold{Details}.
 #' @param axis.range set the range of the tree-axis.
 #' @param labels set the tree-axis labels. See \code{\link{linearPretty}} for
 #' details.
 #' @param xtitle the x-axis title (also called x-axis caption).
 #' @param ytitle the y-axis title (also called y-axis caption).
 #' @param caption the figure caption.
-#' @param margin the parameters of the margin of the plot area.
+#' @param margin set the plot area margins, in units of lines of text. Generally
+#'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{ecdfPlot}.
@@ -19,7 +27,7 @@
 #' @keywords hplot
 #' @examples
 #' \dontrun{
-#' # For an exmaple of a dendGram  see
+#' # For an example of a dendGram  see
 #' vignette(topic="GraphGallery", package="smwrGraphs")
 #' }
 #' @export dendGram
@@ -80,7 +88,7 @@ dendGram <- function(x, # data specification
 																							extend = FALSE, angle=90),
 						top=list(ticks = FALSE, labels = FALSE, grid = FALSE, 
 										 finegrid = FALSE), caption=caption)
-	} else { # orientation is horozontal
+	} else { # orientation is horizontal
 		if(any(is.na(axis.range))) {
 			xax <- linearPretty(c(0, xmax), labels=labels, extend.range=FALSE)
 		} else {

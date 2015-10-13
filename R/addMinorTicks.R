@@ -30,6 +30,7 @@
 #' set.seed(1)
 #' X <- runif(25, .5, 9.5)
 #' Y <- runif(25)
+#' setGD()
 #' AA.pl <- xyPlot(X, Y)
 #' addMinorTicks("bottom", AA.pl)
 #' addMinorTicks("top", AA.pl)

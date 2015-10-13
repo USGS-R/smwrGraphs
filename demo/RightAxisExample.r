@@ -4,7 +4,7 @@ data(MenomineeMajorIons)
 # Subset the data to 1993 and later
 MMI <- subset(MenomineeMajorIons, sample.dt > "1993-01-01")
 # Set up the time-series plot for bicarbonate and calcium
-setPDF()
+setGD()
 AA.mar <- with(MMI, setRtMargin(Calcium, right.log = FALSE))
 # Plot the data
 # It is difficult to show the time-series correlation between bicarbonate and calcium
@@ -15,4 +15,3 @@ AA.pl <- with(MMI, addXY(sample.dt, Calcium, Plot=list(name="Calcium", what="poi
   current=AA.pl, new.axis = "right", new.log = TRUE, new.title="Calcium Concentration, in mg/L"))
 ## Add an explanation
 addExplanation(AA.pl, "ul")
-graphics.off()

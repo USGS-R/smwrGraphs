@@ -1,7 +1,7 @@
 ### R code from vignette source 'LineScatter.Rnw'
 
 ###################################################
-### code chunk number 1: LineScatter.Rnw:28-41
+### code chunk number 1: LineScatter.Rnw:29-42
 ###################################################
 # Load the smwrGraphs package
 library(smwrGraphs)
@@ -19,7 +19,7 @@ data(KlamathTP)
 
 
 ###################################################
-### code chunk number 2: LineScatter.Rnw:51-58
+### code chunk number 2: LineScatter.Rnw:52-59
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -31,7 +31,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 3: LineScatter.Rnw:71-79
+### code chunk number 3: LineScatter.Rnw:72-80
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -44,7 +44,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 4: LineScatter.Rnw:92-99
+### code chunk number 4: LineScatter.Rnw:93-100
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -56,7 +56,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 5: LineScatter.Rnw:112-122
+### code chunk number 5: LineScatter.Rnw:113-123
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -71,7 +71,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 6: LineScatter.Rnw:136-145
+### code chunk number 6: LineScatter.Rnw:137-146
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -85,7 +85,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 7: LineScatter.Rnw:158-168
+### code chunk number 7: LineScatter.Rnw:159-169
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -100,7 +100,7 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 8: LineScatter.Rnw:181-189
+### code chunk number 8: LineScatter.Rnw:182-190
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
@@ -113,15 +113,21 @@ graphics.off()
 
 
 ###################################################
-### code chunk number 9: LineScatter.Rnw:201-210
+### code chunk number 9: LineScatter.Rnw:202-217
 ###################################################
 # setSweave is a specialized function that sets up the graphics page for
 # Sweave scripts. It should be replaced by a call to setPage or setPDF 
 # in a regular script.
-setSweave("lsplot09", 6 ,6)
-# Plot Calcium and Magnesium and Sodium
-AA.lo <- with(IonBalance, setSplom(num.variables=3, touching=FALSE))
-with(IonBalance, splomPlot(cbind(Ca, Mg, Na), Panel=list(line="slr"), layout=AA.lo))
+setSweave("lsplot09", 6 ,8)
+# Plot Calcium and Magnesium and Sodium, and add explanation at bottom
+AA.lo <- with(IonBalance, setSplom(num.variables=3, touching=FALSE,
+  explanation=list(bottom=2)))
+# Do not call setGraph with splomPlot
+AA.pl <- with(IonBalance, splomPlot(cbind(Ca, Mg, Na), Plot=list(name="Ionic Strength"),
+  Panel=list(line="slr"), layout=AA.lo))
+# setGraph needed for explanation
+setGraph("explanation", AA.lo)
+addExplanation(AA.pl)
 # Required call to close PDF output graphics
 graphics.off()
 

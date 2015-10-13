@@ -2,8 +2,11 @@
 #' 
 #' Produce a Piper Diagram
 #' 
-#' The \code{what} component of the \code{Plot} argument must be either
+#' @details The \code{what} component of the \code{Plot} argument must be either
 #' "points" or "none."
+#' 
+#' The units for \code{xCat}, \code{yCat}, \code{zCat}, \code{xAn}, 
+#'\code{yAn}, and \code{zAn} should be in milli-equivalents.
 #' 
 #' @param xCat data for the cation x-axis, generally calcium.
 #' @param yCat data for the cation y-axis, generally magnesium.
@@ -34,12 +37,13 @@
 #' @param units.title the units titles, should be either "Percent" of
 #' "Proportion" depending on \code{axis.range}.
 #' @param caption the figure caption.
-#' @param margin set up the plot area margins--- ignored, included for
+#' @param margin set up the plot area margins---ignored, included for
 #' consistency with other plotting functions in this package.
 #' @return Information about the graph and current plot.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{piperPlot}.
-#' @seealso \code{\link{setPage}}, \code{link{setMultiPlot}},
+#' 
+#' @seealso \code{\link{setPage}}, \code{\link{setMultiPlot}},
 #' \code{\link{ternaryPlot}}, \code{\link{addPiper}}
 #' @references Hem J.D., 1989, Study and interpretation of the chemical
 #' characteristics of natural water: U.S. Geological Survey Water-Supply Paper

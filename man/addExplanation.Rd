@@ -64,10 +64,12 @@ explanation may be unreadable.
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 AA.pl <- xyPlot(X, Y, Plot=list(name="Random Points"))
 addExplanation(AA.pl, where='ul')
 # For more details of addExplanation see
 vignette(topic="BoxPlots", package="smwrGraphs")
+vignette(topic="GraphAdditions", package="smwrGraphs")
 vignette(topic="GraphGallery", package="smwrGraphs")
 vignette(topic="GraphSetup", package="smwrGraphs")
 vignette(topic="LineScatter", package="smwrGraphs")

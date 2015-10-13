@@ -1,7 +1,7 @@
 #' Pretty Axis
 #' 
 #' Construct information for making a nicely formatted axis for discrete data.
-#' 
+#'A support function for creating discrete axes. 
 #' 
 #' @param x the discrete data values.
 #' @param orientation the orientation of the data in \code{x}.\cr \tabular{ll}{

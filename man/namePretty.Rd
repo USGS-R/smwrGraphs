@@ -37,6 +37,7 @@ Information about the axis labels
 }
 \description{
 Construct information for making a nicely formatted axis for discrete data.
+A support function for creating discrete axes.
 }
 \seealso{
 \code{\link{dotPlot}}

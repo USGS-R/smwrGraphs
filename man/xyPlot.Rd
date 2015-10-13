@@ -42,7 +42,8 @@ xyPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
 
 \item{y}{the y-axis data to plot.}
 
-\item{Plot}{control parameters of the plot.}
+\item{Plot}{parameters defining the characteristics of the plot. See
+\code{\link{setPlot}} for a description of the parameters.}
 
 \item{yaxis.log}{logical, if \code{TRUE}, then log-transform the y axis.}
 
@@ -66,7 +67,8 @@ details.}
 
 \item{caption}{the figure caption.}
 
-\item{margin}{set up the plot area margins.}
+\item{margin}{set the plot area margins, in units of lines of text. Generally
+all NA or the output from \code{setGraph} if appropriate.}
 
 \item{...}{additional arguments for specific methods.}
 
@@ -110,6 +112,7 @@ dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
 set.seed(1)
 X <- rnorm(32)
 Y <- X + rnorm(32)
+setGD()
 AA.pl <- xyPlot(X, Y, Plot=list(color="cyan4"))
 # For more details of xyPlot see
 vignette(topic="GraphAdditions", package="smwrGraphs")

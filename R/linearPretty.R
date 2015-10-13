@@ -1,6 +1,7 @@
 #' Pretty Axis
 #' 
 #' Construct information for making a nicely formatted linear numeric axis.
+#'A support function for creating linear axes. 
 #' 
 #' 
 #' @param x data defining the range to be plotted on the axis. Missing values
@@ -24,7 +25,7 @@
 #' @param extend.range if \code{TRUE}, then extend the data range by a bit to
 #' avoid plotting on axis. Otherwise do not extend the data range. Only valid
 #' when \code{hard} is FALSE; Ignored in \code{logPretty}
-#' @return Information about the axis lables.
+#' @return Information about the axis labels.
 #' @seealso \code{\link{areaPlot}}, \code{\link{boxPlot}},
 #' \code{\link{colorPlot}}, \code{\link{areaPlot}}, \code{\link{dotPlot}},
 #' \code{\link{ecdfPlot}}, \code{\link{probPlot}}, \code{\link{qqPlot}},
