@@ -56,7 +56,7 @@ demo(topic="DurationHydrograph", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{rainbow}}, \code{\link{hcl}}
+\code{\link[grDevices]{rainbow}}, \code{\link[grDevices]{hcl}}
 }
 \keyword{color}
 

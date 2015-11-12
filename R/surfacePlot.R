@@ -39,7 +39,10 @@
 #' @return Information about the graph.
 #' @note A call must be made to \code{setPage} or \code{setPDF} to set up the 
 #'graphics environment before calling \code{surfacePlot}.
-#' @seealso \code{\link{setPage}}, \code{\link{persp}}, \code{\link{preSurface}}
+#' @seealso \code{\link{setPage}}, \code{\link{preSurface}},
+#Flip for production/manual
+#'\code{\link[graphics]{persp}}
+#\code{persp} (in graphics package)
 #' @keywords hplot
 #' @examples
 #' \dontrun{

@@ -69,7 +69,8 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{setPage}}, \code{\link{persp}}, \code{\link{preSurface}}
+\code{\link{setPage}}, \code{\link{preSurface}},
+\code{\link[graphics]{persp}}
 }
 \keyword{hplot}
 

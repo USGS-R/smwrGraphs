@@ -13,7 +13,9 @@ addBars(x, y, base = 0, Bars = list(name = "Auto", fill = "gray80", outline
 no bar.}
 
 \item{y}{the heights of the bars or y-coordinate data. Missing values are
-permitted but result in no bar.}
+permitted but result in no bar. For stacked or grouped bars, \code{y} must be
+a matrix, each row corresponding to the value in \code{x} and the columns
+representing each bar. See \bold{Note}.}
 
 \item{base}{extend the bars from this value.}
 
@@ -55,6 +57,11 @@ as \code{xyPlot} or \code{timePlot}.
 Bars are only valid for linear y-axes. Calling \code{addBars} when
 \code{yaxis.log} or \code{yaxis.rev} is \code{TRUE} or for any arbitrary
 transform of the y-axis will cause \code{addBars} to fail.
+
+Datasets containing grouped data are often stacked with a column indicating the grouping.
+There are several functions that will reformat stacked datasets. The \code{group2row}
+function is very flexible in accepting many types of data to reformat rather than
+only numeric data.
 }
 \examples{
 \dontrun{
@@ -70,6 +77,7 @@ demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 }
 \seealso{
 \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}
+\code{\link[smwrBase]{group2row}}
 }
 \keyword{aplot}
 

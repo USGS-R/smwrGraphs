@@ -67,7 +67,7 @@ symbol. It is required that each group have common values for the line or
 symbol.
 }
 \seealso{
-\code{\link{colors}}, for a list of color names;
+\code{\link{colors}} for a list of color names,
 \code{\link{setExplan}}, for details about the list required for an
 explanation.
 }

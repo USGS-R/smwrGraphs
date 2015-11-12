@@ -41,8 +41,10 @@
 #' @return Information about the graph.
 #' @note A call should be made to \code{setPage} to set up the graphics
 #' environment before calling \code{seriesPlot}.
-#' @seealso \code{\link{setPage}}, \code{\link{monthplot}},
-#' \code{\link{seasonPlot}}
+#' @seealso \code{\link{setPage}},  \code{\link{seasonPlot}},
+#Flip for production/manual
+#'\code{\link{monthplot}}
+#\code{monthplot} (in stats package)
 #' @keywords hplot
 #' @examples
 #' \dontrun{

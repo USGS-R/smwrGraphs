@@ -21,7 +21,9 @@
 #' @param x the x-coordinate data. Missing values are permitted but result in
 #' no bar.
 #' @param y the heights of the bars or y-coordinate data. Missing values are
-#' permitted but result in no bar.
+#'permitted but result in no bar. For stacked or grouped bars, \code{y} must be
+#'a matrix, each row corresponding to the value in \code{x} and the columns
+#'representing each bar. See \bold{Note}.
 #' @param base extend the bars from this value.
 #' @param Bars parameters defining the characteristics of the bars. See
 #' \bold{Details}.
@@ -30,13 +32,21 @@
 #' See \bold{Note}.
 #' @return The current plot information is returned invisibly.
 #' @note Use of \code{addBars} adds 1 step to creating bar charts, but adds
-#' flexibility in axis formatted from existing high-level plotting functions such
-#' as \code{xyPlot} or \code{timePlot}.
+#'flexibility in axis formatted from existing high-level plotting functions such
+#'as \code{xyPlot} or \code{timePlot}.
 #' 
-#' Bars are only valid for linear y-axes. Calling \code{addBars} when 
-#' \code{yaxis.log} or \code{yaxis.rev} is \code{TRUE} or for any arbitrary 
-#' transform of the y-axis will cause \code{addBars} to fail.
+#'Bars are only valid for linear y-axes. Calling \code{addBars} when 
+#'\code{yaxis.log} or \code{yaxis.rev} is \code{TRUE} or for any arbitrary 
+#'transform of the y-axis will cause \code{addBars} to fail.
+#' 
+#'Datasets containing grouped data are often stacked with a column indicating the grouping.
+#'There are several functions that will reformat stacked datasets. The \code{group2row}
+#'function is very flexible in accepting many types of data to reformat rather than
+#'only numeric data.
 #' @seealso \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}
+#Flip for production/manual
+#'\code{\link[smwrBase]{group2row}}
+#\code{group2row} (in smwrBase package)
 #' @keywords aplot
 #' @examples
 #' \dontrun{
@@ -59,7 +69,11 @@ addBars <- function(x, y, base=0,
 	#    2014Jun26 DLLorenz Converted to roxygen
 	#    2015Jan07 DLLorenz Added width = 0 option to Bars
 	#
-  x <- numericData(x)
+	if(is.numeric(x) || isDateLike(x)) {
+		x <- numericData(x)
+	} else { # give the levels
+		x <- numericData(x, lev=current$xax$labels)
+	}
   y <- as.matrix(y)
   if(any(c(current$yaxis.log, current$yaxis.rev, !is.null(current$ytrans)))) {
   	stop("addBars requires a linear y-axis")

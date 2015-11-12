@@ -42,9 +42,12 @@
 #' @return A list having two components:\cr \item{current}{a list like
 #' \code{current} with the defaults set} \item{Explan}{a list for creating an
 #' explanation}
-#' @seealso \code{\link{colors}}, for a list of color names;
-#' \code{\link{setExplan}}, for details about the list required for an
-#' explanation.
+#' @seealso 
+#Flip for production/manual
+#'\code{\link{colors}} for a list of color names,
+#\code{colors} (in grDevices package) for a list of color names,
+#' \code{\link{setExplan}}, for details about the list required for an 
+#'explanation.
 #' @keywords dplot
 #' @export setMultiPlot
 setMultiPlot <- function(current, Nobs=1, name="", what='points', type='solid',

@@ -14,12 +14,12 @@ setPDF <- function(layout="portrait", basename="USGS", multiplefiles=FALSE) {
   else {
     layout=match.arg(layout, c("portrait", "landscape"))
     if(layout == "portrait") {
-      fin <- c(7.25, 9.5)
+      fin <- c(7 + 1/6, 9 + 1/3)
       width=8.5
       height=11.
     }
     else { # landscape
-      fin <- c(9.5, 7.25)
+      fin <- c(9 + 1/3, 7 + 1/6)
       width=11.
       height=8.5
     }

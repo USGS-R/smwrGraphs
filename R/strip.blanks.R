@@ -6,7 +6,10 @@
 #' @param x a character vector.
 #' @return A vector like \code{x}, but with leading and trailing spaces removed
 #' from each element.
-#' @seealso \code{link{sub}}
+#' @seealso 
+#Flip for production/manual
+#'\code{link[base]{sub}}
+#\code{base} (in base package)
 #' @keywords manip
 #' @examples
 #' 

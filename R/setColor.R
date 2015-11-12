@@ -6,7 +6,10 @@
 #' @param Color any kind of data that might be interpreted as a color.
 #' @return The values in \code{Color} converted to a value that could be
 #' interpreted as a color.
-#' @seealso \code{\link[grDevices]{colors}}, \code{\link[grDevices]{rainbow}}
+#' @seealso 
+#Flip for production/manual
+#'\code{\link[grDevices]{colors}}, \code{\link[grDevices]{rainbow}}
+#\code{colors}, \code{rainbow} (both in grDevices package)
 #' @keywords dplot
 #' @examples
 #' \dontrun{

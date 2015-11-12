@@ -20,7 +20,7 @@ Remove surrounding spaces from text.
 strip.blanks("   keep me   ")
 }
 \seealso{
-\code{link{sub}}
+\code{link[base]{sub}}
 }
 \keyword{manip}
 

@@ -9,7 +9,10 @@
 #' then the file name is created from the \code{topic} name.
 #' @return Either the name of the target file or \code{NULL} if the copy
 #' failed.
-#' @seealso \code{\link{demo}}
+#' @seealso
+#Flip for production/manual
+#'\code{\link[utils]{demo}}
+#\code{demo} (in utils package)
 #' @keywords utilities
 #' @examples
 #' 

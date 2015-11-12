@@ -60,8 +60,9 @@ demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{mtext}} and \code{\link{plotmath}} for example
-expressions, \code{\link{addAxisLabels}}
+\code{\link{addAxisLabels}},
+\code{\link[graphics]{mtext}} and \code{\link[grDevices]{plotmath}}
+for example expressions,
 }
 \keyword{aplot}
 

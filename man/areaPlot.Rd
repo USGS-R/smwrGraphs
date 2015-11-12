@@ -78,6 +78,7 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{addArea}}, \code{\link{smwr.colors}}, \code{\link[grDevices]{heat.colors}}
+\code{\link{addArea}}, \code{\link{smwr.colors}},
+\code{\link[grDevices]{heat.colors}}
 }
 

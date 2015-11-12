@@ -16,9 +16,14 @@
 #' quantile, "d" for density, "p" for cumulative distribution, or "r" for
 #' random generation.
 #' @return The specified function.
-#' @seealso \code{\link{Normal}}, \code{\link{Lognormal}},
+#' @seealso 
+#Flip for production/manual
+#'\code{\link[stats]{Normal}}, \code{\link[stats]{Lognormal}},
+#'\code{\link[stats]{Exponential}}, \code{\link[stats]{Logistic}}, 
+#'\code{\link[stats]{Uniform}},
+#\code{Normal}, \code{Lognormal}, \code{Exponential}, 
+#\code{Logistic}, \code{Uniform} (all in stats package),
 #' \code{\link{PearsonIII}}, \code{\link{LogPearsonIII}},
-#' \code{\link{Exponential}}, \code{\link{Logistic}}, \code{\link{Uniform}}
 #' @keywords dplot
 #' @export getDist.fcn
 getDist.fcn <- function(distribution, what='q') {

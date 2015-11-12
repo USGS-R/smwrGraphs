@@ -30,9 +30,10 @@ name of the distribution. That option can be useful if other packages that
 contain distribution functions have been loaded.
 }
 \seealso{
-\code{\link{Normal}}, \code{\link{Lognormal}},
+\code{\link[stats]{Normal}}, \code{\link[stats]{Lognormal}},
+\code{\link[stats]{Exponential}}, \code{\link[stats]{Logistic}},
+\code{\link[stats]{Uniform}},
 \code{\link{PearsonIII}}, \code{\link{LogPearsonIII}},
-\code{\link{Exponential}}, \code{\link{Logistic}}, \code{\link{Uniform}}
 }
 \keyword{dplot}
 

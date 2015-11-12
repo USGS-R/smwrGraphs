@@ -9,7 +9,10 @@
 #'to set the line weight.
 #' 
 #' @return The width of the line to set as the \code{lwd} graphics parameter.
-#' @seealso \code{\link{par}}
+#' @seealso 
+#Flip for production/manual
+#'\code{\link{par}}
+#\code{par} (in graphics package)
 #' @keywords dplot
 #' @export lineWt
 lineWt <- function(x) {

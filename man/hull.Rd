@@ -35,7 +35,8 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{dataEllipse}}, \code{\link[grDevices]{chull}}
+\code{\link{dataEllipse}},
+\code{\link[grDevices]{chull}}
 }
 \keyword{dplot}
 

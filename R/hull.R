@@ -8,7 +8,10 @@
 #' @param percent the minimum percent to enclose.
 #' @param smooth logical, if \code{TRUE}, then smooth the bounding hull.
 #' @return A list containing the x- and y-coordinates of the hull.
-#' @seealso \code{\link{dataEllipse}}, \code{\link[grDevices]{chull}}
+#' @seealso \code{\link{dataEllipse}}, 
+#Flip for production/manual
+#'\code{\link[grDevices]{chull}}
+#\code{chull} (in grDevices package)
 #' @keywords dplot
 #' @examples
 #' set.seed(1)

@@ -334,8 +334,13 @@ addExplanation <- function(what, where="new",
   Text <- paste("   ", what$text$text, sep="")
   Text <- Text[what$lines$type != "n"]
   Etext <- expression()
-  for(i in seq(along=Text))
-  	Etext[i] <- as.expression(substitute(bold(name), list(name=Text[i])))
+  for(i in seq(along=Text)) {
+  	if(is.expression(name)) {
+  		Etext[i] <- name # do not destroy an expression
+  	} else {
+  		Etext[i] <- as.expression(substitute(bold(name), list(name=Text[i])))
+  	}
+  }
   Lwd <- what$lines$lwd
   Lwd <- Lwd[what$lines$type != "n"]
   Col <- what$lines$col

@@ -88,8 +88,8 @@ vignette(topic="LineScatter", package="smwrGraphs")
 }
 }
 \seealso{
-\code{\link{setPage}}, \code{\link{monthplot}},
-\code{\link{seasonPlot}}
+\code{\link{setPage}},  \code{\link{seasonPlot}},
+\code{\link{monthplot}}
 }
 \keyword{hplot}
 

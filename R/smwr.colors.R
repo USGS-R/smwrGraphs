@@ -17,7 +17,10 @@
 #' through yellow. \code{redGreen.colors} generates a sequence from red to
 #' green through yellow. \code{pastel.colors} genereates a sequence of
 #' well-separated pastel colors useful for areas or bars.
-#' @seealso \code{\link{rainbow}}, \code{\link{hcl}}
+#' @seealso 
+#Flip for production/manual
+#'\code{\link[grDevices]{rainbow}}, \code{\link[grDevices]{hcl}}
+#\code{rainbow}, \code{hcl} (both in grDevices package)
 #' @keywords color
 #' @examples
 #' \dontrun{

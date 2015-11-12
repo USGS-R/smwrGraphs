@@ -23,8 +23,11 @@
 #' axis. Axis labels can be suppressed by setting up the margins with negative
 #' values or, for some functions, special arguments to \code{xlabels} or 
 #' \code{ylabels}.
-#' @seealso \code{\link{mtext}} and \code{\link{plotmath}} for example
-#' expressions, \code{\link{addAxisLabels}}
+#' @seealso \code{\link{addAxisLabels}},
+#Flip for production/manual
+#'\code{\link[graphics]{mtext}} and \code{\link[grDevices]{plotmath}} 
+#\code{mtext}} (in graphics package), \code{plotmath} (in grDevices package)
+#' for example expressions, 
 #' @keywords aplot
 #' @examples
 #' \dontrun{

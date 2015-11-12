@@ -37,7 +37,10 @@
 #' @param margin set the plot area margins, in units of lines of text. Generally
 #'all NA or the output from \code{setGraph} if appropriate.
 #' @return Information about the graph.
-#' @seealso \code{\link{addArea}}, \code{\link{smwr.colors}}, \code{\link[grDevices]{heat.colors}}
+#' @seealso \code{\link{addArea}}, \code{\link{smwr.colors}}, 
+#Flip for production/manual
+#' \code{\link[grDevices]{heat.colors}}
+#\code{heat.colors} (in grDevices package)
 #' @examples
 #' \dontrun{
 #' set.seed(1)

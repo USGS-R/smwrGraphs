@@ -25,7 +25,7 @@ Copies a demo file from the source package to a file.
 \dontrun{copyDemo("HydroPrecip")}
 }
 \seealso{
-\code{\link{demo}}
+\code{\link[utils]{demo}}
 }
 \keyword{utilities}
 
