@@ -84,8 +84,8 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Produce a biplot, which is a plot of two different types of data on the same
-graph.
+Produces a biplot, which is a plot of two different types of data on the same
+graph, from a principal component analysis.
 }
 \details{
 The scaling between observations and variables is controlled by

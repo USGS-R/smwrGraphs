@@ -73,7 +73,7 @@ consistency with other plotting functions in this package.}
 Information about the graph and current plot.
 }
 \description{
-Produce a Piper Diagram
+Produces a Piper diagram.
 }
 \details{
 The \code{what} component of the \code{Plot} argument must be either

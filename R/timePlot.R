@@ -1,6 +1,6 @@
 #' @title Time-series Plots
 #' 
-#' @description Produce a plot of time-series data.
+#' @description Creates a plot of time-series data.
 #' 
 #' @details For the \code{timePlot} methods where the time/date data are of class "Date,"
 #'"POSIXt," or "numeric," the values for \code{xlabels} must be one of

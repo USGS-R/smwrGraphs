@@ -20,7 +20,7 @@ data.}
 A list containing the x- and y-coordinates of the ellipse.
 }
 \description{
-Construct an ellipse from x- and y-coordinate data.
+Constructs an ellipse from x- and y-coordinate data.
 }
 \examples{
 \dontrun{

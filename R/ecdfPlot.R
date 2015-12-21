@@ -1,6 +1,6 @@
 #' Empirical Distribution Plot
 #' 
-#' Produce a graph of the empirical distribution function of data.
+#' Creates a graph of the empirical distribution function of data.
 #' 
 #' For linear axes, the range can be set to virtually any pair of values. For 
 #'log axes, the choice of range is more resticted---for less than one log-cycle,

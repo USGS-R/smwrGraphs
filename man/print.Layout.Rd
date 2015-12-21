@@ -15,7 +15,7 @@
 The object \code{x} is returned invisibly.
 }
 \description{
-Print the layout of a figure.
+Prints the layout of a figure.
 }
 \note{
 The layout of graphs is displayed.

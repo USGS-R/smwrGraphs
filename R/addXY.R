@@ -1,6 +1,6 @@
 #' Add a plot to a graph
 #' 
-#' Add points or lines to the current graph.
+#' Adds points or lines to the current graph.
 #' 
 #' @name addXY
 #' @rdname addXY

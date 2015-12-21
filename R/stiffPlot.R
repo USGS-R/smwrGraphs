@@ -1,6 +1,6 @@
 #' @title Stiff Diagrams
 #' 
-#' @description Add a Stiff diagram to an existing graph or create a tabular presentation of
+#' @description Adds a Stiff diagram to an existing graph or produces a tabular presentation of
 #'Stiff diagrams in a graph.
 #' 
 #' @details The units of the cation and anion data are generally in milli-equivalents

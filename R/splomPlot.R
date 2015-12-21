@@ -1,6 +1,6 @@
 #' Scatter Plot Matrix
 #' 
-#' Produce a matrix of scatter plots
+#' Produces a matrix of scatter plots
 #' 
 #' \code{Panel} may be a tagged list, with any one of these options:\cr
 #' loess=span, where span is the span argument to loess.smooth;\cr line=opt,

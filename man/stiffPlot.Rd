@@ -81,7 +81,7 @@ output from one of the graph creation functions like \code{xyPlot}.}
 Information about the graph.
 }
 \description{
-Add a Stiff diagram to an existing graph or create a tabular presentation of
+Adds a Stiff diagram to an existing graph or produces a tabular presentation of
 Stiff diagrams in a graph.
 }
 \details{

@@ -49,7 +49,7 @@ renderX(pretty, bottom = list(ticks = TRUE, labels = TRUE, grid = FALSE,
 Nothing is returned.
 }
 \description{
-Adds ticks, labels, or grids to an axis (support functions).
+Draws ticks, labels, or grids for an axis (support functions).
 }
 \keyword{aplot}
 

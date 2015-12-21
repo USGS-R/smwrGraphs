@@ -20,7 +20,7 @@ automatic formatting done by R.}
 Nothing is returned.
 }
 \description{
-Adds a table to a graph.
+Adds a small table to a graph.
 }
 \details{
 \code{where} must be one of "ul," "ur," "ll," or "lr." The first letter is

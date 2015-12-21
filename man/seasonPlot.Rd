@@ -65,7 +65,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Create a plot of data on a yearly cycle.
+Creates a plot of data on a yearly cycle.
 }
 \details{
 For \code{seasonPlot}, the value for \code{xlabels} must be one of "full," the full

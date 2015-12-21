@@ -1,6 +1,6 @@
 #' Add Axis Ticks
 #' 
-#' Add minor axis ticks to a graphs.
+#' Adds minor axis ticks to a graph.
 #' 
 #' The \code{current} argument must contain a component named \code{yax} if
 #' \code{which} is "left" or "right" or a component named \code{xax} if

@@ -50,7 +50,7 @@ Otherwise, the \code{x}, \code{y}, and \code{z} values are converted to
 2-dimensional values.
 }
 \description{
-Produce a trilinear diagram for the Piper Diagram (support function).
+Plots the trilinear diagram in the Piper diagram (support function).
 }
 \details{
 Support function, to be called only from \code{piperPlot}.

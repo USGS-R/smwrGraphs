@@ -1,6 +1,6 @@
 #' Errors Bars
 #' 
-#' Add error bars to a graph.
+#' Adds upper-lower error bars to data in a graph.
 #' 
 #' The \code{Bars} argument must be a tagged list with these components:
 #' \describe{ \item{name}{a name describing the data; used in the explanation.}

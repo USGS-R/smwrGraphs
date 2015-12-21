@@ -39,9 +39,9 @@ shortest (single letter month, for example)\cr 2 \tab USGS abbreviation
 Formatting information about the axis labels.
 }
 \description{
-Construct information for making a "pretty" date axis. A support function
-for creating date/time axes. Understanding the arguments can help in building specially
-formatted axes.
+Constructs information for making a nicely formatted  date axis.
+A support function for creating date/time axes. Understanding the arguments
+can help in building specially formatted axes.
 }
 \details{
 Setting \code{major} to "water year" is practical only for periods of

@@ -1,6 +1,6 @@
 #' Season Plot
 #' 
-#' Create a plot of data on a yearly cycle.
+#' Creates a plot of data on a yearly cycle.
 #' 
 #' For \code{seasonPlot}, the value for \code{xlabels} must be one of "full," the full 
 #'month names; "abbrev," abbreviations; or "letter," the first letter of the

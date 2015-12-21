@@ -54,7 +54,7 @@ or "none," which indicates that the existing axes be used (default).}
 Information about the graph.
 }
 \description{
-Add points or lines to the current graph.
+Adds points or lines to the current graph.
 }
 \section{Methods}{
  \describe{

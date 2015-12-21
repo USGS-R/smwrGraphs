@@ -8,7 +8,8 @@
 #' \code{Main} in bold if \code{Bold} is \code{TRUE}.
 #' 
 #' @param Main the main text of the title. Can be either a character string or an 
-#'"expression" object.
+#'"expression" object. If \code{Main} is an "expression" object, then \code{Heading}
+#'and \code{Bold} will be ignored.
 #' @param Heading The title heading, generally a single letter. See
 #' \bold{Details}
 #' @param Justification specify the horizontal location of the title, must be one of
@@ -51,16 +52,20 @@ addTitle <- function(Main="", Heading="", Justification="left", Bold=TRUE,
 			line <- -0.75
 			just <- (just - .5)*.96 + .5 # move away from plot ticks
 		}
-		if(Heading != "" && Main != "") {
-			Heading <- paste(Heading, ".", sep="")
-		}
-		# Convert to expression
-		if(Bold) {
-			Heading <- as.expression(substitute(paste(bolditalic(x), " ", bold(y)), 
-																					list(x=Heading, y=Main)))
+		if(is.expression(Main)) {
+			Heading <- Main
 		} else {
-			Heading <- as.expression(substitute(paste(italic(x), " ", y), 
-																					list(x=Heading, y=Main)))
+			if(Heading != "" && Main != "") {
+				Heading <- paste(Heading, ".", sep="")
+			}
+			# Convert to expression
+			if(Bold) {
+				Heading <- as.expression(substitute(paste(bolditalic(x), " ", bold(y)), 
+																						list(x=Heading, y=Main)))
+			} else {
+				Heading <- as.expression(substitute(paste(italic(x), " ", y), 
+																						list(x=Heading, y=Main)))
+			}
 		}
 		mtext(text=Heading, side=3L, line=line, adj=just, font=1L, padj=1,
 					family="USGS", cex=9/8)

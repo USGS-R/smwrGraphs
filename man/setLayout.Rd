@@ -101,12 +101,25 @@ lines of explanation for \code{font} set to "USGS"---allocate an extra 2
 lines for the title. Box plots require about 3 inches for the truncated and
 simple types and about 4.5 inches for type "tukey" and about 4 inches for
 type "extended." The plot area within each cell is set up to have consistent
-widths within each column and consistent heights within each row. The
-arguments \code{shared.x}, \code{shared.y}, \code{yleft}, \code{yright},
-\code{xbottom}, and \code{xtop} are used to set up the plot areas. If axes
-are not shared, then the margin values are not set for any graph. If the
+widths within each column and consistent heights within each row.
+
+The arguments \code{yleft}, \code{yright}, \code{xbottom}, and \code{xtop}
+are used to set up the plot area margins. If axes are not shared, then the
+margin values are set for any graph using those values. If the
 axes are shared, then the margin values apply to the corresponding left
-column, right column, bottom row or top row.
+column, right column, bottom row or top row. The values for \code{yleft} and
+\code{xbottom} are useful defaults. If the y-axis labels are wider than typical
+values, such as those for very large numbers or names, then the value for \code{yleft}
+should be increased. If the x-axis labels are rotated, then the value for
+\code{xbottom} should be increased.
+
+The arguments \code{shared.x} and \code{shared.y} control axis sharing. If the values
+are negative, then the axes are not shared and the margins are set as described in the
+preceding paragraph. If the values are nonnegative, then the axes are shared and the
+margin is set by the value. For example, a value of 0 means the axes are touching.
+A value of 1 generally gives enough spacing between the plots to prevent overlapping
+labels.
+
 
 The axis ticks and labels can be supressed by setting the margins to a negative
 value.  This is most useful when adding right-axes with \code{addXY} for example.
@@ -118,7 +131,7 @@ set a narrow right-hand margin.
 
 The value for \code{xtop} can be set to -2.2 if adding a plot using the
 secondary top axis. The default is to set the margin to 1.5, which allows
-for a graph title.
+only for a graph title.
 }
 \note{
 It is very easy to confuse the graph number, used by \code{setGraph}

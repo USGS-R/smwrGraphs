@@ -1,14 +1,15 @@
 #' Add Text to a Graph
 #' 
-#' Adds text to a Graph.
+#' Adds text to a plot to annotate a feature.
 #' 
-#' This function places only a single text on the graph for each call.\cr A
-#' leader from \code{x}, \code{y} to \code{leaderx}, \code{leadery} if
-#' \code{leaderx} is not \code{NULL}.
+#' This function places only a single annotation string on the graph for 
+#'each call.\cr A leader from \code{x}, \code{y} to \code{leaderx}, 
+#'\code{leadery} if \code{leaderx} is not \code{NULL}.
 #' 
 #' @param x the x-axis placement of \code{annotation}.
 #' @param y the y-axis placement of \code{annotation}.
-#' @param annotation the text.
+#' @param annotation the text. Can be either a character string or an 
+#'"expression" object.
 #' @param leaderx draw leader from \code{x} to \code{leaderx}.
 #' @param leadery draw leader from \code{y} to \code{leadery}.
 #' @param leadercol the color of the leader.

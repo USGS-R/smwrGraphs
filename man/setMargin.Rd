@@ -13,7 +13,7 @@ setMargin(margin, yax, aux.label = FALSE, caption = TRUE)
 \item{yax}{the y-axis information from a "pretty" function, required if the
 second entry of \code{margin} is \code{NA}.}
 
-\item{aux.label}{logical, if \code{TRUE}, then allocate space for asecond
+\item{aux.label}{logical, if \code{TRUE}, then allocate space for a second
 level of x-axis labels.}
 
 \item{caption}{logical, if \code{TRUE}, then allocate space for figure caption?}
@@ -22,7 +22,7 @@ level of x-axis labels.}
 Complete plot margin specification.
 }
 \description{
-Set the margins for the plot area (support function).
+Sets the margins for the plot area (support function).
 }
 \seealso{
 \code{\link{setPage}}, \code{\link{setGraph}},

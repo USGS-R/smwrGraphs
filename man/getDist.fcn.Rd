@@ -17,8 +17,8 @@ random generation.}
 The specified function.
 }
 \description{
-A function to compute the density, cumulative distribution, quantile, or
-random generation of the specified function. This function is used primarily
+Gets the density, cumulative distribution, quantile, or
+random generation of the specified distribution. This function is used primarily
 as a support function for \code{probPlot}.
 }
 \details{

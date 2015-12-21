@@ -1,6 +1,6 @@
 #' Scale Plot
 #' 
-#' Produce a graph controling aspect ratio of the x- and y-axes.
+#' Produces a graph with a fixed aspect ratio for the x- and y-axes.
 #' 
 #' The \code{scale} argument sets the scaling ratio of the y-axis to the
 #' x-axis. For latitude and longitude data, set the scale to

@@ -37,7 +37,7 @@ Each entry in \code{text} must have a corresponding entry in \code{lines} and
 \code{areas}.
 }
 \description{
-Adds the current plot information to explanation information (support
+Adds the current plot information to plot control list (support
 function).
 }
 \seealso{

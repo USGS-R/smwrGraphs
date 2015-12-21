@@ -1,6 +1,6 @@
 #' Transform Data
 #' 
-#' Transform numeric data to match any axis transform (support function).
+#' Transforms numeric data to match any axis scaling (support function).
 #' 
 #' 
 #' @param data data for axis

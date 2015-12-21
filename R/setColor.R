@@ -1,6 +1,6 @@
 #' Colors
 #' 
-#' Checks or converts anything to valid colors (support function).
+#' Checks or converts any data to valid colors (support function).
 #' 
 #' 
 #' @param Color any kind of data that might be interpreted as a color.

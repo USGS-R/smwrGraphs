@@ -1,6 +1,6 @@
 #' Contour Plot
 #' 
-#' Produce a contour plot or a colored surface with colors corresponding to 
+#' Produces a contour plot or a colored surface with colors corresponding to 
 #'values in \code{z}.
 #' 
 #' @details Missing values are permitted in \code{z}, \code{x}, and \code{y} for the default

@@ -50,7 +50,7 @@ A list having two components:\cr \item{current}{a list like
 explanation}
 }
 \description{
-Set plotting controls for groups of data (support function).
+Sets plot control list for groups of data (support function).
 }
 \details{
 If the \code{name} component in the original call to the high-level plot is

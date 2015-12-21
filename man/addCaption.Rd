@@ -13,7 +13,7 @@ addCaption(caption = "")
 Nothing is returned.
 }
 \description{
-Adds a caption at the bottom of the graph
+Adds a caption at the bottom of the graph.
 }
 \note{
 Useful for adding 1-line captions.

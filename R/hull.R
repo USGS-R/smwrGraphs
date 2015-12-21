@@ -1,6 +1,6 @@
 #' Construct a Hull
 #' 
-#' Construct an enclosing hull from x- and y-coordinate data.
+#' Constructs an enclosing hull from x- and y-coordinate data.
 #' 
 #' 
 #' @param x the x-coordinate data. Missing values are permitted, but ignored.

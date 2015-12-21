@@ -54,7 +54,7 @@ consistency with other plotting functions in this package.}
 Information about the graph.
 }
 \description{
-Produce a ternary diagram, also called a trilinear or triangular diagram.
+Produces a ternary diagram, also called a trilinear or triangular diagram.
 }
 \details{
 The \code{what} component of the \code{Plot} argument must be either

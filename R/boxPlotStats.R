@@ -1,6 +1,6 @@
 #' Compute Statistcs for a Box Plot
 #' 
-#' Compute the statistics for truncated, simple, Tukey, or extended box plots 
+#' Computes the statistics for truncated, simple, Tukey, or extended box plots 
 #'(support function for \code{boxPlot}).
 #' 
 #' @param x a list containing the data to compute the statistics.

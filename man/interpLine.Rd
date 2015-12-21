@@ -27,7 +27,7 @@ A vector of numeric values corresponding to those values in either
 \code{xfromy} or \code{yfromx}.
 }
 \description{
-Create a vector of interpolated points along a line drawn by one of the
+Creates a vector of interpolated points along a line drawn by one of the
 \code{smwrGraphs} functions.
 }
 \details{

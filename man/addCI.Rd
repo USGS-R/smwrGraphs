@@ -27,7 +27,7 @@ The current plot information, the x and y components are the data, not the line.
 The regression model is included as the lm component.
 }
 \description{
-Computes the confidence interval for a linear regression or q-normal graph and adds the lines to a graph.
+Adds confidence interval lines to a simple linear regression or q-normal graph.
 }
 \note{
 The equation for the confidence intervals for a simple linear regression

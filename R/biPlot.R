@@ -1,6 +1,6 @@
 #' Biplot
 #' 
-#' Produce a biplot, which is a plot of two different types of data on the same
+#' Produces a biplot, which is a plot of two different types of data on the same
 #' graph.
 #' 
 #' @param x any object which has a valid method for \code{biPlot}.

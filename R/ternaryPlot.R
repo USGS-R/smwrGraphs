@@ -1,6 +1,6 @@
 #' Ternary Diagram
 #' 
-#' Produce a ternary diagram, also called a trilinear or triangular diagram.
+#' Produces a ternary diagram, also called a trilinear or triangular diagram.
 #' 
 #' The \code{what} component of the \code{Plot} argument must be either
 #' "points" or "none."

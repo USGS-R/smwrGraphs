@@ -1,6 +1,6 @@
 #' Piper Diagram
 #' 
-#' Plot the Piper Diagram projected from the two trilinear diagrams on either
+#' Plots the Piper diagram projected from the two trilinear diagrams on either
 #' side (support function).
 #' 
 #' Support function, to be called only from \code{piperPlot}.

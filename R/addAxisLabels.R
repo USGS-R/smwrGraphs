@@ -1,6 +1,6 @@
 #' Axis Ticks and Labels
 #' 
-#' Add axis ticks, labels, and title
+#' Adds axis ticks, labels, and title to a graph.
 #' 
 #' The \code{current} argument is generally the output from a high-level
 #' plotting function in \code{smwrGraphs}. If \code{which} is "left" or "right,"

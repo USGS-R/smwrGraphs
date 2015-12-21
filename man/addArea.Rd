@@ -28,7 +28,7 @@ output from one of the graph creation functions like \code{xyPlot}.}
 The current plot information is returned invisibly.
 }
 \description{
-Adds a filled polygon (area) to a graph
+Adds a filled polygon (area) to a graph.
 }
 \details{
 If \code{ybase} is NULL, then \code{x} and \code{y} should form a complete

@@ -1,6 +1,6 @@
 #' Plot Parameters
 #' 
-#' Set the control parameters for a plot (support function).
+#' Sets the plot control list (support function).
 #' 
 #' The value for \code{what} must be one of: \describe{ \item{"points"}{symbols
 #' only,} \item{"lines"}{lines only,} \item{"both"}{lines connecting symbols
@@ -20,7 +20,9 @@
 #' 
 #' @param current list containing the current plot information or those requested
 #' by the user.
-#' @param name the name of the object plotted; used in the explanation.
+#' @param name the name of the object plotted; used in the explanation. Expressions
+#'can be used, but if used, then \code{name} must be and expression for all calls that
+#'update the current plot information.
 #' @param what what to plot, see \bold{Details}.
 #' @param type the line type, if drawn, must be one of "solid," "dashed," or
 #' "dotted."
@@ -61,7 +63,9 @@ setPlot <- function(current, name="", what="lines", type="solid",
   ## set defaults from args if anything is missing
   if(is.null(current$name))
     current$name <- name
-  current$name <- as.character(current$name)
+  if(!is.expression(current$name)) {
+  	current$name <- as.character(current$name)
+  }
   if(is.null(current$what))
     current$what <- what
   else

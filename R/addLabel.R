@@ -1,6 +1,6 @@
 #' Axis Labels
 #' 
-#' Adds text in the margin for axis labels.
+#' Adds text in the margin for specialized axis labels.
 #' 
 #' 
 #' @param label the text or expression to add to the graph.

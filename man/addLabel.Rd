@@ -35,7 +35,7 @@ output from one of the graph creation functions like \code{xyPlot}.}
 Nothing is returned.
 }
 \description{
-Adds text in the margin for axis labels.
+Adds text in the margin for specialized axis labels.
 }
 \note{
 In general, all functions that create plots will draw the necessary

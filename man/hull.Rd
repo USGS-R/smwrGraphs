@@ -19,7 +19,7 @@ hull(x, y, percent = 100, smooth = FALSE)
 A list containing the x- and y-coordinates of the hull.
 }
 \description{
-Construct an enclosing hull from x- and y-coordinate data.
+Constructs an enclosing hull from x- and y-coordinate data.
 }
 \examples{
 set.seed(1)

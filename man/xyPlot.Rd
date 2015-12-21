@@ -79,7 +79,7 @@ degrees (perpendicular to the axis).}
 Information about the graph
 }
 \description{
-Create a line or scatter plot.
+Creates a line/scatter plot.
 }
 \details{
 Setting \code{ylabels} or \code{xlabels} to 0 or negtive values will

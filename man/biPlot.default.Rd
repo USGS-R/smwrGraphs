@@ -73,7 +73,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph
 }
 \description{
-Produce a biplot, which is a plot of two different types of data on the same
+Produces a biplot, which is a plot of two different types of data on the same
 graph.
 }
 \details{

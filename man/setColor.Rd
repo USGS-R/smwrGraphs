@@ -14,7 +14,7 @@ The values in \code{Color} converted to a value that could be
 interpreted as a color.
 }
 \description{
-Checks or converts anything to valid colors (support function).
+Checks or converts any data to valid colors (support function).
 }
 \examples{
 \dontrun{

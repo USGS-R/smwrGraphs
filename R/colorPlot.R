@@ -1,6 +1,6 @@
 #' Plot Data
 #' 
-#' Produce a line/scatter plot where each point or group of related points has a
+#' Produces a line/scatter plot where each point or group of related points has a
 #'unique color or where sections along a line have different colors.
 #' 
 #' For linear axes, the range can be set to virtually any pair of values. For 

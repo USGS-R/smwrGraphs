@@ -1,8 +1,8 @@
 #' @title Pretty Axis
 #' 
-#' @description Construct information for making a "pretty" date axis. A support function
-#'for creating date/time axes. Understanding the arguments can help in building specially
-#'formatted axes.
+#' @description Constructs information for making a nicely formatted  date axis. 
+#'A support function for creating date/time axes. Understanding the arguments 
+#'can help in building specially formatted axes.
 #' 
 #' @details Setting \code{major} to "water year" is practical only for periods of
 #'time from 1 to 5 water years in length; also sets the date range to water years.

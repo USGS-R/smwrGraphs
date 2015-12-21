@@ -1,6 +1,6 @@
 #' Add Caption
 #' 
-#' Adds a caption at the bottom of the graph
+#' Adds a caption at the bottom of the graph.
 #' 
 #' @param caption the text of the caption for the graph
 #' @return Nothing is returned.

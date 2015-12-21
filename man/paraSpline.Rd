@@ -18,7 +18,7 @@ A list containing the components \code{x} and \code{y}, which are
 the coordinates of the parametric spline.
 }
 \description{
-Construct a parametric interpolating spline for x and y data. The x data
+Constructs a parametric interpolating spline for x and y data. The x data
 are not required to be strictly increasing. Used as a support function.
 }
 \examples{

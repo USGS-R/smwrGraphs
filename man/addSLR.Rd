@@ -44,7 +44,7 @@ The current plot information, the x and y components are the data, not the line.
 The regression model is included as the lm component.
 }
 \description{
-Computes a simple linear regression from x and y data and adds the line to a graph.
+Adds a simple linear regression line to a scatter plot.
 }
 \details{
 The \code{Model} argument sets up the information to include the regression

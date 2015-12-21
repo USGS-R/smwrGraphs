@@ -14,7 +14,7 @@ A vector like \code{x}, but with leading and trailing spaces removed
 from each element.
 }
 \description{
-Remove surrounding spaces from text.
+Removes leading and trailing blanks from a character string.
 }
 \examples{
 strip.blanks("   keep me   ")

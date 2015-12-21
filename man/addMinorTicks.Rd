@@ -21,7 +21,7 @@ number is used, see \bold{Details}.}
 The current plot information is returned invisibly.
 }
 \description{
-Add minor axis ticks to a graphs.
+Adds minor axis ticks to a graph.
 }
 \details{
 The \code{current} argument must contain a component named \code{yax} if

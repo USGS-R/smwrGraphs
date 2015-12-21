@@ -12,7 +12,9 @@ setPlot(current, name = "", what = "lines", type = "solid",
 \item{current}{list containing the current plot information or those requested
 by the user.}
 
-\item{name}{the name of the object plotted; used in the explanation.}
+\item{name}{the name of the object plotted; used in the explanation. Expressions
+can be used, but if used, then \code{name} must be and expression for all calls that
+update the current plot information.}
 
 \item{what}{what to plot, see \bold{Details}.}
 
@@ -41,7 +43,7 @@ A list like \code{current}, but with the defaults supplied for any
 missing component.
 }
 \description{
-Set the control parameters for a plot (support function).
+Sets the plot control list (support function).
 }
 \details{
 The value for \code{what} must be one of: \describe{ \item{"points"}{symbols

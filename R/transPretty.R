@@ -1,6 +1,6 @@
 #' Pretty Axis
 #' 
-#' Construct information for making a nicely formatted numeric axis.
+#' Constructs information for making a nicely formatted numeric axis.
 #' 
 #' 
 #' @param x data defining the range to be plotted on the axis. Missing value

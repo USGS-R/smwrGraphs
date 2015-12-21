@@ -30,7 +30,7 @@ they are not specifically listed in \code{labels}.}
 Information about the axis lables.
 }
 \description{
-Construct information for making a nicely formatted numeric axis.
+Constructs information for making a nicely formatted numeric axis.
 }
 \seealso{
 \code{\link{transPlot}}

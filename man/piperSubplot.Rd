@@ -47,7 +47,7 @@ If \code{plot} is TRUE, then the range of the user coordinates.
 Otherwise, the transformed x- and y-coordinate values.
 }
 \description{
-Plot the Piper Diagram projected from the two trilinear diagrams on either
+Plots the Piper diagram projected from the two trilinear diagrams on either
 side (support function).
 }
 \details{

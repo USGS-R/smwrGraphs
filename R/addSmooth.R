@@ -1,6 +1,6 @@
 #' Add a Smooth Line
 #' 
-#' Computes a smooth line from x and y data and adds the line to a graph.
+#' Adds a smoothed line to a scatter plot.
 #' 
 #' @details The value for \code{Smooth} must the name of a smoothing function as a 
 #'character string. The default is "loess.smooth" but any smoother that accepts arguments

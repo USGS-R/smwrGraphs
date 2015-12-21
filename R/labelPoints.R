@@ -1,6 +1,6 @@
 #' Label Points
 #' 
-#' Label points on a graph.
+#' Labels points on a graph.
 #' 
 #' @details The value for \code{dir} can be of length one or the length of \code{x}, 
 #' in which case, \code{dir} applies to the corresponding point. The value must be 

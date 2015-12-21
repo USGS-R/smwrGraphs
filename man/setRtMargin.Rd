@@ -28,7 +28,7 @@ labels.}
 The updated margin; only the right margin value is changed.
 }
 \description{
-Set the right or top margin for graphs with secondary axes. Used After
+Sets the right or top margin for graphs with secondary axes. Used After
 setting up the graphics environment, but before the call to the high-level
 graphics function to allocate space for an additional label and title.
 }

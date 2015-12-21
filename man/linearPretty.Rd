@@ -39,7 +39,7 @@ when \code{hard} is FALSE; Ignored in \code{logPretty}}
 Information about the axis labels.
 }
 \description{
-Construct information for making a nicely formatted linear numeric axis.
+Constructs information for making a nicely formatted linear numeric axis.
 A support function for creating linear axes.
 }
 \seealso{

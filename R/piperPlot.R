@@ -1,6 +1,6 @@
 #' Piper Diagram
 #' 
-#' Produce a Piper Diagram
+#' Produces a Piper diagram.
 #' 
 #' @details The \code{what} component of the \code{Plot} argument must be either
 #' "points" or "none."

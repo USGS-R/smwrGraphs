@@ -5,7 +5,8 @@
 \title{Add Explanation}
 \usage{
 addExplanation(what, where = "new", title = expression(bold(EXPLANATION)),
-  box.off = where != "new", margin = rep(0, 4), line.length = 2)
+  box.off = where != "new", margin = rep(0, 4), line.length = 2,
+  line.height = 1.1)
 }
 \arguments{
 \item{what}{a specialized object for an explanation, from the output from
@@ -24,12 +25,14 @@ bounding box is drawn.}
 
 \item{line.length}{the relative length of lines drawn in the explanation, see
 \bold{Details}.}
+
+\item{line.height}{the relative spacing of the lines in the explanation.}
 }
 \value{
 Nothing is returned.
 }
 \description{
-Adds an explanation to the current graph or to a new graph.
+Creates or adds an explanation, also called key or legend.
 }
 \details{
 The value for \code{where} must be one of "ul," "ur," "ll," "lr,"

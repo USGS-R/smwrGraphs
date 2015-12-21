@@ -1,6 +1,6 @@
 #' Add Table to Graph
 #' 
-#' Adds a table to a graph.
+#' Adds a small table to a graph.
 #' 
 #' \code{where} must be one of "ul," "ur," "ll," or "lr." The first letter is
 #' an abbreviation for upper or lower, the second letter is an abbreviation for

@@ -1,6 +1,6 @@
 #' X-Y Plot
 #' 
-#' Produce an x-y plot using arbitrary monotonic transforms for the axes.
+#' Creates an x-y plot using arbitrary monotonic transforms for the axes.
 #' 
 #' @param x the x-axis data.
 #' @param xtrans the transformation function for the x-axis.

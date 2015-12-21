@@ -1,6 +1,6 @@
 #' Pretty Axis
 #' 
-#' Construct information for making a nicely formatted axis for discrete data.
+#' Constructs information for making a nicely formatted axis for discrete data.
 #'A support function for creating discrete axes. 
 #' 
 #' @param x the discrete data values.

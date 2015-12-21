@@ -70,7 +70,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Produce a quantile-quantile (q-q) or a q-normal plot.
+Creates a quantile-quantile (q-q) or a q-normal plot.
 }
 \details{
 The argument \code{what} for either \code{LineRef} or \code{Line1.1} may be

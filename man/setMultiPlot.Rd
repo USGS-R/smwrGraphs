@@ -55,8 +55,7 @@ A list having two components:\cr \item{current}{a list like
 explanation}
 }
 \description{
-Sets the plotting parameters for high-level graphing functions that allow
-individual symbols (support function).
+Sets plot control list for individuals in data (support function).
 }
 \details{
 Each of the arguments from \code{name} through \code{color} must have one

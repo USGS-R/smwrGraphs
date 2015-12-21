@@ -1,7 +1,6 @@
 #' Add Confidence Interval Lines
 #' 
-#' Computes the confidence interval for a linear regression or q-normal graph and adds the lines to a graph.
-#' 
+#' Adds confidence interval lines to a simple linear regression or q-normal graph.
 #' 
 #' @param type the type of confidence interval desired. Must be either "SLR" for the confidence
 #'interval for a simple linear regression model, which must have been created using the

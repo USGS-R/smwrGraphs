@@ -63,7 +63,7 @@ for the individual boxplot.}
 Information about the graph.
 }
 \description{
-Draw a box plot (support functions).
+Draws a box plot (support functions).
 }
 \note{
 The function \code{renderBXP} draws a single boxplot in a graph. The

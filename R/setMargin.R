@@ -1,13 +1,13 @@
 #' Graph Margins
 #' 
-#' Set the margins for the plot area (support function).
+#' Sets the margins for the plot area (support function).
 #' 
 #' 
 #' @param margin incomplete plot margin specification, generally computed by
 #' \code{setGraph}.
 #' @param yax the y-axis information from a "pretty" function, required if the
 #' second entry of \code{margin} is \code{NA}.
-#' @param aux.label logical, if \code{TRUE}, then allocate space for asecond 
+#' @param aux.label logical, if \code{TRUE}, then allocate space for a second 
 #' level of x-axis labels.
 #' @param caption logical, if \code{TRUE}, then allocate space for figure caption?
 #' @return Complete plot margin specification.

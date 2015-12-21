@@ -21,7 +21,7 @@ to set the line weight.}
 The width of the line to set as the \code{lwd} graphics parameter.
 }
 \description{
-Compute the weight, or width, of a line. Used primarily
+Computes the weight, or width, of a line. Used primarily
 as a support function.
 }
 \seealso{

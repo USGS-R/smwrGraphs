@@ -57,7 +57,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Produce an x-y plot using arbitrary monotonic transforms for the axes.
+Creates an x-y plot using arbitrary monotonic transforms for the axes.
 }
 \note{
 A call should be made to \code{setPage} to set up the graphics

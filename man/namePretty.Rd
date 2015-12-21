@@ -36,7 +36,7 @@ then place ticks at the labels. If "between," then place ticks between the label
 Information about the axis labels
 }
 \description{
-Construct information for making a nicely formatted axis for discrete data.
+Constructs information for making a nicely formatted axis for discrete data.
 A support function for creating discrete axes.
 }
 \seealso{

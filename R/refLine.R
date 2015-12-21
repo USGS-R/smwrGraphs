@@ -1,6 +1,6 @@
 #' Reference Line
 #' 
-#' Add a reference line (vertical, horizontal, or regression) to a graph.
+#' Adds a reference line (vertical, horizontal, or regression) to a graph.
 #' 
 #' 
 #' @param horizontal draw horizontal lines at the specified values.

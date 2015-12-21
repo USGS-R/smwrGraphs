@@ -36,7 +36,7 @@ regression model, otherwise either the natural log was used or no transform.}
 Information about the graph.
 }
 \description{
-Add a reference line (vertical, horizontal, or regression) to a graph.
+Adds a reference line (vertical, horizontal, or regression) to a graph.
 }
 \examples{
 \dontrun{

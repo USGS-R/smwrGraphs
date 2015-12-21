@@ -1,6 +1,6 @@
 #' Label Axes
 #' 
-#' Adds ticks, labels, or grids to an axis (support functions).
+#' Draws ticks, labels, or grids for an axis (support functions).
 #' 
 #' @name renderPretty
 #' @rdname renderPretty
@@ -209,9 +209,15 @@ renderX <- function(pretty, bottom=list(ticks=TRUE, labels=TRUE, grid=FALSE,
     }
     ## do not draw the separator--let the illustrator do it
   }
-  lineoff <- par("mar")[1L] - 2.1
+  # OK, we need to do some checking here and trusting that captions are added
+  # here and we have a second order label
+  if(cex > 1 && caption == "" && par("mar")[1L] < 4) {
+  	lineoff <- par("mar")[1L] - 1
+  } else {
+  	lineoff <- par("mar")[1L] - 2.1
+  }
   if(!is.character(bottitle) || bottitle != "")
-    if(lineoff > 0)
+  	if(lineoff > 0)
       mtext(text=bottitle, side=1L, line=lineoff, family="USGS", cex=cex)
   if(!is.character(toptitle) || toptitle != "")
     if(lineoff > 0)

@@ -30,7 +30,7 @@ See \bold{Note}.}
 The current plot information is returned invisibly.
 }
 \description{
-Create a bar chart by adding bars to an existing graph.
+Creates a bar chart by adding bars to an existing graph.
 }
 \details{
 The \code{Bars} argument must be a tagged list with these components:

@@ -1,6 +1,6 @@
 #' Print Objects
 #' 
-#' Print the layout of a figure.
+#' Prints the layout of a figure.
 #' 
 #' @param x the object to print
 #' @param \dots not used, required for other methods

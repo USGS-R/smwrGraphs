@@ -67,7 +67,7 @@ plotted along the x or y axis.}
 Information about the graph.
 }
 \description{
-Produce a contour plot or a colored surface with colors corresponding to
+Produces a contour plot or a colored surface with colors corresponding to
 values in \code{z}.
 }
 \details{

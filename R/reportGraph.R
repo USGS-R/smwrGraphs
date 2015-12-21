@@ -1,6 +1,6 @@
 #' Report Graph
 #' 
-#' Create a report of any R object in a graph.
+#' Creates a report of any R object in a graph.
 #'
 #' @details The value for \code{family} can be any valid font family for the
 #'device. In general "serif," "sans," "mono," and "USGS" are valid. The default,

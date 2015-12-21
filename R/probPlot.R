@@ -1,6 +1,6 @@
 #' Probability Plot
 #' 
-#' Produce a probability plot.
+#' Creates a probability plot.
 #' 
 #' Truncation of the data to plot (\code{x}) results in a conditional
 #' probability plot. For any numeric value for \code{truncate}, the values in

@@ -1,6 +1,6 @@
 #' Tree Graphs
 #' 
-#' Produce a tree graph from a hiearchical cluster analysis.
+#' Produces a tree graph from a hierarchical cluster analysis.
 #' 
 #' @details \code{Tree} is a list with these components: 
 #' \describe{ 

@@ -1,6 +1,6 @@
 #' Add Detail to a Ternary Diagram
 #' 
-#' Adds points or lines to a Ternary Diagram.
+#' Adds points or lines to a Ternary diagram.
 #' 
 #' 
 #' @param x the x-axis (bottom) data. Missing values are permitted, but result

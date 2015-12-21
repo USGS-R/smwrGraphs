@@ -59,7 +59,7 @@ A list containg the projection information and the data for plotting. Must
 be used in the call to \code{surfacePlot}
 }
 \description{
-Select the projection for a surface plot.
+Selects the projection for a surface plot.
 }
 \examples{
 \dontrun{

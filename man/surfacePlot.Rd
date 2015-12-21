@@ -34,7 +34,7 @@ set the third value to 1.5, otherwise all values should be \code{NA} or 0.}
 Information about the graph.
 }
 \description{
-Produce a surface plot to show three-dimensional data or a colored surface plot
+Creates a surface plot to show three-dimensional data or a colored surface plot
 to show four-dimensional data.
 }
 \details{

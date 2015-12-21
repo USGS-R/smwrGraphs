@@ -22,7 +22,7 @@ transData(data, logT = FALSE, revT = FALSE, trans = as.vector,
 A vector like \code{data} transformed to plot correctly on an axis.
 }
 \description{
-Transform numeric data to match any axis transform (support function).
+Transforms numeric data to match any axis scaling (support function).
 }
 \seealso{
 \code{\link{transPlot}}, \code{\link{probPlot}}

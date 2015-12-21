@@ -79,7 +79,7 @@ distribution and the observed data.}
 Information about the graph.
 }
 \description{
-Produce a probability plot.
+Creates a probability plot.
 }
 \details{
 Truncation of the data to plot (\code{x}) results in a conditional

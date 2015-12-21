@@ -1,6 +1,6 @@
 #' @title Line Weights
 #' 
-#' @description Compute the weight, or width, of a line. Used primarily 
+#' @description Computes the weight, or width, of a line. Used primarily 
 #'as a support function.
 #' 
 #' @aliases lineWt stdWt frameWt

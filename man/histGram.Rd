@@ -46,7 +46,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Create either a frequency or density histogram.
+Creates either a frequency or density histogram.
 }
 \details{
 To set the x-axis range, you must specify numeric breaks that span the

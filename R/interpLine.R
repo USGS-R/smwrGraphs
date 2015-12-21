@@ -1,6 +1,6 @@
 #' Interpolation
 #' 
-#' Create a vector of interpolated points along a line drawn by one of the
+#' Creates a vector of interpolated points along a line drawn by one of the
 #' \code{smwrGraphs} functions.
 #' 
 #' Exactly one of \code{xfromy} or \code{yfromx} must be specified in the call.

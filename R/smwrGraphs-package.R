@@ -10,8 +10,8 @@
 #' \tabular{ll}{ 
 #' Package: \tab smwrGraphs\cr 
 #' Type: \tab Package\cr 
-#' Version: \tab 1.1.0\cr 
-#' Date: \tab 2015-10-13\cr 
+#' Version: \tab 1.1.1\cr 
+#' Date: \tab 2015-12-21\cr 
 #' License: \tab CC0\cr 
 #' Depends: \tab smwrBase (>= 1.0.0), methods\cr 
 #' Imports: \tab KernSmooth, akima, lubridate\cr

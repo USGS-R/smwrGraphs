@@ -17,7 +17,7 @@ parameters.}
 The control parameters with defaults substituted for missing names.
 }
 \description{
-Sets the default values for control arguments (support function).
+Sets the default values for plot control lists (support function).
 }
 \keyword{dplot}
 

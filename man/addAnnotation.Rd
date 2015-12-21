@@ -14,7 +14,8 @@ addAnnotation(x, y, annotation, leaderx = NULL, leadery = NULL,
 
 \item{y}{the y-axis placement of \code{annotation}.}
 
-\item{annotation}{the text.}
+\item{annotation}{the text. Can be either a character string or an
+"expression" object.}
 
 \item{leaderx}{draw leader from \code{x} to \code{leaderx}.}
 
@@ -39,12 +40,12 @@ output from one of the graph creation functions like \code{xyPlot}.}
 The current plot information is returned invisibly.
 }
 \description{
-Adds text to a Graph.
+Adds text to a plot to annotate a feature.
 }
 \details{
-This function places only a single text on the graph for each call.\cr A
-leader from \code{x}, \code{y} to \code{leaderx}, \code{leadery} if
-\code{leaderx} is not \code{NULL}.
+This function places only a single annotation string on the graph for
+each call.\cr A leader from \code{x}, \code{y} to \code{leaderx},
+\code{leadery} if \code{leaderx} is not \code{NULL}.
 }
 \examples{
 \dontrun{

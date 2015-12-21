@@ -1,6 +1,6 @@
 #' Remove Spaces
 #' 
-#' Remove surrounding spaces from text.
+#' Removes leading and trailing blanks from a character string.
 #' 
 #' 
 #' @param x a character vector.

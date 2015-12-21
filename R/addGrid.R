@@ -1,6 +1,6 @@
 #' Grid Lines
 #' 
-#' Add grid lines to a graph.
+#' Adds grid lines to a graph.
 #' 
 #' Information about grid lines is contained in the information returned from
 #' high-level plotting functions in the smwrGraphs package. 

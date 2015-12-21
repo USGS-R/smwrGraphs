@@ -1,6 +1,6 @@
 #' Box Plot
 #' 
-#' Draw a box plot (support functions).
+#' Draws a box plot (support functions).
 #' 
 #' 
 #' @aliases renderBXP renderBoxPlot
@@ -179,7 +179,7 @@ renderBoxPlot <- function(xtoplot, stats, Box, explan, expz, # from compute stat
 #' @rdname renderBXP
 #' @export renderBXP
 renderBXP <- function(x, width, z, draw.RL=TRUE, fill="none") {
-  ## The workhorse function taht actuallu draws the boxes
+  ## The workhorse function that actually draws the boxes
   ##
   ## Fix farout, estimated and censored if missing--allows ouput from regular
   ## boxplot for a single variable to work.

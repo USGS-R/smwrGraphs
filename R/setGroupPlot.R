@@ -1,6 +1,6 @@
 #' Plot Parameters
 #' 
-#' Set plotting controls for groups of data (support function).
+#' Sets plot control list for groups of data (support function).
 #' 
 #' If the \code{name} component in the original call to the high-level plot is
 #' "Auto," then the description for the explanation is taken from the value in

@@ -19,7 +19,7 @@ package, this function returns nothing because nothing is expected to be added t
 the graph and nothing contributed to a possible explanation.
 }
 \description{
-Create a report of any R object in a graph.
+Creates a report of any R object in a graph.
 }
 \details{
 The value for \code{family} can be any valid font family for the

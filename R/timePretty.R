@@ -1,6 +1,6 @@
 #' Pretty Axis
 #' 
-#' Construct information for making a a nicely formatted date axis.
+#' Constructs information for making a nicely formatted date/time axis.
 #' 
 #' 
 #' @param x time difference data

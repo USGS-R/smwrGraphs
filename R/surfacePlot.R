@@ -1,6 +1,6 @@
 #' Surface plot
 #' 
-#' Produce a surface plot to show three-dimensional data or a colored surface plot 
+#' Creates a surface plot to show three-dimensional data or a colored surface plot 
 #'to show four-dimensional data.
 #' 
 #' If \code{z.color} is a numeric matrix, then the values represent the average 

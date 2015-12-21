@@ -46,7 +46,7 @@ output from one of the graph creation functions like \code{xyPlot}.}
 The current plot information.
 }
 \description{
-Computes a smooth line from x and y data and adds the line to a graph.
+Adds a smoothed line to a scatter plot.
 }
 \details{
 The value for \code{Smooth} must the name of a smoothing function as a

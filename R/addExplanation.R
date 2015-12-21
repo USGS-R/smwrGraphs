@@ -1,6 +1,6 @@
 #' @title Add Explanation
 #' 
-#' @description Adds an explanation to the current graph or to a new graph.
+#' @description Creates or adds an explanation, also called key or legend.
 #' 
 #' @details The value for \code{where} must be one of "ul," "ur," "ll," "lr," 
 #'"cl," "cr," "uc," "lc,"
@@ -29,6 +29,7 @@
 #' @param margin the margin for a new graph
 #' @param line.length the relative length of lines drawn in the explanation, see
 #'\bold{Details}.
+#' @param line.height the relative spacing of the lines in the explanation.
 #' @return Nothing is returned.
 #' @note The call to \code{addExplanation} should be the last in any sequence of
 #'calls to construct a figure becuase it can alter some graphical parameters.\cr
@@ -64,7 +65,8 @@
 addExplanation <- function(what, where="new", 
 													 title=expression(bold(EXPLANATION)),
 													 box.off=where != "new",
-                           margin=rep(0,4), line.length=2) {
+                           margin=rep(0,4), line.length=2,
+													 line.height=1.1) {
 	# Coding history:
 	#    2008Jun12 DLLorenz Original Coding and start of revisions
 	#    2010Nov30 DLLorenz Modified for R
@@ -331,14 +333,14 @@ addExplanation <- function(what, where="new",
   if(is.null(Border)) # fill with NAs
     Border <- rep(NA, along=what$lines$type)
   Border <- Border[what$lines$type != "n"]
-  Text <- paste("   ", what$text$text, sep="")
-  Text <- Text[what$lines$type != "n"]
+  Text <- what$text$text[what$lines$type != "n"]
+  Text2 <- paste("   ", Text, sep="")
   Etext <- expression()
   for(i in seq(along=Text)) {
-  	if(is.expression(name)) {
-  		Etext[i] <- name # do not destroy an expression
+  	if(is.expression(Text[i])) {
+  		Etext[i] <- Text[i] # do not destroy an expression
   	} else {
-  		Etext[i] <- as.expression(substitute(bold(name), list(name=Text[i])))
+  		Etext[i] <- as.expression(substitute(bold(name), list(name=Text2[i])))
   	}
   }
   Lwd <- what$lines$lwd
@@ -360,8 +362,8 @@ addExplanation <- function(what, where="new",
   					 fill=Fill[Seq], border=Border[Seq],
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
   					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq],
-  					 bg="white", box.lwd=frameWt(), box.col="black", y.intersp=1.1,
-  					 seg.len=line.length)
+  					 bg="white", box.lwd=frameWt(), box.col="black", 
+  					 y.intersp=line.height, seg.len=line.length)
   	} else {
   		## Calculate inset if title is not blank
   		title.blank <- !is.expression(title) && title == ""
@@ -374,8 +376,8 @@ addExplanation <- function(what, where="new",
   		legend(x=pos, legend=Etext[Seq], title=title, bty="n",
   					 fill=Fill[Seq], border=Border[Seq], inset=inset,
   					 pch=Pch[Seq], lty=Lty[Seq], lwd=Lwd[Seq],
-  					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], y.intersp=1.1,
-  					 seg.len=line.length)
+  					 col=Col[Seq], pt.bg=Col[Seq], pt.cex=Pex[Seq], 
+  					 y.intersp=line.height, seg.len=line.length)
   		
   	}
   }

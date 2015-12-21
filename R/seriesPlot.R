@@ -1,7 +1,7 @@
 #' Series Plot
 #' 
-#' Create a plot of a regular series on a seasonal cycle; the annual values for each season
-#' is plotted.
+#' Creates a plot of a regular series on a seasonal cycle; the annual values for each season
+#' are plotted.
 #' 
 #' The argument \code{what} for \code{SeasonLine} must be either "lines" or
 #' "vertical."  See \code{\link{monthplot}} for more information.

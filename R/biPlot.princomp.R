@@ -1,7 +1,7 @@
 #' Biplot
 #' 
-#' Produce a biplot, which is a plot of two different types of data on the same
-#' graph.
+#' Produces a biplot, which is a plot of two different types of data on the same
+#' graph, from a principal component analysis.
 #' 
 #' The scaling between observations and variables is controlled by
 #' \code{Scale}, which can take any value between 0 and 1 or a character string

@@ -1,6 +1,6 @@
 #' Add a Filled Polygon to Graph
 #' 
-#' Adds a filled polygon (area) to a graph
+#' Adds a filled polygon (area) to a graph.
 #' 
 #' If \code{ybase} is NULL, then \code{x} and \code{y} should form a complete
 #' polygon, which can be closed or open. Otherwise, \code{ybase} can be a single

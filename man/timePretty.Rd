@@ -16,7 +16,7 @@ the approximate number of labels, or the actual labels to use.}
 Information about the axis labels.
 }
 \description{
-Construct information for making a a nicely formatted date axis.
+Constructs information for making a nicely formatted date/time axis.
 }
 \seealso{
 \code{\link{timePlot}}

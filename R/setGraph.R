@@ -1,6 +1,6 @@
 #' Set Graph
 #' 
-#' Sets ups page for a specific graph
+#' Sets up a specific graph on a graphics device.
 #' 
 #' 
 #' @param graphNum the number of the graph.

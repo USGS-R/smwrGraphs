@@ -29,7 +29,7 @@ output from one of the graph creation functions like \code{ternaryPlot}.}
 Information about the graph.
 }
 \description{
-Adds points or lines to a Ternary Diagram.
+Adds points or lines to a Ternary diagram.
 }
 \examples{
 \dontrun{

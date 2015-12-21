@@ -53,7 +53,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Produce a graph of the empirical distribution function of data.
+Creates a graph of the empirical distribution function of data.
 }
 \details{
 For linear axes, the range can be set to virtually any pair of values. For

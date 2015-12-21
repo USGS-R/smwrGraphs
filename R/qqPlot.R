@@ -1,6 +1,6 @@
 #' Q-Q Plot
 #' 
-#' Produce a quantile-quantile (q-q) or a q-normal plot.
+#' Creates a quantile-quantile (q-q) or a q-normal plot.
 #' 
 #' The argument \code{what} for either \code{LineRef} or \code{Line1.1} may be
 #' set to "none" to suppress drawing of either line.

@@ -1,6 +1,6 @@
 #' Prepare for surface plot
 #' 
-#' Select the projection for a surface plot.
+#' Selects the projection for a surface plot.
 #' 
 #' @param x the x-axis coordinate data, must be strictyly increasing. Missing values
 #'not permitted. May be of type Date.

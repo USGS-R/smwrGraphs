@@ -1,6 +1,6 @@
 #' Bar Graph
 #' 
-#' Create a bar chart by adding bars to an existing graph.
+#' Creates a bar chart by adding bars to an existing graph.
 #' 
 #' The \code{Bars} argument must be a tagged list with these components:
 #' \describe{ 

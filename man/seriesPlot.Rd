@@ -56,8 +56,8 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Create a plot of a regular series on a seasonal cycle; the annual values for each season
-is plotted.
+Creates a plot of a regular series on a seasonal cycle; the annual values for each season
+are plotted.
 }
 \details{
 The argument \code{what} for \code{SeasonLine} must be either "lines" or

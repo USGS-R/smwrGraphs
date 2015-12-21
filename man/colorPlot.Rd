@@ -85,7 +85,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Produce a line/scatter plot where each point or group of related points has a
+Produces a line/scatter plot where each point or group of related points has a
 unique color or where sections along a line have different colors.
 }
 \details{

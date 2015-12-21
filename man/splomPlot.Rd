@@ -32,7 +32,7 @@ splomPlot(x, layout, Plot = list(name = "", what = "points", type = "solid",
 Information about the graph.
 }
 \description{
-Produce a matrix of scatter plots
+Produces a matrix of scatter plots
 }
 \details{
 \code{Panel} may be a tagged list, with any one of these options:\cr

@@ -1,6 +1,6 @@
 #' Explanation
 #' 
-#' Adds the current plot information to explanation information (support
+#' Adds the current plot information to plot control list (support
 #' function).
 #' 
 #' 

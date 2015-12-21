@@ -1,6 +1,6 @@
 #' Add a Regression Line
 #' 
-#' Computes a simple linear regression from x and y data and adds the line to a graph.
+#' Adds a simple linear regression line to a scatter plot.
 #' 
 #' @details The \code{Model} argument sets up the information to include the regression
 #'model equation on the graphs. Within \code{Model}, \code{x} is the name to use for the

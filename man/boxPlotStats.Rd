@@ -19,7 +19,7 @@ statistics.}
 a list containing the statistics for each box plot.
 }
 \description{
-Compute the statistics for truncated, simple, Tukey, or extended box plots
+Computes the statistics for truncated, simple, Tukey, or extended box plots
 (support function for \code{boxPlot}).
 }
 \seealso{

@@ -22,7 +22,7 @@ addAxisLabels(which, current, title = "", ticks = FALSE, labels = TRUE)
 The current plot information is returned invisibly.
 }
 \description{
-Add axis ticks, labels, and title
+Adds axis ticks, labels, and title to a graph.
 }
 \details{
 The \code{current} argument is generally the output from a high-level

@@ -31,7 +31,7 @@ output from one of the graph creation functions like \code{xyPlot}.}
 A list containing \code{x}, \code{y}, and \code{labels}.
 }
 \description{
-Label points on a graph.
+Labels points on a graph.
 }
 \details{
 The value for \code{dir} can be of length one or the length of \code{x},

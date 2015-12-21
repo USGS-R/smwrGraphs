@@ -1,6 +1,6 @@
 #' Pretty Axis
 #' 
-#' Construct information for making a nicely formatted log-scale numeric axis.
+#' Constructs information for making a nicely formatted log-scale numeric axis.
 #'A support function for creating logarithmic axes. 
 #' 
 #' @param x data defining the range to be plotted on the axis. Missing values

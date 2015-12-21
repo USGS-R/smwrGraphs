@@ -9,7 +9,8 @@ addTitle(Main = "", Heading = "", Justification = "left", Bold = TRUE,
 }
 \arguments{
 \item{Main}{the main text of the title. Can be either a character string or an
-"expression" object.}
+"expression" object. If \code{Main} is an "expression" object, then \code{Heading}
+and \code{Bold} will be ignored.}
 
 \item{Heading}{The title heading, generally a single letter. See
 \bold{Details}}

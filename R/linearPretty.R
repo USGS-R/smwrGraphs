@@ -1,6 +1,6 @@
 #' Pretty Axis
 #' 
-#' Construct information for making a nicely formatted linear numeric axis.
+#' Constructs information for making a nicely formatted linear numeric axis.
 #'A support function for creating linear axes. 
 #' 
 #' 

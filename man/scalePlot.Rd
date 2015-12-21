@@ -51,7 +51,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Produce a graph controling aspect ratio of the x- and y-axes.
+Produces a graph with a fixed aspect ratio for the x- and y-axes.
 }
 \details{
 The \code{scale} argument sets the scaling ratio of the y-axis to the

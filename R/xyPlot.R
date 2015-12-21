@@ -1,6 +1,6 @@
 #' Plot Data
 #' 
-#' Create a line or scatter plot.
+#' Creates a line/scatter plot.
 #' 
 #' Setting \code{ylabels} or \code{xlabels} to 0 or negtive values will 
 #'suppress ticks and labels. If negative, then try to create that absolute value
@@ -240,6 +240,8 @@ function(x, y, # data
   top <- margin.control$top
   left <- margin.control$left
   bot <- margin.control$bot
+  if(xlabels.rotate)
+  	bot$angle <- 90 # Use this logic
   ## Continue with x-axis
   xax <- namePretty(parnames, orientation="grid", offset=1)
   bot$ticks <- top$ticks <- FALSE

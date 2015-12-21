@@ -24,7 +24,7 @@ or \code{finerid} (between ticks).}
 NULL is returned invisibly.
 }
 \description{
-Add grid lines to a graph.
+Adds grid lines to a graph.
 }
 \details{
 Information about grid lines is contained in the information returned from

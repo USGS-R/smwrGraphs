@@ -47,7 +47,7 @@ all NA or the output from \code{setGraph} if appropriate.}
 Information about the graph.
 }
 \description{
-Create a correlogram for irregularly spaced data
+Creates a correlogram for irregularly spaced data.
 }
 \details{
 \code{CorGram} is a list with these components:

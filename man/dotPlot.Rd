@@ -72,7 +72,7 @@ no adjustment is made.}
 Information about the graph.
 }
 \description{
-Construct a dot plot.
+Creates a dot plot.
 }
 \details{
 The \code{what} component of the \code{Plot} argument must be either

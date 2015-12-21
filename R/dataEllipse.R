@@ -1,6 +1,6 @@
 #' Construct an Ellipse
 #' 
-#' Construct an ellipse from x- and y-coordinate data.
+#' Constructs an ellipse from x- and y-coordinate data.
 #' 
 #' 
 #' @param x the x-coordinate data.

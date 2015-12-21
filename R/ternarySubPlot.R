@@ -1,6 +1,6 @@
 #' Piper Diagram
 #' 
-#' Produce a trilinear diagram for the Piper Diagram (support function).
+#' Plots the trilinear diagram in the Piper diagram (support function).
 #' 
 #' Support function, to be called only from \code{piperPlot}.
 #' 

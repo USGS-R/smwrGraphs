@@ -1,6 +1,6 @@
 #' Dot Plot
 #' 
-#' Construct a dot plot.
+#' Creates a dot plot.
 #' 
 #' The \code{what} component of the \code{Plot} argument must be either
 #' "points" or "none."

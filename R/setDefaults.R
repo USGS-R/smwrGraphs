@@ -1,6 +1,6 @@
 #' Default Values
 #' 
-#' Sets the default values for control arguments (support function).
+#' Sets the default values for plot control lists (support function).
 #' 
 #' 
 #' @param current the control parameters specified in the call to the
