@@ -143,8 +143,8 @@ contourPlot.default <- function(z, x, y, # data specs
   zo <- interp(xs, ys, z, xo=xo, yo=yo, linear=Grid$linear,
                extrap=Grid$extrapolate)$z
   ## Scale xo and y back to real-world units
-  xo <- scaleRng(xo, Min=xrng[1], Max=xrng[2], x.range=c(0,10))
-  yo <- scaleRng(yo, Min=yrng[1], Max=yrng[2], x.range=c(0,10))
+  xo <- as.vector(scaleRng(xo, Min=xrng[1], Max=xrng[2], x.range=c(0,10)))
+  yo <- as.vector(scaleRng(yo, Min=yrng[1], Max=yrng[2], x.range=c(0,10)))
   # Convert Date like x to Date
   if(class(x) == "Date")
     xo <- as.Date(xo, origin=as.Date("1970-01-01"))
