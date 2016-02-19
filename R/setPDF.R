@@ -9,7 +9,12 @@ setPDF <- function(layout="portrait", basename="USGS", multiplefiles=FALSE) {
   if(class(layout) == "list") { # custom
     width <- layout$wid
     height <- layout$hei
-    fin <- c(width, height) - .1
+    if("fin" %in% names(layout)){
+      fin <- layout$fin
+    } else {
+      fin <- c(width, height) - .1
+    }
+    
   }
   else {
     layout=match.arg(layout, c("portrait", "landscape"))
