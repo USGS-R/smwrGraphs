@@ -16,8 +16,8 @@ Installation
 
 ```R
 install.packages("smwrGraphs", 
-    repos=c("http://owi.usgs.gov/R",
-    "http://cran.us.r-project.org"), 
+    repos=c("https://owi.usgs.gov/R",
+    "https://cloud.r-project.org"), 
     dependencies = TRUE)
 ```
 
