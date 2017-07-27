@@ -1,9 +1,10 @@
 Package: smwrGraphs
-Version: 1.1.2
-Date: 2016-02-18
+Version: 1.1.3
+Date: 2017-07-27
 Title: Graphing Functions
-Author: Dave Lorenz <lorenz@usgs.gov>.
-Maintainer: Dave Lorenz <lorenz@usgs.gov>
+Authors@R: c( person("Dave", "Lorenz", role = "aut"),
+    person("Laura", "DeCicco", role = c("cre"),
+    email = "ldecicco@usgs.gov"))
 Depends:
     smwrBase (>= 1.0.0),
     methods
@@ -20,7 +21,9 @@ Suggests:
 Description: Functions to create high-quality graphs to support statistical
     methods in water resources. These graphs meet or nearly meet the
     publication standards of the U.S. Geological Survey.
+BugReports: https://github.com/USGS-R/smwrGraphs/issues
+URL: https://pubs.er.usgs.gov/publication/ofr20161188
 License: CC0
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
