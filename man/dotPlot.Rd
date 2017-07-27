@@ -3,8 +3,10 @@
 \docType{methods}
 \name{dotPlot}
 \alias{dotPlot}
+\alias{dotPlot,numeric-method}
 \alias{dotPlot,Date-method}
 \alias{dotPlot,numeric-method}
+\alias{dotPlot,Date-method}
 \title{Dot Plot}
 \usage{
 dotPlot(x, y, Plot = list(), yaxis.orient = "", yaxis.order = "",
@@ -96,6 +98,7 @@ x-coordinate data and any (discrete) y-coordinate data. }
 \item{signature(x = "Date"))}{ Create a dot plot for Date
 x-coordinate data and any (discrete) y-coordinate data. } }
 }
+
 \examples{
 \dontrun{
 set.seed(1)
@@ -112,4 +115,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 }
 \keyword{hplot}
 \keyword{methods}
-

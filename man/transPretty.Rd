@@ -36,4 +36,3 @@ Constructs information for making a nicely formatted numeric axis.
 \code{\link{transPlot}}
 }
 \keyword{dplot}
-

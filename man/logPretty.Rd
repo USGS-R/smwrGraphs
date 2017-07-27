@@ -45,4 +45,3 @@ A support function for creating logarithmic axes.
 \code{\link{xyPlot}}
 }
 \keyword{dplot}
-

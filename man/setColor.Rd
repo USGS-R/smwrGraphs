@@ -27,4 +27,3 @@ demo(topic="PiperScript", package="smwrGraphs")
 \code{\link[grDevices]{colors}}, \code{\link[grDevices]{rainbow}}
 }
 \keyword{dplot}
-

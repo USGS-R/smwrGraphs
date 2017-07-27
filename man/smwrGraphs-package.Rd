@@ -2,8 +2,8 @@
 % Please edit documentation in R/smwrGraphs-package.R
 \docType{package}
 \name{smwrGraphs-package}
-\alias{smwrGraphs}
 \alias{smwrGraphs-package}
+\alias{smwrGraphs}
 \title{Graphing Functions}
 \description{
 Functions to create high-quality graphs.\cr These graphs meet or nearly meet
@@ -130,14 +130,13 @@ vignette(package="smwrGraphs")
 options(.pager)
 
 }
-\author{
-Dave Lorenz <lorenz@usgs.gov>
-}
 \references{
 Lorenz, D.L. in preparation, smwrGraphs---an R package for
 graphing hydrologic data, version 1.1.0.\cr
 U.S. Geological Survey, 2012, Author\verb{'}s guide to standards for U.S. 
 Geological Survey page-size illustrations, 37 p.
 }
+\author{
+Dave Lorenz <lorenz@usgs.gov>
+}
 \keyword{package}
-

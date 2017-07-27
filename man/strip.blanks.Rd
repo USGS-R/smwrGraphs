@@ -25,4 +25,3 @@ strip.blanks("   keep me   ")
 \code{link[base]{sub}}
 }
 \keyword{manip}
-

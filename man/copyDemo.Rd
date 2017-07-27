@@ -30,4 +30,3 @@ Copies a demo file from the source package to a file.
 \code{\link[utils]{demo}}
 }
 \keyword{utilities}
-

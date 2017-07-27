@@ -78,4 +78,3 @@ Lorenz D.L., 2015, smwrGraphs
 \code{\link{piperPlot}}, \code{\link{addTernary}}
 }
 \keyword{hplot}
-

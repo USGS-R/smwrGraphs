@@ -23,4 +23,3 @@ The layout of graphs is displayed.
 \seealso{
 \code{\link{setLayout}}, \code{\link{setGraph}}
 }
-

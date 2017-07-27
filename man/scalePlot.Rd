@@ -83,4 +83,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 \code{\link{setPage}}, \code{\link{xyPlot}}
 }
 \keyword{hplot}
-

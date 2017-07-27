@@ -26,4 +26,3 @@ Computes the statistics for truncated, simple, Tukey, or extended box plots
 \code{\link{boxPlot}}
 }
 \keyword{dplot}
-

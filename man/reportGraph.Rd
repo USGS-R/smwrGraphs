@@ -39,4 +39,3 @@ reportGraph("Hello world!")
 vignette(topic="GraphGallery", package="smwrGraphs")
 }
 }
-

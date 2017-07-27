@@ -3,6 +3,7 @@
 \name{qqPlot}
 \alias{qqPlot}
 \alias{qqPlot.default}
+\alias{qqPlot.default}
 \title{Q-Q Plot}
 \usage{
 qqPlot(x, y, alpha = 0.4, Plot = list(name = "Paired data quantiles", what =
@@ -101,4 +102,3 @@ vignette(topic="ProbabilityPlots", package="smwrGraphs")
 \code{\link{probPlot}}
 }
 \keyword{hplot}
-

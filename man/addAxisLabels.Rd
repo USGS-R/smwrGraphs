@@ -54,4 +54,3 @@ vignette(topic="GraphSetup", package="smwrGraphs")
 \code{\link{datePretty}}, \code{\link{transPretty}}, \code{\link{addLabel}}
 }
 \keyword{aplot}
-

@@ -54,4 +54,3 @@ demo(topic="DurationHydrograph", package="smwrGraphs")
 \code{\link{areaPlot}}, \code{\link{addXY}}, \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

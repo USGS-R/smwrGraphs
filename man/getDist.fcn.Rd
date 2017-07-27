@@ -36,4 +36,3 @@ contain distribution functions have been loaded.
 \code{\link{PearsonIII}}, \code{\link{LogPearsonIII}},
 }
 \keyword{dplot}
-

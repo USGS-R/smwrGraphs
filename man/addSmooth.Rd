@@ -4,6 +4,8 @@
 \alias{addSmooth}
 \alias{addSmooth.default}
 \alias{addSmooth.list}
+\alias{addSmooth.default}
+\alias{addSmooth.list}
 \title{Add a Smooth Line}
 \usage{
 addSmooth(x, y, Smooth = "loess.smooth", ..., Smooth.along = "x",
@@ -30,6 +32,8 @@ Missing values are permitted and ignored in the smooth.}
 
 \item{Smooth}{the name of the smoothing function. See \bold{Details}.}
 
+\item{\dots}{additional parameters for the function names in \code{Smooth}.}
+
 \item{Smooth.along}{the data along which the smoother is run. Must be either "x,"
 which smooths \code{y} along \code{x} resulting in a horzontal line, or "y,"
 which smooths \code{x} along \code{y} resulting in a vertical line.}
@@ -39,8 +43,6 @@ which smooths \code{x} along \code{y} resulting in a vertical line.}
 
 \item{current}{the current plot information. Typically, this would be the
 output from one of the graph creation functions like \code{xyPlot}.}
-
-\item{\dots}{additional parameters for the function names in \code{Smooth}.}
 }
 \value{
 The current plot information.
@@ -76,4 +78,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link{addXY}}, \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

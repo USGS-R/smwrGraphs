@@ -163,4 +163,3 @@ demo(topic="PiperScript", package="smwrGraphs")
 \code{\link{addTitle}}
 }
 \keyword{dplot}
-

@@ -61,4 +61,3 @@ Hydrology Committee Bulletin 17B, Washington D.C., 190 p., 1 plate.
 \code{\link{addSLR}}, \code{\link{qqPlot}}, \code{\link{addErrorBars}}
 }
 \keyword{aplot}
-

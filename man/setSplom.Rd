@@ -73,4 +73,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 \code{\link{setLayout}}
 }
 \keyword{dplot}
-

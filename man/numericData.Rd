@@ -19,4 +19,3 @@ Numeric data represented by \code{x}.
 Converts data to numeric values (support function).
 }
 \keyword{dplot}
-

@@ -22,4 +22,3 @@ Constructs information for making a nicely formatted date/time axis.
 \code{\link{timePlot}}
 }
 \keyword{dplot}
-

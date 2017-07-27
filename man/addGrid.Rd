@@ -54,4 +54,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link{xyPlot}}, \code{\link{timePlot}}, \code{\link{addXY}}
 }
 \keyword{aplot}
-

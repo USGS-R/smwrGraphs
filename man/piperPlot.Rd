@@ -103,4 +103,3 @@ characteristics of natural water: U.S. Geological Survey Water-Supply Paper
 \code{\link{ternaryPlot}}, \code{\link{addPiper}}
 }
 \keyword{hplot}
-

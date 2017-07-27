@@ -84,4 +84,3 @@ demo(topic="RightAxisExample", package="smwrGraphs")
 }
 }
 \keyword{aplot}
-

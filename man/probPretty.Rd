@@ -47,4 +47,3 @@ A support function for creating probability axes.
 \code{\link{probPlot}}
 }
 \keyword{dplot}
-

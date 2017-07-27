@@ -3,9 +3,11 @@
 \docType{methods}
 \name{xyPlot}
 \alias{xyPlot}
-\alias{xyPlot,character,numeric-method}
+\alias{xyPlot,numeric,numeric-method}
 \alias{xyPlot,factor,numeric-method}
 \alias{xyPlot,numeric,numeric-method}
+\alias{xyPlot,factor,numeric-method}
+\alias{xyPlot,character,numeric-method}
 \title{Plot Data}
 \usage{
 xyPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
@@ -107,6 +109,7 @@ dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
 dot plot. Also useful for setting up a bar chart for discrete x-axis values. }
 }
 }
+
 \examples{
 \dontrun{
 set.seed(1)
@@ -129,4 +132,3 @@ demo(topic="TopAxisExample", package="smwrGraphs")
 }
 \keyword{hplot}
 \keyword{methods}
-

@@ -33,4 +33,3 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 \code{\link{biPlot.princomp}}
 }
 \keyword{hplot}
-

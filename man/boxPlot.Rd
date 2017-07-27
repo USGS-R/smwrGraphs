@@ -2,9 +2,12 @@
 % Please edit documentation in R/boxPlot.R
 \name{boxPlot}
 \alias{boxPlot}
-\alias{boxPlot.data.frame}
 \alias{boxPlot.list}
+\alias{boxPlot.data.frame}
 \alias{boxPlot.numeric}
+\alias{boxPlot.numeric}
+\alias{boxPlot.list}
+\alias{boxPlot.data.frame}
 \title{Box Plot}
 \usage{
 boxPlot(..., group = NULL, Box = list(type = "truncated", show.counts =
@@ -32,6 +35,9 @@ boxPlot(..., group = NULL, Box = list(type = "truncated", show.counts =
   xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA, NA))
 }
 \arguments{
+\item{\dots}{the data to plot. Missing values are permitted and excluded from
+the summary statistics computations.}
+
 \item{group}{any vector containing distinct values to create groups of data for
 individual box plots. Missing values are not permitted. Valid only when a single
 numeric vector is supplied for \code{\dots}.}
@@ -60,9 +66,6 @@ vector of the x-axis labels.}
 
 \item{margin}{set the plot area margins, in units of lines of text. Generally
 all NA or the output from \code{setGraph} if appropriate.}
-
-\item{\dots}{the data to plot. Missing values are permitted and excluded from
-the summary statistics computations.}
 }
 \value{
 Information about the graph.
@@ -128,4 +131,3 @@ Investigations, book 4, chap. A3, 522 p.
 \code{\link{setPage}}, \code{\link{dotPlot}}
 }
 \keyword{hplot}
-

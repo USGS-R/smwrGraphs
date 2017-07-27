@@ -29,4 +29,3 @@ Sets the margins for the plot area (support function).
 \code{\link{setLayout}}
 }
 \keyword{dplot}
-

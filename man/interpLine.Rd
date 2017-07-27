@@ -48,4 +48,3 @@ demo(topic="FlowDur-Measurements", package="smwrGraphs")
 \code{\link{transPlot}}
 }
 \keyword{dplot}
-

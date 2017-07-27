@@ -2,9 +2,11 @@
 % Please edit documentation in R/renderPretty.R
 \name{renderPretty}
 \alias{renderPretty}
+\alias{ticks.render}
 \alias{renderX}
 \alias{renderY}
-\alias{ticks.render}
+\alias{renderY}
+\alias{renderX}
 \title{Label Axes}
 \usage{
 ticks.render(arg1, side, lwd)
@@ -52,4 +54,3 @@ Nothing is returned.
 Draws ticks, labels, or grids for an axis (support functions).
 }
 \keyword{aplot}
-

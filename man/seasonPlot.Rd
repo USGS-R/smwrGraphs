@@ -5,6 +5,8 @@
 \alias{seasonPlot}
 \alias{seasonPlot,ANY,numeric-method}
 \alias{seasonPlot,character,numeric-method}
+\alias{seasonPlot,ANY,numeric-method}
+\alias{seasonPlot,character,numeric-method}
 \title{Season Plot}
 \usage{
 seasonPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
@@ -91,6 +93,7 @@ plot for any valid date data and numeric y data. }
 seasonal plot for date data in the form of month and day, like "Jan 01" or
 "Jaunary 01." Typically used to plot daily mean values. } }
 }
+
 \examples{
 \dontrun{
 # the months function is in lubridate
@@ -109,4 +112,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 }
 \keyword{hplot}
 \keyword{methods}
-

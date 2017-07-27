@@ -56,4 +56,3 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 \code{\link{setPage}}, \code{\link{probPlot}}
 }
 \keyword{hplot}
-

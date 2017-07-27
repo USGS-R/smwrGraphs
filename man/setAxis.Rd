@@ -29,4 +29,3 @@ Sets up axis information (support function).
 \code{\link{linearPretty}}, \code{\link{logPretty}}
 }
 \keyword{dplot}
-

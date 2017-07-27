@@ -69,4 +69,3 @@ of easily distinguished colors.
 explanation.
 }
 \keyword{dplot}
-

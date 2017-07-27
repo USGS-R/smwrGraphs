@@ -73,4 +73,3 @@ using the \code{addBars} function and setting the bar width to 0.
 \code{\link{addBars}}
 }
 \keyword{hplot}
-

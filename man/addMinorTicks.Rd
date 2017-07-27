@@ -56,4 +56,3 @@ vignette(topic="DateAxisFormats", package="smwrGraphs")
 \code{\link{addLabel}}
 }
 \keyword{aplot}
-

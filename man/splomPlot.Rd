@@ -59,4 +59,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 \code{\link{setPage}}, \code{\link{setSplom}}
 }
 \keyword{hplot}
-

@@ -97,4 +97,3 @@ Hobart Press, 360 p.
 \code{\link{setPDF}}, \code{\link{unique}}
 }
 \keyword{hplot}
-

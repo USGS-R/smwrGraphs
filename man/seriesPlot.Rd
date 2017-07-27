@@ -3,6 +3,7 @@
 \name{seriesPlot}
 \alias{seriesPlot}
 \alias{seriesPlot.default}
+\alias{seriesPlot.default}
 \title{Series Plot}
 \usage{
 seriesPlot(x, SeasonLine = list(name = "", what = "vertical", color =
@@ -92,4 +93,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 \code{\link{monthplot}}
 }
 \keyword{hplot}
-
