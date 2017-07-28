@@ -20,4 +20,3 @@ The control parameters with defaults substituted for missing names.
 Sets the default values for plot control lists (support function).
 }
 \keyword{dplot}
-

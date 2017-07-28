@@ -73,4 +73,3 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 \code{\link[graphics]{persp}}
 }
 \keyword{hplot}
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/smwrGraphs-package.R
 \docType{package}
 \name{smwrGraphs-package}
-\alias{smwrGraphs}
 \alias{smwrGraphs-package}
+\alias{smwrGraphs}
 \title{Graphing Functions}
 \description{
 Functions to create high-quality graphs.\cr These graphs meet or nearly meet
@@ -17,8 +17,6 @@ functions so the user does not need to manage graphical information.
 \tabular{ll}{ 
 Package: \tab smwrGraphs\cr 
 Type: \tab Package\cr 
-Version: \tab 1.1.1\cr 
-Date: \tab 2015-12-21\cr 
 License: \tab CC0\cr 
 Depends: \tab smwrBase (>= 1.0.0), methods\cr 
 Imports: \tab KernSmooth, akima, lubridate\cr
@@ -130,14 +128,14 @@ vignette(package="smwrGraphs")
 options(.pager)
 
 }
-\author{
-Dave Lorenz <lorenz@usgs.gov>
-}
 \references{
-Lorenz, D.L. in preparation, smwrGraphs---an R package for
-graphing hydrologic data, version 1.1.0.\cr
+Lorenz, D.L., Diekoff, A.L, smwrGraphs---an R package for
+graphing hydrologic data, version 1.1.2.\cr
 U.S. Geological Survey, 2012, Author\verb{'}s guide to standards for U.S. 
 Geological Survey page-size illustrations, 37 p.
+\url{https://pubs.er.usgs.gov/publication/ofr20161188}
+}
+\author{
+Dave Lorenz
 }
 \keyword{package}
-

@@ -4,6 +4,8 @@
 \alias{contourPlot}
 \alias{contourPlot.default}
 \alias{contourPlot.matrix}
+\alias{contourPlot.default}
+\alias{contourPlot.matrix}
 \title{Contour Plot}
 \usage{
 contourPlot(z, ...)
@@ -27,6 +29,8 @@ contourPlot(z, ...)
 }
 \arguments{
 \item{z}{the values representing the surface data.}
+
+\item{\dots}{not used, required for other methods.}
 
 \item{x}{the x-axis coordinates for each value in \code{z}.}
 
@@ -60,8 +64,6 @@ all NA or the output from \code{setGraph} if appropriate.}
 
 \item{matrix.rows}{a single character, either "x" or "y" indicating whether the rows in z should be 
 plotted along the x or y axis.}
-
-\item{\dots}{not used, required for other methods.}
 }
 \value{
 Information about the graph.
@@ -127,4 +129,3 @@ contourPlot(Zbig, Xbig, Ybig)
 vignette(topic="GraphGallery", package="smwrGraphs")
 }
 }
-

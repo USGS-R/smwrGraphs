@@ -70,4 +70,3 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 \seealso{
 \code{\link{surfacePlot}}
 }
-

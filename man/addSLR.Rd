@@ -4,6 +4,8 @@
 \alias{addSLR}
 \alias{addSLR.default}
 \alias{addSLR.list}
+\alias{addSLR.default}
+\alias{addSLR.list}
 \title{Add a Regression Line}
 \usage{
 addSLR(x, y, Plot = list(name = "", what = "lines", type = "solid", width =
@@ -74,4 +76,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link{addXY}}, \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

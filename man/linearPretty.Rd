@@ -50,4 +50,3 @@ A support function for creating linear axes.
 \code{\link{xyPlot}}
 }
 \keyword{dplot}
-

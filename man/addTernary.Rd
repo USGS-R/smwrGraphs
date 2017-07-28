@@ -41,4 +41,3 @@ vignette(topic="PiperPlot", package="smwrGraphs")
 \code{\link{ternaryPlot}}
 }
 \keyword{aplot}
-

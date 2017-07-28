@@ -80,4 +80,3 @@ demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 \code{\link[smwrBase]{group2row}}
 }
 \keyword{aplot}
-

@@ -68,4 +68,3 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

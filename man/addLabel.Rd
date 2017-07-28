@@ -65,4 +65,3 @@ demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 for example expressions,
 }
 \keyword{aplot}
-

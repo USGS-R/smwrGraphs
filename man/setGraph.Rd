@@ -39,4 +39,3 @@ demo(topic="PiperScript", package="smwrGraphs")
 \code{\link{setLayout}}
 }
 \keyword{dplot}
-

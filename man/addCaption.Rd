@@ -32,4 +32,3 @@ demo(topic="AnnualFlowBarChart", package="smwrGraphs")
 }
 }
 \keyword{aplot}
-

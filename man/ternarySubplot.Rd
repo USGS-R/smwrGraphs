@@ -59,4 +59,3 @@ Support function, to be called only from \code{piperPlot}.
 \code{\link{piperPlot}}
 }
 \keyword{aplot}
-

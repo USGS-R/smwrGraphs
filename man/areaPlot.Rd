@@ -81,4 +81,3 @@ vignette(topic="GraphGallery", package="smwrGraphs")
 \code{\link{addArea}}, \code{\link{smwr.colors}}, 
 \code{\link[grDevices]{heat.colors}}
 }
-

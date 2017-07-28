@@ -56,4 +56,3 @@ demo(topic="TopAxisExample", package="smwrGraphs")
 \code{\link{addXY}}
 }
 \keyword{dplot}
-

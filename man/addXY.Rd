@@ -5,6 +5,8 @@
 \alias{addXY}
 \alias{addXY,ANY,numeric-method}
 \alias{addXY,numeric,character-method}
+\alias{addXY,ANY,numeric-method}
+\alias{addXY,numeric,character-method}
 \title{Add a plot to a graph}
 \usage{
 addXY(x, y, ...)
@@ -64,6 +66,7 @@ Adds points or lines to the current graph.
 the right-axis arguments are not valid.}
 }
 }
+
 \examples{
 \dontrun{
 set.seed(1)
@@ -86,4 +89,3 @@ demo(topic="TopAxisExample", package="smwrGraphs")
 }
 \keyword{aplot}
 \keyword{methods}
-

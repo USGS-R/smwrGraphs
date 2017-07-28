@@ -144,7 +144,7 @@ graphics.off()
 The previous section showed some simple ways to modify axis labels. The user has a great deal
 of control over axis labels by using the arguments to \texttt{linearPretty} for linear axes,
 \texttt{logPretty} for log axes, \texttt{datePretty} for date axes, and \texttt{probPretty} for
-probability axes. For all label arguments as list, the \texttt{labels} argument must be supplied.
+probability axes. For all label arguments as list, the \texttt{labels} argument must be supplied. The example below produces axis labels in scientific notation, to change from default axis labeled in scientific notation to numeric, simply specify "numeric" for the \texttt{style} component in the list for \texttt{ylabels} or \texttt{xlabels}.
 
 <<echo=TRUE>>=
 # Set up the graphics environment, the equivalent call for an on screen

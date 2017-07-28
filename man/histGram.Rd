@@ -3,6 +3,7 @@
 \name{histGram}
 \alias{histGram}
 \alias{histGram.default}
+\alias{histGram.default}
 \title{Histogram}
 \usage{
 histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA, NA),
@@ -88,4 +89,3 @@ chap. A3, 522 p.
 \code{\link{ecdfPlot}}
 }
 \keyword{hplot}
-

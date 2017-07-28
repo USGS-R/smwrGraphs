@@ -3,6 +3,7 @@
 \name{ecdfPlot}
 \alias{ecdfPlot}
 \alias{ecdfPlot.default}
+\alias{ecdfPlot.default}
 \title{Empirical Distribution Plot}
 \usage{
 ecdfPlot(x, group = NULL, Plot = list(name = "Auto", what = "stairstep",
@@ -80,4 +81,3 @@ vignette(topic="ProbabilityPlots", package="smwrGraphs")
 \code{\link{setPage}}, \code{\link{probPlot}}
 }
 \keyword{hplot}
-

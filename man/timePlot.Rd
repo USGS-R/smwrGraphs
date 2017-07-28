@@ -5,9 +5,14 @@
 \alias{timePlot}
 \alias{timePlot,Date,numeric-method}
 \alias{timePlot,POSIXt,numeric-method}
-\alias{timePlot,difftime,numeric-method}
-\alias{timePlot,integer,numeric-method}
 \alias{timePlot,numeric,numeric-method}
+\alias{timePlot,integer,numeric-method}
+\alias{timePlot,difftime,numeric-method}
+\alias{timePlot,Date,numeric-method}
+\alias{timePlot,POSIXt,numeric-method}
+\alias{timePlot,numeric,numeric-method}
+\alias{timePlot,integer,numeric-method}
+\alias{timePlot,difftime,numeric-method}
 \title{Time-series Plots}
 \usage{
 timePlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
@@ -141,6 +146,7 @@ time-series plot for annual summaries of numeric data. }
 \item{signature(x = "difftime", y = "numeric")}{ Create a
 time-series plot for difftime and numeric data. } }
 }
+
 \examples{
 \dontrun{
 # the months function is in lubridate
@@ -163,4 +169,3 @@ demo(topic="RightAxisExample", package="smwrGraphs")
 }
 \keyword{hplot}
 \keyword{methods}
-

@@ -52,4 +52,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link{addExplanation}}, \code{\link{addAnnotation}}
 }
 \keyword{aplot}
-

@@ -31,4 +31,3 @@ lapply(TMP, zapsmall)
 \code{\link{dataEllipse}}
 }
 \keyword{dplot}
-

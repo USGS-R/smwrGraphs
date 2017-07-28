@@ -28,4 +28,3 @@ Transforms numeric data to match any axis scaling (support function).
 \code{\link{transPlot}}, \code{\link{probPlot}}
 }
 \keyword{dplot}
-

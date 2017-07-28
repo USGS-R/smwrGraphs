@@ -44,4 +44,3 @@ function).
 \code{\link{setPlot}}
 }
 \keyword{dplot}
-

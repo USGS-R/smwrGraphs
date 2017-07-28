@@ -79,4 +79,3 @@ demo(topic="MeasurementRating", package="smwrGraphs")
 \code{\link{setPage}}, \code{\link{transPretty}}
 }
 \keyword{hplot}
-

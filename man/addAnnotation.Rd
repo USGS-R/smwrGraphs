@@ -68,4 +68,3 @@ demo(topic="TopAxisExample", package="smwrGraphs")
 \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

@@ -38,4 +38,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link{cov2Ellipse}}, \code{\link{hull}}
 }
 \keyword{dplot}
-

@@ -64,4 +64,3 @@ vignette(topic="PiperPlot", package="smwrGraphs")
 \code{\link{piperPlot}}
 }
 \keyword{aplot}
-

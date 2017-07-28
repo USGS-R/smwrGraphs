@@ -56,4 +56,3 @@ demo(topic="Coplot-complexScatterPlot", package="smwrGraphs")
 \code{\link{addXY}}, \code{\link{addSmooth}}, \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

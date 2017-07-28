@@ -3,6 +3,7 @@
 \name{probPlot}
 \alias{probPlot}
 \alias{probPlot.default}
+\alias{probPlot.default}
 \title{Probability Plot}
 \usage{
 probPlot(x, truncate = NA, FLIP = FALSE, distribution = "normal",
@@ -117,4 +118,3 @@ demo(topic="FlowDur-Measurements", package="smwrGraphs")
 \code{\link{setPage}}, \code{\link{ecdfPlot}}, \code{\link{qqPlot}}
 }
 \keyword{hplot}
-

@@ -54,4 +54,3 @@ vignette(topic="GraphSetup", package="smwrGraphs")
 \code{\link{addTable}}
 }
 \keyword{aplot}
-

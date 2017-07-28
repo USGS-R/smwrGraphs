@@ -43,4 +43,3 @@ A support function for creating discrete axes.
 \code{\link{dotPlot}}
 }
 \keyword{dplot}
-

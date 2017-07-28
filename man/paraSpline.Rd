@@ -25,4 +25,3 @@ are not required to be strictly increasing. Used as a support function.
 paraSpline(c(1,2,3), c(0,1,0), n=5)
 }
 \keyword{dplot}
-

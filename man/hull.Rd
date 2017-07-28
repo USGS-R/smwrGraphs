@@ -39,4 +39,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link[grDevices]{chull}}
 }
 \keyword{dplot}
-

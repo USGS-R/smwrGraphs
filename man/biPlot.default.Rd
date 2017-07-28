@@ -95,4 +95,3 @@ environment before calling \code{biPlot}.
 \code{\link{setPage}}, \code{\link{biPlot}}
 }
 \keyword{hplot}
-

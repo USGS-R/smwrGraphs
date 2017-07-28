@@ -3,9 +3,12 @@
 \docType{methods}
 \name{colorPlot}
 \alias{colorPlot}
+\alias{colorPlot,numeric,numeric-method}
 \alias{colorPlot,Date,numeric-method}
 \alias{colorPlot,POSIXt,numeric-method}
 \alias{colorPlot,numeric,numeric-method}
+\alias{colorPlot,Date,numeric-method}
+\alias{colorPlot,POSIXt,numeric-method}
 \title{Plot Data}
 \usage{
 colorPlot(x, y, color, Plot = list(), yaxis.log = FALSE,
@@ -109,6 +112,7 @@ where the line is colored by a third variable, or a colored scatter plot over ti
 where the line is colored by a third variable, or a colored scatter plot over time. }
  }
 }
+
 \examples{
 \dontrun{
 set.seed(1)
@@ -127,4 +131,3 @@ vignette(topic="LineScatter", package="smwrGraphs")
 }
 \keyword{hplot}
 \keyword{methods}
-

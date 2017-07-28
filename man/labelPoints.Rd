@@ -66,4 +66,3 @@ vignette(topic="GraphAdditions", package="smwrGraphs")
 \code{\link{addAnnotation}},, \code{\link{xyPlot}}
 }
 \keyword{aplot}
-

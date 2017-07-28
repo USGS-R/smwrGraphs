@@ -51,4 +51,3 @@ time from 1 to 5 water years in length; also sets the date range to water years.
 \code{\link{timePlot}}, \code{\link{month.USGS}}, \code{\link{timePretty}}
 }
 \keyword{dplot}
-
