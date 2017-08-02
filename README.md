@@ -29,7 +29,11 @@ Follow `@USGS_R` on Twitter for updates on USGS R packages:
 
 We want to encourage a warm, welcoming, and safe environment for contributing to this project. See the [code of conduct](https://github.com/USGS-R/smwrGraphs/blob/master/CONDUCT.md) for more information.
 
+### Package Support
 
+The Water Mission Area of the USGS supports the maintenance of `smwrGraphs` through September 2018. Resources are available primarily for maintenance. New features and development are not currently supported.
+
+![USGS](http://usgs-r.github.io/images/usgs.png)
 
 ## Package Installation
 
