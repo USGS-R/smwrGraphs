@@ -1,5 +1,5 @@
 Package: smwrGraphs
-Version: 1.1.3
+Version: 1.1.4
 Date: 2017-07-27
 Title: Graphing Functions
 Authors@R: c( person("Dave", "Lorenz", role = "aut"),
