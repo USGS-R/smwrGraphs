@@ -33,7 +33,7 @@ We want to encourage a warm, welcoming, and safe environment for contributing to
 
 The Water Mission Area of the USGS supports the maintenance of `smwrGraphs` through September 2018. Resources are available primarily for maintenance. New features and development are not currently supported.
 
-![USGS](http://usgs-r.github.io/images/usgs.png)
+[![USGS](http://usgs-r.github.io/images/usgs.png)](https://www.usgs.gov/)
 
 ## Package Installation
 
