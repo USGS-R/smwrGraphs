@@ -61,7 +61,7 @@ labelPoints <- function(x, y, labels, # data
   x <- transData(x, current$xaxis.log, FALSE,
                    current$xtrans, current$xtarg)
   ## get the expansion factor for font size
-  Cex <- (size / 72) / par('csi')[2]
+  Cex <- (size / 72) / par('csi')
   ## get the size of the font in usr units
   cxy <- par('cxy')
   ## Because of the placement of letters relative to the character size,
