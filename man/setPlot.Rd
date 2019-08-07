@@ -5,8 +5,8 @@
 \title{Plot Parameters}
 \usage{
 setPlot(current, name = "", what = "lines", type = "solid",
-  width = "standard", symbol = "circle", filled = TRUE, size = 0.09,
-  color = "black", area.color = NA, area.border = NA)
+  width = "standard", symbol = "circle", filled = TRUE,
+  size = 0.09, color = "black", area.color = NA, area.border = NA)
 }
 \arguments{
 \item{current}{list containing the current plot information or those requested

@@ -4,24 +4,22 @@
 \alias{addSmooth}
 \alias{addSmooth.default}
 \alias{addSmooth.list}
-\alias{addSmooth.default}
-\alias{addSmooth.list}
 \title{Add a Smooth Line}
 \usage{
 addSmooth(x, y, Smooth = "loess.smooth", ..., Smooth.along = "x",
-  Plot = list(name = "", what = "lines", type = "solid", width = "standard",
-  color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE))
+  Plot = list(name = "", what = "lines", type = "solid", width =
+  "standard", color = "black"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE))
 
 \method{addSmooth}{default}(x, y, Smooth = "loess.smooth", ...,
-  Smooth.along = "x", Plot = list(name = "", what = "lines", type = "solid",
-  width = "standard", color = "black"), current = list(yaxis.log = FALSE,
-  yaxis.rev = FALSE, xaxis.log = FALSE))
+  Smooth.along = "x", Plot = list(name = "", what = "lines", type =
+  "solid", width = "standard", color = "black"), current = list(yaxis.log
+  = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
 
 \method{addSmooth}{list}(x, y, Smooth = "loess.smooth", ...,
-  Smooth.along = "x", Plot = list(name = "", what = "lines", type = "solid",
-  width = "standard", color = "black"), current = list(yaxis.log = FALSE,
-  yaxis.rev = FALSE, xaxis.log = FALSE))
+  Smooth.along = "x", Plot = list(name = "", what = "lines", type =
+  "solid", width = "standard", color = "black"), current = list(yaxis.log
+  = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{
 \item{x}{the x-axis data. For method \code{list}, x is a list that contains

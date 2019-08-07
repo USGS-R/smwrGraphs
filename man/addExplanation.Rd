@@ -4,9 +4,9 @@
 \alias{addExplanation}
 \title{Add Explanation}
 \usage{
-addExplanation(what, where = "new", title = expression(bold(EXPLANATION)),
-  box.off = where != "new", margin = rep(0, 4), line.length = 2,
-  line.height = 1.1)
+addExplanation(what, where = "new",
+  title = expression(bold(EXPLANATION)), box.off = where != "new",
+  margin = rep(0, 4), line.length = 2, line.height = 1.1)
 }
 \arguments{
 \item{what}{a specialized object for an explanation, from the output from

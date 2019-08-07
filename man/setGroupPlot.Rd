@@ -5,8 +5,8 @@
 \title{Plot Parameters}
 \usage{
 setGroupPlot(current, Grps = 1, name = "", what = "points",
-  type = "solid", width = "standard", symbol = "circle", filled = TRUE,
-  size = 0.09, color = "black")
+  type = "solid", width = "standard", symbol = "circle",
+  filled = TRUE, size = 0.09, color = "black")
 }
 \arguments{
 \item{current}{the plot parameters specified in the call to the high-level

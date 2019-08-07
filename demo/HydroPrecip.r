@@ -1,5 +1,5 @@
 # Hourly or daily precipitation data can be retrieved for many sites from
-# the NOAA climate website: http://www.nws.noaa.gov/climate/
+# the NOAA climate website: https://www.nws.noaa.gov/climate/
 # These data were retrieved for Thief River Falls, Minn. on November 14, 2012
 # Note that Crookston would be closer but missing record for this time period
 TRFPrecip <- data.frame(DateTime=

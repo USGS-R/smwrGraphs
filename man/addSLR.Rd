@@ -4,24 +4,22 @@
 \alias{addSLR}
 \alias{addSLR.default}
 \alias{addSLR.list}
-\alias{addSLR.default}
-\alias{addSLR.list}
 \title{Add a Regression Line}
 \usage{
-addSLR(x, y, Plot = list(name = "", what = "lines", type = "solid", width =
-  "standard", color = "black"), Model = list(x = "", y = "", form = "exp",
-  where = "none"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE), ...)
-
-\method{addSLR}{default}(x, y, Plot = list(name = "", what = "lines", type =
-  "solid", width = "standard", color = "black"), Model = list(x = "", y = "",
-  form = "exp", where = "none"), current = list(yaxis.log = FALSE, yaxis.rev =
+addSLR(x, y, Plot = list(name = "", what = "lines", type = "solid", width
+  = "standard", color = "black"), Model = list(x = "", y = "", form =
+  "exp", where = "none"), current = list(yaxis.log = FALSE, yaxis.rev =
   FALSE, xaxis.log = FALSE), ...)
+
+\method{addSLR}{default}(x, y, Plot = list(name = "", what = "lines",
+  type = "solid", width = "standard", color = "black"), Model = list(x =
+  "", y = "", form = "exp", where = "none"), current = list(yaxis.log =
+  FALSE, yaxis.rev = FALSE, xaxis.log = FALSE), ...)
 
 \method{addSLR}{list}(x, y, Plot = list(name = "", what = "lines", type =
-  "solid", width = "standard", color = "black"), Model = list(x = "", y = "",
-  form = "exp", where = "none"), current = list(yaxis.log = FALSE, yaxis.rev =
-  FALSE, xaxis.log = FALSE), ...)
+  "solid", width = "standard", color = "black"), Model = list(x = "", y =
+  "", form = "exp", where = "none"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE), ...)
 }
 \arguments{
 \item{x}{the x-axis data. For method \code{list}, x is a list that contains

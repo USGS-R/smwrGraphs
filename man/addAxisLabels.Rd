@@ -4,7 +4,8 @@
 \alias{addAxisLabels}
 \title{Axis Ticks and Labels}
 \usage{
-addAxisLabels(which, current, title = "", ticks = FALSE, labels = TRUE)
+addAxisLabels(which, current, title = "", ticks = FALSE,
+  labels = TRUE)
 }
 \arguments{
 \item{which}{which axis to label, must be one of "bottom," "left," "top," or

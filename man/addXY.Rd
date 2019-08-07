@@ -5,17 +5,16 @@
 \alias{addXY}
 \alias{addXY,ANY,numeric-method}
 \alias{addXY,numeric,character-method}
-\alias{addXY,ANY,numeric-method}
-\alias{addXY,numeric,character-method}
 \title{Add a plot to a graph}
 \usage{
 addXY(x, y, ...)
 
-\S4method{addXY}{ANY,numeric}(x, y, Plot = list(name = "", what = "lines",
-  type = "solid", width = "standard", symbol = "circle", filled = TRUE, size =
-  0.09, color = "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE,
-  xaxis.log = FALSE), new.axis = "none", new.log = FALSE, new.rev = FALSE,
-  new.range = c(NA, NA), new.labels = 7, new.title = "")
+\S4method{addXY}{ANY,numeric}(x, y, Plot = list(name = "", what =
+  "lines", type = "solid", width = "standard", symbol = "circle", filled =
+  TRUE, size = 0.09, color = "black"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE), new.axis = "none",
+  new.log = FALSE, new.rev = FALSE, new.range = c(NA, NA),
+  new.labels = 7, new.title = "")
 
 \S4method{addXY}{numeric,character}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =

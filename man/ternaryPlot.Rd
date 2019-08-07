@@ -4,12 +4,13 @@
 \alias{ternaryPlot}
 \title{Ternary Diagram}
 \usage{
-ternaryPlot(x, y, z, Plot = list(name = "", what = "points", type = "solid",
-  width = "standard", symbol = "circle", filled = TRUE, size = 0.09, color =
-  "black"), axis.range = c(0, 100), num.labels = 6, ticks = TRUE,
-  grids = !ticks, orient = "c", xtitle = deparse(substitute(x)),
-  ytitle = deparse(substitute(y)), ztitle = deparse(substitute(z)),
-  units.title = "Percent", caption = "", margin = c(NA, NA, NA, NA))
+ternaryPlot(x, y, z, Plot = list(name = "", what = "points", type =
+  "solid", width = "standard", symbol = "circle", filled = TRUE, size =
+  0.09, color = "black"), axis.range = c(0, 100), num.labels = 6,
+  ticks = TRUE, grids = !ticks, orient = "c",
+  xtitle = deparse(substitute(x)), ytitle = deparse(substitute(y)),
+  ztitle = deparse(substitute(z)), units.title = "Percent",
+  caption = "", margin = c(NA, NA, NA, NA))
 }
 \arguments{
 \item{x}{the x-axis (bottom) data.}

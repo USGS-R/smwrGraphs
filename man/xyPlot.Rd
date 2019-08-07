@@ -5,39 +5,37 @@
 \alias{xyPlot}
 \alias{xyPlot,numeric,numeric-method}
 \alias{xyPlot,factor,numeric-method}
-\alias{xyPlot,numeric,numeric-method}
-\alias{xyPlot,factor,numeric-method}
 \alias{xyPlot,character,numeric-method}
 \title{Plot Data}
 \usage{
 xyPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = 7, xtitle = "", ytitle = "", caption = "",
-  margin = c(NA, NA, NA, NA), ...)
+  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA,
+  NA), ylabels = 7, xlabels = 7, xtitle = "", ytitle = "",
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
 \S4method{xyPlot}{numeric,numeric}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = 7, xtitle = deparse(substitute(x)),
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
+  xaxis.range = c(NA, NA), ylabels = 7, xlabels = 7,
+  xtitle = deparse(substitute(x)), ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
 \S4method{xyPlot}{factor,numeric}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = "Auto", xtitle = "",
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), xlabels.rotate = FALSE, ...)
+  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
+  xaxis.range = c(NA, NA), ylabels = 7, xlabels = "Auto",
+  xtitle = "", ytitle = deparse(substitute(y)), caption = "",
+  margin = c(NA, NA, NA, NA), xlabels.rotate = FALSE, ...)
 
 \S4method{xyPlot}{character,numeric}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = "Auto", xtitle = "",
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), xlabels.rotate = FALSE, ...)
+  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
+  xaxis.range = c(NA, NA), ylabels = 7, xlabels = "Auto",
+  xtitle = "", ytitle = deparse(substitute(y)), caption = "",
+  margin = c(NA, NA, NA, NA), xlabels.rotate = FALSE, ...)
 }
 \arguments{
 \item{x}{the x-axis data to plot.}

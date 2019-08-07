@@ -3,21 +3,22 @@
 \name{seriesPlot}
 \alias{seriesPlot}
 \alias{seriesPlot.default}
-\alias{seriesPlot.default}
 \title{Series Plot}
 \usage{
 seriesPlot(x, SeasonLine = list(name = "", what = "vertical", color =
-  "black"), SeasonPoint = list(name = "", what = "points", symbol = "circle",
-  filled = TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
-  yaxis.range = c(NA, NA), ylabels = 7, xlabels, xtitle = "",
-  ytitle = "", caption = "", margin = c(NA, NA, NA, NA), ...)
+  "black"), SeasonPoint = list(name = "", what = "points", symbol =
+  "circle", filled = TRUE, size = 0.09, color = "black"),
+  yaxis.log = FALSE, yaxis.range = c(NA, NA), ylabels = 7, xlabels,
+  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA,
+  NA), ...)
 
 \method{seriesPlot}{default}(x, SeasonLine = list(name = "", what =
-  "vertical", color = "black"), SeasonPoint = list(name = "", what = "points",
-  symbol = "circle", filled = TRUE, size = 0.09, color = "black"),
-  yaxis.log = FALSE, yaxis.range = c(NA, NA), ylabels = 7,
-  xlabels = frequency(x), xtitle = "", ytitle = deparse(substitute(x)),
-  caption = "", margin = c(NA, NA, NA, NA), ...)
+  "vertical", color = "black"), SeasonPoint = list(name = "", what =
+  "points", symbol = "circle", filled = TRUE, size = 0.09, color =
+  "black"), yaxis.log = FALSE, yaxis.range = c(NA, NA), ylabels = 7,
+  xlabels = frequency(x), xtitle = "",
+  ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA,
+  NA, NA), ...)
 }
 \arguments{
 \item{x}{data that can be treated as a regularly-spaced time series. Missing

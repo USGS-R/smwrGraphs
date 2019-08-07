@@ -5,34 +5,34 @@
 \alias{boxPlot.list}
 \alias{boxPlot.data.frame}
 \alias{boxPlot.numeric}
-\alias{boxPlot.numeric}
-\alias{boxPlot.list}
-\alias{boxPlot.data.frame}
 \title{Box Plot}
 \usage{
 boxPlot(..., group = NULL, Box = list(type = "truncated", show.counts =
   TRUE, nobox = 5, width = "Auto", fill = "none", truncated = c(10, 90)),
   yaxis.log = FALSE, yaxis.range = c(NA, NA), ylabels = "Auto",
-  xlabels = "Auto", xlabels.rotate = FALSE, xtitle = "", ytitle = "",
-  caption = "", margin = c(NA, NA, NA, NA))
+  xlabels = "Auto", xlabels.rotate = FALSE, xtitle = "",
+  ytitle = "", caption = "", margin = c(NA, NA, NA, NA))
 
-\method{boxPlot}{numeric}(..., group = NULL, Box = list(type = "truncated",
-  show.counts = TRUE, nobox = 5, width = "Auto", fill = "none", truncated =
-  c(10, 90)), yaxis.log = FALSE, yaxis.range = c(NA, NA),
-  ylabels = "Auto", xlabels = "Auto", xlabels.rotate = FALSE,
-  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA, NA))
+\method{boxPlot}{numeric}(..., group = NULL, Box = list(type =
+  "truncated", show.counts = TRUE, nobox = 5, width = "Auto", fill =
+  "none", truncated = c(10, 90)), yaxis.log = FALSE,
+  yaxis.range = c(NA, NA), ylabels = "Auto", xlabels = "Auto",
+  xlabels.rotate = FALSE, xtitle = "", ytitle = "", caption = "",
+  margin = c(NA, NA, NA, NA))
 
-\method{boxPlot}{list}(..., group = NULL, Box = list(type = "truncated",
-  show.counts = TRUE, nobox = 5, width = "Auto", fill = "none", truncated =
-  c(10, 90)), yaxis.log = FALSE, yaxis.range = c(NA, NA),
-  ylabels = "Auto", xlabels = "Auto", xlabels.rotate = FALSE,
-  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA, NA))
+\method{boxPlot}{list}(..., group = NULL, Box = list(type =
+  "truncated", show.counts = TRUE, nobox = 5, width = "Auto", fill =
+  "none", truncated = c(10, 90)), yaxis.log = FALSE,
+  yaxis.range = c(NA, NA), ylabels = "Auto", xlabels = "Auto",
+  xlabels.rotate = FALSE, xtitle = "", ytitle = "", caption = "",
+  margin = c(NA, NA, NA, NA))
 
 \method{boxPlot}{data.frame}(..., group = NULL, Box = list(type =
-  "truncated", show.counts = TRUE, nobox = 5, width = "Auto", fill = "none",
-  truncated = c(10, 90)), yaxis.log = FALSE, yaxis.range = c(NA, NA),
-  ylabels = "Auto", xlabels = "Auto", xlabels.rotate = FALSE,
-  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA, NA))
+  "truncated", show.counts = TRUE, nobox = 5, width = "Auto", fill =
+  "none", truncated = c(10, 90)), yaxis.log = FALSE,
+  yaxis.range = c(NA, NA), ylabels = "Auto", xlabels = "Auto",
+  xlabels.rotate = FALSE, xtitle = "", ytitle = "", caption = "",
+  margin = c(NA, NA, NA, NA))
 }
 \arguments{
 \item{\dots}{the data to plot. Missing values are permitted and excluded from
@@ -104,7 +104,7 @@ common for other box plots. Those computations are in agreement with the box
 plots generated in the QWGRAPH component of the QWDATA module in the
 National Water Information System (NWIS) described by Dennis Helsel's 1989
 Branch of Systems Analysis Technical Memorandum No. 89.01, available online
-at \url{http://water.usgs.gov/admin/memo/BSA/BSA89.01.pdf}. Those
+at \url{https://water.usgs.gov/admin/memo/BSA/BSA89.01.pdf}. Those
 computations have a significant effect on the appearance the whiskers and
 outside values of the Tukey box plot and are motivated by the general
 assumption of a log-normal distribution for most water-quality constituents.

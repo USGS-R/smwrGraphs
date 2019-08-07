@@ -6,9 +6,6 @@
 \alias{colorPlot,numeric,numeric-method}
 \alias{colorPlot,Date,numeric-method}
 \alias{colorPlot,POSIXt,numeric-method}
-\alias{colorPlot,numeric,numeric-method}
-\alias{colorPlot,Date,numeric-method}
-\alias{colorPlot,POSIXt,numeric-method}
 \title{Plot Data}
 \usage{
 colorPlot(x, y, color, Plot = list(), yaxis.log = FALSE,
@@ -16,29 +13,29 @@ colorPlot(x, y, color, Plot = list(), yaxis.log = FALSE,
   xaxis.range = c(NA, NA), ylabels = 7, xlabels = 7, xtitle = "",
   ytitle = "", caption = "", margin = c(NA, NA, NA, NA), ...)
 
-\S4method{colorPlot}{numeric,numeric}(x, y, color, Plot = list(name = "Auto",
-  what = "points", symbol = "circle", filled = TRUE, size = 0.09, color =
-  "Auto", groups = 4, ramp = "greenRed"), yaxis.log = FALSE,
+\S4method{colorPlot}{numeric,numeric}(x, y, color, Plot = list(name =
+  "Auto", what = "points", symbol = "circle", filled = TRUE, size = 0.09,
+  color = "Auto", groups = 4, ramp = "greenRed"), yaxis.log = FALSE,
   yaxis.rev = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
   xaxis.range = c(NA, NA), ylabels = 7, xlabels = 7,
   xtitle = deparse(substitute(x)), ytitle = deparse(substitute(y)),
   caption = "", margin = c(NA, NA, NA, NA), ...)
 
-\S4method{colorPlot}{Date,numeric}(x, y, color, Plot = list(name = "Auto",
-  what = "lines", symbol = "circle", filled = TRUE, size = 0.09, color = "Auto",
-  groups = 10, ramp = "greenRed"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = range(x, na.rm
-  = TRUE), ylabels = 7, xlabels = "Auto", xtitle = "",
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+\S4method{colorPlot}{Date,numeric}(x, y, color, Plot = list(name =
+  "Auto", what = "lines", symbol = "circle", filled = TRUE, size = 0.09,
+  color = "Auto", groups = 10, ramp = "greenRed"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
+  xaxis.range = range(x, na.rm = TRUE), ylabels = 7,
+  xlabels = "Auto", xtitle = "", ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
-\S4method{colorPlot}{POSIXt,numeric}(x, y, color, Plot = list(name = "Auto",
-  what = "lines", symbol = "circle", filled = TRUE, size = 0.09, color = "Auto",
-  groups = 10, ramp = "greenRed"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = range(x, na.rm
-  = TRUE), ylabels = 7, xlabels = "Auto", xtitle = "",
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+\S4method{colorPlot}{POSIXt,numeric}(x, y, color, Plot = list(name =
+  "Auto", what = "lines", symbol = "circle", filled = TRUE, size = 0.09,
+  color = "Auto", groups = 10, ramp = "greenRed"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
+  xaxis.range = range(x, na.rm = TRUE), ylabels = 7,
+  xlabels = "Auto", xtitle = "", ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 }
 \arguments{
 \item{x}{the x-axis data}

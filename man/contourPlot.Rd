@@ -4,28 +4,26 @@
 \alias{contourPlot}
 \alias{contourPlot.default}
 \alias{contourPlot.matrix}
-\alias{contourPlot.default}
-\alias{contourPlot.matrix}
 \title{Contour Plot}
 \usage{
 contourPlot(z, ...)
 
-\method{contourPlot}{default}(z, x, y, Grid = list(method = "interpolate",
-  linear = TRUE, extrapolate = FALSE, density = 90, span = 0.75, degree = 1,
-  family = "symmetric"), Contours = list(name = "Auto", levels = 10, filled =
-  FALSE, lineColor = "black", lineLabel = "flattest", fillColors = "coolWarm"),
-  yaxis.range = c(NA, NA), xaxis.range = c(NA, NA), ylabels = 4,
-  xlabels = 4, xtitle = deparse(substitute(x)),
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+\method{contourPlot}{default}(z, x, y, Grid = list(method =
+  "interpolate", linear = TRUE, extrapolate = FALSE, density = 90, span =
+  0.75, degree = 1, family = "symmetric"), Contours = list(name = "Auto",
+  levels = 10, filled = FALSE, lineColor = "black", lineLabel = "flattest",
+  fillColors = "coolWarm"), yaxis.range = c(NA, NA),
+  xaxis.range = c(NA, NA), ylabels = 4, xlabels = 4,
+  xtitle = deparse(substitute(x)), ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
 \method{contourPlot}{matrix}(z, rows, cols, matrix.rows = "x",
   Contours = list(name = "Auto", levels = 10, filled = FALSE, lineColor =
   "black", lineLabel = "flattest", fillColors = "coolWarm"),
   yaxis.range = c(NA, NA), xaxis.range = c(NA, NA), ylabels = 4,
   xlabels = 4, xtitle = deparse(substitute(x)),
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA,
+  NA, NA), ...)
 }
 \arguments{
 \item{z}{the values representing the surface data.}

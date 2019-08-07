@@ -7,8 +7,9 @@
 piperPlot(xCat, yCat, zCat, xAn, yAn, zAn, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
   TRUE, size = 0.09, color = "black"), axis.range = c(0, 100),
-  num.labels = 6, ticks = FALSE, grids = !ticks, xCat.title = "Calcium",
-  yCat.title = "Magnesium", zCat.title = "Sodium plus Potassium",
+  num.labels = 6, ticks = FALSE, grids = !ticks,
+  xCat.title = "Calcium", yCat.title = "Magnesium",
+  zCat.title = "Sodium plus Potassium",
   xAn.title = "Chloride, Fluoride, Nitrite plus Nitrate",
   yAn.title = "Carbonate plus Bicarbonate", zAn.title = "Sulfate",
   x.yCat.title = "Calcium plus Magnesium",

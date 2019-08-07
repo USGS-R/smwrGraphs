@@ -5,7 +5,8 @@
 \title{Pretty Axis}
 \usage{
 probPretty(x, hard = FALSE, labels = "Auto", style = "probability",
-  exceedence = TRUE, priority = "label", distribution = "normal", ...)
+  exceedence = TRUE, priority = "label", distribution = "normal",
+  ...)
 }
 \arguments{
 \item{x}{axis coordinates in range 0-1 or 0-100 allowed and assumed if

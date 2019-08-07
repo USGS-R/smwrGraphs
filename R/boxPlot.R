@@ -53,7 +53,7 @@
 #' plots generated in the QWGRAPH component of the QWDATA module in the
 #' National Water Information System (NWIS) described by Dennis Helsel's 1989
 #' Branch of Systems Analysis Technical Memorandum No. 89.01, available online
-#' at \url{http://water.usgs.gov/admin/memo/BSA/BSA89.01.pdf}. Those
+#' at \url{https://water.usgs.gov/admin/memo/BSA/BSA89.01.pdf}. Those
 #' computations have a significant effect on the appearance the whiskers and
 #' outside values of the Tukey box plot and are motivated by the general
 #' assumption of a log-normal distribution for most water-quality constituents.

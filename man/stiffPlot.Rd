@@ -3,20 +3,20 @@
 \name{stiffPlot}
 \alias{stiffPlot}
 \alias{addStiff}
-\alias{addStiff}
 \title{Stiff Diagrams}
 \usage{
-stiffPlot(cations, anions, Stiff = list(fill = "gray50", outline = "black",
-  height = 2/3, bar = "black"), yaxis.orient = "table",
+stiffPlot(cations, anions, Stiff = list(fill = "gray50", outline =
+  "black", height = 2/3, bar = "black"), yaxis.orient = "table",
   yaxis.order = "none", xaxis.range = c(NA, NA), ylabels = "Auto",
   xlabels = 7, catlabels = "Auto", anlabels = "Auto",
   xtitle = "Milliequivalents per liter", ytitle = "", caption = "",
   margin = c(NA, NA, NA, NA), ...)
 
-addStiff(x, y, width, height, cations, anions, Stiff = list(fill = "gray50",
-  outline = "black", height = 2/3, bar = "black"), xaxis.range = c(NA, NA),
-  catlabels = "", anlabels = "", current = list(yaxis.log = FALSE,
-  yaxis.rev = FALSE, xaxis.log = FALSE))
+addStiff(x, y, width, height, cations, anions, Stiff = list(fill =
+  "gray50", outline = "black", height = 2/3, bar = "black"),
+  xaxis.range = c(NA, NA), catlabels = "", anlabels = "",
+  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log =
+  FALSE))
 }
 \arguments{
 \item{cations}{a matrix of cation data. Each row corresponds to the

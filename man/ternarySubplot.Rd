@@ -6,8 +6,9 @@
 \usage{
 ternarySubplot(x, y, z, what = "points", symbol = rep(1, length(x)),
   color = rep(1, length(x)), size = rep(0.05, length(x)),
-  axis.range = c(0, 100), num.labels = 6, ticks = FALSE, grids = !ticks,
-  orient = "c", xtitle = "x", ytitle = "y", ztitle = "z", plot = TRUE)
+  axis.range = c(0, 100), num.labels = 6, ticks = FALSE,
+  grids = !ticks, orient = "c", xtitle = "x", ytitle = "y",
+  ztitle = "z", plot = TRUE)
 }
 \arguments{
 \item{x}{the x-ccordinate values.}

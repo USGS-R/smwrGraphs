@@ -4,8 +4,8 @@
 \alias{addTitle}
 \title{Add a Title}
 \usage{
-addTitle(Main = "", Heading = "", Justification = "left", Bold = TRUE,
-  Position = "above")
+addTitle(Main = "", Heading = "", Justification = "left",
+  Bold = TRUE, Position = "above")
 }
 \arguments{
 \item{Main}{the main text of the title. Can be either a character string or an 
