@@ -4,9 +4,9 @@
 \alias{addTernary}
 \title{Add Detail to a Ternary Diagram}
 \usage{
-addTernary(x, y, z, Plot = list(name = "", what = "points", type = "solid",
-  width = "standard", symbol = "circle", filled = TRUE, size = 0.09, color =
-  "black"), current = list())
+addTernary(x, y, z, Plot = list(name = "", what = "points", type =
+  "solid", width = "standard", symbol = "circle", filled = TRUE, size =
+  0.09, color = "black"), current = list())
 }
 \arguments{
 \item{x}{the x-axis (bottom) data. Missing values are permitted, but result

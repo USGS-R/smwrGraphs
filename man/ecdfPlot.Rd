@@ -3,22 +3,22 @@
 \name{ecdfPlot}
 \alias{ecdfPlot}
 \alias{ecdfPlot.default}
-\alias{ecdfPlot.default}
 \title{Empirical Distribution Plot}
 \usage{
-ecdfPlot(x, group = NULL, Plot = list(name = "Auto", what = "stairstep",
-  type = "solid", width = "standard", symbol = "circle", filled = TRUE, size =
-  0.09, color = "Auto"), xaxis.log = TRUE, xaxis.range = c(NA, NA),
-  xlabels = 11, ylabels = 5, ytitle = "Cumulative Probability",
-  xtitle = deparse(substitute(x)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+ecdfPlot(x, group = NULL, Plot = list(name = "Auto", what =
+  "stairstep", type = "solid", width = "standard", symbol = "circle",
+  filled = TRUE, size = 0.09, color = "Auto"), xaxis.log = TRUE,
+  xaxis.range = c(NA, NA), xlabels = 11, ylabels = 5,
+  ytitle = "Cumulative Probability", xtitle = deparse(substitute(x)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
-\method{ecdfPlot}{default}(x, group = NULL, Plot = list(name = "Auto", what
-  = "stairstep", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "Auto"), xaxis.log = TRUE, xaxis.range = c(NA,
-  NA), xlabels = 11, ylabels = 5, ytitle = "Cumulative Probability",
-  xtitle = deparse(substitute(x)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+\method{ecdfPlot}{default}(x, group = NULL, Plot = list(name = "Auto",
+  what = "stairstep", type = "solid", width = "standard", symbol =
+  "circle", filled = TRUE, size = 0.09, color = "Auto"),
+  xaxis.log = TRUE, xaxis.range = c(NA, NA), xlabels = 11,
+  ylabels = 5, ytitle = "Cumulative Probability",
+  xtitle = deparse(substitute(x)), caption = "", margin = c(NA, NA,
+  NA, NA), ...)
 }
 \arguments{
 \item{x}{the data to plot.}

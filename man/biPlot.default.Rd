@@ -4,14 +4,15 @@
 \alias{biPlot.default}
 \title{Biplot}
 \usage{
-\method{biPlot}{default}(x, y, separate.axes = TRUE, xPlot = list(name =
-  "observations", what = "points", type = "solid", width = "standard", symbol =
-  "circle", filled = TRUE, size = 0.05, color = "black"), yPlot = list(name =
-  "variables", width = "color", size = 0.2, color = "darkblue", symbol =
-  "arrow", filled = FALSE), xPlotLabels = list(labels = "rownames", dir =
-  "NE", size = 8, offset = 0.35), yPlotLabels = list(labels = "colnames", dir
-  = "Auto", size = 8, offset = 0.35, color = "darkblue"), ylabels = 5,
-  xlabels = 5, ylabels2 = 5, xlabels2 = 5, xtitle = "", ytitle = "",
+\method{biPlot}{default}(x, y, separate.axes = TRUE, xPlot = list(name
+  = "observations", what = "points", type = "solid", width = "standard",
+  symbol = "circle", filled = TRUE, size = 0.05, color = "black"),
+  yPlot = list(name = "variables", width = "color", size = 0.2, color =
+  "darkblue", symbol = "arrow", filled = FALSE),
+  xPlotLabels = list(labels = "rownames", dir = "NE", size = 8, offset =
+  0.35), yPlotLabels = list(labels = "colnames", dir = "Auto", size = 8,
+  offset = 0.35, color = "darkblue"), ylabels = 5, xlabels = 5,
+  ylabels2 = 5, xlabels2 = 5, xtitle = "", ytitle = "",
   xtitle2 = "", ytitle2 = "", range.factor = 1.25, caption = "",
   margin = c(NA, NA, NA, NA), ...)
 }

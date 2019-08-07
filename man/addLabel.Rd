@@ -6,7 +6,8 @@
 \usage{
 addLabel(label, x, side = "bottom", size = "Auto", distance = 0.2,
   justification = "center", orientation = "parallel",
-  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log =
+  FALSE))
 }
 \arguments{
 \item{label}{the text or expression to add to the graph.}

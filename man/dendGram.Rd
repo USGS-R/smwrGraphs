@@ -4,9 +4,10 @@
 \alias{dendGram}
 \title{Tree Graphs}
 \usage{
-dendGram(x, Tree = list(orientation = "vertical", width = "standard", color =
-  "black"), axis.range = c(NA, NA), labels = "Auto", ytitle = "",
-  xtitle = "", caption = "", margin = c(NA, NA, NA, NA))
+dendGram(x, Tree = list(orientation = "vertical", width = "standard",
+  color = "black"), axis.range = c(NA, NA), labels = "Auto",
+  ytitle = "", xtitle = "", caption = "", margin = c(NA, NA, NA,
+  NA))
 }
 \arguments{
 \item{x}{the data to plot. Must be able to be converted to class 

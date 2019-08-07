@@ -3,28 +3,28 @@
 \name{probPlot}
 \alias{probPlot}
 \alias{probPlot.default}
-\alias{probPlot.default}
 \title{Probability Plot}
 \usage{
 probPlot(x, truncate = NA, FLIP = FALSE, distribution = "normal",
-  alpha = 0.4, Plot = list(name = "", what = "points", type = "solid", width
-  = "standard", symbol = "circle", filled = TRUE, size = 0.09, color = "black"),
-  yaxis.log = TRUE, yaxis.range = c(NA, NA), ylabels = 11, xlabels = 11,
-  CDF = !RI, xtitle = ifelse(CDF, "Cumulative Probability",
-  "Exceedence Probability"), RI = FALSE,
+  alpha = 0.4, Plot = list(name = "", what = "points", type = "solid",
+  width = "standard", symbol = "circle", filled = TRUE, size = 0.09, color
+  = "black"), yaxis.log = TRUE, yaxis.range = c(NA, NA),
+  ylabels = 11, xlabels = 11, CDF = !RI, xtitle = ifelse(CDF,
+  "Cumulative Probability", "Exceedence Probability"), RI = FALSE,
   RItitle = "Recurrence Interval, in years",
-  ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+  ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA,
+  NA, NA), ...)
 
 \method{probPlot}{default}(x, truncate = NA, FLIP = FALSE,
   distribution = "normal", alpha = 0.4, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), yaxis.log = TRUE, yaxis.range = c(NA,
-  NA), ylabels = "Auto", xlabels = 11, CDF = !RI, xtitle = ifelse(CDF,
-  "Cumulative Probability", "Exceedence Probability"), RI = FALSE,
+  TRUE, size = 0.09, color = "black"), yaxis.log = TRUE,
+  yaxis.range = c(NA, NA), ylabels = "Auto", xlabels = 11,
+  CDF = !RI, xtitle = ifelse(CDF, "Cumulative Probability",
+  "Exceedence Probability"), RI = FALSE,
   RItitle = "Recurrence Interval, in years",
-  ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+  ytitle = deparse(substitute(x)), caption = "", margin = c(NA, NA,
+  NA, NA), ...)
 }
 \arguments{
 \item{x}{the data to plot. Missing values are allowed and ignored.}

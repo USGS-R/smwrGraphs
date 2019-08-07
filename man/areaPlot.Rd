@@ -4,10 +4,10 @@
 \alias{areaPlot}
 \title{Shaded Area Plot}
 \usage{
-areaPlot(x, y, Areas = list(name = "Auto", fillDir = "between", base = "Auto",
-  lineColor = "black", fillColors = "pastel"), yaxis.log = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = "Auto", xtitle = "", ytitle = "",
+areaPlot(x, y, Areas = list(name = "Auto", fillDir = "between", base =
+  "Auto", lineColor = "black", fillColors = "pastel"), yaxis.log = FALSE,
+  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA,
+  NA), ylabels = 7, xlabels = "Auto", xtitle = "", ytitle = "",
   caption = "", margin = c(NA, NA, NA, NA))
 }
 \arguments{

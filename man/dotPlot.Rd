@@ -5,29 +5,28 @@
 \alias{dotPlot}
 \alias{dotPlot,numeric-method}
 \alias{dotPlot,Date-method}
-\alias{dotPlot,numeric-method}
-\alias{dotPlot,Date-method}
 \title{Dot Plot}
 \usage{
 dotPlot(x, y, Plot = list(), yaxis.orient = "", yaxis.order = "",
   yaxis.grid = TRUE, xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = "", xlabels = 7, xtitle = "", ytitle = "", caption = "",
-  margin = c(NA, NA, NA, NA), ...)
+  ylabels = "", xlabels = 7, xtitle = "", ytitle = "",
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
-\S4method{dotPlot}{numeric}(x, y, Plot = list(name = "", what = "points", type
-  = "solid", width = "standard", symbol = "circle", filled = TRUE, size = 0.09,
-  color = "black"), yaxis.orient = "table", yaxis.order = "none",
-  yaxis.grid = TRUE, xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = "full", xlabels = 7, xtitle = deparse(substitute(x)),
-  ytitle = "", caption = "", margin = c(NA, NA, NA, NA),
-  jitter.y = TRUE, ...)
+\S4method{dotPlot}{numeric}(x, y, Plot = list(name = "", what = "points",
+  type = "solid", width = "standard", symbol = "circle", filled = TRUE,
+  size = 0.09, color = "black"), yaxis.orient = "table",
+  yaxis.order = "none", yaxis.grid = TRUE, xaxis.log = FALSE,
+  xaxis.range = c(NA, NA), ylabels = "full", xlabels = 7,
+  xtitle = deparse(substitute(x)), ytitle = "", caption = "",
+  margin = c(NA, NA, NA, NA), jitter.y = TRUE, ...)
 
-\S4method{dotPlot}{Date}(x, y, Plot = list(name = "", what = "points", type =
-  "solid", width = "standard", symbol = "circle", filled = TRUE, size = 0.09,
-  color = "black"), yaxis.orient = "table", yaxis.order = "none",
-  yaxis.grid = TRUE, xaxis.log = FALSE, xaxis.range = range(x, na.rm =
-  TRUE), ylabels = "full", xlabels = "Auto", xtitle = "", ytitle = "",
-  caption = "", margin = c(NA, NA, NA, NA), jitter.y = TRUE, ...)
+\S4method{dotPlot}{Date}(x, y, Plot = list(name = "", what = "points",
+  type = "solid", width = "standard", symbol = "circle", filled = TRUE,
+  size = 0.09, color = "black"), yaxis.orient = "table",
+  yaxis.order = "none", yaxis.grid = TRUE, xaxis.log = FALSE,
+  xaxis.range = range(x, na.rm = TRUE), ylabels = "full",
+  xlabels = "Auto", xtitle = "", ytitle = "", caption = "",
+  margin = c(NA, NA, NA, NA), jitter.y = TRUE, ...)
 }
 \arguments{
 \item{x}{the x-axis data. Missing values are permitted and not plotted.}

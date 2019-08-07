@@ -4,9 +4,10 @@
 \alias{addBars}
 \title{Bar Graph}
 \usage{
-addBars(x, y, base = 0, Bars = list(name = "Auto", fill = "gray80", outline
-  = "black", width = "Auto", orientation = "stack"), current = list(yaxis.log
-  = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+addBars(x, y, base = 0, Bars = list(name = "Auto", fill = "gray80",
+  outline = "black", width = "Auto", orientation = "stack"),
+  current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log =
+  FALSE))
 }
 \arguments{
 \item{x}{the x-coordinate data. Missing values are permitted but result in

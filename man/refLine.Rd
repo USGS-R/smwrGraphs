@@ -5,10 +5,10 @@
 \title{Reference Line}
 \usage{
 refLine(horizontal, vertical, coefficients, Plot = list(name = "", what =
-  "lines", type = "solid", width = "standard", symbol = "circle", filled = TRUE,
-  size = 0.09, color = "black"), current = list(yaxis.log = FALSE, yaxis.rev =
-  FALSE, xaxis.log = FALSE), xrange = c(NA, NA), yrange = c(NA, NA),
-  log10 = FALSE)
+  "lines", type = "solid", width = "standard", symbol = "circle", filled =
+  TRUE, size = 0.09, color = "black"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE), xrange = c(NA, NA),
+  yrange = c(NA, NA), log10 = FALSE)
 }
 \arguments{
 \item{horizontal}{draw horizontal lines at the specified values.}

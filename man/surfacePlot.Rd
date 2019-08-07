@@ -4,9 +4,10 @@
 \alias{surfacePlot}
 \title{Surface plot}
 \usage{
-surfacePlot(pre, z.color = "lightblue", Surface = list(name = "", lineColor
-  = "black", levels = 20, ramp = "coolWarm"), xtitle = "", ytitle = "",
-  ztitle = "", margin = c(NA, NA, NA, NA), caption = "")
+surfacePlot(pre, z.color = "lightblue", Surface = list(name = "",
+  lineColor = "black", levels = 20, ramp = "coolWarm"), xtitle = "",
+  ytitle = "", ztitle = "", margin = c(NA, NA, NA, NA),
+  caption = "")
 }
 \arguments{
 \item{pre}{the output from \code{preSurface}.}

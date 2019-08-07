@@ -3,13 +3,13 @@
 \name{renderBoxPlot}
 \alias{renderBoxPlot}
 \alias{renderBXP}
-\alias{renderBXP}
 \title{Box Plot}
 \usage{
 renderBoxPlot(xtoplot, stats, Box, explan, expz, yaxis.log = FALSE,
   yrange = c(NA, NA), xrange = range(xtoplot) + c(-1, 1),
   ylabels = "Auto", xlabels = "Auto", xlabels.rotate = FALSE,
-  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA, NA))
+  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA,
+  NA))
 
 renderBXP(x, width, z, draw.RL = TRUE, fill = "none")
 }

@@ -4,8 +4,8 @@
 \alias{transPretty}
 \title{Pretty Axis}
 \usage{
-transPretty(x, hard = FALSE, labels = 11, style = "none", func = log,
-  Ifunc = exp, ...)
+transPretty(x, hard = FALSE, labels = 11, style = "none",
+  func = log, Ifunc = exp, ...)
 }
 \arguments{
 \item{x}{data defining the range to be plotted on the axis. Missing value

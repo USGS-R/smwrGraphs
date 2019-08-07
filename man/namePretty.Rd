@@ -4,8 +4,8 @@
 \alias{namePretty}
 \title{Pretty Axis}
 \usage{
-namePretty(x, orientation = "table", order = "none", label.abbr = FALSE,
-  offset = 0.5, style = "at")
+namePretty(x, orientation = "table", order = "none",
+  label.abbr = FALSE, offset = 0.5, style = "at")
 }
 \arguments{
 \item{x}{the discrete data values.}

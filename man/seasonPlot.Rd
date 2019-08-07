@@ -5,30 +5,28 @@
 \alias{seasonPlot}
 \alias{seasonPlot,ANY,numeric-method}
 \alias{seasonPlot,character,numeric-method}
-\alias{seasonPlot,ANY,numeric-method}
-\alias{seasonPlot,character,numeric-method}
 \title{Season Plot}
 \usage{
 seasonPlot(x, y, Plot = list(), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.range = "", ylabels = 7, xlabels = 7,
-  xtitle = "", ytitle = "", caption = "", margin = c(NA, NA, NA, NA),
-  ...)
+  yaxis.range = c(NA, NA), xaxis.range = "", ylabels = 7,
+  xlabels = 7, xtitle = "", ytitle = "", caption = "",
+  margin = c(NA, NA, NA, NA), ...)
 
 \S4method{seasonPlot}{ANY,numeric}(x, y, Plot = list(name = "", what =
   "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.range = c("calendar", "water", "climate"),
-  ylabels = 7, xlabels = "Auto", xtitle = "",
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+  TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA),
+  xaxis.range = c("calendar", "water", "climate"), ylabels = 7,
+  xlabels = "Auto", xtitle = "", ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 
-\S4method{seasonPlot}{character,numeric}(x, y, Plot = list(name = "", what =
-  "lines", type = "solid", width = "standard", symbol = "circle", filled = TRUE,
-  size = 0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.range = c("calendar", "water", "climate"),
-  ylabels = 7, xlabels = "Auto", xtitle = "",
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA), ...)
+\S4method{seasonPlot}{character,numeric}(x, y, Plot = list(name = "",
+  what = "lines", type = "solid", width = "standard", symbol = "circle",
+  filled = TRUE, size = 0.09, color = "black"), yaxis.log = FALSE,
+  yaxis.rev = FALSE, yaxis.range = c(NA, NA),
+  xaxis.range = c("calendar", "water", "climate"), ylabels = 7,
+  xlabels = "Auto", xtitle = "", ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA), ...)
 }
 \arguments{
 \item{x}{the x-coordinate data.}

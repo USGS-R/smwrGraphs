@@ -5,8 +5,8 @@
 \title{Add Confidence Interval Lines}
 \usage{
 addCI(type, level = 0.95, Plot = list(name = "", what = "lines", type =
-  "solid", width = "standard", color = "black"), current = list(yaxis.log =
-  FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
+  "solid", width = "standard", color = "black"), current = list(yaxis.log
+  = FALSE, yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{
 \item{type}{the type of confidence interval desired. Must be either "SLR" for the confidence

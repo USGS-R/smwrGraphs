@@ -4,13 +4,13 @@
 \alias{transPlot}
 \title{X-Y Plot}
 \usage{
-transPlot(x, xtrans, xinv, xtargs = NULL, y, ytrans, yinv, ytargs = NULL,
-  Plot = list(name = "", what = "points", type = "solid", width = "standard",
-  symbol = "circle", filled = TRUE, size = 0.09, color = "black"),
-  yaxis.range = c(NA, NA), xaxis.range = c(NA, NA), ylabels = "Auto",
-  xlabels = "Auto", xtitle = deparse(substitute(x)),
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA))
+transPlot(x, xtrans, xinv, xtargs = NULL, y, ytrans, yinv,
+  ytargs = NULL, Plot = list(name = "", what = "points", type =
+  "solid", width = "standard", symbol = "circle", filled = TRUE, size =
+  0.09, color = "black"), yaxis.range = c(NA, NA), xaxis.range = c(NA,
+  NA), ylabels = "Auto", xlabels = "Auto",
+  xtitle = deparse(substitute(x)), ytitle = deparse(substitute(y)),
+  caption = "", margin = c(NA, NA, NA, NA))
 }
 \arguments{
 \item{x}{the x-axis data.}

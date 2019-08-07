@@ -4,13 +4,13 @@
 \alias{scalePlot}
 \title{Scale Plot}
 \usage{
-scalePlot(x, y, scale = 1, Plot = list(name = "", what = "lines", type =
-  "solid", width = "standard", symbol = "circle", filled = TRUE, size = 0.09,
-  color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = 7, xtitle = deparse(substitute(x)),
-  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA, NA,
-  NA))
+scalePlot(x, y, scale = 1, Plot = list(name = "", what = "lines", type
+  = "solid", width = "standard", symbol = "circle", filled = TRUE, size =
+  0.09, color = "black"), yaxis.log = FALSE, yaxis.rev = FALSE,
+  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA,
+  NA), ylabels = 7, xlabels = 7, xtitle = deparse(substitute(x)),
+  ytitle = deparse(substitute(y)), caption = "", margin = c(NA, NA,
+  NA, NA))
 }
 \arguments{
 \item{x}{the x-axis data.}

@@ -4,9 +4,9 @@
 \alias{addArea}
 \title{Add a Filled Polygon to Graph}
 \usage{
-addArea(x, y, ybase = NULL, Area = list(name = "", color = "gray", outline =
-  "black"), current = list(yaxis.log = FALSE, yaxis.rev = FALSE, xaxis.log =
-  FALSE))
+addArea(x, y, ybase = NULL, Area = list(name = "", color = "gray",
+  outline = "black"), current = list(yaxis.log = FALSE, yaxis.rev =
+  FALSE, xaxis.log = FALSE))
 }
 \arguments{
 \item{x}{the x-axis coordinates of the polygon. Missing values are not

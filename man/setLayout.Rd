@@ -4,10 +4,11 @@
 \alias{setLayout}
 \title{Graph Layout}
 \usage{
-setLayout(width = NULL, height = NULL, num.cols = max(1, length(width)),
-  num.rows = max(1, length(height)), num.graphs = num.rows * num.cols,
-  explanation = NULL, shared.x = -1, shared.y = -1, yleft = 3.5,
-  yright = NA, xbottom = 3.2, xtop = NA)
+setLayout(width = NULL, height = NULL, num.cols = max(1,
+  length(width)), num.rows = max(1, length(height)),
+  num.graphs = num.rows * num.cols, explanation = NULL,
+  shared.x = -1, shared.y = -1, yleft = 3.5, yright = NA,
+  xbottom = 3.2, xtop = NA)
 }
 \arguments{
 \item{width}{the width of the graph area, exclusive of any explanation. Can

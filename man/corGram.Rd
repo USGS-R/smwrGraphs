@@ -4,14 +4,14 @@
 \alias{corGram}
 \title{Correlogram}
 \usage{
-corGram(x, y, Plot = list(name = "Standardized Observations", what = "points",
-  type = "solid", width = "standard", symbol = "circle", filled = TRUE, size =
-  0.03, color = "gray40"), CorGram = list(band = 0.15, kernel = "normal",
-  color = "black", width = "standard", add0line = TRUE), yaxis.range = c(-3,
-  3), xaxis.range = c(0, 1.5), ylabels = 7, xlabels = 4,
-  xtitle = "Difference in Time, in Years",
-  ytitle = "Standardized Serial Correlation", caption = "", margin = c(NA,
-  NA, NA, NA))
+corGram(x, y, Plot = list(name = "Standardized Observations", what =
+  "points", type = "solid", width = "standard", symbol = "circle", filled =
+  TRUE, size = 0.03, color = "gray40"), CorGram = list(band = 0.15,
+  kernel = "normal", color = "black", width = "standard", add0line = TRUE),
+  yaxis.range = c(-3, 3), xaxis.range = c(0, 1.5), ylabels = 7,
+  xlabels = 4, xtitle = "Difference in Time, in Years",
+  ytitle = "Standardized Serial Correlation", caption = "",
+  margin = c(NA, NA, NA, NA))
 }
 \arguments{
 \item{x}{decimal time.}

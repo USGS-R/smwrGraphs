@@ -7,14 +7,8 @@
 \alias{setPDF}
 \alias{setPNG}
 \alias{setPage}
-\alias{setPDF}
 \alias{setSweave}
-\alias{setGD}
-\alias{setKnitr}
-\alias{setPNG}
 \alias{setRStudio}
-\alias{setRStudio}
-\alias{setSweave}
 \title{Graphics Page}
 \usage{
 setGD(name = "USGS")

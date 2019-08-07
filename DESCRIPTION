@@ -1,6 +1,6 @@
 Package: smwrGraphs
-Version: 1.1.4
-Date: 2017-07-27
+Version: 1.1.4.9000
+Date: 2019-08-07
 Title: Graphing Functions
 Authors@R: c( person("Dave", "Lorenz", role = "aut"),
     person("Laura", "DeCicco", role = c("cre"),
@@ -26,4 +26,4 @@ URL: https://pubs.er.usgs.gov/publication/ofr20161188
 License: CC0
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

@@ -3,11 +3,10 @@
 \name{histGram}
 \alias{histGram}
 \alias{histGram.default}
-\alias{histGram.default}
 \title{Histogram}
 \usage{
-histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = "Auto", xtitle = "", ytitle = "Auto",
+histGram(x, breaks = "Sturges", Hist = list(), yaxis.range = c(NA,
+  NA), ylabels = 7, xlabels = "Auto", xtitle = "", ytitle = "Auto",
   caption = "", margin = c(NA, NA, NA, NA), ...)
 
 \method{histGram}{default}(x, breaks = "Sturges", Hist = list(type =

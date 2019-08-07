@@ -5,8 +5,8 @@
 \title{Add Text to a Graph}
 \usage{
 addAnnotation(x, y, annotation, leaderx = NULL, leadery = NULL,
-  leadercol = "black", angle = 0, justification = "left", size = 60 *
-  par("csi"), position = "above", current = list(yaxis.log = FALSE,
+  leadercol = "black", angle = 0, justification = "left", size = 60
+  * par("csi"), position = "above", current = list(yaxis.log = FALSE,
   yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{

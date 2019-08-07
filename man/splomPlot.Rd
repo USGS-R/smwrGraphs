@@ -4,10 +4,10 @@
 \alias{splomPlot}
 \title{Scatter Plot Matrix}
 \usage{
-splomPlot(x, layout, Plot = list(name = "", what = "points", type = "solid",
-  width = "standard", symbol = "circle", filled = TRUE, size = 0.05, color =
-  "black"), Panel = list(), axis.log = FALSE, axis.range = c(NA, NA),
-  labels = 5, caption = "")
+splomPlot(x, layout, Plot = list(name = "", what = "points", type =
+  "solid", width = "standard", symbol = "circle", filled = TRUE, size =
+  0.05, color = "black"), Panel = list(), axis.log = FALSE,
+  axis.range = c(NA, NA), labels = 5, caption = "")
 }
 \arguments{
 \item{x}{the data to plot, must be either a matrix or a data frame.}

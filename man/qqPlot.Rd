@@ -3,26 +3,27 @@
 \name{qqPlot}
 \alias{qqPlot}
 \alias{qqPlot.default}
-\alias{qqPlot.default}
 \title{Q-Q Plot}
 \usage{
-qqPlot(x, y, alpha = 0.4, Plot = list(name = "Paired data quantiles", what =
-  "points", type = "solid", width = "standard", symbol = "circle", filled =
-  TRUE, size = 0.09, color = "black"), LineRef = list(name =
-  "Line of best fit", what = "lines", color = "black"), Line1.1 = list(name =
-  "Line of equality", what = "lines", color = "gray"), yaxis.log = FALSE,
-  yaxis.range = c(NA, NA), xaxis.log = FALSE, xaxis.range = c(NA, NA),
-  ylabels = 7, xlabels = 7, xtitle, ytitle, caption = "", margin = c(NA,
-  NA, NA, NA), ...)
+qqPlot(x, y, alpha = 0.4, Plot = list(name = "Paired data quantiles",
+  what = "points", type = "solid", width = "standard", symbol = "circle",
+  filled = TRUE, size = 0.09, color = "black"), LineRef = list(name =
+  "Line of best fit", what = "lines", color = "black"),
+  Line1.1 = list(name = "Line of equality", what = "lines", color =
+  "gray"), yaxis.log = FALSE, yaxis.range = c(NA, NA),
+  xaxis.log = FALSE, xaxis.range = c(NA, NA), ylabels = 7,
+  xlabels = 7, xtitle, ytitle, caption = "", margin = c(NA, NA, NA,
+  NA), ...)
 
 \method{qqPlot}{default}(x, y, alpha = 0.4, Plot = list(name =
-  "Paired data quantiles", what = "points", type = "solid", width = "standard",
-  symbol = "circle", filled = TRUE, size = 0.09, color = "black"),
-  LineRef = list(name = "Line of best fit", what = "lines", color = "black"),
-  Line1.1 = list(name = "Line of equality", what = "lines", color = "gray"),
-  yaxis.log = FALSE, yaxis.range = c(NA, NA), xaxis.log = FALSE,
-  xaxis.range = c(NA, NA), ylabels = 7, xlabels = 7, xtitle, ytitle,
-  caption = "", margin = c(NA, NA, NA, NA), ...)
+  "Paired data quantiles", what = "points", type = "solid", width =
+  "standard", symbol = "circle", filled = TRUE, size = 0.09, color =
+  "black"), LineRef = list(name = "Line of best fit", what = "lines",
+  color = "black"), Line1.1 = list(name = "Line of equality", what =
+  "lines", color = "gray"), yaxis.log = FALSE, yaxis.range = c(NA, NA),
+  xaxis.log = FALSE, xaxis.range = c(NA, NA), ylabels = 7,
+  xlabels = 7, xtitle, ytitle, caption = "", margin = c(NA, NA, NA,
+  NA), ...)
 }
 \arguments{
 \item{x}{the x-axis data, or data to plot if \code{y} is missing.}

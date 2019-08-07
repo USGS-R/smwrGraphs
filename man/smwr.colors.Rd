@@ -9,12 +9,6 @@
 \alias{warmCool.colors}
 \alias{redGreen.colors}
 \alias{pastel.colors}
-\alias{redGreen.colors}
-\alias{blueRed.colors}
-\alias{redBlue.colors}
-\alias{warmCool.colors}
-\alias{coolWarm.colors}
-\alias{pastel.colors}
 \title{Generate a Range of Colors}
 \usage{
 greenRed.colors(n, alpha = 1)

@@ -4,8 +4,8 @@
 \alias{setSplom}
 \title{Scatter Plot Matrix}
 \usage{
-setSplom(size = NULL, num.variables, show.all = FALSE, touching = TRUE,
-  explanation = NULL, ymargin = 3.5)
+setSplom(size = NULL, num.variables, show.all = FALSE,
+  touching = TRUE, explanation = NULL, ymargin = 3.5)
 }
 \arguments{
 \item{size}{the width and height of the entire graph area, exclusive of

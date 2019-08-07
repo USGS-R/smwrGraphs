@@ -4,9 +4,10 @@
 \alias{addPiper}
 \title{Add Detail to a Piper Plot}
 \usage{
-addPiper(xCat, yCat, zCat, xAn, yAn, zAn, xPip, yPip, Plot = list(name = "",
-  what = "points", type = "solid", width = "standard", symbol = "circle", filled
-  = TRUE, size = 0.09, color = "black"), current = list())
+addPiper(xCat, yCat, zCat, xAn, yAn, zAn, xPip, yPip, Plot = list(name =
+  "", what = "points", type = "solid", width = "standard", symbol =
+  "circle", filled = TRUE, size = 0.09, color = "black"),
+  current = list())
 }
 \arguments{
 \item{xCat}{,}

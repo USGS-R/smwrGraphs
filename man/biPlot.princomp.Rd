@@ -6,28 +6,28 @@
 \title{Biplot}
 \usage{
 \method{biPlot}{princomp}(x, Which = 1:2, Scale = "Auto",
-  obsPlot = list(name = "observations", what = "points", type = "solid", width
-  = "standard", symbol = "circle", filled = TRUE, size = 0.05, color = "black"),
-  varPlot = list(name = "variables", width = "color", size = 0.2, color =
-  "darkblue", symbol = "arrow", filled = FALSE), obsPlotLabels = list(labels =
-  "rownames", dir = "NE", size = 8, offset = 0.75),
-  varPlotLabels = list(labels = "colnames", dir = "Auto", size = 8, offset =
-  0.75, color = "darkblue"), ylabels = 5, xlabels = 5, ylabels2 = "Auto",
-  xlabels2 = "Auto", xtitle = "Auto", ytitle = "Auto", xtitle2 = "Auto",
-  ytitle2 = "Auto", range.factor = 1.25, caption = "", margin = c(NA,
-  NA, NA, NA), ...)
+  obsPlot = list(name = "observations", what = "points", type = "solid",
+  width = "standard", symbol = "circle", filled = TRUE, size = 0.05, color
+  = "black"), varPlot = list(name = "variables", width = "color", size =
+  0.2, color = "darkblue", symbol = "arrow", filled = FALSE),
+  obsPlotLabels = list(labels = "rownames", dir = "NE", size = 8, offset
+  = 0.75), varPlotLabels = list(labels = "colnames", dir = "Auto", size =
+  8, offset = 0.75, color = "darkblue"), ylabels = 5, xlabels = 5,
+  ylabels2 = "Auto", xlabels2 = "Auto", xtitle = "Auto",
+  ytitle = "Auto", xtitle2 = "Auto", ytitle2 = "Auto",
+  range.factor = 1.25, caption = "", margin = c(NA, NA, NA, NA), ...)
 
 \method{biPlot}{prcomp}(x, Which = 1:2, Scale = "Auto",
-  obsPlot = list(name = "observations", what = "points", type = "solid", width
-  = "standard", symbol = "circle", filled = TRUE, size = 0.05, color = "black"),
-  varPlot = list(name = "variables", width = "color", size = 0.2, color =
-  "darkblue", symbol = "arrow", filled = FALSE), obsPlotLabels = list(labels =
-  "rownames", dir = "NE", size = 8, offset = 0.75),
-  varPlotLabels = list(labels = "colnames", dir = "Auto", size = 8, offset =
-  0.75, color = "darkblue"), ylabels = 5, xlabels = 5, ylabels2 = "Auto",
-  xlabels2 = "Auto", xtitle = "Auto", ytitle = "Auto", xtitle2 = "Auto",
-  ytitle2 = "Auto", range.factor = 1.25, caption = "", margin = c(NA,
-  NA, NA, NA), ...)
+  obsPlot = list(name = "observations", what = "points", type = "solid",
+  width = "standard", symbol = "circle", filled = TRUE, size = 0.05, color
+  = "black"), varPlot = list(name = "variables", width = "color", size =
+  0.2, color = "darkblue", symbol = "arrow", filled = FALSE),
+  obsPlotLabels = list(labels = "rownames", dir = "NE", size = 8, offset
+  = 0.75), varPlotLabels = list(labels = "colnames", dir = "Auto", size =
+  8, offset = 0.75, color = "darkblue"), ylabels = 5, xlabels = 5,
+  ylabels2 = "Auto", xlabels2 = "Auto", xtitle = "Auto",
+  ytitle = "Auto", xtitle2 = "Auto", ytitle2 = "Auto",
+  range.factor = 1.25, caption = "", margin = c(NA, NA, NA, NA), ...)
 }
 \arguments{
 \item{x}{an object of class "princomp" that has the information to create

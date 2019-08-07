@@ -5,19 +5,18 @@
 \alias{ticks.render}
 \alias{renderX}
 \alias{renderY}
-\alias{renderY}
-\alias{renderX}
 \title{Label Axes}
 \usage{
 ticks.render(arg1, side, lwd)
 
 renderY(pretty, left = list(ticks = TRUE, labels = TRUE, grid = FALSE,
-  finegrid = FALSE), right = list(ticks = TRUE, labels = FALSE, grid = FALSE,
-  finegrid = FALSE), lefttitle = "Y-AXIS TITLE", righttitle = "")
+  finegrid = FALSE), right = list(ticks = TRUE, labels = FALSE, grid =
+  FALSE, finegrid = FALSE), lefttitle = "Y-AXIS TITLE",
+  righttitle = "")
 
 renderX(pretty, bottom = list(ticks = TRUE, labels = TRUE, grid = FALSE,
-  finegrid = FALSE, angle = 0), top = list(ticks = TRUE, labels = FALSE, grid
-  = FALSE, finegrid = FALSE, angle = 0), bottitle = "X-AXIS TITLE",
+  finegrid = FALSE, angle = 0), top = list(ticks = TRUE, labels = FALSE,
+  grid = FALSE, finegrid = FALSE, angle = 0), bottitle = "X-AXIS TITLE",
   toptitle = "", caption = "")
 }
 \arguments{

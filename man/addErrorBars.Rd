@@ -5,8 +5,8 @@
 \title{Errors Bars}
 \usage{
 addErrorBars(x, yup, ylo, Bars = list(name = "", cap = 0.09, width =
-  "standard", color = "black"), current = list(yaxis.log = FALSE, yaxis.rev =
-  FALSE, xaxis.log = FALSE))
+  "standard", color = "black"), current = list(yaxis.log = FALSE,
+  yaxis.rev = FALSE, xaxis.log = FALSE))
 }
 \arguments{
 \item{x}{the x-coordinate data. Missing values are permitted but result in
